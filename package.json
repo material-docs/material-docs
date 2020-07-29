@@ -2,18 +2,40 @@
   "name": "material-docs",
   "version": "0.1.0",
   "private": true,
+  "description": "material-docs - react framework for easy creating documentation site in material design style.",
+  "keywords": [
+    "material-design",
+    "material-ui",
+    "documentation",
+    "documentation-tool",
+    "framework",
+    "components-library"
+  ],
   "author": {
     "name": "Andrieiev Danil",
     "email": "danssg08@gmail.com",
     "url": "https://github.com/DanilAndreev"
   },
+  "repository": {
+    "url": "https://github.com/DanilAndreev/material-docs",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/DanilAndreev/material-docs/issues",
+    "email": "danssg08@gmail.com"
+  },
+  "license": "CC0-1.0",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "clsx": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "routing-manager": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
