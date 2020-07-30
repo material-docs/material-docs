@@ -51,6 +51,7 @@ export default function Code({children, language = 'jsx', theme = 'light', style
             codeStyle = codeStyles.light;
     }
 
+    console.log(SyntaxHighlighter.supportedLanguages);
     const classes = useStyles();
     return (
         <Paper
