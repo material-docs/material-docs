@@ -14,11 +14,27 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from './styles'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {ChangeRouteProvider} from "routing-manager";
+import DocsMenu from "../components/DocsMenu";
+import DocsPages from "../components/DocsPages";
 
-function DocsLayout({pages = null, menu = null}) {
+function DocsLayout({children}) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
+
+    function getMenuFromChildren() {
+        const candidates =  React.Children.map(children, candidate => candidate.type === DocsMenu ? candidate : undefined);
+        if (candidates.length > 1) throw new TypeError("DocsLayout: layout can contain only one menu"); //TODO: change to quantity error
+        const menu = candidates[0] && candidates[0].props.children;
+        return menu || null;
+    }
+
+    function getPagesFromChildren() {
+        const candidates =  React.Children.map(children, candidate => candidate.type === DocsPages ? candidate : undefined);
+        if (candidates.length > 1) throw new TypeError("DocsLayout: layout can contain only one pages block"); //TODO: change to quantity error
+        const menu = candidates[0] && candidates[0].props.children;
+        return menu || null;
+    }
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -27,6 +43,9 @@ function DocsLayout({pages = null, menu = null}) {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    const menu = getMenuFromChildren();
+    const pages = getPagesFromChildren();
 
     return (
         <div className={classes.root}>
@@ -96,11 +115,11 @@ function PagesSwitch() {
     );
 }
 
-export default function DocsLayoutProviders() {
+export default function DocsLayoutProviders(props) {
     return (
         <Router>
             <ChangeRouteProvider routeMask={':page'}>
-                <App/>
+                <DocsLayout {...props}/>
             </ChangeRouteProvider>
         </Router>
     );
