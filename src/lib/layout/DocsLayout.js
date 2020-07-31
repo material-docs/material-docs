@@ -16,6 +16,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {ChangeRouteProvider} from "routing-manager";
 import DocsMenu from "../components/DocsMenu";
 import DocsPages from "../components/DocsPages";
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 function DocsLayout({children}) {
     const classes = useStyles();
@@ -119,7 +120,9 @@ export default function DocsLayoutProviders(props) {
     return (
         <Router>
             <ChangeRouteProvider routeMask={':page'}>
-                <DocsLayout {...props}/>
+                <MuiThemeProvider>
+                    <DocsLayout {...props}/>
+                </MuiThemeProvider>
             </ChangeRouteProvider>
         </Router>
     );

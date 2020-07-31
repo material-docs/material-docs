@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     codePaper: {}
 }));
 
-export default function Code({children, language = 'jsx', theme = 'light', style, className}) {
+function Code({children, language = 'jsx', theme = 'light', style, className}, ref) {
     function fixStyle(style) {
         return {...style, hljs: {...style.hljs, background: 'none'}};
     }
@@ -51,13 +51,14 @@ export default function Code({children, language = 'jsx', theme = 'light', style
             codeStyle = codeStyles.light;
     }
 
-    console.log(SyntaxHighlighter.supportedLanguages);
+    //console.log(SyntaxHighlighter.supportedLanguages);
     const classes = useStyles();
     return (
         <Paper
             style={{backgroundColor: codeStyle.background, ...style}}
             className={clsx(classes.codePaper, className)}
             elevation={0}
+            ref={ref}
         >
             <SyntaxHighlighter language={language} style={codeStyle.highlight}>
                 {children}
@@ -65,3 +66,5 @@ export default function Code({children, language = 'jsx', theme = 'light', style
         </Paper>
     );
 }
+
+export default React.forwardRef(Code);
