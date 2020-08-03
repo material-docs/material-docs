@@ -12,20 +12,38 @@ import CodeIcon from '@material-ui/icons/Code';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {useSnackbar} from "notistack";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 export default function ExpansionCode({theme, language, children, demoCode = ''}) {
     const {enqueueSnackbar} = useSnackbar();
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(true);
     const [code, setCode] = React.useState(demoCode);
-
+    const menuAnchor = React.useRef(null);
+    const [menuOpen, setMenuOpen] = React.useState(false);
 
     return (
         <Box>
             <Toolbar className={classes.toolbar}>
-                <IconButton>
+                <IconButton ref={menuAnchor} onClick={event => setMenuOpen(true)}>
                     <MoreVertIcon fontSize={"small"}/>
                 </IconButton>
+                <Menu
+                    anchorEl={menuAnchor.current}
+                    getContentAnchorEl={null}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                    keepMounted
+                    open={menuOpen}
+                    onClose={event => setMenuOpen(false)}
+                >
+                    <MenuItem button>Profile1</MenuItem>
+                    <MenuItem button>Profile2</MenuItem>
+                    <MenuItem button>Profile3</MenuItem>
+                </Menu>
                 <IconButton
                     onClick={() => {
                         copyToClipboard(children);
@@ -42,7 +60,7 @@ export default function ExpansionCode({theme, language, children, demoCode = ''}
                 in={expanded}
                 collapsedHeight={"600px"}
                 onExit={() => setCode(children)}
-                onEnter={() => setCode(demoCode)}
+                onEntered={() => setCode(demoCode)}
                 style={{minHeight: 0}}
                 className={classes.collapse}
             >

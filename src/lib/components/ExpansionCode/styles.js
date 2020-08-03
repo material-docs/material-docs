@@ -7,7 +7,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
     collapsedCode: {
-        height: "100%",
+        height: "600px",
         overflow: "auto",
     },
     collapse: {

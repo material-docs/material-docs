@@ -8,6 +8,7 @@ import DocsPage from "../lib/components/DocsPage";
 import {H1, H2, H3, H5} from "../lib/components/Headers/Headers";
 import Code from "../lib/components/Code";
 import ExpansionCode from "../lib/components/ExpansionCode/ExpansionCode";
+import Markdown from "../lib/components/Markdown/Markdown";
 
 const code = `
 export default function MaterialDocsExample() {
@@ -99,6 +100,7 @@ export default function MaterialDocsExample() {
                     <H2>This is a second topic</H2>
                     <H3>Hierrro </H3>
                     <div style={{height: 2000}}> sfasdf </div>
+                    <Markdown text={`#asdfasf \n ##asdfasdf`}/>
                 </DocsPage>
             </DocsPages>
         </DocsLayout>
