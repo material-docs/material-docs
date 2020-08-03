@@ -4,20 +4,13 @@
  */
 
 import React from "react";
-import {docco} from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import {dark} from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import {darcula} from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import {darcula, dark, docco} from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import Paper from "@material-ui/core/Paper";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import {makeStyles} from "@material-ui/core/styles";
-import {grey} from "@material-ui/core/colors";
-import {blueGrey} from "@material-ui/core/colors";
+import {blueGrey, grey} from "@material-ui/core/colors";
 import clsx from "clsx";
-import {fix} from "react-syntax-highlighter/dist/cjs/languages/hljs";
+import {useStyles} from "./styles";
 
-const useStyles = makeStyles(theme => ({
-    codePaper: {}
-}));
 
 function Code({children, language = 'jsx', theme = 'light', style, className}, ref) {
     function fixStyle(style) {
@@ -56,7 +49,7 @@ function Code({children, language = 'jsx', theme = 'light', style, className}, r
     return (
         <Paper
             style={{backgroundColor: codeStyle.background, ...style}}
-            className={clsx(classes.codePaper, className)}
+            className={clsx(classes.root, className)}
             elevation={0}
             ref={ref}
         >

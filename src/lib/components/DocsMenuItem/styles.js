@@ -4,17 +4,11 @@
  */
 
 import {makeStyles} from "@material-ui/core/styles";
+import {grey} from "@material-ui/core/colors";
 
 export const useStyles = makeStyles((theme) => ({
-    collapsedCode: {
-        height: "100%",
-        overflow: "auto",
-    },
-    collapse: {
-        marginTop: 0,
-    },
-    toolbar: {
-        padding: 0,
-        flexDirection: "row-reverse",
+    root: {},
+    highlighted: {
+        backgroundColor: grey[300],
     }
 }));

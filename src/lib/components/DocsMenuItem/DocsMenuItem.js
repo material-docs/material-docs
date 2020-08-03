@@ -5,6 +5,9 @@ import List from "@material-ui/core/List";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
+import {useChangeRoute} from "routing-manager";
+import {useStyles} from "./styles";
+import clsx from "clsx";
 
 export default function DocsMenuItem({
                                          children,
@@ -13,16 +16,36 @@ export default function DocsMenuItem({
                                          textSecondary = "",
                                          icon,
                                          onClick,
+                                         page,
+                                         isCurrent,
+                                         className,
+                                         style,
                                          ...props
                                      }) {
+    const classes = {...useStyles(), ...props.classes};
+    const {changeRoute, getRouteParams} = useChangeRoute();
     const [expanded, setExpanded] = React.useState(defaultExpanded);
+    let highlight = false;
+
+    console.log('rp: ', getRouteParams());
+    if (typeof isCurrent === "boolean") {
+        highlight = isCurrent;
+    } else if (typeof isCurrent === "function") {
+        highlight = isCurrent(getRouteParams(), page);
+    } else if (getRouteParams().page === page) {
+        highlight = true;
+    }
 
     function handleOpen() {
         setExpanded(!expanded);
     }
 
     function handleButtonClick() {
-
+        if (typeof page === "string") {
+            changeRoute({page: page});
+        } else if (typeof page === "object") {
+            changeRoute({...page});
+        }
     }
 
     return (
@@ -31,6 +54,8 @@ export default function DocsMenuItem({
                 button
                 onClick={children ? handleOpen : (onClick || handleButtonClick)}
                 {...props}
+                className={clsx(classes.root, highlight && classes.highlighted, className)}
+                style={style}
             >
                 {icon &&
                 <ListItemIcon>

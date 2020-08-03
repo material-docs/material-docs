@@ -2,18 +2,16 @@ import React from "react";
 import {Route} from "react-router-dom"
 import createRouteFromName from "../../utils/createRouteFromName";
 import Grid from "@material-ui/core/Grid";
-import List from "@material-ui/core/List";
 import NavigationList from "./NavigationList";
 import Box from "@material-ui/core/Box";
 
 export default function DocsPage({name, children}) {
     const pagePath = createRouteFromName(name);
     const [tags, setTags] = React.useState();
-    console.log(pagePath);
 
     function insertTagCallbacksInChildren(source) {
         return React.Children.map(source, child => {
-            return React.cloneElement(child, {systemOnTag: setTags});
+            return typeof child.type === "string" ? child : React.cloneElement(child, {systemOnTag: setTags});
         });
     }
 

@@ -5,7 +5,7 @@ import DocsMenu from "../lib/components/DocsMenu";
 import DocsMenuItem from "../lib/components/DocsMenuItem/DocsMenuItem";
 import SettingsIcon from '@material-ui/icons/Settings';
 import DocsPage from "../lib/components/DocsPage";
-import {H1, H2, H3} from "../lib/components/Headers/Headers";
+import {H1, H2, H3, H5} from "../lib/components/Headers/Headers";
 import Code from "../lib/components/Code";
 import ExpansionCode from "../lib/components/ExpansionCode/ExpansionCode";
 
@@ -78,7 +78,7 @@ export default function MaterialDocsExample() {
     return (
         <DocsLayout>
             <DocsMenu>
-                <DocsMenuItem textPrimary={"hello"} icon={<SettingsIcon />}/>
+                <DocsMenuItem textPrimary={"Example page"} icon={<SettingsIcon />} page={"example-page"}/>
                 <DocsMenuItem textPrimary={"darkness"}/>
                 <DocsMenuItem textPrimary={"my"}>
                     <DocsMenuItem textPrimary={"old"}/>
@@ -95,6 +95,9 @@ export default function MaterialDocsExample() {
                     <ExpansionCode theme={'darcula'} demoCode={code2}>
                         {code}
                     </ExpansionCode>
+                    <H5>Lol</H5>
+                    <H2>This is a second topic</H2>
+                    <H3>Hierrro </H3>
                     <div style={{height: 2000}}> sfasdf </div>
                 </DocsPage>
             </DocsPages>
