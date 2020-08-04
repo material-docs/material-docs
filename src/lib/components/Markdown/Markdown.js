@@ -2,11 +2,14 @@ import React from "react";
 import marked from "marked";
 
 function Markdown({file, children, ...props}, ref) {
-    const [text, setText] = React.useState(typeof children === "string" && children);
+    const [text, setText] = React.useState("");
     const [html, setHtml] = React.useState(null);
 
     React.useEffect(() => {
-        if (typeof props.text !== "string") {
+        try {
+            const child = React.Children.map(children, String).join("");
+            setText(child);
+        } catch (error) {
             setText(file);
         }
     }, []);

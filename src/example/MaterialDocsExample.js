@@ -10,6 +10,11 @@ import Code from "../lib/components/Code";
 import ExpansionCode from "../lib/components/ExpansionCode/ExpansionCode";
 import Markdown from "../lib/components/Markdown/Markdown";
 
+import page1 from "./markdown/page1.md";
+import List from "@material-ui/core/List";
+import ListItem from "../lib/components/ListItem/ListItem";
+import ListItemContained from "../lib/components/ListItemContained";
+
 const code = `
 export default function MaterialDocsExample() {
     return (
@@ -74,6 +79,15 @@ export default function MaterialDocsExample() {
 }
 `.trim();
 
+const md1 = `
+# Hello darkness
+## yeah s 
+### asdfgsaf
+* adsf1
+* asdfs
+  * asdfd
+`.trim();
+
 
 export default function MaterialDocsExample() {
     return (
@@ -99,8 +113,27 @@ export default function MaterialDocsExample() {
                     <H5>Lol</H5>
                     <H2>This is a second topic</H2>
                     <H3>Hierrro </H3>
-                    <div style={{height: 2000}}> sfasdf </div>
-                    <Markdown text={`#asdfasf \n ##asdfasdf`}/>
+                    <Markdown> {md1} </Markdown>
+                    <Markdown file={page1} />
+                    <List>
+                        <ListItem>
+                            <ListItemContained>
+                                <ListItem> afasfs </ListItem>
+                                <ListItem> afasfs </ListItem>
+                                <ListItem>
+                                    <ListItemContained>
+                                        <ListItem> afasfs </ListItem>
+                                        <ListItem> afasfs </ListItem>
+                                    </ListItemContained>
+                                    afasfs
+                                </ListItem>
+                            </ListItemContained>
+                            asdfas
+                        </ListItem>
+                        <ListItem> afasfs </ListItem>
+                        <ListItem> afasfs </ListItem>
+
+                    </List>
                 </DocsPage>
             </DocsPages>
         </DocsLayout>
