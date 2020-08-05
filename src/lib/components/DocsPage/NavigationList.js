@@ -22,16 +22,25 @@ export default function NavigationList({keys}) {
                     Content
                 </Typography>
             </ListItem>
-            {keys.map(key => (
-                <Link underline={"none"} href={`#${key.id}`} key={key.id} className={classes.contentLink}>
-                    <ListItem
-                        button
-                        className={clsx(classes.contentItem, location.hash.substr(1) === key.id && classes.contentItemActive)}
-                    >
-                        <ListItemText primary={key.label}/>
-                    </ListItem>
-                </Link>
-            ))}
+            {keys.map(key => {
+                const active = location.hash.substr(1) === key.id;
+                return (
+                    <Link underline={"none"} href={`#${key.id}`} key={key.id} className={classes.contentLink}>
+                        <ListItem
+                            button
+                            className={clsx(classes.contentItem, active && classes.contentItemActive)}
+                        >
+                            <ListItemText
+                                primary={
+                                    <Typography variant={"subtitle2"} color={active ? "textPrimary" : "textSecondary"}>
+                                        {key.label}
+                                    </Typography>
+                                }
+                            />
+                        </ListItem>
+                    </Link>
+                )
+            })}
         </List>
     );
 }
