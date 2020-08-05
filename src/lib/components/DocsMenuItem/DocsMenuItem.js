@@ -64,7 +64,11 @@ export default function DocsMenuItem({
                     {icon}
                 </ListItemIcon>
                 }
-                <ListItemText primary={textPrimary} secondary={textSecondary}/>
+                <ListItemText
+                    primary={textPrimary}
+                    secondary={textSecondary}
+                    primaryTypographyProps={{style: {fontWeight: children ? "bold" : "normal"}}}
+                />
                 {children && (expanded ? <ExpandLess/> : <ExpandMore/>)}
             </ListItem>
             {children &&

@@ -13,6 +13,17 @@ import {useStyles} from "./styles";
 
 
 function Code({children, language = 'jsx', theme = 'light', style, className}, ref) {
+    const [height, setHeight] = React.useState(0);
+    const codeRef = React.useRef(null);
+
+    React.useEffect(() => {
+        if (codeRef.current) {
+            setHeight(codeRef.current.clientHeight);
+        } else {
+            setHeight(0);
+        }
+    }, [codeRef.current]);
+
     function fixStyle(style) {
         return {...style, hljs: {...style.hljs, background: 'none'}};
     }
@@ -48,14 +59,16 @@ function Code({children, language = 'jsx', theme = 'light', style, className}, r
     const classes = useStyles();
     return (
         <Paper
-            style={{backgroundColor: codeStyle.background, ...style}}
+            style={{backgroundColor: codeStyle.background, height, ...style}}
             className={clsx(classes.root, className)}
             elevation={0}
             ref={ref}
         >
-            <SyntaxHighlighter language={language} style={codeStyle.highlight}>
-                {children}
-            </SyntaxHighlighter>
+            <div className={classes.highlighterContainer} ref={codeRef}>
+                <SyntaxHighlighter language={language} style={codeStyle.highlight}>
+                    {children}
+                </SyntaxHighlighter>
+            </div>
         </Paper>
     );
 }

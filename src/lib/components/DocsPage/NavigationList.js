@@ -15,6 +15,10 @@ export default function NavigationList({keys}) {
     if (keys && !Array.isArray(keys)) throw new TypeError("MaterialDocs: keys must be array type!");
     if (!location) throw new Error("MaterialDocs: Navigation list must be inside Router! [dev]");
 
+    if (!keys || !keys.length) {
+        return null;
+    }
+
     return (
         <List dense style={{position: "fixed"}}>
             <ListItem>
@@ -31,11 +35,11 @@ export default function NavigationList({keys}) {
                             className={clsx(classes.contentItem, active && classes.contentItemActive)}
                         >
                             <ListItemText
-                                primary={
-                                    <Typography variant={"subtitle2"} color={active ? "textPrimary" : "textSecondary"}>
-                                        {key.label}
-                                    </Typography>
-                                }
+                                primary={key.label}
+                                primaryTypographyProps={{
+                                    variant: "subtitle2",
+                                    color: active ? "textPrimary" : "textSecondary",
+                                }}
                             />
                         </ListItem>
                     </Link>
