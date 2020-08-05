@@ -23,7 +23,7 @@ export function Tagable({children, systemOnTag, noTag = false, variant, style, c
     return (
         <div className={clsx(classes.root, classes.anchor, className)} id={!noTag && id} style={style}>
             <div className={classes.container}>
-                <Typography variant={variant} >
+                <Typography variant={variant}>
                     {children}
                     <Divider/>
                 </Typography>

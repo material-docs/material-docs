@@ -4,6 +4,7 @@ import createRouteFromName from "../../utils/createRouteFromName";
 import Grid from "@material-ui/core/Grid";
 import NavigationList from "./NavigationList";
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
 export default function DocsPage({name = "home", children}) {
     const pagePath = createRouteFromName(name);
@@ -12,9 +13,11 @@ export default function DocsPage({name = "home", children}) {
 
     function insertTagCallbacksInChildren(source) {
         return React.Children.map(source, child => {
-            return typeof child.type !== "string" ?
+            if (typeof child === "string") return <Typography>{child}</Typography>
+
+            return React.isValidElement(child) && typeof child.type !== "string" ?
                 React.cloneElement(child, {systemOnTag: setTags}) : child;
-        }); // TODO: provide better filter logic
+        });
     }
 
     function makeKeysFromTags() {

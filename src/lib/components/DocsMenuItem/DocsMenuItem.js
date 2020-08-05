@@ -33,8 +33,8 @@ export default function DocsMenuItem({
     if (typeof isCurrent === "boolean") {
         highlight = isCurrent;
     } else if (typeof isCurrent === "function") {
-        highlight = isCurrent(getRouteParams(), page);
-    } else if (getRouteParams().page === page) {
+        highlight = isCurrent(getRouteParams(), pageRoute, page);
+    } else if (getRouteParams().page === pageRoute) {
         highlight = true;
     }
 
@@ -65,7 +65,7 @@ export default function DocsMenuItem({
                 </ListItemIcon>
                 }
                 <ListItemText
-                    primary={textPrimary}
+                    primary={textPrimary || page}
                     secondary={textSecondary}
                     primaryTypographyProps={{style: {fontWeight: children ? "bold" : "normal"}}}
                 />
