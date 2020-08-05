@@ -1,11 +1,19 @@
 import React from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
+import ListItemText from "@material-ui/core/ListItemText";
+import {useStyles} from "./styles";
+import {useLocation} from "react-router-dom";
+import clsx from "clsx";
+import {Link} from "@material-ui/core";
 
 export default function NavigationList({keys}) {
-    if (keys && !Array.isArray(keys)) throw new TypeError("MaterialDocs: keys must be array type!")
+    const classes = useStyles();
+    const location = useLocation();
+
+    if (keys && !Array.isArray(keys)) throw new TypeError("MaterialDocs: keys must be array type!");
+    if (!location) throw new Error("MaterialDocs: Navigation list must be inside Router! [dev]");
 
     return (
         <List dense style={{position: "fixed"}}>
@@ -15,9 +23,14 @@ export default function NavigationList({keys}) {
                 </Typography>
             </ListItem>
             {keys.map(key => (
-                <ListItem key={key.id}>
-                    <Link href={`#${key.id}`}>{key.label}</Link>
-                </ListItem>
+                <Link underline={"none"} href={`#${key.id}`} key={key.id} className={classes.contentLink}>
+                    <ListItem
+                        button
+                        className={clsx(classes.contentItem, location.hash.substr(1) === key.id && classes.contentItemActive)}
+                    >
+                        <ListItemText primary={key.label}/>
+                    </ListItem>
+                </Link>
             ))}
         </List>
     );

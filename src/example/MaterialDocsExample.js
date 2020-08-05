@@ -93,10 +93,10 @@ export default function MaterialDocsExample() {
     return (
         <DocsLayout>
             <DocsMenu>
-                <DocsMenuItem textPrimary={"Example page"} icon={<SettingsIcon />} page={"example-page"}/>
-                <DocsMenuItem textPrimary={"darkness"}/>
+                <DocsMenuItem textPrimary={"Example page"} icon={<SettingsIcon />} page={"Example page"}/>
+                <DocsMenuItem textPrimary={"darkness"} page={"Darkness"}/>
                 <DocsMenuItem textPrimary={"my"}>
-                    <DocsMenuItem textPrimary={"old"}/>
+                    <DocsMenuItem textPrimary={"old"} page={"Example 2"}/>
                     <DocsMenuItem textPrimary={"friend"}/>
                 </DocsMenuItem>
             </DocsMenu>
@@ -134,6 +134,21 @@ export default function MaterialDocsExample() {
                         <ListItem> afasfs </ListItem>
 
                     </List>
+                </DocsPage>
+                <DocsPage name={'Darkness'}>
+                    <H1>Hi mark</H1>
+                    <H3>Hello storage number one</H3>
+                    <Code theme="darcula">
+                        {code}
+                    </Code>
+                    <H5>Lol</H5>
+                    <H2>This is a second topic</H2>
+                    <H3>Hierrro </H3>
+                </DocsPage>
+                <DocsPage name={'Example 2'}>
+                    <div>
+                        example 2
+                    </div>
                 </DocsPage>
             </DocsPages>
         </DocsLayout>

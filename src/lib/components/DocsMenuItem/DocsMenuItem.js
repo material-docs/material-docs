@@ -8,6 +8,7 @@ import {ExpandLess, ExpandMore} from "@material-ui/icons";
 import {useChangeRoute} from "routing-manager";
 import {useStyles} from "./styles";
 import clsx from "clsx";
+import createRouteFromName from "../../utils/createRouteFromName";
 
 export default function DocsMenuItem({
                                          children,
@@ -24,10 +25,11 @@ export default function DocsMenuItem({
                                      }) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute, getRouteParams} = useChangeRoute();
+    const pageRoute = typeof page === "string" && createRouteFromName(page);
     const [expanded, setExpanded] = React.useState(defaultExpanded);
-    let highlight = false;
 
-    console.log('rp: ', getRouteParams());
+
+    let highlight = false;
     if (typeof isCurrent === "boolean") {
         highlight = isCurrent;
     } else if (typeof isCurrent === "function") {
@@ -41,8 +43,8 @@ export default function DocsMenuItem({
     }
 
     function handleButtonClick() {
-        if (typeof page === "string") {
-            changeRoute({page: page});
+        if (typeof pageRoute === "string") {
+            changeRoute({page: pageRoute});
         } else if (typeof page === "object") {
             changeRoute({...page});
         }

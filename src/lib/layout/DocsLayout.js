@@ -24,6 +24,8 @@ function DocsLayout({children}) {
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
 
+    const [content, setContent] = React.useState({pages: [], menu: []});
+
     function getMenuFromChildren() {
         const candidates =  React.Children.map(children, candidate => candidate.type === DocsMenu ? candidate : undefined);
         if (candidates.length > 1) throw new TypeError("DocsLayout: layout can contain only one menu"); //TODO: change to quantity error
@@ -38,6 +40,13 @@ function DocsLayout({children}) {
         return menu || null;
     }
 
+    React.useEffect(() => {
+        setContent({
+            menu: getMenuFromChildren(),
+            pages: getPagesFromChildren(),
+        });
+    }, [children]);
+
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -46,8 +55,7 @@ function DocsLayout({children}) {
         setOpen(false);
     };
 
-    const menu = getMenuFromChildren();
-    const pages = getPagesFromChildren();
+
 
     return (
         <div className={classes.root}>
@@ -88,7 +96,7 @@ function DocsLayout({children}) {
                     </IconButton>
                 </div>
                 <Divider/>
-                {menu}
+                {content.menu}
             </Drawer>
             <main
                 className={clsx(classes.content, {
@@ -96,37 +104,25 @@ function DocsLayout({children}) {
                 })}
             >
                 <div className={classes.drawerHeader}/>
-                <Switch>
-                    {pages}
-                </Switch>
+                {/*<Switch>*/}
+                {/*</Switch>*/}
+                {content.pages}
             </main>
         </div>
     );
 }
 
-function PagesSwitch() {
-    return (
-        <Switch>
-            <Route path={'/home'}>
-
-            </Route>
-            <Route path={'/flexible-table-api'}>
-            </Route>
-            {/*<Redirect from={'/'} to={'/home'}/>*/}
-        </Switch>
-    );
-}
-
-export default function DocsLayoutProviders(props) {
+export default function DocsLayoutProviders({mask, ...props}) {
+    const routeMask = typeof mask === "string" ? mask : "/:page";
     return (
         <Router>
-            <ChangeRouteProvider routeMask={':page'}>
+            <ChangeRouteProvider routeMask={routeMask}>
                 <MuiThemeProvider>
                     <SnackbarProvider
                         maxSnack={3}
                         anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'center',
+                            vertical: "bottom",
+                            horizontal: "center",
                         }}
                     >
                         <DocsLayout {...props}/>
