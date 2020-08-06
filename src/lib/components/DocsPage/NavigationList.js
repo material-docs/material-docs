@@ -24,12 +24,10 @@ function getOffsetSum(elem) {
 
 export default function NavigationList({keys}) {
     const classes = useStyles();
-    const location = useLocation();
     const {scrollY} = usePageScroll();
     const [selected, setSelected] = React.useState(keys[0] && keys[0].id || null);
 
     if (keys && !Array.isArray(keys)) throw new TypeError("MaterialDocs: keys must be array type!");
-    if (!location) throw new Error("MaterialDocs: Navigation list must be inside Router! [dev]");
 
     React.useEffect(() => {
         function getClosestId(elements, func) {
@@ -44,7 +42,7 @@ export default function NavigationList({keys}) {
             let offset = 0;
             try {
                 const {top} = getOffsetSum(ref.current);
-                offset = scrollY - top;
+                offset = scrollY - (top - 64); // 64 - is a height of header;
             } catch (error) {
             }
             return {id, offset};
@@ -76,7 +74,6 @@ export default function NavigationList({keys}) {
                 </Typography>
             </ListItem>
             {keys.map(key => {
-//                const active = location.hash.substr(1) === key.id;
                 const active = key.id === selected;
                 return (
                     <Link underline={"none"} href={`#${key.id}`} key={key.id} className={classes.contentLink}>
