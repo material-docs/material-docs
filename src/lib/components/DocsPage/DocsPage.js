@@ -23,7 +23,7 @@ export default function DocsPage({name = "home", children}) {
     function makeKeysFromTags() {
         const keys = [];
         for (const key in tags) {
-            const {label, ref} = tags[key];
+            const {label, ref} = tags[key] || {};
             const id = key;
             keys.push({id, label, ref});
         }

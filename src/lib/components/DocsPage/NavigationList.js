@@ -25,7 +25,7 @@ function getOffsetSum(elem) {
 export default function NavigationList({keys}) {
     const classes = useStyles();
     const {scrollY} = usePageScroll();
-    const [selected, setSelected] = React.useState(keys[0] && keys[0].id || null);
+    const [selected, setSelected] = React.useState({id: keys[0] && keys[0].id || null, clicked: false});
 
     if (keys && !Array.isArray(keys)) throw new TypeError("MaterialDocs: keys must be array type!");
 
@@ -35,6 +35,11 @@ export default function NavigationList({keys}) {
             const closest = elements.find(item => item.offset === closestDistance) || null;
             const closestId = closest && closest.id;
             return closestId;
+        }
+
+        if (selected.clicked) {
+            setSelected({...selected, clicked: false});
+            return;
         }
 
         let elements = keys.map(item => {
@@ -49,18 +54,18 @@ export default function NavigationList({keys}) {
         });
         if (scrollY >= (document.body.clientHeight - window.innerHeight)) {
             const closestId = getClosestId(elements, elems => Math.min.apply(Math, elems));
-            setSelected(closestId);
+            setSelected({id: closestId, clicked: false});
             return;
         }
         if (elements.every(element => element.offset < 0)) {
             const closestId = getClosestId(elements, elems => Math.max.apply(Math, elems));
-            setSelected(closestId);
+            setSelected({id: closestId, clicked: false});
             return;
         }
         elements = elements.filter(item => item.offset >= 0);
         const closestId = getClosestId(elements, elems => Math.min.apply(Math, elems));
-        setSelected(closestId || null);
-    }, [scrollY, keys]);
+        setSelected({id: closestId || null, clicked: false});
+    }, [scrollY, keys]); // TODO: fix bug with last element selection after page change
 
     if (!keys || !keys.length) {
         return null;
@@ -74,9 +79,15 @@ export default function NavigationList({keys}) {
                 </Typography>
             </ListItem>
             {keys.map(key => {
-                const active = key.id === selected;
+                const active = key.id === selected.id;
                 return (
-                    <Link underline={"none"} href={`#${key.id}`} key={key.id} className={classes.contentLink}>
+                    <Link
+                        underline={"none"}
+                        href={`#${key.id}`}
+                        key={key.id}
+                        className={classes.contentLink}
+                        onClick={event => setSelected({id: key.id, clicked: true})}
+                    >
                         <ListItem
                             button
                             className={clsx(classes.contentItem, active && classes.contentItemActive)}
