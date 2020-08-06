@@ -6,6 +6,26 @@ import NavigationList from "./NavigationList";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 
+const TaggingContext = React.createContext({
+    /**
+     * setTag - function, designed to add or remove tagable element in page.
+     * @function
+     * @param {string} key
+     * @param {{ref: RefObject<T>, label: string}} value
+     * @example
+     * const {setTag} = useTags();
+     * setTag("my-object-key", {label: "my label", ref: ObjectRef});
+     */
+    setTag: (key, value) => {
+        throw new ReferenceError("MaterialDocs: This function (setTag) hasn't been initialized yet. Maybe, you forget to call hook useTags() inside TaggingContext.Provider")
+    },
+    /**
+     * tags - all registered tags in page
+     * @type object
+     */
+    tags: {},
+});
+
 export default function DocsPage({name = "home", children}) {
     const pagePath = createRouteFromName(name);
     const [tags, setTags] = React.useState({});
@@ -14,9 +34,7 @@ export default function DocsPage({name = "home", children}) {
     function insertTagCallbacksInChildren(source) {
         return React.Children.map(source, child => {
             if (typeof child === "string") return <Typography>{child}</Typography>
-
-            return React.isValidElement(child) && typeof child.type !== "string" ?
-                React.cloneElement(child, {systemOnTag: setTags}) : child;
+            return child;
         });
     }
 
@@ -38,19 +56,25 @@ export default function DocsPage({name = "home", children}) {
         setContent(newContent);
     }, [children]);
 
+    const setTag = (key, value) => setTags(last => ({...last, [key]: value}));
 
     return (
         <Route path={`/${pagePath}`}>
-            <Grid container>
-                <Grid item xs={12} md={10}>
-                    <Box p={1}>
-                        {content}
-                    </Box>
+            <TaggingContext.Provider value={{setTag}}>
+                <Grid container>
+                    <Grid item xs={12} md={10}>
+                        <Box p={1}>
+                            {content}
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} md={2}>
+                        <NavigationList keys={makeKeysFromTags()}/>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} md={2}>
-                    <NavigationList keys={makeKeysFromTags()}/>
-                </Grid>
-            </Grid>
+            </TaggingContext.Provider>
         </Route>
     );
 }
+
+export const useTags = () =>  React.useContext(TaggingContext);
+
