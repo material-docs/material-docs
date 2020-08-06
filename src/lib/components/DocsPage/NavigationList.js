@@ -65,7 +65,7 @@ export default function NavigationList({keys}) {
         elements = elements.filter(item => item.offset >= 0);
         const closestId = getClosestId(elements, elems => Math.min.apply(Math, elems));
         setSelected({id: closestId || null, clicked: false});
-    }, [scrollY, keys]); // TODO: fix bug with last element selection after page change
+    }, [scrollY, keys]);
 
     if (!keys || !keys.length) {
         return null;

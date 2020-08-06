@@ -8,7 +8,7 @@ export default function usePageScroll() {
         return () => window.removeEventListener("scroll", onScrollChange);
     }, []);
 
-    function onScrollChange(event) { //TODO: change getting scroll to event
+    function onScrollChange(event) {
         const {scrollX, scrollY} = window;
         setScroll({scrollX, scrollY});
     }
