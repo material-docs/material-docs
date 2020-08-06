@@ -28,7 +28,7 @@ export function Tagable({children, noTag = false, variant, style, className, ...
             <div className={classes.container}>
                 <Typography variant={variant}>
                     {children}
-                    <Divider/>
+                    <Divider className={classes.divider}/>
                 </Typography>
                 <a href={`#${id}`} className={classes.tagHook} ref={ref}>
                     <LocalOfferIcon />

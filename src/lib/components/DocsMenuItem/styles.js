@@ -10,5 +10,8 @@ export const useStyles = makeStyles((theme) => ({
     root: {},
     highlighted: {
         backgroundColor: grey[300],
-    }
+    },
+    collapse: {
+        paddingLeft: theme.spacing(4),
+    },
 }));

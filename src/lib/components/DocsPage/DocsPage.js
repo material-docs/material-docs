@@ -62,11 +62,13 @@ export default function DocsPage({name = "home", children}) {
         <Route path={`/${pagePath}`}>
             <TaggingContext.Provider value={{setTag}}>
                 <Grid container>
-                    <Grid item xs={12} md={10}>
+                    <Grid item xs={12} md={1} />
+                    <Grid item xs={12} md={8}>
                         <Box p={1}>
                             {content}
                         </Box>
                     </Grid>
+                    <Grid item xs={12} md={1} />
                     <Grid item xs={12} md={2}>
                         <NavigationList keys={makeKeysFromTags()}/>
                     </Grid>

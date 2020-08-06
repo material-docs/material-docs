@@ -88,11 +88,15 @@ export default function MaterialDocsExample() {
     return (
         <DocsLayout>
             <DocsMenu>
-                <DocsMenuItem textPrimary={"Example page"} icon={<SettingsIcon />}>
+                <DocsMenuItem textPrimary={"Example page"}>
                     <DocsMenuItem page={"Overview"}/>
                     <DocsMenuItem page={"Installation"}/>
+                    <DocsMenuItem textPrimary={"Example page"}>
+                        <DocsMenuItem page={"Overview"}/>
+                        <DocsMenuItem page={"Installation"}/>
+                    </DocsMenuItem>
                 </DocsMenuItem>
-                <DocsMenuItem textPrimary={"darkness"} page={"Darkness"}/>
+                <DocsMenuItem textPrimary={"darkness"} page={"Darkness"} icon={<SettingsIcon />}/>
                 <DocsMenuItem textPrimary={"my"}>
                     <DocsMenuItem textPrimary={"old"} page={"Example 2"}/>
                     <DocsMenuItem textPrimary={"friend"}/>

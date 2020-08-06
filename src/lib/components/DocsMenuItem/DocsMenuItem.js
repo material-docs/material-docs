@@ -72,7 +72,7 @@ export default function DocsMenuItem({
                 {children && (expanded ? <ExpandLess/> : <ExpandMore/>)}
             </ListItem>
             {children &&
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <Collapse in={expanded} timeout="auto" unmountOnExit className={classes.collapse}>
                 <List>
                     {children}
                 </List>

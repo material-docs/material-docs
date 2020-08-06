@@ -33,5 +33,8 @@ export const useStyles = makeStyles((theme) => ({
         "&:hover $tagHook": {
             display: "block",
         }
+    },
+    divider: {
+        marginBottom: theme.spacing(1),
     }
 }));
