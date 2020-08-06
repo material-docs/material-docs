@@ -14,11 +14,12 @@ import clsx from "clsx";
 export function Tagable({children, systemOnTag, noTag = false, variant, style, className, ...props}) {
     const classes = {...useStyles(), ...props.classes};
     const id = props.id || (typeof children === "string" && createRouteFromName(children));
+    const ref = React.useRef(null);
 
     React.useEffect(() => {
-        !noTag && typeof systemOnTag === "function" && systemOnTag(prev => ({...prev, [id]: String(children)}));
+        !noTag && typeof systemOnTag === "function" && systemOnTag(prev => ({...prev, [id]: {label: String(children), ref}}));
         return () => !noTag && typeof systemOnTag === "function" && systemOnTag(prev => ({...prev, [id]: undefined}));
-    }, [children]);
+    }, [children, ref]);
 
     return (
         <div className={clsx(classes.root, classes.anchor, className)} id={!noTag && id} style={style}>
@@ -27,7 +28,7 @@ export function Tagable({children, systemOnTag, noTag = false, variant, style, c
                     {children}
                     <Divider/>
                 </Typography>
-                <a href={`#${id}`} className={classes.tagHook}>
+                <a href={`#${id}`} className={classes.tagHook} ref={ref}>
                     <LocalOfferIcon />
                 </a>
             </div>

@@ -7,13 +7,62 @@ import {useStyles} from "./styles";
 import {useLocation} from "react-router-dom";
 import clsx from "clsx";
 import {Link} from "@material-ui/core";
+import usePageScroll from "../../utils/usePageScroll";
+
+function getOffsetSum(elem) {
+    let top = 0;
+    let left = 0;
+    while (elem) {
+        top = top + parseFloat(elem.offsetTop);
+        left = left + parseFloat(elem.offsetLeft);
+        elem = elem.offsetParent || elem.parentElement;
+    }
+
+    return {top: Math.round(top), left: Math.round(left)}
+}
+
 
 export default function NavigationList({keys}) {
     const classes = useStyles();
     const location = useLocation();
+    const {scrollY} = usePageScroll();
+    const [selected, setSelected] = React.useState(keys[0] && keys[0].id || null);
 
     if (keys && !Array.isArray(keys)) throw new TypeError("MaterialDocs: keys must be array type!");
     if (!location) throw new Error("MaterialDocs: Navigation list must be inside Router! [dev]");
+
+    React.useEffect(() => {
+        function getClosestId(elements, func) {
+            const closestDistance = func(elements.map(element => element.offset));
+            const closest = elements.find(item => item.offset === closestDistance) || null;
+            const closestId = closest && closest.id;
+            return closestId;
+        }
+
+        let elements = keys.map(item => {
+            const {ref, id} = item;
+            let offset = 0;
+            try {
+                const {top} = getOffsetSum(ref.current);
+                offset = scrollY - top;
+            } catch (error) {
+            }
+            return {id, offset};
+        });
+        if (scrollY >= (document.body.clientHeight - window.innerHeight)) {
+            const closestId = getClosestId(elements, elems => Math.min.apply(Math, elems));
+            setSelected(closestId);
+            return;
+        }
+        if (elements.every(element => element.offset < 0)) {
+            const closestId = getClosestId(elements, elems => Math.max.apply(Math, elems));
+            setSelected(closestId);
+            return;
+        }
+        elements = elements.filter(item => item.offset >= 0);
+        const closestId = getClosestId(elements, elems => Math.min.apply(Math, elems));
+        setSelected(closestId || null);
+    }, [scrollY, keys]);
 
     if (!keys || !keys.length) {
         return null;
@@ -27,7 +76,8 @@ export default function NavigationList({keys}) {
                 </Typography>
             </ListItem>
             {keys.map(key => {
-                const active = location.hash.substr(1) === key.id;
+//                const active = location.hash.substr(1) === key.id;
+                const active = key.id === selected;
                 return (
                     <Link underline={"none"} href={`#${key.id}`} key={key.id} className={classes.contentLink}>
                         <ListItem

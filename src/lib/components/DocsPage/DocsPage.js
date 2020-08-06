@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 
 export default function DocsPage({name = "home", children}) {
     const pagePath = createRouteFromName(name);
-    const [tags, setTags] = React.useState();
+    const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
 
     function insertTagCallbacksInChildren(source) {
@@ -23,9 +23,9 @@ export default function DocsPage({name = "home", children}) {
     function makeKeysFromTags() {
         const keys = [];
         for (const key in tags) {
-            const label = tags[key];
+            const {label, ref} = tags[key];
             const id = key;
-            keys.push({id, label});
+            keys.push({id, label, ref});
         }
         return keys;
     }
