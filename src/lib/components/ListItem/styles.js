@@ -20,4 +20,8 @@ export const useStyles = makeStyles((theme) => ({
     typeAlpha: {
         listStyleType: "lower-alpha",
     },
+    list: {
+       margin: 0,
+       padding: 0,
+    }
 }));

@@ -29,16 +29,14 @@ function ListItem({children, type = "circle", ...props}, ref) {
     return (
         <MUIListItem {...props} ref={ref} className={clsx(classes.root, listTypeClass)}>
             <div>
-                {containedItems &&
-                <div>
-                    <List>
-                        {containedItems}
-                    </List>
-                </div>
-                }
                 <div>
                     {content}
                 </div>
+                {containedItems &&
+                <List className={classes.list}>
+                    {containedItems}
+                </List>
+                }
             </div>
         </MUIListItem>
     );
