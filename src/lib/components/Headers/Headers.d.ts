@@ -1,46 +1,32 @@
 /// <reference types="react" />
+import Stylable from "../../interfaces/Stylable";
 
-export interface HeaderProps {
+export interface HeaderProps extends Stylable {
     /**
      * variant - variant of header. h1 h2 h3 h4 h5.
      * @type string
      */
-    variant?: "h1" | "h2" | "h3" | "h4" | "h5",
-    /**
-     * style - styles of the element.
-     * @type object
-     */
-    style?: any,
-    /**
-     * className - css class of the element.
-     * @type string
-     */
-    className?: string,
+    variant?: "h1" | "h2" | "h3" | "h4" | "h5";
     /**
      * noDivider - if true, bottom divider line will not be displayed.
      * @type boolean
      */
-    noDivider?: boolean,
+    noDivider?: boolean;
     /**
      * noTag - if true, component will not provide tagging mechanism.
      * @type boolean
      */
-    noTag?: boolean,
+    noTag?: boolean;
     /**
      * id - html id for the element to provide tagging mechanism.
      * @type string
      */
-    id?: string,
-    /**
-     * classes - classes, applied to the element.
-     * @type object
-     */
-    classes?: any,
+    id?: string;
     /**
      * Children of element. Component will generate id automatically from child if it possible.
      * @type any
      */
-    children?: any,
+    children?: any;
 }
 
 export function Tagable(props: HeaderProps): JSX.Element;

@@ -1,7 +1,5 @@
 import React from "react";
-import {ListItem as MUIListItem} from "@material-ui/core";
 import ListItemContained from "../ListItemContained";
-import List from "@material-ui/core/List";
 import {useStyles} from "./styles";
 import clsx from "clsx";
 

@@ -15,7 +15,7 @@ import {useSnackbar} from "notistack";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import {useTags} from "../DocsPage";
-import {H3} from "../Headers/Headers";
+import {H3} from "../Headers";
 
 export default function ExpansionCode({theme, language, children, name, noTag, demoCode = ''}) {
     const classes = useStyles();
