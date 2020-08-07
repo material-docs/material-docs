@@ -24,21 +24,24 @@ function ListItem({children, type = "circle", ...props}, ref) {
         case "lower-alpha":
             listTypeClass = classes.typeAlpha;
             break;
+        case "none":
+            listTypeClass = classes.typeNone;
+            break;
     }
 
     return (
-        <MUIListItem {...props} ref={ref} className={clsx(classes.root, listTypeClass)}>
+        <li {...props} ref={ref} className={clsx(classes.root, listTypeClass)}>
             <div>
                 <div>
                     {content}
                 </div>
                 {containedItems &&
-                <List className={classes.list}>
+                <ul className={classes.list}>
                     {containedItems}
-                </List>
+                </ul>
                 }
             </div>
-        </MUIListItem>
+        </li>
     );
 }
 

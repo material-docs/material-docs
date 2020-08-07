@@ -1,11 +1,7 @@
 import React from "react";
 import DocsPage from "../../../lib/components/DocsPage/DocsPage";
-import {H1, H2, H3, H5} from "../../../lib/components/Headers/Headers";
-import Code from "../../../lib/components/Code/Code";
-import ExpansionCode from "../../../lib/components/ExpansionCode/ExpansionCode";
-import Markdown from "../../../lib/components/Markdown/Markdown";
-import page1 from "../../markdown/page1.md";
-import List from "@material-ui/core/List";
+import {H1, H2, H3} from "../../../lib/components/Headers/Headers";
+import List from "../../../lib/components/List";
 import ListItem from "../../../lib/components/ListItem/ListItem";
 import ListItemContained from "../../../lib/components/ListItemContained";
 import Image from "../../../lib/components/Image/Image";
@@ -27,8 +23,8 @@ export default function InstallationPage() {
             <List>
                 <ListItem>
                     <ListItemContained>
-                        <ListItem> afasfs </ListItem>
-                        <ListItem> afasfs </ListItem>
+                        <ListItem type={"square"}> afasfs </ListItem>
+                        <ListItem type={"none"}> afasfs </ListItem>
                         <ListItem>
                             <ListItemContained>
                                 <ListItem> afasfs </ListItem>
@@ -41,7 +37,6 @@ export default function InstallationPage() {
                 </ListItem>
                 <ListItem> afasfs </ListItem>
                 <ListItem> afasfs </ListItem>
-
             </List>
         </DocsPage>
     );

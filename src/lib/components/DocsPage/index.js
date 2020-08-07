@@ -1,1 +1,1 @@
-export {default} from "./DocsPage";
+export {default, useTags} from "./DocsPage";

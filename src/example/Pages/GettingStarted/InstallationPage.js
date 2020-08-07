@@ -1,10 +1,6 @@
 import React from "react";
 import DocsPage from "../../../lib/components/DocsPage/DocsPage";
 import {H1, H2, H3, H5} from "../../../lib/components/Headers/Headers";
-import Code from "../../../lib/components/Code/Code";
-import ExpansionCode from "../../../lib/components/ExpansionCode/ExpansionCode";
-import Markdown from "../../../lib/components/Markdown/Markdown";
-import page1 from "../../markdown/page1.md";
 import List from "@material-ui/core/List";
 import ListItem from "../../../lib/components/ListItem/ListItem";
 import ListItemContained from "../../../lib/components/ListItemContained";
