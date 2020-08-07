@@ -12,7 +12,7 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import clsx from "clsx";
 import {useTags} from "../DocsPage/DocsPage";
 
-export function Tagable({children, noTag = false, variant, style, className, ...props}) {
+export function Tagable({children, noTag = false, variant, style, className, noDivider = false, ...props}) {
     const {setTag} = useTags();
     const classes = {...useStyles(), ...props.classes};
     const id = props.id || (typeof children === "string" && createRouteFromName(children));
@@ -28,64 +28,34 @@ export function Tagable({children, noTag = false, variant, style, className, ...
             <div className={classes.container}>
                 <Typography variant={variant}>
                     {children}
-                    <Divider className={classes.divider}/>
+                    {!noDivider && <Divider className={classes.divider}/>}
                 </Typography>
+                {!noTag &&
                 <a href={`#${id}`} className={classes.tagHook} ref={ref}>
-                    <LocalOfferIcon />
+                    <LocalOfferIcon/>
                 </a>
+                }
             </div>
         </div>
     );
 }
-// export function Tagable({children, systemOnTag, noTag = false, variant, style, className, ...props}) {
-//     const classes = {...useStyles(), ...props.classes};
-//     const id = props.id || (typeof children === "string" && createRouteFromName(children));
-//     const ref = React.useRef(null);
-//
-//     React.useEffect(() => {
-//         !noTag && typeof systemOnTag === "function" && systemOnTag(prev => ({...prev, [id]: {label: String(children), ref}}));
-//         return () => !noTag && typeof systemOnTag === "function" && systemOnTag(prev => ({...prev, [id]: undefined}));
-//     }, [children, ref]);
-//
-//     return (
-//         <div className={clsx(classes.root, classes.anchor, className)} id={!noTag && id} style={style}>
-//             <div className={classes.container}>
-//                 <Typography variant={variant}>
-//                     {children}
-//                     <Divider/>
-//                 </Typography>
-//                 <a href={`#${id}`} className={classes.tagHook} ref={ref}>
-//                     <LocalOfferIcon />
-//                 </a>
-//             </div>
-//         </div>
-//     );
-// }
 
-export function H1({children, systemOnTag, noTag = false}) {
-    return <Tagable systemOnTag={systemOnTag} variant={"h2"} noTag={noTag}>{children}</Tagable>
+export function H1({children, ...props}) {
+    return <Tagable variant={"h2"} {...props}>{children}</Tagable>
 }
 
-export function H2({children, systemOnTag, noTag = false}) {
-    return <Tagable systemOnTag={systemOnTag} variant={"h3"} noTag={noTag}>{children}</Tagable>
+export function H2({children, ...props}) {
+    return <Tagable variant={"h3"} {...props}>{children}</Tagable>
 }
 
-export function H3({children, systemOnTag, noTag = false}) {
-    return <Tagable systemOnTag={systemOnTag} variant={"h4"} noTag={noTag}>{children}</Tagable>
+export function H3({children, ...props}) {
+    return <Tagable variant={"h4"} {...props}>{children}</Tagable>
 }
 
-export function H4({children}) {
-    return (
-        <Typography variant={"h5"}>
-            {children}
-        </Typography>
-    );
+export function H4({children, noDivider = true, noTag = true, ...props}) {
+    return <Tagable variant={"h5"} {...props} noTag={noTag} noDivider={noDivider}>{children}</Tagable>
 }
 
-export function H5({children}) {
-    return (
-        <Typography variant={"h6"}>
-            {children}
-        </Typography>
-    );
+export function H5({children, noDivider = true, noTag = true, ...props}) {
+    return <Tagable variant={"h5"} {...props} noTag={noTag} noDivider={noDivider}>{children}</Tagable>
 }

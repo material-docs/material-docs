@@ -112,8 +112,7 @@ export default function MaterialDocsExample() {
                     <Code theme="darcula">
                         {code}
                     </Code>
-                    <H3>Expansion code</H3>
-                    <ExpansionCode theme="darcula" demoCode={code2}>
+                    <ExpansionCode theme="darcula" name={"Lool"} demoCode={code2}>
                         {code}
                     </ExpansionCode>
                     <H5>Lol</H5>

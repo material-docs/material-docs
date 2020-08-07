@@ -14,11 +14,14 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {useSnackbar} from "notistack";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import {useTags} from "../DocsPage";
+import {H3} from "../Headers/Headers";
 
-export default function ExpansionCode({theme, language, children, demoCode = ''}) {
-    const {enqueueSnackbar} = useSnackbar();
+export default function ExpansionCode({theme, language, children, name, noTag, demoCode = ''}) {
     const classes = useStyles();
+    const {enqueueSnackbar} = useSnackbar();
     const [expanded, setExpanded] = React.useState(true);
+    const [expand, setExpand] = React.useState(true);
     const [code, setCode] = React.useState(demoCode);
     const menuAnchor = React.useRef(null);
     const [menuOpen, setMenuOpen] = React.useState(false);
@@ -52,15 +55,24 @@ export default function ExpansionCode({theme, language, children, demoCode = ''}
                 >
                     <FileCopyIcon fontSize={"small"}/>
                 </IconButton>
-                <IconButton onClick={event => setExpanded(!expanded)}>
+                <IconButton onClick={event => setExpand(!expand)}>
                     <CodeIcon fontSize={"small"}/>
                 </IconButton>
+                {name &&
+                <H3 className={classes.codeName} noDivider>{name}</H3>
+                }
             </Toolbar>
             <Collapse
-                in={expanded}
+                in={expand}
                 collapsedHeight={"600px"}
-                onExit={() => setCode(children)}
-                onEntered={() => setCode(demoCode)}
+                onExit={() => {
+                    setCode(children);
+                    setExpanded(true);
+                }}
+                onEntered={() => {
+                    setCode(demoCode);
+                    setExpanded(false);
+                }}
                 style={{minHeight: 0}}
                 className={classes.collapse}
             >

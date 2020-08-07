@@ -7,7 +7,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
     collapsedCode: {
-        height: "600px",
+        height: "100%",
         overflow: "auto",
     },
     collapse: {
@@ -16,5 +16,8 @@ export const useStyles = makeStyles((theme) => ({
     toolbar: {
         padding: 0,
         flexDirection: "row-reverse",
+    },
+    codeName: {
+        flexGrow: 1,
     }
 }));

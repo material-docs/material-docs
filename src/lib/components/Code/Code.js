@@ -22,7 +22,7 @@ function Code({children, language = 'jsx', theme = 'light', style, className}, r
         } else {
             setHeight(0);
         }
-    }, [codeRef.current]);
+    }, [codeRef.current, children]);
 
     function fixStyle(style) {
         return {...style, hljs: {...style.hljs, background: 'none'}};

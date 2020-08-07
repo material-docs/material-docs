@@ -1,7 +1,7 @@
 import React from "react";
 import DocsPage from "../../../lib/components/DocsPage/DocsPage";
 import {H1, H2, H3, H5} from "../../../lib/components/Headers/Headers";
-import List from "@material-ui/core/List";
+import List from "../../../lib/components/List";
 import ListItem from "../../../lib/components/ListItem/ListItem";
 import ListItemContained from "../../../lib/components/ListItemContained";
 
