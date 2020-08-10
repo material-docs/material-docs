@@ -1,7 +1,9 @@
 /// <reference types="react" />
 import Stylable from "../../interfaces/Stylable";
+import Containerable from "../../interfaces/Containerable";
 
-export interface HeaderProps extends Stylable {
+export interface HeaderProps
+    extends Stylable, Containerable {
     /**
      * variant - variant of header. h1 h2 h3 h4 h5.
      * @type string

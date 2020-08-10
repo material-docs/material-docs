@@ -4,7 +4,6 @@ import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
 import ListItemText from "@material-ui/core/ListItemText";
 import {useStyles} from "./styles";
-import {useLocation} from "react-router-dom";
 import clsx from "clsx";
 import {Link} from "@material-ui/core";
 import usePageScroll from "../../utils/usePageScroll";

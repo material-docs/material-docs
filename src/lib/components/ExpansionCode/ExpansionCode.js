@@ -14,11 +14,10 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {useSnackbar} from "notistack";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import {useTags} from "../DocsPage";
 import {H3} from "../Headers";
 
-export default function ExpansionCode({theme, language, children, name, noTag, demoCode = ''}) {
-    const classes = useStyles();
+export default function ExpansionCode({theme, language, children, name, noTag, style, className, demoCode = '', ...props}) {
+    const classes = {...useStyles(), ...props.classes};
     const {enqueueSnackbar} = useSnackbar();
     const [expanded, setExpanded] = React.useState(true);
     const [expand, setExpand] = React.useState(true);
@@ -27,7 +26,7 @@ export default function ExpansionCode({theme, language, children, name, noTag, d
     const [menuOpen, setMenuOpen] = React.useState(false);
 
     return (
-        <Box>
+        <Box className={clsx(className)} style={style}>
             <Toolbar className={classes.toolbar}>
                 <IconButton ref={menuAnchor} onClick={event => setMenuOpen(true)}>
                     <MoreVertIcon fontSize={"small"}/>
@@ -49,8 +48,9 @@ export default function ExpansionCode({theme, language, children, name, noTag, d
                 </Menu>
                 <IconButton
                     onClick={() => {
-                        copyToClipboard(children);
-                        enqueueSnackbar("Code copied to clipboard", {variant: "success"});
+                        copyToClipboard(children)
+                            .then(res => enqueueSnackbar("Code copied to clipboard", {variant: "success"}))
+                            .catch(error => enqueueSnackbar("Failed to copy code to clipboard", {variant: "error"}));
                     }}
                 >
                     <FileCopyIcon fontSize={"small"}/>

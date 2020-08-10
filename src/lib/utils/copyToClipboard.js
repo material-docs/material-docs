@@ -1,4 +1,11 @@
-const copyToClipboard = str => {
+/**
+ * copyToClipboard - function copies str value to client clipboard.
+ * @param {any} str
+ * {Promise<*>}
+ * @example
+ * copyToClipboard();
+ */
+export default async function copyToClipboard(str) {
     const el = document.createElement('textarea');
     el.value = str;
     el.setAttribute('readonly', '');
@@ -8,6 +15,5 @@ const copyToClipboard = str => {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-};
-
-export default copyToClipboard;
+    return str;
+}

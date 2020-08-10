@@ -21,7 +21,7 @@ const TaggingContext = React.createContext({
     },
     /**
      * tags - all registered tags in page
-     * @type object
+     * @type any
      */
     tags: {},
 });
@@ -78,5 +78,11 @@ export default function DocsPage({name = "home", children}) {
     );
 }
 
+/**
+ * useTags - React hook, used to provide tagable mechanism.
+ * @returns {{setTag: setTag, tags: *}}
+ * @example
+ * const {setTag} = useTags();
+ */
 export const useTags = () =>  React.useContext(TaggingContext);
 

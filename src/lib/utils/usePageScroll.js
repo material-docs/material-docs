@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+ * usePageScroll - React hook, used to get page scroll position.
+ * @returns {{scrollY: number, scrollX: number}}
+ * @example
+ * const {scrollY, scrollX} = usePageScroll();
+ */
 export default function usePageScroll() {
     const [scroll, setScroll] = React.useState({scrollX: 0, scrollY: 0});
 

@@ -100,7 +100,7 @@ export default function MaterialDocsExample() {
                 <DocsMenuItem textPrimary={"darkness"} page={"Darkness"} icon={<SettingsIcon />}/>
                 <DocsMenuItem textPrimary={"my"}>
                     <DocsMenuItem textPrimary={"old"} page={"Example 2"}/>
-                    <DocsMenuItem textPrimary={"friend"}/>
+                    <DocsMenuItem textPrimary={"friend"} />
                 </DocsMenuItem>
             </DocsMenu>
             <DocsPages>

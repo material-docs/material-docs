@@ -12,7 +12,7 @@ import clsx from "clsx";
 import {useStyles} from "./styles";
 
 
-function Code({children, language = 'jsx', theme = 'light', style, className}, ref) {
+function Code({children, language = 'javascript', theme = 'light', style, className}, ref) {
     const [height, setHeight] = React.useState(0);
     const codeRef = React.useRef(null);
 
@@ -55,7 +55,7 @@ function Code({children, language = 'jsx', theme = 'light', style, className}, r
             codeStyle = codeStyles.light;
     }
 
-    //console.log(SyntaxHighlighter.supportedLanguages);
+//    console.log(SyntaxHighlighter.supportedLanguages.map(item => `"${item}"`).join(" | "));
     const classes = useStyles();
     return (
         <Paper
