@@ -1,3 +1,8 @@
+/*
+ * Author: Andrieiev Danil |  danssg08@gmail.com | https://github.com/DanilAndreev
+ * Copyright (C) 2020.
+ */
+
 /**
  * copyToClipboard - function copies str value to client clipboard.
  * @param {any} str

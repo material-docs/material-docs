@@ -1,3 +1,8 @@
+/*
+ * Author: Andrieiev Danil |  danssg08@gmail.com | https://github.com/DanilAndreev
+ * Copyright (C) 2020.
+ */
+
 import React from "react";
 import ListItem from "@material-ui/core/ListItem";
 import Collapse from "@material-ui/core/Collapse";

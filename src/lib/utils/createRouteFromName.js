@@ -1,3 +1,8 @@
+/*
+ * Author: Andrieiev Danil |  danssg08@gmail.com | https://github.com/DanilAndreev
+ * Copyright (C) 2020.
+ */
+
 /**
  * createRouteFromName - generates route without extra symbols from string name
  * @param {string} name

@@ -1,3 +1,9 @@
+/*
+ * Author: Andrieiev Danil |  danssg08@gmail.com | https://github.com/DanilAndreev
+ * Copyright (C) 2020.
+ */
+
+/// <reference types="react" />
 export interface NavigationListProps {
     /**
      * keys - list with information about tags and labels in page.

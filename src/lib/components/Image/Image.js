@@ -1,3 +1,8 @@
+/*
+ * Author: Andrieiev Danil |  danssg08@gmail.com | https://github.com/DanilAndreev
+ * Copyright (C) 2020.
+ */
+
 import React from "react";
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import {useStyles} from "./styles";

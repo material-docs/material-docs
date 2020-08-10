@@ -1,3 +1,8 @@
+/*
+ * Author: Andrieiev Danil |  danssg08@gmail.com | https://github.com/DanilAndreev
+ * Copyright (C) 2020.
+ */
+
 import React from "react";
 import Collapse from "@material-ui/core/Collapse";
 import Box from "@material-ui/core/Box";
