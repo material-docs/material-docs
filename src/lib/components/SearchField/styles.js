@@ -12,10 +12,12 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         width: 250,
+        backgroundColor: "rgba(255,255,255,0.1)",
     },
     input: {
         marginLeft: theme.spacing(1),
         flex: 1,
+        color: theme.palette.common.white,
     },
     iconButton: {
         padding: 10,
@@ -24,11 +26,11 @@ export const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
         marginTop: theme.spacing(0.5),
         marginBottom: theme.spacing(0.5),
-        color: theme.palette.text.secondary,
+        color: theme.palette.common.white,
     },
     iconClickable: {
         "&:hover": {
-            color: theme.palette.text.primary,
+            color: grey[400],
             cursor: "pointer",
         },
     }
