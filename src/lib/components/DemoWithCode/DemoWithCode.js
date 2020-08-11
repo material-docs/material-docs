@@ -21,7 +21,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
 
-function DemoWithCode({children, defaultExpanded, code, name, theme, noTag, paperContainer = false, actions, ...props}, ref) {
+function DemoWithCode({children, defaultExpanded, code, name, theme, noTag = false, paperContainer = false, actions, ...props}, ref) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);
