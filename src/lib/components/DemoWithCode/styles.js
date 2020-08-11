@@ -13,5 +13,13 @@ export const useStyles = makeStyles((theme) => ({
     toolbar: {
         padding: 0,
         flexDirection: "row-reverse",
+        minHeight: 0,
+    },
+    paperContainer: {
+        background: "transparent",
+    },
+    menuButtonLink: {
+        textDecoration: "none",
+        color: "inherit",
     },
 }));

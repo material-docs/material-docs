@@ -16,6 +16,8 @@ export const useStyles = makeStyles((theme) => ({
     toolbar: {
         padding: 0,
         flexDirection: "row-reverse",
+        minHeight: 0,
+        paddingTop: theme.spacing(2),
     },
     codeName: {
         flexGrow: 1,

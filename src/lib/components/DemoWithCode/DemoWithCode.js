@@ -19,8 +19,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {useSnackbar} from "notistack";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import Paper from "@material-ui/core/Paper";
 
-function DemoWithCode({children, defaultExpanded, code, name, theme, noTag, ...props}, ref) {
+function DemoWithCode({children, defaultExpanded, code, name, theme, noTag, paperContainer = false, actions, ...props}, ref) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);
@@ -30,30 +31,48 @@ function DemoWithCode({children, defaultExpanded, code, name, theme, noTag, ...p
     return (
         <Box>
             {name &&
-                <H3 noDivider noTag={noTag}>{name}</H3>
+            <H3 noDivider noTag={noTag}>{name}</H3>
             }
             <Box>
-                {children}
+                {!paperContainer && children}
+                {paperContainer &&
+                <Paper elevation={0} variant={"outlined"} className={classes.paperContainer}>
+                    {children}
+                </Paper>
+                }
             </Box>
             <Toolbar className={classes.toolbar}>
-                <IconButton ref={menuAnchor} onClick={event => setMenuOpen(true)}>
-                    <MoreVertIcon fontSize={"small"}/>
-                </IconButton>
-                <Menu
-                    anchorEl={menuAnchor.current}
-                    getContentAnchorEl={null}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                    }}
-                    keepMounted
-                    open={menuOpen}
-                    onClose={event => setMenuOpen(false)}
-                >
-                    <MenuItem button>Profile1</MenuItem>
-                    <MenuItem button>Profile2</MenuItem>
-                    <MenuItem button>Profile3</MenuItem>
-                </Menu>
+                {actions &&
+                <React.Fragment>
+                    <IconButton ref={menuAnchor} onClick={event => setMenuOpen(true)}>
+                        <MoreVertIcon fontSize={"small"}/>
+                    </IconButton>
+                    <Menu
+                        anchorEl={menuAnchor.current}
+                        getContentAnchorEl={null}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                        keepMounted
+                        open={menuOpen}
+                        onClose={event => setMenuOpen(false)}
+                    >
+                        {actions.map(action =>
+                            <a
+                                className={classes.menuButtonLink}
+                                key={`menu-item-${action.label} ${action.link}`}
+                                href={action.link}
+                            >
+                                <MenuItem button>
+                                    {action.label}
+                                </MenuItem>
+                            </a>
+                        )}
+
+                    </Menu>
+                </React.Fragment>
+                }
                 <IconButton
                     onClick={() => {
                         copyToClipboard(code)
