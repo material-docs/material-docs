@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import NavigationList from "./NavigationList";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import {useStyles} from "./styles";
 
 const TaggingContext = React.createContext({
     /**
@@ -32,6 +33,7 @@ const TaggingContext = React.createContext({
 });
 
 export default function DocsPage({name = "home", children}) {
+    const classes = useStyles();
     const pagePath = createRouteFromName(name);
     const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
@@ -76,6 +78,11 @@ export default function DocsPage({name = "home", children}) {
                     <Grid item xs={12} md={1} />
                     <Grid item xs={12} md={2}>
                         <NavigationList keys={makeKeysFromTags()}/>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Box className={classes.copyright} p={1}>
+                            <Typography> Powered by MaterialDocs. All rights reserved. </Typography>
+                        </Box>
                     </Grid>
                 </Grid>
             </TaggingContext.Provider>

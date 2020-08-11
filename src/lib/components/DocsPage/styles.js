@@ -20,5 +20,9 @@ export const useStyles = makeStyles((theme) => ({
     contentLink: {
         textDecoration: "none",
         color: "inherit",
-    }
+    },
+    copyright: {
+        backgroundColor: grey[100],
+        color: grey[300],
+    },
 }));
