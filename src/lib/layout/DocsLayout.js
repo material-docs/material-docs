@@ -24,6 +24,10 @@ import DocsPages from "../components/DocsPages";
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import {SnackbarProvider} from "notistack";
 
+import GitHubIcon from '@material-ui/icons/GitHub';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import SearchField from "../components/SearchField";
+
 function DocsLayout({children}) {
     const classes = useStyles();
     const theme = useTheme();
@@ -71,7 +75,7 @@ function DocsLayout({children}) {
                     [classes.appBarShift]: open,
                 })}
             >
-                <Toolbar>
+                <Toolbar className={classes.toolbar}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -81,9 +85,16 @@ function DocsLayout({children}) {
                     >
                         <MenuIcon/>
                     </IconButton>
-                    <Typography variant="h6" noWrap>
+                    <Typography variant="h6" noWrap className={classes.headerText}>
                         MUI Flexible Table Wiki
                     </Typography>
+                    <SearchField />
+                    <IconButton>
+                        <GitHubIcon className={classes.headerIcon}/>
+                    </IconButton>
+                    <IconButton>
+                        <Brightness4Icon className={classes.headerIcon}/>
+                    </IconButton>
                 </Toolbar>
             </AppBar>
             <Drawer

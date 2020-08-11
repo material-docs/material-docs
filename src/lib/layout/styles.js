@@ -69,4 +69,13 @@ export const useStyles = makeStyles((theme) => ({
     nested: {
         paddingLeft: theme.spacing(4),
     },
+    headerText: {
+        flexGrow: 1,
+    },
+    toolbar: {
+        color: theme.palette.common.white,
+    },
+    headerIcon: {
+        color: theme.palette.common.white,
+    }
 }));
