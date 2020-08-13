@@ -30,6 +30,12 @@ export interface DocsPageProps
      * @string
      */
     searchDescription: string;
+    /**
+     * noGenerateAutoSearch - if true, page will not generate search items from pages automatically.
+     * @type boolean
+     * @default false
+     */
+    noGenerateAutoSearch?: boolean;
 }
 
 /**

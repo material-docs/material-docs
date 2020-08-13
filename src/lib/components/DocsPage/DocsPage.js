@@ -33,7 +33,7 @@ const TaggingContext = React.createContext({
     tags: {},
 });
 
-export default function DocsPage({name = "home", searchTags, searchLabel, searchDescription, children}) {
+export default function DocsPage({name = "home", searchTags, searchLabel, searchDescription, noGenerateAutoSearch=false, children}) {
     const classes = useStyles();
     const pagePath = createRouteFromName(name);
     const [tags, setTags] = React.useState({});
@@ -41,7 +41,23 @@ export default function DocsPage({name = "home", searchTags, searchLabel, search
     const {addSearchItem, removeSearchItem} = useSearch();
 
     React.useEffect(() => {
-        //TODO: add search item mounting
+        /**
+         * searchItem - search item for current page;
+         * @type SearchDataItem
+         */
+        const searchItem = {
+            redirect: {page: pagePath},
+            label: searchLabel || name,
+            description: searchDescription || (Object.keys(tags).length && tags[Object.keys[Object.keys(tags)[0]]]) || "",
+            tags: searchTags || [],
+        }
+
+        if (!noGenerateAutoSearch) {
+            removeSearchItem(searchItem); //TODO: fix bug with prev item remove before add new.
+            addSearchItem(searchItem);
+
+            return () => removeSearchItem(searchItem);
+        }
     }, []);
 
     function insertTagCallbacksInChildren(source) {
@@ -75,13 +91,13 @@ export default function DocsPage({name = "home", searchTags, searchLabel, search
         <Route path={`/${pagePath}`}>
             <TaggingContext.Provider value={{setTag}}>
                 <Grid container>
-                    <Grid item xs={12} md={1} />
+                    <Grid item xs={12} md={1}/>
                     <Grid item xs={12} md={8}>
                         <Box p={1}>
                             {content}
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={1} />
+                    <Grid item xs={12} md={1}/>
                     <Grid item xs={12} md={2}>
                         <NavigationList keys={makeKeysFromTags()}/>
                     </Grid>
@@ -102,5 +118,5 @@ export default function DocsPage({name = "home", searchTags, searchLabel, search
  * @example
  * const {setTag} = useTags();
  */
-export const useTags = () =>  React.useContext(TaggingContext);
+export const useTags = () => React.useContext(TaggingContext);
 

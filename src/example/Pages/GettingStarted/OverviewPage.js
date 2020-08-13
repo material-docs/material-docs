@@ -10,7 +10,7 @@ import image1 from "./images/image1.jpg"
 
 export default function InstallationPage() {
     return (
-        <DocsPage name={'Overview'}>
+        <DocsPage name={'Overview'} searchDescription={"This is an overview page of Material Docs"}>
             <H1>Material Docs</H1>
             <H3>Simple react framework for creating documentation</H3>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A distinctio eaque esse fugiat itaque laborum, ratione voluptas! Aut consequuntur dolorem doloremque dolores enim non odio odit placeat praesentium repudiandae? A autem beatae commodi consequuntur dignissimos dolore dolores ducimus eius enim et excepturi explicabo fugit impedit in ipsa iste maxime modi nam nihil nisi obcaecati officiis omnis pariatur perspiciatis possimus praesentium quibusdam quis quisquam quos rem saepe similique sunt totam velit veritatis voluptate, voluptates. Aliquid aspernatur, dolores esse illum maxime modi perferendis quae. Aliquid aspernatur corporis distinctio expedita laborum molestiae nisi omnis rem, sit velit vitae voluptatibus voluptatum. Nesciunt, odio voluptas.

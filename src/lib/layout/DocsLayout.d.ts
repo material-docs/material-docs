@@ -14,6 +14,12 @@ export interface DocsLayoutProps
      * @type SearchDataItem[]
      */
     searchData?: SearchDataItem[];
+    /**
+     * noGenerateAutoSearch - if true, Material Docs will not generate search items from pages automatically.
+     * @type boolean
+     * @default false
+     */
+    noGenerateAutoSearch?: boolean;
 }
 
 /**

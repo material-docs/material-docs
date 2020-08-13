@@ -7,7 +7,7 @@ import ListItemContained from "../../../lib/components/ListItemContained";
 
 export default function InstallationPage() {
     return (
-        <DocsPage name={'Installation'}>
+        <DocsPage name={'Installation'} searchDescription={"This page shows you how to install Material Docs to your project"}>
             <H1>This is a test page for this wiki</H1>
             <H3>Hello darkness my old friend</H3>
             <H5>Lol</H5>

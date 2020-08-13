@@ -21,31 +21,8 @@ import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import {useChangeRoute} from "routing-manager";
 import {dos} from "react-syntax-highlighter/dist/cjs/languages/hljs";
 
-const testDataSet = [
-    {
-        redirect: () => {
-            alert("kuku");
-        },
-        label: "Hello darkness",
-        description: "my old friend. I`ve come to talk with you again!",
-        tags: ["bears", "cats", "dogs"],
-    },
-    {
-        redirect: () => {
-        },
-        label: "Hello, its me",
-        description: "I was wondering if after all this years you would like to meet.",
-        tags: ["adele", "america", "singer"],
-    },
-    {
-        redirect: "https://google.com",
-        label: "Evergreen",
-        description: "Two steps from hell",
-        tags: ["trailers", "films", "add"],
-    },
-];
 
-function SearchField({className, style, searchData = testDataSet, doSearch, ...props}, ref) {
+function SearchField({className, style, searchData = [], doSearch, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
@@ -95,6 +72,7 @@ function SearchField({className, style, searchData = testDataSet, doSearch, ...p
                 break;
             case "Enter":
                 found[selected] &&  handleItemAction(found[selected]);
+                found[selected] && setText("");
                 break;
         }
     }

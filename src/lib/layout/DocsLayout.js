@@ -28,27 +28,50 @@ import Brightness4Icon from '@material-ui/icons/Brightness4';
 import SearchField from "../components/SearchField";
 
 const SearchContext = React.createContext({
+    /**
+     * addSearchItem - adds SearchDataItem to storage.
+     * @function
+     * @param {SearchDataItem} item
+     */
     addSearchItem: (item) => {
     },
+    /**
+     * removeSearchItem - removes SearchDataItem to storage.
+     * @function
+     * @param {SearchDataItem} item
+     */
     removeSearchItem: (item) => {
     },
+    /**
+     * getSearchData - returns search data list.
+     * @type SearchDataItem[]
+     */
     getSearchData: () => {
     }
 });
 
-const DocsLayout = React.forwardRef(({children, ...props}, ref) => {
+const DocsLayout = React.forwardRef(({children, noGenerateAutoSearch = false, ...props}, ref) => {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
     const [content, setContent] = React.useState({pages: [], menu: []});
-    const [searchData, setSearchData] = React.useState(new Set(props.searchData) || new Set);
+    const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
 
-    const addSearchItem = item => searchData.add(item);
+    const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
+        const newData = new Set(prev);
+        newData.add(item);
+        return newData;
+    });
 
-    const removeSearchItem = item => searchData.delete(item);
+    const removeSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
+        const newData = new Set(prev);
+        newData.delete(item);
+        return newData;
+    });
 
     const getSearchData = () => [...searchData];
 
+    console.log(123, searchData);
 
     function getMenuFromChildren() {
         const candidates = React.Children.map(children, candidate => candidate.type === DocsMenu ? candidate : undefined);
@@ -78,7 +101,6 @@ const DocsLayout = React.forwardRef(({children, ...props}, ref) => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
 
     return (
         <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
