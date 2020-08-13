@@ -7,19 +7,16 @@ import React from "react";
 import {useStyles} from "./styles";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 
-function SearchMenuItem({...props}, ref) {
-    const classes = useStyles();
+function SearchMenuItem({data, style, className, ...props}, ref) {
+    const classes = {...useStyles(), ...props.classes};
 
     return (
-        <ListItem button onClick={event => alert("asfasf")}>
+        <ListItem button onClick={event => alert("asfasf")} className={className} style={style}>
             <ListItemText
-                primary={"Hello darkness my old friend"}
-                secondary={"I've come to talk with you again!"}
+                primary={data.label}
+                secondary={data.description || ""}
             />
             <ListItemIcon>
                 asfs
