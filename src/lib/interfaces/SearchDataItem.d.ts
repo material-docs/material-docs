@@ -6,9 +6,11 @@
 export default interface SearchDataItem {
     /**
      * redirect - url for redirect or callback function on redirect. Function will be called on list item key press.
-     * @type string | function
+     * Also redirect can be object type for routing-manager changeRoute.
+     * @see https://github.com/DanilAndreev/routing-manager/wiki/changeRoute
+     * @type string | function | object
      */
-    redirect: string | (() => void);
+    redirect: string | (() => void) | object;
     /**
      * label - page short overview.
      * @type string

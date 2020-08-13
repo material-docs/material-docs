@@ -18,10 +18,12 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+import {useChangeRoute} from "routing-manager";
 
 const testDataSet = [
     {
         redirect: () => {
+            alert("kuku");
         },
         label: "Hello darkness",
         description: "my old friend. I`ve come to talk with you again!",
@@ -35,8 +37,7 @@ const testDataSet = [
         tags: ["adele", "america", "singer"],
     },
     {
-        redirect: () => {
-        },
+        redirect: "https://google.com",
         label: "Evergreen",
         description: "Two steps from hell",
         tags: ["trailers", "films", "add"],
@@ -45,6 +46,7 @@ const testDataSet = [
 
 function SearchField({className, style, searchData = testDataSet, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
+    const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
     const [focused, setFocused] = React.useState(false);
     const rootRef = React.useRef(null);
@@ -54,6 +56,22 @@ function SearchField({className, style, searchData = testDataSet, ...props}, ref
     function handleTextInput(event) {
         setText(event.target.value);
         setFound(search(event.target.value || ""));
+    }
+
+    function handleItemAction(data) {
+        switch (typeof data.redirect) {
+            case "string":
+                window.location.href = data.redirect;
+                break;
+            case "function":
+                data.redirect();
+                break;
+            case "object":
+                changeRoute(data.redirect);
+                break;
+            default:
+                throw new TypeError(`MaterialDocs: Incorrect type for redirect. Got ${typeof data.redirect}, expected object | string | function`);
+        }
     }
 
     function handleKeyDown(event) {
@@ -67,6 +85,9 @@ function SearchField({className, style, searchData = testDataSet, ...props}, ref
                 setSelected(prev => prev < found.length - 1 ? prev + 1 : 0);
                 event.preventDefault();
                 event.stopPropagation();
+                break;
+            case "Enter":
+                found[selected] &&  handleItemAction(found[selected]);
                 break;
         }
     }
@@ -159,7 +180,7 @@ function SearchField({className, style, searchData = testDataSet, ...props}, ref
                                 </ListItemIcon>
                                 <ListItemText
                                     primary={"No results found"}
-                                    secondary={"Try to change query in another way"}
+                                    secondary={"Try to rephrase the query"}
                                 />
                             </ListItem>
                             }
