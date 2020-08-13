@@ -19,6 +19,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import {useChangeRoute} from "routing-manager";
+import {dos} from "react-syntax-highlighter/dist/cjs/languages/hljs";
 
 const testDataSet = [
     {
@@ -44,7 +45,7 @@ const testDataSet = [
     },
 ];
 
-function SearchField({className, style, searchData = testDataSet, ...props}, ref) {
+function SearchField({className, style, searchData = testDataSet, doSearch, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
@@ -55,7 +56,13 @@ function SearchField({className, style, searchData = testDataSet, ...props}, ref
 
     function handleTextInput(event) {
         setText(event.target.value);
-        setFound(search(event.target.value || ""));
+        if (doSearch && typeof doSearch !== "function")
+            throw new TypeError(`MaterialDocs: Incorrect type for doSearch prop, expected function, got ${typeof doSearch}`);
+        if (doSearch) {
+            doSearch(event.target.value, searchData).then(result => setFound(result));
+        } else {
+            search(event.target.value || "").then(result => setFound(result));
+        }
     }
 
     function handleItemAction(data) {
@@ -98,7 +105,7 @@ function SearchField({className, style, searchData = testDataSet, ...props}, ref
      * @param {string} input
      * @returns {SearchDataItem[]}
      */
-    function search(input) {
+    async function search(input) {
         if (input && typeof input !== "string")
             throw new TypeError(`MaterialDocs: incorrect type ${typeof input} for search query, expected string!`);
         if (!input) return [];
