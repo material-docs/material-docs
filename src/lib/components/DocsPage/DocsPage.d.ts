@@ -15,6 +15,21 @@ export interface DocsPageProps
      * F.e. name:  Hello darkness -> route: hello-darkness
      */
     name: string;
+    /**
+     * searchTags - keywords for search engine.
+     * @type string[]
+     */
+    searchTags?: string[];
+    /**
+     * searchLabel - label text, displayed in search result if page match search requirements.
+     * @string
+     */
+    searchLabel?: string;
+    /**
+     * searchDescription - description text, displayed in search result if page match search requirements.
+     * @string
+     */
+    searchDescription: string;
 }
 
 /**
