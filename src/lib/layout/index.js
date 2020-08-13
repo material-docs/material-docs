@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default} from "./DocsLayout"
+export {default, useSearch} from "./DocsLayout"

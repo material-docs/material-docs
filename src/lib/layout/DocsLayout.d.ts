@@ -5,10 +5,15 @@
 
 /// <reference types="react" />
 import Containerable from "../interfaces/Containerable";
+import SearchDataItem from "../interfaces/SearchDataItem";
 
 export interface DocsLayoutProps
     extends Containerable {
-
+    /**
+     * searchData - array of SearchDataItem items to do search from.
+     * @type SearchDataItem[]
+     */
+    searchData?: SearchDataItem[];
 }
 
 /**
