@@ -10,41 +10,46 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from "@material-ui/core/InputBase";
 import {useStyles} from "./styles";
 import clsx from "clsx";
-import Menu from "@material-ui/core/Menu";
 import SearchMenuItem from "./SearchMenuItem";
 import Popper from "@material-ui/core/Popper";
 import List from "@material-ui/core/List";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 const testDataSet = [
     {
-        redirect: () => {},
+        redirect: () => {
+        },
         label: "Hello darkness",
         description: "my old friend. I`ve come to talk with you again!",
         tags: ["bears", "cats", "dogs"],
     },
     {
-        redirect: () => {},
+        redirect: () => {
+        },
         label: "Hello, its me",
         description: "I was wondering if after all this years you would like to meet.",
         tags: ["adele", "america", "singer"],
     },
     {
-        redirect: () => {},
+        redirect: () => {
+        },
         label: "Evergreen",
         description: "Two steps from hell",
         tags: ["trailers", "films", "add"],
     },
 ];
 
-function SearchField({className, style, searchData=testDataSet, ...props}, ref) {
+function SearchField({className, style, searchData = testDataSet, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const [text, setText] = React.useState("");
     const [focused, setFocused] = React.useState(false);
     const rootRef = React.useRef(null);
     const [found, setFound] = React.useState([]);
-
-//    const [selected, setSelected] = React.useState(null);
+    const [selected, setSelected] = React.useState(0);
 
     function handleTextInput(event) {
         setText(event.target.value);
@@ -52,30 +57,58 @@ function SearchField({className, style, searchData=testDataSet, ...props}, ref) 
     }
 
     function handleKeyDown(event) {
-
+        console.log(event.key);
+        switch (event.key) {
+            case "ArrowUp":
+                setSelected(prev => prev > 0 ? prev - 1 : found.length - 1);
+                event.preventDefault();
+                event.stopPropagation();
+                break;
+            case "ArrowDown":
+                setSelected(prev => prev < found.length - 1 ? prev + 1 : 0);
+                event.preventDefault();
+                event.stopPropagation();
+                break;
+        }
     }
 
+    /**
+     * search - function, designed to do search from searchData by query string input.
+     * @function
+     * @param {string} input
+     * @returns {SearchDataItem[]}
+     */
     function search(input) {
-        const query = input.toLowerCase();
-        if (query && typeof query !== "string")
-            throw new TypeError(`MaterialDocs: incorrect type ${typeof query} for search query, expected string!`);
-        if (!query) return [];
-        const result = searchData.map(item => {
-            if (!item) throw new TypeError(`MaterialDocs: invalid search data object, expected SearchDataItem, got ${item}`);
-            if (typeof item.label !== "string")
-                throw new TypeError(`MaterialDocs: incorrect type ${typeof item.label} for label, expected string!`);
-            if (item.description && typeof item.description !== "string")
-                throw new TypeError(`MaterialDocs: incorrect type ${typeof item.description} for description, expected string!`);
-            for (const tag of item.tags) {
-                if (typeof tag !== "string")
-                    throw new TypeError(`MaterialDocs: incorrect type ${typeof tag} for tag, expected string!`);
-                if (tag.toLowerCase().includes(query)) return item;
+        if (input && typeof input !== "string")
+            throw new TypeError(`MaterialDocs: incorrect type ${typeof input} for search query, expected string!`);
+        if (!input) return [];
+        const query = input.toLowerCase().replace(/  /g, "").split(" ").filter(item => item);
+        const result = new Set();
+        for (const keyword of query) {
+            for (const item of searchData) {
+                let added = false;
+                if (!item) throw new TypeError(`MaterialDocs: invalid search data object, expected SearchDataItem, got ${item}`);
+                if (typeof item.label !== "string")
+                    throw new TypeError(`MaterialDocs: incorrect type ${typeof item.label} for label, expected string!`);
+                if (item.description && typeof item.description !== "string")
+                    throw new TypeError(`MaterialDocs: incorrect type ${typeof item.description} for description, expected string!`);
+                for (const tag of item.tags) {
+                    if (typeof tag !== "string")
+                        throw new TypeError(`MaterialDocs: incorrect type ${typeof tag} for tag, expected string!`);
+                    if (tag.toLowerCase().includes(keyword)) {
+                        result.add(item);
+                        added = true;
+                        break;
+                    }
+                }
+                if (!added && item.label.toLowerCase().includes(keyword)) {
+                    result.add(item);
+                    added = true;
+                }
+                if (!added && item.description && item.description.toLowerCase().includes(keyword)) result.add(item);
             }
-            if (item.label.toLowerCase().includes(query)) return item;
-            if (item.description && item.description.toLowerCase().includes(query)) return item;
-            return null;
-        }).filter(item => item);
-        return result;
+        }
+        return [...result];
     }
 
     return (
@@ -112,7 +145,25 @@ function SearchField({className, style, searchData=testDataSet, ...props}, ref) 
                 >
                     <Paper className={classes.listPaper} elevation={2}>
                         <List disablePadding>
-                            {found.map(item => <SearchMenuItem data={item} key={`search-menu-item-${item.label}`}/>)}
+                            {found.map((item, index) =>
+                                <SearchMenuItem
+                                    active={index === selected}
+                                    onMouseMove={event => setSelected(index)}
+                                    data={item}
+                                    key={`search-menu-item-${item.label}`}
+                                />
+                            )}
+                            {!found.length &&
+                            <ListItem>
+                                <ListItemIcon>
+                                    <ErrorOutlineIcon/>
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary={"No results found"}
+                                    secondary={"Try to change query in another way"}
+                                />
+                            </ListItem>
+                            }
                         </List>
                     </Paper>
                 </Popper>

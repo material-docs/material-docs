@@ -23,5 +23,5 @@ export default interface SearchDataItem {
      * tags - key words for search.
      * @type array
      */
-    tags: string[];
+    tags?: string[];
 }

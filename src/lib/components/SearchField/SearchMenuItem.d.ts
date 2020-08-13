@@ -13,6 +13,17 @@ export interface SearchMenuItemProps
      * @type SearchDataItem
      */
     data: SearchDataItem;
+    /**
+     * active - if true, button will change color.
+     * @type boolean
+     */
+    active?: boolean;
+
+    /**
+     * onMouseMove - callback on mouse move event.
+     * @param event
+     */
+    onMouseMove?(event): void;
 }
 
 /**

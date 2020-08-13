@@ -9,18 +9,25 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 
-function SearchMenuItem({data, style, className, ...props}, ref) {
+function SearchMenuItem({data, style, className, active, onMouseMove, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
 
     return (
-        <ListItem button onClick={event => alert("asfasf")} className={className} style={style}>
+        <ListItem
+            button
+            onClick={event => alert("asfasf")}
+            className={className}
+            style={style}
+            selected={!!active}
+            onMouseMove={onMouseMove}
+        >
+            <ListItemIcon>
+                asfs
+            </ListItemIcon>
             <ListItemText
                 primary={data.label}
                 secondary={data.description || ""}
             />
-            <ListItemIcon>
-                asfs
-            </ListItemIcon>
         </ListItem>
     );
 }
