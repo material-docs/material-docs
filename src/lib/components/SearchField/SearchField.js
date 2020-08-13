@@ -57,7 +57,6 @@ function SearchField({className, style, searchData = testDataSet, ...props}, ref
     }
 
     function handleKeyDown(event) {
-        console.log(event.key);
         switch (event.key) {
             case "ArrowUp":
                 setSelected(prev => prev > 0 ? prev - 1 : found.length - 1);
