@@ -70,9 +70,22 @@ const LangContext = React.createContext({
      * @type Lang[]
      */
     langs: [],
+    /**
+     * onHelpToTranslate - function, called on help to translate button click. If not defined - button will not be rendered.
+     * @function
+     * @param {Lang} lang
+     */
+    onHelpToTranslate: (lang) => {},
 });
 
-const DocsLayout = React.forwardRef(({children, noGenerateAutoSearch = false, defaultLang, langs, ...props}, ref) => {
+const DocsLayout = React.forwardRef(({
+                                         children,
+                                         noGenerateAutoSearch = false,
+                                         defaultLang,
+                                         langs,
+                                         onHelpToTranslate,
+                                         ...props
+                                     }, ref) => {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
@@ -154,7 +167,7 @@ const DocsLayout = React.forwardRef(({children, noGenerateAutoSearch = false, de
     };
 
     return (
-        <LangContext.Provider value={{lang, switchLang, langs}}>
+        <LangContext.Provider value={{lang, switchLang, langs, onHelpToTranslate}}>
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
                 <div className={classes.root} ref={ref}>
                     <CssBaseline/>

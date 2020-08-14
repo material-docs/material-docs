@@ -101,7 +101,7 @@ const langs = [
 
 export default function MaterialDocsExample() {
     return (
-        <DocsLayout langs={langs} defaultLang={langs[0]}>
+        <DocsLayout langs={langs} defaultLang={langs[0]} onHelpToTranslate={() => alert("Help to translate")}>
             <DocsMenu>
                 <DocsMenuItem textPrimary={"Example page"}>
                     <DocsMenuItem page={"Overview"}/>

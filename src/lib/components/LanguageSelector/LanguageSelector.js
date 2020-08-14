@@ -17,9 +17,12 @@ import {useLang} from "../../layout/DocsLayout";
 
 function LanguageSelector({...props}, ref) {
     const classes = useStyles();
-    const {langs, lang, switchLang} = useLang();
+    const {langs, lang, switchLang, onHelpToTranslate} = useLang();
     const [opened, setOpened] = React.useState(false);
     const buttonRef = React.useRef(null);
+
+    if (onHelpToTranslate && typeof onHelpToTranslate !== "function")
+        throw new TypeError(`MaterialDocs: incorrect type of onHelpToTranslate, expected function, got ${typeof onHelpToTranslate}`);
 
     if (!lang) return null;
 
@@ -60,8 +63,14 @@ function LanguageSelector({...props}, ref) {
                         {item.label}
                     </MenuItem>
                 )}
-                <Divider/>
-                <MenuItem>Help to translate</MenuItem>
+                {onHelpToTranslate && <Divider/>}
+                {onHelpToTranslate &&
+                <MenuItem
+                    onClick={onHelpToTranslate}
+                >
+                    Help to translate
+                </MenuItem>
+                }
             </Menu>
         </React.Fragment>
     );
