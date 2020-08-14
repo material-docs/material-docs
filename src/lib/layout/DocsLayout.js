@@ -26,6 +26,7 @@ import {SnackbarProvider} from "notistack";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import SearchField from "../components/SearchField";
+import LanguageSelector from "../components/LanguageSelector";
 
 const SearchContext = React.createContext({
     /**
@@ -70,8 +71,6 @@ const DocsLayout = React.forwardRef(({children, noGenerateAutoSearch = false, ..
     });
 
     const getSearchData = () => [...searchData];
-
-    console.log(123, searchData);
 
     function getMenuFromChildren() {
         const candidates = React.Children.map(children, candidate => candidate.type === DocsMenu ? candidate : undefined);
@@ -126,6 +125,7 @@ const DocsLayout = React.forwardRef(({children, noGenerateAutoSearch = false, ..
                             MUI Flexible Table Wiki
                         </Typography>
                         <SearchField searchData={getSearchData()}/>
+                        <LanguageSelector/>
                         <IconButton>
                             <GitHubIcon className={classes.headerIcon}/>
                         </IconButton>

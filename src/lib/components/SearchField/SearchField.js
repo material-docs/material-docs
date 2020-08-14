@@ -19,7 +19,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import {useChangeRoute} from "routing-manager";
-import {dos} from "react-syntax-highlighter/dist/cjs/languages/hljs";
 
 
 function SearchField({className, style, searchData = [], doSearch, ...props}, ref) {
@@ -27,9 +26,10 @@ function SearchField({className, style, searchData = [], doSearch, ...props}, re
     const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
     const [focused, setFocused] = React.useState(false);
-    const rootRef = React.useRef(null);
     const [found, setFound] = React.useState([]);
     const [selected, setSelected] = React.useState(0);
+    const rootRef = React.useRef(null);
+    const inputRef = React.useRef(null);
 
     function handleTextInput(event) {
         setText(event.target.value);
@@ -120,11 +120,13 @@ function SearchField({className, style, searchData = [], doSearch, ...props}, re
         <ClickAwayListener
             onClickAway={event => setFocused(false)}
         >
+            {/*TODO: fix focus on paper click*/}
             <Paper
                 elevation={0}
                 className={clsx(classes.root, focused && classes.rootFocused, className)}
                 ref={rootRef}
                 style={style}
+                onClick={event => inputRef.current && inputRef.current.focus()}
             >
                 <SearchIcon className={classes.icon}/>
                 <InputBase
@@ -134,6 +136,7 @@ function SearchField({className, style, searchData = [], doSearch, ...props}, re
                     placeholder={"Seacrh"}
                     onFocus={event => setFocused(true)}
                     onKeyDown={handleKeyDown}
+                    ref={inputRef}
                 />
                 <CloseIcon
                     className={clsx(classes.icon, classes.iconClickable)}
