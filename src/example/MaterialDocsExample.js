@@ -85,10 +85,23 @@ const md1 = `
   * asdfd
 `.trim();
 
+const langs = [
+    {
+        name: "english",
+        label: "English",
+        locale: {}
+    },
+    {
+        name: "russian",
+        label: "Russian",
+        loadLang: async () => {alert("Loading russian lang")}
+    }
+];
+
 
 export default function MaterialDocsExample() {
     return (
-        <DocsLayout>
+        <DocsLayout langs={langs} defaultLang={langs[0]}>
             <DocsMenu>
                 <DocsMenuItem textPrimary={"Example page"}>
                     <DocsMenuItem page={"Overview"}/>

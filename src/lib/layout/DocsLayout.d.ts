@@ -6,6 +6,7 @@
 /// <reference types="react" />
 import Containerable from "../interfaces/Containerable";
 import SearchDataItem from "../interfaces/SearchDataItem";
+import Lang from "../interfaces/Lang";
 
 export interface DocsLayoutProps
     extends Containerable {
@@ -20,6 +21,16 @@ export interface DocsLayoutProps
      * @default false
      */
     noGenerateAutoSearch?: boolean;
+    /**
+     * defaultLang - default language settings.
+     * @type Lang
+     */
+    defaultLang?: Lang;
+    /**
+     * langs - list of all available langs.
+     * @type Lang[]
+     */
+    langs?: Lang[];
 }
 
 /**

@@ -12,12 +12,16 @@ import Button from "@material-ui/core/Button";
 import TranslateIcon from '@material-ui/icons/Translate';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import Divider from "@material-ui/core/Divider";
+import {useLang} from "../../layout/DocsLayout";
 
 
 function LanguageSelector({...props}, ref) {
     const classes = useStyles();
+    const {langs, lang, switchLang} = useLang();
     const [opened, setOpened] = React.useState(false);
     const buttonRef = React.useRef(null);
+
+    if (!lang) return null;
 
     return (
         <React.Fragment>
@@ -45,9 +49,17 @@ function LanguageSelector({...props}, ref) {
                 open={opened}
                 onClose={event => setOpened(false)}
             >
-                <MenuItem>asdfas</MenuItem>
-                <MenuItem>ass</MenuItem>
-                <MenuItem>asdsdfsffas</MenuItem>
+                {langs.map(item =>
+                    <MenuItem
+                        key={item.name}
+                        onClick={event => {
+                            switchLang(item).then();
+                            setOpened(false);
+                        }}
+                    >
+                        {item.label}
+                    </MenuItem>
+                )}
                 <Divider/>
                 <MenuItem>Help to translate</MenuItem>
             </Menu>
