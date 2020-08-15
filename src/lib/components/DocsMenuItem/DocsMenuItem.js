@@ -14,6 +14,7 @@ import {useChangeRoute} from "routing-manager";
 import {useStyles} from "./styles";
 import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
+import {useTheme} from "@material-ui/core";
 
 export default function DocsMenuItem({
                                          children,
@@ -26,13 +27,14 @@ export default function DocsMenuItem({
                                          isCurrent,
                                          className,
                                          style,
+                                         nesting = 0,
                                          ...props
                                      }) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute, getRouteParams} = useChangeRoute();
+    const theme = useTheme();
     const pageRoute = typeof page === "string" && createRouteFromName(page);
     const [expanded, setExpanded] = React.useState(defaultExpanded);
-
 
     let highlight = false;
     if (typeof isCurrent === "boolean") {
@@ -42,6 +44,9 @@ export default function DocsMenuItem({
     } else if (getRouteParams().page === pageRoute) {
         highlight = true;
     }
+
+    let paddingShift = nesting*2 + 2;
+    if (paddingShift > 16) paddingShift = 16;
 
     function handleOpen() {
         setExpanded(!expanded);
@@ -55,6 +60,14 @@ export default function DocsMenuItem({
         }
     }
 
+    function nestedChildren() {
+        return React.Children.map(children, child => {
+            if (React.isValidElement(child)) {
+                return React.cloneElement(child, {nesting: nesting + 1});
+            }
+        });
+    }
+
     return (
         <React.Fragment>
             <ListItem
@@ -62,7 +75,7 @@ export default function DocsMenuItem({
                 onClick={children ? handleOpen : (onClick || handleButtonClick)}
                 {...props}
                 className={clsx(classes.root, highlight && classes.highlighted, className)}
-                style={style}
+                style={{paddingLeft: theme.spacing(paddingShift), ...style}}
             >
                 {icon &&
                 <ListItemIcon>
@@ -78,9 +91,7 @@ export default function DocsMenuItem({
             </ListItem>
             {children &&
             <Collapse in={expanded} timeout="auto" unmountOnExit className={classes.collapse}>
-                <List>
-                    {children}
-                </List>
+                {nestedChildren()}
             </Collapse>
             }
         </React.Fragment>

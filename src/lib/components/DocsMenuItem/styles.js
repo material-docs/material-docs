@@ -12,6 +12,6 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: grey[300],
     },
     collapse: {
-        paddingLeft: theme.spacing(4),
+//        paddingLeft: theme.spacing(4),
     },
 }));

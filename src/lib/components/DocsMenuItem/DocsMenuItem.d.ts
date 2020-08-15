@@ -48,6 +48,13 @@ export interface DocsMenuItemProps
      * @type function | boolean
      */
     isCurrent?: ((routeParams, pageRoute, page) => boolean) | boolean,
+    /**
+     * nesting - system information about component nesting.
+     * @type number
+     * @default 0
+     * @ignore
+     */
+    nesting?: number,
 }
 
 /**

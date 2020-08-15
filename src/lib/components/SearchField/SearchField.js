@@ -73,6 +73,7 @@ function SearchField({className, style, searchData = [], doSearch, ...props}, re
             case "Enter":
                 found[selected] &&  handleItemAction(found[selected]);
                 found[selected] && setText("");
+                //TODO: add unfocus on menu select.
                 break;
         }
     }
