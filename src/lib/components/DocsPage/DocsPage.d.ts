@@ -36,6 +36,12 @@ export interface DocsPageProps
      * @default false
      */
     noGenerateAutoSearch?: boolean;
+    /**
+     * noAutoMenu - if true, page will not participate in auto menu generation.
+     * @type boolean
+     * @default false
+     */
+    noAutoMenu?: boolean;
 }
 
 /**

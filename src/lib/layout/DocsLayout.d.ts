@@ -37,6 +37,12 @@ export interface DocsLayoutProps
      * @param {Lang} lang
      */
     onHelpToTranslate?(lang: Lang): void;
+    /**
+     * autoMenu - if true, menu will be generated automatically.
+     * @type boolean
+     * @default false
+     */
+    autoMenu?: boolean;
 }
 
 /**

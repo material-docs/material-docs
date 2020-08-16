@@ -11,6 +11,7 @@ import InstallationPage from "./Pages/GettingStarted/InstallationPage";
 import OverviewPage from "./Pages/GettingStarted/OverviewPage";
 import ExpansionCode from "../lib/components/ExpansionCode/ExpansionCode";
 import DemoWithCode from "../lib/components/DemoWithCode";
+import PagesGroup from "../lib/components/PagesGroup";
 
 const code = `
 export default function MaterialDocsExample() {
@@ -101,7 +102,7 @@ const langs = [
 
 export default function MaterialDocsExample() {
     return (
-        <DocsLayout langs={langs} defaultLang={langs[0]} onHelpToTranslate={() => alert("Help to translate")}>
+        <DocsLayout langs={langs} defaultLang={langs[0]} onHelpToTranslate={() => alert("Help to translate")} autoMenu>
             <DocsMenu>
                 <DocsMenuItem textPrimary={"Example page"}>
                     <DocsMenuItem page={"Overview"}/>
@@ -118,8 +119,10 @@ export default function MaterialDocsExample() {
                 </DocsMenuItem>
             </DocsMenu>
             <DocsPages>
-                <InstallationPage/>
-                <OverviewPage/>
+                <PagesGroup name={"Getting started"}>
+                    <InstallationPage/>
+                    <OverviewPage/>
+                </PagesGroup>
                 <DocsPage name={'Darkness'}>
                     <H1>Hi mark</H1>
                     <H3>Code</H3>

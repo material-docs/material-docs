@@ -27,6 +27,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import SearchField from "../components/SearchField";
 import LanguageSelector from "../components/LanguageSelector";
+import PagesGroup from "../components/PagesGroup";
+import AutoDocsMenu from "../components/AutoDocsMenu";
 
 const SearchContext = React.createContext({
     /**
@@ -75,7 +77,8 @@ const LangContext = React.createContext({
      * @function
      * @param {Lang} lang
      */
-    onHelpToTranslate: (lang) => {},
+    onHelpToTranslate: (lang) => {
+    },
 });
 
 const DocsLayout = React.forwardRef(({
@@ -84,6 +87,7 @@ const DocsLayout = React.forwardRef(({
                                          defaultLang,
                                          langs,
                                          onHelpToTranslate,
+                                         autoMenu = false,
                                          ...props
                                      }, ref) => {
     const classes = useStyles();
@@ -92,6 +96,7 @@ const DocsLayout = React.forwardRef(({
     const [content, setContent] = React.useState({pages: [], menu: []});
     const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
+    const [autoMenuData, setAutoMenuData] = React.useState({});
 
     async function switchLang(inputLang) {
         let newLang = inputLang;
@@ -166,6 +171,8 @@ const DocsLayout = React.forwardRef(({
         setOpen(false);
     };
 
+    console.log(autoMenuData);
+
     return (
         <LangContext.Provider value={{lang, switchLang, langs, onHelpToTranslate}}>
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
@@ -215,7 +222,7 @@ const DocsLayout = React.forwardRef(({
                             </IconButton>
                         </div>
                         <Divider/>
-                        {content.menu}
+                        {autoMenu ? <AutoDocsMenu layoutData={autoMenuData} /> : content.menu}
                     </Drawer>
                     <main
                         className={clsx(classes.content, {
@@ -225,7 +232,11 @@ const DocsLayout = React.forwardRef(({
                         <div className={classes.drawerHeader}/>
                         {/*<Switch>*/}
                         {/*</Switch>*/}
-                        {content.pages}
+                        <PagesGroup name={"root"} getData={(group) => {
+                            setAutoMenuData(group)
+                        }}>
+                            {content.pages}
+                        </PagesGroup>
                     </main>
                 </div>
             </SearchContext.Provider>

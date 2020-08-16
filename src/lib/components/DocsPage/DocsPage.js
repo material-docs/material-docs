@@ -12,6 +12,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./styles";
 import {useSearch} from "../../layout/DocsLayout";
+import useGroups from "../PagesGroup/useGroups";
 
 const TaggingContext = React.createContext({
     /**
@@ -33,12 +34,21 @@ const TaggingContext = React.createContext({
     tags: {},
 });
 
-export default function DocsPage({name = "home", searchTags, searchLabel, searchDescription, noGenerateAutoSearch=false, children}) {
+export default function DocsPage({
+                                     name = "home",
+                                     searchTags,
+                                     searchLabel,
+                                     searchDescription,
+                                     noGenerateAutoSearch = false,
+                                     noAutoMenu = false,
+                                     children
+                                 }) {
     const classes = useStyles();
     const pagePath = createRouteFromName(name);
     const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
     const {addSearchItem, removeSearchItem} = useSearch();
+    const {addPage, deletePage} = useGroups();
 
     React.useEffect(() => {
         /**
@@ -59,6 +69,12 @@ export default function DocsPage({name = "home", searchTags, searchLabel, search
             return () => removeSearchItem(searchItem);
         }
     }, []);
+
+    React.useEffect(() => {
+        const page = {name, link: pagePath};
+        !noAutoMenu && addPage(page);
+//        return !noAutoMenu && deletePage(name); //TODO: fix name outdated
+    }, [name]);
 
     function insertTagCallbacksInChildren(source) {
         return React.Children.map(source, child => {

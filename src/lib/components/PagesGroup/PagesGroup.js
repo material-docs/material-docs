@@ -12,15 +12,21 @@ import {
     deletePage as _deletePage
 } from "./useGroups_functions";
 
-function PagesGroup({name, children, ...props}, ref) {
+function PagesGroup({name, children, getData, ...props}, ref) {
+    if (getData && typeof getData !== "function")
+        throw new TypeError(`MaterialDocs: incorrect type of getData, expected function, got ${typeof getData}`);
+    if (typeof name !== "string")
+        throw new TypeError(`MaterialDocs: incorrect type of required prop name, expected string, got ${typeof name}`);
+
     const [pages, setPages] = React.useState([]);
     const [groups, setGroups] = React.useState([]);
     const {addGroup, deleteGroup} = useGroups();
 
     React.useEffect(() => {
         const group = {name, pages, groups};
-        addGroup(group);
-        return () => deleteGroup(group);
+        !getData && addGroup(group);
+        getData && getData(group);
+//        return () => !getData && deleteGroup(group);
     }, [name, pages, groups]);
 
     const __addPage = page => _addPage(page, setPages);

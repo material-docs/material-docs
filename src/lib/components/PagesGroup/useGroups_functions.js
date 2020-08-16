@@ -4,6 +4,7 @@
  */
 
 export function addPage(page, setPages) {
+//    debugger;
     if (typeof page !== "object")
         throw new TypeError(`MaterialDocs: incorrect page type, expected {name: string, link: string | object}, got ${typeof page}`);
     if (typeof page.name !== "string")
@@ -11,14 +12,15 @@ export function addPage(page, setPages) {
     if (typeof page.link !== "string")
         throw new TypeError(`MaterialDocs: incorrect page.link type, expected string, got ${typeof page.name}`);
     setPages(prev => {
-        const newPages = prev.map(item => item.name === page.name ? item : null).filter(item => item);
+        const newPages = prev.map(item => item.name === page.name ? null : item).filter(item => item);
         newPages.push(page);
         return newPages;
     });
 }
 
 export function deletePage(page, setPages) {
-    if (typeof page !== "object" || typeof page !== "string")
+//    debugger;
+    if (!(typeof page === "object" || typeof page === "string"))
         throw new TypeError(`MaterialDocs: incorrect page type, expected {name: string, link?: string | object} | string, got ${typeof page}`);
 
     if (typeof page === "object" && typeof page.name !== "string")
@@ -39,14 +41,14 @@ export function addGroup(group, setGroups) {
     if (!Array.isArray(group.groups))
         throw new TypeError(`MaterialDocs: incorrect group.groups type, expected any[], got ${typeof group.groups}`);
     setGroups(prev => {
-        const newGroups = prev.map(item => item.name === group.name ? item : null).filter(item => item);
+        const newGroups = prev.map(item => item.name === group.name ? null : item).filter(item => item);
         newGroups.push(group);
         return newGroups;
     });
 }
 
 export function deleteGroup(group, setGroups) {
-    if (typeof group !== "object" || typeof group !== "string")
+    if (!(typeof group === "object" || typeof group === "string"))
         throw new TypeError(`MaterialDocs: incorrect group type, expected {name: string, pages: any[], groups: any[]} | string, got ${typeof group}`);
     if (typeof group === "object" && typeof group.name !== "string")
         throw new TypeError(`MaterialDocs: incorrect group.name type, expected string, got ${typeof group.name}`);
