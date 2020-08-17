@@ -18,12 +18,12 @@ export interface PagesGroupProps {
      * @param {PagesGroupData} data
      * @return void
      */
-    getData(data: PagesGroupData): void;
+    getData?(data: PagesGroupData): void;
     /**
      * children - children of an element.
      * @type any
      */
-    children: any;
+    children?: any;
 }
 
 /**
