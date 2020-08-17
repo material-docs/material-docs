@@ -4,7 +4,7 @@
  */
 
 /// <reference types="react" />
-import Lang from "../interfaces/Lang";
+import Lang from "../../interfaces/Lang";
 
 export interface LangContext{
     /**

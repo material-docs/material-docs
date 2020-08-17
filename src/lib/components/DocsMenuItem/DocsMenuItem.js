@@ -14,7 +14,7 @@ import {useStyles} from "./styles";
 import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {useTheme} from "@material-ui/core";
-import useNesting, {NestingContext} from "./useNesting";
+import useNesting, {NestingContext} from "../../hooks/useNesting/useNesting";
 
 function DocsMenuItem({
                           children,

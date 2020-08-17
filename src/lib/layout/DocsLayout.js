@@ -29,8 +29,8 @@ import SearchField from "../components/SearchField";
 import LanguageSelector from "../components/LanguageSelector";
 import PagesGroup from "../components/PagesGroup";
 import AutoDocsMenu from "../components/AutoDocsMenu";
-import {LangContext} from "./useLang"
-import {SearchContext} from "./useSearch";
+import {LangContext} from "../hooks/useLang/useLang"
+import {SearchContext} from "../hooks/useSearch/useSearch";
 
 
 const DocsLayout = React.forwardRef(({

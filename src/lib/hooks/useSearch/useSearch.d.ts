@@ -4,7 +4,7 @@
  */
 
 /// <reference types="react" />
-import SearchDataItem from "../interfaces/SearchDataItem";
+import SearchDataItem from "../../interfaces/SearchDataItem";
 
 export interface SearchContext {
     /**
