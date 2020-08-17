@@ -6,7 +6,6 @@
 import React from "react";
 import ListItem from "@material-ui/core/ListItem";
 import Collapse from "@material-ui/core/Collapse";
-import List from "@material-ui/core/List";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
@@ -15,8 +14,8 @@ import {useStyles} from "./styles";
 import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {useTheme} from "@material-ui/core";
+import useNesting, {NestingContext} from "./useNesting";
 
-//TODO: change nesting method to context.
 function DocsMenuItem({
                           children,
                           defaultExpanded = false,
@@ -28,7 +27,6 @@ function DocsMenuItem({
                           isCurrent,
                           className,
                           style,
-                          nesting = 0,
                           ...props
                       }, ref) {
     const classes = {...useStyles(), ...props.classes};
@@ -36,6 +34,8 @@ function DocsMenuItem({
     const theme = useTheme();
     const pageRoute = typeof page === "string" && createRouteFromName(page);
     const [expanded, setExpanded] = React.useState(defaultExpanded);
+    const context_nesting = useNesting();
+    const nesting = props.nesting || context_nesting;
 
     let highlight = false;
     if (typeof isCurrent === "boolean") {
@@ -61,16 +61,6 @@ function DocsMenuItem({
         }
     }
 
-    function nestedChildren() {
-        return React.Children.map(children, child => {
-            if (React.isValidElement(child)) {
-                return React.cloneElement(child, {nesting: nesting + 1});
-            }
-        });
-    }
-
-    console.log(nesting);
-
     return (
         <React.Fragment>
             <ListItem
@@ -95,7 +85,9 @@ function DocsMenuItem({
             </ListItem>
             {children &&
             <Collapse in={expanded} timeout="auto" unmountOnExit className={classes.collapse}>
-                {nestedChildren()}
+                <NestingContext.Provider value={nesting + 1}>
+                    {children}
+                </NestingContext.Provider>
             </Collapse>
             }
         </React.Fragment>
