@@ -16,7 +16,7 @@ export default function Documentation() {
                 <PagesGroup name={"Getting started"}>
 
                 </PagesGroup>
-                <PagesGroup name={"Demos"}>
+                <PagesGroup name={"Components"}>
                     <DocsPageDemo />
                 </PagesGroup>
                 <PagesGroup name={"APIs"}>
