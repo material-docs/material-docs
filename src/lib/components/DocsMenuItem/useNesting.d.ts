@@ -5,10 +5,12 @@
 
 /// <reference types="react" />
 
+export type NestingContext = number;
+
 /**
  * useNesting - react hook, created to provide elements with nesting information.
  * @function
  * @return number
  */
-declare const useNesting: () => number;
+declare const useNesting: () => NestingContext;
 export default useNesting;
