@@ -5,13 +5,10 @@
 
 /// <reference types="react" />
 
-export interface useNestingType {
-    nesting: number;
-}
-
 /**
  * useNesting - react hook, created to provide elements with nesting information.
  * @function
- * @return useNestingType
+ * @return number
  */
-export declare const useNesting: () => useNestingType;
+declare const useNesting: () => number;
+export default useNesting;
