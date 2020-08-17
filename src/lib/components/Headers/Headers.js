@@ -24,7 +24,7 @@ export function Tagable({children, noTag = false, variant, style, className, noD
     }, [children, ref]);
 
     return (
-        <div className={clsx(classes.root, classes.anchor, className)} id={!noTag && id} style={style}>
+        <div className={clsx(classes.root, classes.anchor, className)} id={noTag ? undefined : id} style={style}>
             <div className={classes.container}>
                 <Typography variant={variant}>
                     {children}

@@ -171,8 +171,6 @@ const DocsLayout = React.forwardRef(({
         setOpen(false);
     };
 
-    console.log(autoMenuData);
-
     return (
         <LangContext.Provider value={{lang, switchLang, langs, onHelpToTranslate}}>
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
@@ -246,11 +244,12 @@ const DocsLayout = React.forwardRef(({
 
 function DocsLayoutProviders({mask, ...props}, ref) {
     const routeMask = typeof mask === "string" ? mask : "/:page";
+    const theme = useTheme();
 
     return (
         <Router>
             <ChangeRouteProvider routeMask={routeMask}>
-                <MuiThemeProvider>
+                <MuiThemeProvider theme={theme}>
                     <SnackbarProvider
                         maxSnack={3}
                         anchorOrigin={{

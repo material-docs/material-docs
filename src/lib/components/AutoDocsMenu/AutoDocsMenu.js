@@ -20,13 +20,13 @@ function AutoDocsMenu({layoutData, ...props}, ref) { //TODO: add ref
         return (
             <React.Fragment>
                 {layout.groups.map(group => (
-                    <DocsMenuItem textPrimary={group.name}>
+                    <DocsMenuItem textPrimary={group.name} key={`auto-docs-menu-item-${group.name}`}>
                         {/*TODO: fix menu no nesting*/}
                         {recursiveGenerateMenu(group)}
                     </DocsMenuItem>
                 ))}
                 {layout.pages.map(page => (
-                    <DocsMenuItem page={page.name}/>
+                    <DocsMenuItem page={page.name} key={`auto-docs-menu-item-${page.link}`}/>
                 ))}
             </React.Fragment>
         );

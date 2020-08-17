@@ -16,20 +16,21 @@ import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {useTheme} from "@material-ui/core";
 
-export default function DocsMenuItem({
-                                         children,
-                                         defaultExpanded = false,
-                                         textPrimary = "",
-                                         textSecondary = "",
-                                         icon,
-                                         onClick,
-                                         page,
-                                         isCurrent,
-                                         className,
-                                         style,
-                                         nesting = 0,
-                                         ...props
-                                     }) {
+//TODO: change nesting method to context.
+function DocsMenuItem({
+                          children,
+                          defaultExpanded = false,
+                          textPrimary = "",
+                          textSecondary = "",
+                          icon,
+                          onClick,
+                          page,
+                          isCurrent,
+                          className,
+                          style,
+                          nesting = 0,
+                          ...props
+                      }, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute, getRouteParams} = useChangeRoute();
     const theme = useTheme();
@@ -45,7 +46,7 @@ export default function DocsMenuItem({
         highlight = true;
     }
 
-    let paddingShift = nesting*2 + 2;
+    let paddingShift = nesting * 2 + 2;
     if (paddingShift > 16) paddingShift = 16;
 
     function handleOpen() {
@@ -68,6 +69,8 @@ export default function DocsMenuItem({
         });
     }
 
+    console.log(nesting);
+
     return (
         <React.Fragment>
             <ListItem
@@ -76,6 +79,7 @@ export default function DocsMenuItem({
                 {...props}
                 className={clsx(classes.root, highlight && classes.highlighted, className)}
                 style={{paddingLeft: theme.spacing(paddingShift), ...style}}
+                ref={ref}
             >
                 {icon &&
                 <ListItemIcon>
@@ -97,3 +101,5 @@ export default function DocsMenuItem({
         </React.Fragment>
     );
 }
+
+export default React.forwardRef(DocsMenuItem);
