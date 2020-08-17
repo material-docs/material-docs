@@ -11,7 +11,7 @@ import NavigationList from "./NavigationList";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./styles";
-import {useSearch} from "../../layout/DocsLayout";
+import useSearch from "../../layout/useSearch";
 import useGroups from "../PagesGroup/useGroups";
 
 const TaggingContext = React.createContext({

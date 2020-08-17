@@ -5,12 +5,6 @@
 
 import React from "react";
 import useGroups, {GroupsContext} from "./useGroups";
-import {
-    addGroup as _addGroup,
-    deleteGroup as _deleteGroup,
-    addPage as _addPage,
-    deletePage as _deletePage
-} from "./useGroups_functions";
 
 function PagesGroup({name, children, getData, ...props}, ref) {
     if (getData && typeof getData !== "function")
@@ -29,23 +23,68 @@ function PagesGroup({name, children, getData, ...props}, ref) {
 //        return () => !getData && deleteGroup(group);
     }, [name, pages, groups]);
 
-    const __addPage = page => _addPage(page, setPages);
+    function _addPage(page) {
+        if (typeof page !== "object")
+            throw new TypeError(`MaterialDocs: incorrect page type, expected {name: string, link: string | object}, got ${typeof page}`);
+        if (typeof page.name !== "string")
+            throw new TypeError(`MaterialDocs: incorrect page.name type, expected string, got ${typeof page.name}`);
+        if (typeof page.link !== "string")
+            throw new TypeError(`MaterialDocs: incorrect page.link type, expected string, got ${typeof page.name}`);
+        setPages(prev => {
+            const newPages = prev.map(item => item.name === page.name ? null : item).filter(item => item);
+            newPages.push(page);
+            return newPages;
+        });
+    }
 
-    const __deletePage = page => _deletePage(page, setPages);
+    function _deletePage(page) {
+        if (!(typeof page === "object" || typeof page === "string"))
+            throw new TypeError(`MaterialDocs: incorrect page type, expected {name: string, link?: string | object} | string, got ${typeof page}`);
 
-    const __addGroup = page => _addGroup(page, setGroups);
+        if (typeof page === "object" && typeof page.name !== "string")
+            throw new TypeError(`MaterialDocs: incorrect page.name type, expected string, got ${typeof page.name}`);
+        setPages(prev => {
+            const name = typeof page === "object" ? page.name : page;
+            return prev.map(item => item.name === name ? item : null).filter(item => item);
+        });
+    }
 
-    const __deleteGroup = page => _deleteGroup(page, setGroups);
+    function _addGroup(group) {
+        if (typeof group !== "object")
+            throw new TypeError(`MaterialDocs: incorrect group type, expected {name: string, pages: any[], groups: any[]}, got ${typeof group}`);
+        if (typeof group.name !== "string")
+            throw new TypeError(`MaterialDocs: incorrect group.name type, expected string, got ${typeof group.name}`);
+        if (!Array.isArray(group.pages))
+            throw new TypeError(`MaterialDocs: incorrect group.pages type, expected any[], got ${typeof group.pages}`);
+        if (!Array.isArray(group.groups))
+            throw new TypeError(`MaterialDocs: incorrect group.groups type, expected any[], got ${typeof group.groups}`);
+        setGroups(prev => {
+            const newGroups = prev.map(item => item.name === group.name ? null : item).filter(item => item);
+            newGroups.push(group);
+            return newGroups;
+        });
+    }
+
+    function _deleteGroup(group) {
+        if (!(typeof group === "object" || typeof group === "string"))
+            throw new TypeError(`MaterialDocs: incorrect group type, expected {name: string, pages: any[], groups: any[]} | string, got ${typeof group}`);
+        if (typeof group === "object" && typeof group.name !== "string")
+            throw new TypeError(`MaterialDocs: incorrect group.name type, expected string, got ${typeof group.name}`);
+        setGroups(prev => {
+            const name = typeof group === "object" ? group.name : group;
+            return prev.map(item => item.name === name ? item : null).filter(item => item);
+        });
+    }
 
     return (
         <GroupsContext.Provider value={{
             pages,
             groups,
             name,
-            addPage: __addPage,
-            deletePage: __deletePage,
-            addGroup: __addGroup,
-            deleteGroup: __deleteGroup,
+            addPage: _addPage,
+            deletePage: _deletePage,
+            addGroup: _addGroup,
+            deleteGroup: _deleteGroup,
         }}>
             {children}
         </GroupsContext.Provider>

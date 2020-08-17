@@ -29,57 +29,9 @@ import SearchField from "../components/SearchField";
 import LanguageSelector from "../components/LanguageSelector";
 import PagesGroup from "../components/PagesGroup";
 import AutoDocsMenu from "../components/AutoDocsMenu";
+import {LangContext} from "./useLang"
+import {SearchContext} from "./useSearch";
 
-const SearchContext = React.createContext({
-    /**
-     * addSearchItem - adds SearchDataItem to storage.
-     * @function
-     * @param {SearchDataItem} item
-     */
-    addSearchItem: (item) => {
-    },
-    /**
-     * removeSearchItem - removes SearchDataItem to storage.
-     * @function
-     * @param {SearchDataItem} item
-     */
-    removeSearchItem: (item) => {
-    },
-    /**
-     * getSearchData - returns search data list.
-     * @type SearchDataItem[]
-     */
-    getSearchData: () => {
-    }
-});
-
-const LangContext = React.createContext({
-    /**
-     * switchLang - function, designed to change language settings.
-     * @function
-     * @param {Lang} lang
-     * @async
-     */
-    switchLang: async (lang) => {
-    },
-    /**
-     * lang - currently selected language.
-     * @type Lang
-     */
-    lang: null,
-    /**
-     * langs - array of all available langs.
-     * @type Lang[]
-     */
-    langs: [],
-    /**
-     * onHelpToTranslate - function, called on help to translate button click. If not defined - button will not be rendered.
-     * @function
-     * @param {Lang} lang
-     */
-    onHelpToTranslate: (lang) => {
-    },
-});
 
 const DocsLayout = React.forwardRef(({
                                          children,
@@ -266,5 +218,3 @@ function DocsLayoutProviders({mask, ...props}, ref) {
 }
 
 export default React.forwardRef(DocsLayoutProviders);
-export const useSearch = () => React.useContext(SearchContext);
-export const useLang = () => React.useContext(LangContext);
