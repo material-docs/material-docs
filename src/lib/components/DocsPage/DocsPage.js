@@ -11,28 +11,9 @@ import NavigationList from "./NavigationList";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./styles";
-import useSearch from "../../hooks/useSearch/useSearch";
-import useGroups from "../../hooks/useGroups/useGroups";
-
-const TaggingContext = React.createContext({
-    /**
-     * setTag - function, designed to add or remove tagable element in page.
-     * @function
-     * @param {string} key
-     * @param {{ref: RefObject<T>, label: string}} value
-     * @example
-     * const {setTag} = useTags();
-     * setTag("my-object-key", {label: "my label", ref: ObjectRef});
-     */
-    setTag: (key, value) => {
-        throw new ReferenceError("MaterialDocs: This function (setTag) hasn't been initialized yet. Maybe, you forget to call hook useTags() inside TaggingContext.Provider")
-    },
-    /**
-     * tags - all registered tags in page
-     * @type any
-     */
-    tags: {},
-});
+import useSearch from "../../hooks/useSearch";
+import useGroups from "../../hooks/useGroups";
+import {TaggingContext} from "../../hooks/useTags";
 
 export default function DocsPage({
                                      name = "home",
@@ -127,12 +108,4 @@ export default function DocsPage({
         </Route>
     );
 }
-
-/**
- * useTags - React hook, used to provide tagable mechanism.
- * @returns {{setTag: setTag, tags: *}}
- * @example
- * const {setTag} = useTags();
- */
-export const useTags = () => React.useContext(TaggingContext);
 

@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import useGroups, {GroupsContext} from "../../hooks/useGroups/useGroups";
+import useGroups, {GroupsContext} from "../../hooks/useGroups";
 
 function PagesGroup({name, children, getData, ...props}, ref) {
     if (getData && typeof getData !== "function")

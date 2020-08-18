@@ -10,7 +10,7 @@ import createRouteFromName from "../../utils/createRouteFromName";
 import {useStyles} from "./styles";
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import clsx from "clsx";
-import {useTags} from "../DocsPage/DocsPage";
+import useTags from "../../hooks/useTags";
 
 export function Tagable({children, noTag = false, variant, style, className, noDivider = false, ...props}) {
     const {setTag} = useTags();

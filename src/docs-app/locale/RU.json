@@ -4,16 +4,16 @@
   "locale": {
     "pages": {
       "DocsPageAPI": {
-        "pageAbout": "The API documentation of the DocsPage React component. Learn more about the props and the CSS customization points.",
-        "ComponentNameHeader": "Component name",
-        "ComponentNameText": "The DocsPage name can be used for providing default props or style overriders at the theme level.",
+        "pageAbout": "API документация компонента React DocsPage. Узнайте больше о props и кастомизации CSS.",
+        "ComponentNameHeader": "Имя компонента",
+        "ComponentNameText": "Имя  DocsPage может быть использовано для для обемпеччения значений по умолчанию для props или переопределения стилей на уровне темы.",
         "props": {
-          "name": "Page name. Route will be generated automatically from name.",
-          "searchTags": "Keywords for search engine.",
-          "searchLabel": "Label text, displayed in search result if page match search requirements.",
-          "searchDescription": "Description text, displayed in search result if page match search requirements.",
-          "noGenerateAutoSearch": "If true, page will not generate search items from pages automatically.",
-          "noAutoMenu": "If true, page will not participate in auto menu generation."
+          "name": "Название страницы. Route будет сгенерирован автоматически из имени.",
+          "searchTags": "Ключевые слова для поиска.",
+          "searchLabel": "Название страницы, которое будет показано в поиске, если страница будет соответствовать условиям поиска.",
+          "searchDescription": "Описание, которое будет показываться вместе с названием страницы, когда она будет соответствовать условиям поиска.",
+          "noGenerateAutoSearch": "Если true, страница не будет генерировать информацию для поиска.",
+          "noAutoMenu": "Если true, страница не будет участвовать в автоматическом создании меню."
         },
         "css": {
           "root": "Стили, примеённые к корневому компоненту.",
@@ -34,7 +34,13 @@
         "customizationRule": "С помощью имени правила в ",
         "customizationClass": "С помощью",
         "customizationTheme": "С помощью темы и",
-        "customizationFooterText": "Если этого недостаточно, Вы можете посмотреть реализацию кода для большей инфрмации."
+        "customizationFooterText": "Если этого недостаточно, Вы можете посмотреть реализацию кода для большей инфрмации.",
+        "ruleName": "Название правила",
+        "ruleDescription": "Описание",
+        "propName": "Название",
+        "propType": "Тип",
+        "propDefault": "По умолчанию",
+        "propDescription": "Описание"
       }
     }
   }

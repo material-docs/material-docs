@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default, LangContext} from "./useLang"
+export {default, TaggingContext} from "./useTags"

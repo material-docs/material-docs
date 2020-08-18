@@ -33,7 +33,7 @@ export default function DocsPageAPI() {
             <Code language={"javascript"} theme={"darcula"}>
                 {`import {DocsPage} from "@danilandreev/material-docs"`}
             </Code>
-            <H2>{locale.ComponentNameHeader}</H2>
+            <H2>ComponentName</H2>
             {locale.ComponentNameText}
             <H2>Props</H2>
             <Table>

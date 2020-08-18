@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export * from "./useSearch"
+export {default, SearchContext} from "./useSearch"

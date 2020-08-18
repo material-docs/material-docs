@@ -12,7 +12,7 @@ import Button from "@material-ui/core/Button";
 import TranslateIcon from '@material-ui/icons/Translate';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import Divider from "@material-ui/core/Divider";
-import useLang from "../../hooks/useLang/useLang";
+import useLang from "../../hooks/useLang";
 
 
 function LanguageSelector({...props}, ref) {

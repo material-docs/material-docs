@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default, useTags} from "./DocsPage";
+export {default} from "./DocsPage";

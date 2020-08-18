@@ -4,7 +4,6 @@
  */
 
 import React from "react";
-import DocsMenu from "../DocsMenu";
 import DocsMenuItem from "../DocsMenuItem/DocsMenuItem";
 
 function AutoDocsMenu({layoutData, ...props}, ref) { //TODO: add ref

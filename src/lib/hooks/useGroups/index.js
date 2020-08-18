@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export * from "./useGroups"
+export {default, GroupsContext} from "./useGroups"
