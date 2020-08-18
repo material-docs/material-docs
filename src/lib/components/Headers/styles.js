@@ -38,5 +38,23 @@ export const useStyles = makeStyles((theme) => ({
     },
     divider: {
         marginBottom: theme.spacing(1),
-    }
+    },
+    h1: {
+        fontSize: "2.8rem",
+    },
+    h2: {
+        fontSize: "2rem",
+    },
+    h3: {
+        fontSize: "1.5rem",
+    },
+    h4: {
+        fontSize: "1.2rem",
+    },
+    h5: {
+        fontSize: "0.9rem",
+    },
+    h6: {
+        fontSize: "0.6rem",
+    },
 }));
