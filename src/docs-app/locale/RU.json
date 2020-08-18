@@ -1,0 +1,37 @@
+{
+  "name": "russian",
+  "label": "Русский",
+  "locale": {
+    "pages": {
+      "DocsPageAPI": {
+        "pageAbout": "The API documentation of the DocsPage React component. Learn more about the props and the CSS customization points.",
+        "ComponentNameHeader": "Component name",
+        "ComponentNameText": "The DocsPage name can be used for providing default props or style overriders at the theme level.",
+        "props": {
+          "name": "Page name. Route will be generated automatically from name.",
+          "searchTags": "Keywords for search engine.",
+          "searchLabel": "Label text, displayed in search result if page match search requirements.",
+          "searchDescription": "Description text, displayed in search result if page match search requirements.",
+          "noGenerateAutoSearch": "If true, page will not generate search items from pages automatically.",
+          "noAutoMenu": "If true, page will not participate in auto menu generation."
+        },
+        "css": {
+          "root": "Styles applied to the root element.",
+          "contentItem": "Styles applied to the item element of content panel.",
+          "contentItemActive": "Styles applied to the item element of content panel if it is active.",
+          "contentLink": "Styles applied to the link of item element of content panel.",
+          "copyright": "Styles applied copyright panel if it shown."
+        },
+        "customizationText": "Вы можете переопределить стиль компонента следующими способами:",
+        "customizationRule": "С помощью имени правила в ",
+        "customizationClass": "С помощью",
+        "customizationTheme": "С помощью темы и",
+        "customizationFooterText": "Если этого недостаточно, Вы можете посмотреть реализацию кода для большей инфрмации."
+      }
+    },
+    "common": {
+      "Props": "Props",
+      "Import": "Импорт"
+    }
+  }
+}

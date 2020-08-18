@@ -10,7 +10,7 @@ export default interface Lang {
      */
     name: string;
     /**
-     * label - language name
+     * label - language label.
      */
     label: string;
     /**

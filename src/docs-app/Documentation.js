@@ -10,9 +10,16 @@ import PagesGroup from "../lib/components/PagesGroup/PagesGroup";
 import DocsPageDemo from "./pages/Components/DocsPageDemo";
 import DocsPageAPI from "./pages/APIs/DocsPageAPI";
 
+import RU from "./locale/RU.json";
+import EN from "./locale/EN.json";
+import useLang from "../lib/hooks/useLang/useLang";
+
+
 export default function Documentation() {
+    const {lang} = useLang();
+    console.log(lang);
     return(
-        <DocsLayout autoMenu>
+        <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]}>
             <DocsPages>
                 <PagesGroup name={"Getting started"}>
 

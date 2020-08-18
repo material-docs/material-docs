@@ -115,9 +115,27 @@ export default function DocsPageAPI() {
             </Table>
             You can override the style of the component thanks to one of these customization points:
             <List>
-                <ListItem>With a rule name of the classes object prop.</ListItem>
-                <ListItem>With a global class name.</ListItem>
-                <ListItem>With a theme and an overrides property.</ListItem>
+                <ListItem>
+                    With a rule name of the&nbsp;
+                    <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-classes"}>
+                        classes object prop
+                    </Link>
+                    .
+                </ListItem>
+                <ListItem>
+                    With a&nbsp;
+                    <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-global-class-names"}>
+                        global class name
+                    </Link>
+                    .
+                </ListItem>
+                <ListItem>
+                    With a theme and an&nbsp;
+                    <Link href={"https://material-ui.com/customization/globals/#css"}>
+                        overrides property
+                    </Link>
+                    .
+                </ListItem>
             </List>
             If that's not sufficient, you can check the implementation of the component for more detail.
             <H2>Demos</H2>

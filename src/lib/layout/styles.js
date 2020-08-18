@@ -10,6 +10,7 @@ const drawerWidth = 300;
 export const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        letterSpacing: "0.01em",
     },
     appBar: {
         transition: theme.transitions.create(['margin', 'width'], {
