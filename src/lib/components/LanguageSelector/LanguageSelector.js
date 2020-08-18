@@ -38,7 +38,7 @@ function LanguageSelector({...props}, ref) {
                 onClick={event => setOpened(true)}
             >
                 <TranslateIcon/>
-                English
+                {lang.label}
                 <KeyboardArrowDownIcon/>
             </Button>
             <Menu

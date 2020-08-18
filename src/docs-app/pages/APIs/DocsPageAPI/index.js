@@ -15,24 +15,28 @@ import TableCell from "@material-ui/core/TableCell";
 import List from "../../../../lib/components/List/List";
 import ListItem from "../../../../lib/components/ListItem/ListItem";
 import {Link} from "@material-ui/core";
+import useLang from "../../../../lib/hooks/useLang/useLang";
 
 export default function DocsPageAPI() {
-    return(
+    const {lang} = useLang();
+    const locale = lang.locale.pages.DocsPageAPI;
+    const localeCommon = lang.locale.common;
+    console.log(lang);
+    return (
         <DocsPage
             name={"DocsPage API"}
             searchDescription={"DocsPage - react component, designed to provide user with page functional"}
         >
             <H1 noDivider>Alert API</H1>
             <H3 noDivider noTag>
-                The API documentation of the DocsPage React component.
-                Learn more about the props and the CSS customization points.
+                {locale.pageAbout}
             </H3>
-            <H2>Import</H2>
+            <H2>{localeCommon.Import}</H2>
             <Code language={"javascript"} theme={"darcula"}>
                 {`import {DocsPage} from "@danilandreev/material-docs"`}
             </Code>
-            <H2>Component name</H2>
-            The DocsPage name can be used for providing default props or style overriders at the theme level.
+            <H2>{locale.ComponentNameHeader}</H2>
+            {locale.ComponentNameText}
             <H2>Props</H2>
             <Table>
                 <TableHead>
@@ -48,37 +52,37 @@ export default function DocsPageAPI() {
                         <TableCell>name</TableCell>
                         <TableCell>string</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>Page name. Route will be generated automatically from name.</TableCell>
+                        <TableCell>{locale.props.name}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>searchTags</TableCell>
                         <TableCell>string[]</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>Keywords for search engine.</TableCell>
+                        <TableCell>{locale.props.searchTags}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>searchLabel</TableCell>
                         <TableCell>string</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>Label text, displayed in search result if page match search requirements.</TableCell>
+                        <TableCell>{locale.props.searchLabel}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>searchDescription</TableCell>
                         <TableCell>string</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>Description text, displayed in search result if page match search requirements.</TableCell>
+                        <TableCell>{locale.props.searchDescription}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>noGenerateAutoSearch</TableCell>
                         <TableCell>boolean</TableCell>
                         <TableCell>false</TableCell>
-                        <TableCell>If true, page will not generate search items from pages automatically.</TableCell>
+                        <TableCell>{locale.props.noGenerateAutoSearch}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>noAutoMenu</TableCell>
                         <TableCell>boolean</TableCell>
                         <TableCell>false</TableCell>
-                        <TableCell>If true, page will not participate in auto menu generation.</TableCell>
+                        <TableCell>{locale.props.noAutoMenu}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -93,51 +97,52 @@ export default function DocsPageAPI() {
                 <TableBody>
                     <TableRow>
                         <TableCell>root</TableCell>
-                        <TableCell>Styles applied to the root element.</TableCell>
+                        <TableCell>{locale.css.root}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>contentItem</TableCell>
-                        <TableCell>Styles applied to the item element of content panel.</TableCell>
+                        <TableCell>{locale.css.contentItem}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>contentItemActive</TableCell>
-                        <TableCell>Styles applied to the item element of content panel if it is active.</TableCell>
+                        <TableCell>{locale.css.contentItemActive}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>contentLink</TableCell>
-                        <TableCell>Styles applied to the link of item element of content panel.</TableCell>
+                        <TableCell>{locale.css.contentLink}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>copyright</TableCell>
-                        <TableCell>Styles applied copyright panel if it shown.</TableCell>
+                        <TableCell>{locale.css.copyright}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
-            You can override the style of the component thanks to one of these customization points:
+            {locale.customizationText}
             <List>
                 <ListItem>
-                    With a rule name of the&nbsp;
+                    {locale.customizationRule}&nbsp;
                     <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-classes"}>
                         classes object prop
                     </Link>
                     .
                 </ListItem>
                 <ListItem>
-                    With a&nbsp;
-                    <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-global-class-names"}>
+                    {locale.customizationClass}&nbsp;
+                    <Link
+                        href={"https://material-ui.com/customization/components/#overriding-styles-with-global-class-names"}>
                         global class name
                     </Link>
                     .
                 </ListItem>
                 <ListItem>
-                    With a theme and an&nbsp;
+                    {locale.customizationTheme}&nbsp;
                     <Link href={"https://material-ui.com/customization/globals/#css"}>
                         overrides property
                     </Link>
                     .
                 </ListItem>
             </List>
-            If that's not sufficient, you can check the implementation of the component for more detail.
+            {locale.customizationFooterText}
             <H2>Demos</H2>
             <List>
                 <ListItem><Link>DocsPages</Link></ListItem>

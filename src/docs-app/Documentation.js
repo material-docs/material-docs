@@ -16,8 +16,6 @@ import useLang from "../lib/hooks/useLang/useLang";
 
 
 export default function Documentation() {
-    const {lang} = useLang();
-    console.log(lang);
     return(
         <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]}>
             <DocsPages>
