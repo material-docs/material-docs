@@ -9,8 +9,6 @@ import {grey} from "@material-ui/core/colors";
 export const useStyles = makeStyles((theme) => ({
     root: {},
     container: {
-        marginTop:  theme.spacing(1),
-        marginBottom: theme.spacing(0.5),
         position: "relative",
     },
     tagHook: {
