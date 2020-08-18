@@ -31,6 +31,7 @@ import PagesGroup from "../components/PagesGroup";
 import AutoDocsMenu from "../components/AutoDocsMenu";
 import {LangContext} from "../hooks/useLang/useLang"
 import {SearchContext} from "../hooks/useSearch/useSearch";
+import * as _ from "lodash";
 
 
 const DocsLayout = React.forwardRef(({
@@ -51,7 +52,7 @@ const DocsLayout = React.forwardRef(({
     const [autoMenuData, setAutoMenuData] = React.useState({});
 
     async function switchLang(inputLang) {
-        let newLang = inputLang;
+        let newLang = {...inputLang};
         if (typeof inputLang !== "object")
             throw new TypeError(`MaterialDocs: incorrect type of lang, expected Lang, got ${typeof inputLang}`);
         if (typeof inputLang.name !== "string")
@@ -67,10 +68,16 @@ const DocsLayout = React.forwardRef(({
             } catch (error) {
                 throw new Promise.Error(`MaterialDocs: failed to load lang. loadLang error: ${error.message()}`);
             }
-            newLang.locale = locale;
+            if (lang) {
+                newLang.locale = _.cloneDeep(defaultLang.locale);
+                _.merge(newLang.locale, locale);
+            } else {
+                newLang.locale = locale;
+            }
         } else {
             if (lang) {
-                newLang.locale = {...lang.locale, ...inputLang.locale};
+                newLang.locale = _.cloneDeep(defaultLang.locale);
+                _.merge(newLang.locale, inputLang.locale);
             }
         }
         setLang(newLang);

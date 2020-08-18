@@ -16,22 +16,26 @@
           "noAutoMenu": "If true, page will not participate in auto menu generation."
         },
         "css": {
-          "root": "Styles applied to the root element.",
-          "contentItem": "Styles applied to the item element of content panel.",
-          "contentItemActive": "Styles applied to the item element of content panel if it is active.",
-          "contentLink": "Styles applied to the link of item element of content panel.",
-          "copyright": "Styles applied copyright panel if it shown."
-        },
+          "root": "Стили, примеённые к корневому компоненту.",
+          "contentItem": "Стили, применённые к элементу item панели содержания.",
+          "contentItemActive": "Стили, применённые к компоненту item панели соержания, если она отображается.",
+          "contentLink": "Стили, применённые к компоненту link элемента item панели содержания.",
+          "copyright": "Стили, применённые к панели copyright, если она отображается."
+        }
+      }
+    },
+    "common": {
+      "spells": {
+        "Props": "Props",
+        "Import": "Импорт"
+      },
+      "ComponentAPI": {
         "customizationText": "Вы можете переопределить стиль компонента следующими способами:",
         "customizationRule": "С помощью имени правила в ",
         "customizationClass": "С помощью",
         "customizationTheme": "С помощью темы и",
         "customizationFooterText": "Если этого недостаточно, Вы можете посмотреть реализацию кода для большей инфрмации."
       }
-    },
-    "common": {
-      "Props": "Props",
-      "Import": "Импорт"
     }
   }
 }

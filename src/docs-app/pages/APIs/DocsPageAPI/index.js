@@ -20,18 +20,16 @@ import useLang from "../../../../lib/hooks/useLang/useLang";
 export default function DocsPageAPI() {
     const {lang} = useLang();
     const locale = lang.locale.pages.DocsPageAPI;
-    const localeCommon = lang.locale.common;
-    console.log(lang);
+    const localeSpells = lang.locale.common.spells;
+    const componentAPILocale = lang.locale.common.ComponentAPI;
     return (
         <DocsPage
             name={"DocsPage API"}
-            searchDescription={"DocsPage - react component, designed to provide user with page functional"}
+            searchDescription={locale.pageSearchDescription}
         >
             <H1 noDivider>Alert API</H1>
-            <H3 noDivider noTag>
-                {locale.pageAbout}
-            </H3>
-            <H2>{localeCommon.Import}</H2>
+            <H3 noDivider noTag>{locale.pageAbout}</H3>
+            <H2>Import</H2>
             <Code language={"javascript"} theme={"darcula"}>
                 {`import {DocsPage} from "@danilandreev/material-docs"`}
             </Code>
@@ -41,10 +39,10 @@ export default function DocsPageAPI() {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Type</TableCell>
-                        <TableCell>Default</TableCell>
-                        <TableCell>Description</TableCell>
+                        <TableCell>{componentAPILocale.propName}</TableCell>
+                        <TableCell>{componentAPILocale.propType}</TableCell>
+                        <TableCell>{componentAPILocale.propDefault}</TableCell>
+                        <TableCell>{componentAPILocale.propDescription}</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -90,8 +88,8 @@ export default function DocsPageAPI() {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Rule name</TableCell>
-                        <TableCell>Description</TableCell>
+                        <TableCell>{componentAPILocale.ruleName}</TableCell>
+                        <TableCell>{componentAPILocale.ruleDescription}</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -117,17 +115,17 @@ export default function DocsPageAPI() {
                     </TableRow>
                 </TableBody>
             </Table>
-            {locale.customizationText}
+            {componentAPILocale.customizationText}
             <List>
                 <ListItem>
-                    {locale.customizationRule}&nbsp;
+                    {componentAPILocale.customizationRule}&nbsp;
                     <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-classes"}>
                         classes object prop
                     </Link>
                     .
                 </ListItem>
                 <ListItem>
-                    {locale.customizationClass}&nbsp;
+                    {componentAPILocale.customizationClass}&nbsp;
                     <Link
                         href={"https://material-ui.com/customization/components/#overriding-styles-with-global-class-names"}>
                         global class name
@@ -135,14 +133,14 @@ export default function DocsPageAPI() {
                     .
                 </ListItem>
                 <ListItem>
-                    {locale.customizationTheme}&nbsp;
+                    {componentAPILocale.customizationTheme}&nbsp;
                     <Link href={"https://material-ui.com/customization/globals/#css"}>
                         overrides property
                     </Link>
                     .
                 </ListItem>
             </List>
-            {locale.customizationFooterText}
+            {componentAPILocale.customizationFooterText}
             <H2>Demos</H2>
             <List>
                 <ListItem><Link>DocsPages</Link></ListItem>
