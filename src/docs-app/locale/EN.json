@@ -31,6 +31,11 @@
         "Import": "Import"
       },
       "ComponentAPI": {
+        "importDifferenceText": {
+          "text1": "You can learn more about the difference by",
+          "link1": "reading this guide",
+          "text2": "."
+        },
         "customizationText": "You can override the style of the component thanks to one of these customization points:",
         "customizationRule": "With a rule name of the ",
         "customizationClass": "With a",

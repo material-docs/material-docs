@@ -30,6 +30,11 @@
         "Import": "Импорт"
       },
       "ComponentAPI": {
+        "importDifferenceText": {
+          "text1": "Вы можете узнать больше о разнице, ",
+          "link1": "прочитав этот гайд",
+          "text2": "."
+        },
         "customizationText": "Вы можете переопределить стиль компонента следующими способами:",
         "customizationRule": "С помощью имени правила в ",
         "customizationClass": "С помощью",

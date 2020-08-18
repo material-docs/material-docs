@@ -10,9 +10,12 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import {blueGrey, grey} from "@material-ui/core/colors";
 import clsx from "clsx";
 import {useStyles} from "./styles";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
 
 
 function Code({children, language = 'javascript', theme = 'light', style, className}, ref) {
+    const classes = useStyles();
+    const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
     const codeRef = React.useRef(null);
 
@@ -56,11 +59,10 @@ function Code({children, language = 'javascript', theme = 'light', style, classN
     }
 
 //    console.log(SyntaxHighlighter.supportedLanguages.map(item => `"${item}"`).join(" | "));
-    const classes = useStyles();
     return (
         <Paper
             style={{backgroundColor: codeStyle.background, height, ...style}}
-            className={clsx(classes.root, className)}
+            className={clsx(commonClasses.pageBlock, classes.root, className)}
             elevation={0}
             ref={ref}
         >

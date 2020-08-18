@@ -20,16 +20,18 @@ import {useSnackbar} from "notistack";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
 
 function DemoWithCode({children, defaultExpanded, code, name, theme, noTag = false, paperContainer = false, actions, ...props}, ref) {
     const classes = useStyles();
+    const commonClasses = useCommonStyles();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);
     const [menuOpen, setMenuOpen] = React.useState(false);
     const {enqueueSnackbar} = useSnackbar();
 
     return (
-        <Box>
+        <Box className={commonClasses.pageBlock}>
             {name &&
             <H3 noDivider noTag={noTag}>{name}</H3>
             }

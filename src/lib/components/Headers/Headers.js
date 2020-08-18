@@ -11,10 +11,12 @@ import {useStyles} from "./styles";
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import clsx from "clsx";
 import useTags from "../../hooks/useTags";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
 
 export function Tagable({children, noTag = false, variant, style, className, noDivider = false, ...props}) {
     const {setTag} = useTags();
     const classes = {...useStyles(), ...props.classes};
+    const commonClasses = useCommonStyles();
     const id = props.id || (typeof children === "string" && createRouteFromName(children));
     const ref = React.useRef(null);
     const typographyClasses = {h1: classes.h1, h2: classes.h2, h3: classes.h3, h4: classes.h4, h5: classes.h5}
@@ -25,7 +27,11 @@ export function Tagable({children, noTag = false, variant, style, className, noD
     }, [children, ref]);
 
     return (
-        <div className={clsx(classes.root, classes.anchor, className)} id={noTag ? undefined : id} style={style}>
+        <div
+            className={clsx(commonClasses.pageBlock, classes.root, classes.anchor, className)}
+            id={noTag ? undefined : id}
+            style={style}
+        >
             <div className={classes.container}>
                 <Typography variant={variant} classes={typographyClasses}>
                     {children}

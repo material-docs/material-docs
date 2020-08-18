@@ -14,6 +14,7 @@ import {useStyles} from "./styles";
 import useSearch from "../../hooks/useSearch";
 import useGroups from "../../hooks/useGroups";
 import {TaggingContext} from "../../hooks/useTags";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
 
 export default function DocsPage({
                                      name = "home",
@@ -25,6 +26,7 @@ export default function DocsPage({
                                      children
                                  }) {
     const classes = useStyles();
+    const commonClasses = useCommonStyles();
     const pagePath = createRouteFromName(name);
     const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
@@ -59,7 +61,7 @@ export default function DocsPage({
 
     function insertTagCallbacksInChildren(source) {
         return React.Children.map(source, child => {
-            if (typeof child === "string") return <Typography>{child}</Typography>
+            if (typeof child === "string") return <Typography className={commonClasses.pageBlock}>{child}</Typography>;
             return child;
         });
     }

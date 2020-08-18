@@ -5,8 +5,10 @@
 
 import React from "react";
 import marked from "marked";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
 
 function Markdown({file, children, ...props}, ref) {
+    const commonClasses = useCommonStyles();
     const [text, setText] = React.useState("");
     const [html, setHtml] = React.useState(null);
 
@@ -24,7 +26,7 @@ function Markdown({file, children, ...props}, ref) {
     }, [text]);
 
     return (
-        <div ref={ref} dangerouslySetInnerHTML={{__html: html}} />
+        <div ref={ref} dangerouslySetInnerHTML={{__html: html}} className={commonClasses.pageBlock}/>
     );
 }
 

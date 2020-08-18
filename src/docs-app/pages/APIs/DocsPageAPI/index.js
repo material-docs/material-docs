@@ -16,6 +16,13 @@ import List from "../../../../lib/components/List/List";
 import ListItem from "../../../../lib/components/ListItem/ListItem";
 import {Link} from "@material-ui/core";
 import useLang from "../../../../lib/hooks/useLang/useLang";
+import Typography from "@material-ui/core/Typography";
+
+const importCode = `
+import {DocsPage} from "@danilandreev/material-docs";
+// or
+import DocsPage from "@danilandreev/material-docs/components/DocsPage";
+`.trim();
 
 export default function DocsPageAPI() {
     const {lang} = useLang();
@@ -25,14 +32,22 @@ export default function DocsPageAPI() {
     return (
         <DocsPage
             name={"DocsPage API"}
+            searchTags={["docs", "page", "api"]}
             searchDescription={locale.pageSearchDescription}
         >
             <H1 noDivider>Alert API</H1>
             <H3 noDivider noTag>{locale.pageAbout}</H3>
             <H2>Import</H2>
             <Code language={"javascript"} theme={"darcula"}>
-                {`import {DocsPage} from "@danilandreev/material-docs"`}
+                {importCode}
             </Code>
+            <Typography>
+                {componentAPILocale.importDifferenceText.text1}&nbsp;
+                <Link href={"https://material-ui.com/guides/minimizing-bundle-size/"}>
+                    {componentAPILocale.importDifferenceText.link1}
+                </Link>
+                {componentAPILocale.importDifferenceText.text2}
+            </Typography>
             <H2>ComponentName</H2>
             {locale.ComponentNameText}
             <H2>Props</H2>
