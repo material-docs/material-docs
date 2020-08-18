@@ -7,7 +7,8 @@ import React from "react";
 import DocsLayout from "../lib/layout/DocsLayout";
 import DocsPages from "../lib/components/DocsPages";
 import PagesGroup from "../lib/components/PagesGroup/PagesGroup";
-import DocsPageDemo from "./pages/DocsPageDemo";
+import DocsPageDemo from "./pages/Components/DocsPageDemo";
+import DocsPageAPI from "./pages/APIs/DocsPageAPI";
 
 export default function Documentation() {
     return(
@@ -20,7 +21,7 @@ export default function Documentation() {
                     <DocsPageDemo />
                 </PagesGroup>
                 <PagesGroup name={"APIs"}>
-
+                    <DocsPageAPI />
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>
