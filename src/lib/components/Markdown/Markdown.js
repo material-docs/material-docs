@@ -6,27 +6,29 @@
 import React from "react";
 import marked from "marked";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
+import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";
 
 function Markdown({file, children, ...props}, ref) {
     const commonClasses = useCommonStyles();
-    const [text, setText] = React.useState("");
-    const [html, setHtml] = React.useState(null);
+    const [text, setText] = React.useState({});
+    const [content, setContent] = React.useState(null);
+
+    console.log(text);
+    console.log(children)
 
     React.useEffect(() => {
         try {
             const child = React.Children.map(children, String).join("");
-            setText(child);
+            setContent(generateMaterialDocsFromMarkdown(child));
         } catch (error) {
             setText(file);
         }
-    }, []);
-
-    React.useEffect(() => {
-        setHtml(marked(String(text)));
-    }, [text]);
+    }, [children]);
 
     return (
-        <div ref={ref} dangerouslySetInnerHTML={{__html: html}} className={commonClasses.pageBlock}/>
+        <div ref={ref} className={commonClasses.pageBlock}>
+            {content}
+        </div>
     );
 }
 
