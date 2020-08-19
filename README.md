@@ -7,11 +7,11 @@
 # Material Docs
 ### React framework for easy creating documentation site in material design style
 ## Installation.
-with __npm__  
+With __npm__:  
 ```
 npm install @danilandreev/material-docs
 ```
-with __yarn__  
+With __yarn__:  
 ```
 yarn add @danilandreev/material-docs
 ```
