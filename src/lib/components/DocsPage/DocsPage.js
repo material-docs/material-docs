@@ -85,10 +85,14 @@ export default function DocsPage({
     }, [children]);
 
     const setTag = (key, value) => setTags(last => ({...last, [key]: value}));
+    const removeTag = key => setTags(last => {
+        delete last[key];
+        return last;
+    });
 
     return (
         <Route path={`/${pagePath}`}>
-            <TaggingContext.Provider value={{setTag}}>
+            <TaggingContext.Provider value={{setTag, removeTag, tags}}>
                 <Grid container>
                     <Grid item xs={12} md={1}/>
                     <Grid item xs={12} md={8}>

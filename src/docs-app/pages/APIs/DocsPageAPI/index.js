@@ -37,7 +37,7 @@ export default function DocsPageAPI() {
         >
             <H1 noDivider>Alert API</H1>
             <H3 noDivider noTag>{locale.pageAbout}</H3>
-            <H2>Import</H2>
+            <H2>{localeSpells.Import}</H2>
             <Code language={"javascript"} theme={"darcula"}>
                 {importCode}
             </Code>
