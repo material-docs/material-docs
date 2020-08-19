@@ -14,16 +14,14 @@ import {Link} from "@material-ui/core";
 import Bold from "../components/Bold/Bold";
 import Italic from "../components/Italic/Italic";
 import Image from "../components/Image/Image";
-import Table from "@material-ui/core/Table";
-import TableHead from "@material-ui/core/TableHead";
-import TableBody from "@material-ui/core/TableBody";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
+import Table from "../components/Table";
+import TableHead from "../components/TableHead";
+import TableBody from "../components/TableBody";
+import TableRow from "../components/TableRow";
+import TableCell from "../components/TableCell";
 import Divider from "@material-ui/core/Divider";
 import Block from "../components/Block/Block";
 import CodeSpan from "../components/CodeSpan/CodeSpan";
-
-//TODO: add codespan inline code element;
 
 export default function generateMaterialDocsFromMarkdown(input) {
     if (!(typeof input === "string" || typeof input === "object"))
@@ -54,7 +52,8 @@ export default function generateMaterialDocsFromMarkdown(input) {
                     case "codespan":
                         return <CodeSpan>{token.text}</CodeSpan>
                     case "link":
-                        return <Link href={token.href}>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Link>
+                        return <Link
+                            href={token.href}>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Link>
                     case "br":
                         return <br/>
                     case "hr":
@@ -69,11 +68,16 @@ export default function generateMaterialDocsFromMarkdown(input) {
                         const header = token.tokens.header;
                         const cells = token.tokens.cells;
                         return (
-                            <Table style={{marginTop: 12, marginBottom: 12}}>
+                            <Table>
                                 <TableHead>
                                     <TableRow>
-                                        {header.map(cell =>
-                                            <TableCell>{cell && generateMaterialDocsFromMarkdown(cell)}</TableCell>)}
+                                        {header.map(cell => (
+                                            <TableCell>
+                                                <Bold>
+                                                    {cell && generateMaterialDocsFromMarkdown(cell)}
+                                                </Bold>
+                                            </TableCell>
+                                        ))}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
