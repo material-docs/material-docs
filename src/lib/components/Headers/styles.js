@@ -55,4 +55,7 @@ export const useStyles = makeStyles((theme) => ({
     h6: {
         fontSize: "0.6rem",
     },
+    anchorIcon: {
+        transform: "rotate(45deg)",
+    },
 }));

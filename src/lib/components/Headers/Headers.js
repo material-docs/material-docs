@@ -8,8 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {useStyles} from "./styles";
-import LocalOfferIcon from '@material-ui/icons/LocalOffer';
-import clsx from "clsx";
+import LinkIcon from '@material-ui/icons/Link';import clsx from "clsx";
 import useTags from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
@@ -51,7 +50,7 @@ function TagableF({children, noTag = false, variant, style, className, noDivider
                 </Typography>
                 {!noTag &&
                 <a href={`#${id.current}`} className={classes.tagHook} ref={aref}>
-                    <LocalOfferIcon/>
+                    <LinkIcon className={classes.anchorIcon}/>
                 </a>
                 }
             </div>
