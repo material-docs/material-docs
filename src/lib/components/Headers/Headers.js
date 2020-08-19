@@ -12,24 +12,35 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import clsx from "clsx";
 import useTags from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
+import getElementOffsetSum from "../../utils/getElementOffsetSum";
 
 function TagableF({children, noTag = false, variant, style, className, noDivider = false, ...props}, ref) {
-    const {setTag} = useTags();
     const classes = {...useStyles(), ...props.classes};
     const commonClasses = useCommonStyles();
-    const id = props.id || (typeof children === "string" && createRouteFromName(children));
+    const {setTag, removeTag} = useTags();
+    const [topOffset, setTopOffset] = React.useState(0);
+    const id = React.useRef(props.id || (typeof children === "string" && createRouteFromName(children)));
     const aref = React.useRef(null);
     const typographyClasses = {h1: classes.h1, h2: classes.h2, h3: classes.h3, h4: classes.h4, h5: classes.h5}
 
     React.useEffect(() => {
-        !noTag && setTag(id, {label: String(children), ref: aref});
-        return () => !noTag && setTag(id, undefined);
-    }, [children, aref]);
+        !noTag && setTag(id.current, {label: String(children), ref: aref, topOffset});
+        return () => {
+            if (!noTag) {
+                removeTag(id.current);
+            }
+        };
+    }, [children, aref, topOffset]);
+
+    React.useEffect(() => {
+        const {top} = getElementOffsetSum(aref.current);
+        setTopOffset(top);
+    }, [aref]);
 
     return (
         <div
             className={clsx(commonClasses.pageBlock, classes.root, classes.anchor, className)}
-            id={noTag ? undefined : id}
+            id={noTag ? undefined : id.current}
             style={style}
             ref={ref}
         >
@@ -39,7 +50,7 @@ function TagableF({children, noTag = false, variant, style, className, noDivider
                     {!noDivider && <Divider className={classes.divider}/>}
                 </Typography>
                 {!noTag &&
-                <a href={`#${id}`} className={classes.tagHook} ref={aref}>
+                <a href={`#${id.current}`} className={classes.tagHook} ref={aref}>
                     <LocalOfferIcon/>
                 </a>
                 }

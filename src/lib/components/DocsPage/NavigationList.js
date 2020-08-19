@@ -12,18 +12,7 @@ import {useStyles} from "./styles";
 import clsx from "clsx";
 import {Link} from "@material-ui/core";
 import usePageScroll from "../../utils/usePageScroll";
-
-function getOffsetSum(elem) {
-    let top = 0;
-    let left = 0;
-    while (elem) {
-        top = top + parseFloat(elem.offsetTop);
-        left = left + parseFloat(elem.offsetLeft);
-        elem = elem.offsetParent || elem.parentElement;
-    }
-
-    return {top: Math.round(top), left: Math.round(left)}
-}
+import getElementOffsetSum from "../../utils/getElementOffsetSum";
 
 
 export default function NavigationList({keys}) {
@@ -50,7 +39,7 @@ export default function NavigationList({keys}) {
             const {ref, id} = item;
             let offset = 0;
             try {
-                const {top} = getOffsetSum(ref.current);
+                const {top} = getElementOffsetSum(ref.current);
                 offset = scrollY - (top - 64); // 64 - is a height of header;
             } catch (error) {
             }

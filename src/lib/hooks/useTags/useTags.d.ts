@@ -5,22 +5,32 @@
 
 /// <reference types="react" />
 
+import {Tag} from "../../interfaces/Tag";
+
 export interface TaggingContext {
     /**
-     * setTag - function, designed to add or remove tagable element in page.
+     * setTag - function, designed to add tagable element to page.
      * @function
      * @param {string} key
-     * @param {{ref: RefObject<T>, label: string}} value
+     * @param {Tag} value
      * @example
      * const {setTag} = useTags();
      * setTag("my-object-key", {label: "my label", ref: ObjectRef});
      */
-    setTag(key: string, value: {ref: any, label: string}): void,
+    setTag(key: string, value: Tag): void;
+    /**
+     * removeTag - function, designed to remove tagable element from page.
+     * @param {string} key
+     * @example
+     * const {removeTag} = useTags();
+     * removeTag("my-object-key");
+     */
+    removeTag(key: string): void;
     /**
      * tags - all registered tags in page
      * @type any
      */
-    tags: {},
+    tags: {};
 }
 
 /**
