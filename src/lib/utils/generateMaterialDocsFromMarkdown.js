@@ -11,6 +11,17 @@ import List from "../components/List/List";
 import ListItem from "../components/ListItem/ListItem";
 import Code from "../components/Code/Code";
 import {Link} from "@material-ui/core";
+import Bold from "../components/Bold/Bold";
+import Italic from "../components/Italic/Italic";
+import Image from "../components/Image/Image";
+import Table from "@material-ui/core/Table";
+import TableHead from "@material-ui/core/TableHead";
+import TableBody from "@material-ui/core/TableBody";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import Divider from "@material-ui/core/Divider";
+import Block from "../components/Block/Block";
+import CodeSpan from "../components/CodeSpan/CodeSpan";
 
 //TODO: add codespan inline code element;
 
@@ -31,7 +42,7 @@ export default function generateMaterialDocsFromMarkdown(input) {
 //                        return <Header heading={token.depth}>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Header>
                         return <Header heading={token.depth}>{token.text}</Header>
                     case "text":
-                        return token.text;
+                        return token.tokens ? generateMaterialDocsFromMarkdown(token.tokens) : token.text;
                     case "paragraph":
                         return <Typography>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Typography>
                     case "list":
@@ -41,12 +52,44 @@ export default function generateMaterialDocsFromMarkdown(input) {
                     case "code":
                         return <Code language={token.lang}>{token.text}</Code>
                     case "codespan":
-                        return <Code>{token.text}</Code>;
+                        return <CodeSpan>{token.text}</CodeSpan>
                     case "link":
                         return <Link href={token.href}>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Link>
                     case "br":
                         return <br/>
-
+                    case "hr":
+                        return <Divider/>
+                    case "strong":
+                        return <Bold>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Bold>
+                    case "em":
+                        return <Italic>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Italic>
+                    case "image":
+                        return <Image src={token.href} alt={token.text}/>
+                    case "table":
+                        const header = token.tokens.header;
+                        const cells = token.tokens.cells;
+                        return (
+                            <Table style={{marginTop: 12, marginBottom: 12}}>
+                                <TableHead>
+                                    <TableRow>
+                                        {header.map(cell =>
+                                            <TableCell>{cell && generateMaterialDocsFromMarkdown(cell)}</TableCell>)}
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {cells.map(row => (
+                                        <TableRow>
+                                            {row.map(cell =>
+                                                <TableCell>{cell && generateMaterialDocsFromMarkdown(cell)}</TableCell>)}
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        );
+                    case "blockquote":
+                        return <Block>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Block>
+                    default:
+                        break;
                 }
 
             })}

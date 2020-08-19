@@ -10,7 +10,7 @@ import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-export default function Image({src="", alt="", style, className, children, fullWidth, ...props}) {
+export default function Image({src = "", alt = "", style, className, children, fullWidth = false, ...props}) {
     const classes = useStyles();
     return (
         <React.Fragment>
@@ -19,7 +19,7 @@ export default function Image({src="", alt="", style, className, children, fullW
                     alt={alt}
                     style={{width: "100%"}}
                     src={src}
-                    placeholder={<CircularProgress />}
+                    placeholder={<CircularProgress/>}
                 />
             </div>
             {children && <Typography color={"textSecondary"} variant={"subtitle2"}>{children}</Typography>}

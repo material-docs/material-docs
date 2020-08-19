@@ -21,6 +21,8 @@ export interface ImageProps
     alt?: string;
     /**
      * fullWidth - if true, image will be 100% wide.
+     * @type boolean
+     * @default false
      */
     fullwidth?: boolean;
     /**
