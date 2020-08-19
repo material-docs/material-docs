@@ -32,12 +32,19 @@ export default function DocsPage({
     const [content, setContent] = React.useState(null);
     const {addSearchItem, removeSearchItem} = useSearch();
     const {addPage, deletePage} = useGroups();
+    const prevName = React.useRef(null);
+    const prevSearchItem = React.useRef(null);
+
+    React.useEffect(() => {
+        prevName.current = name;
+    }, []);
 
     React.useEffect(() => {
         /**
          * searchItem - search item for current page;
          * @type SearchDataItem
          */
+        //debugger;
         const searchItem = {
             redirect: {page: pagePath},
             label: searchLabel || name,
@@ -46,16 +53,25 @@ export default function DocsPage({
         }
 
         if (!noGenerateAutoSearch) {
-            removeSearchItem(searchItem); //TODO: fix bug with prev item remove before add new.
+            removeSearchItem(prevSearchItem.current); //TODO: fix bug with prev item remove before add new.
+            prevSearchItem.current = searchItem;
             addSearchItem(searchItem);
-
-            return () => removeSearchItem(searchItem);
         }
-    }, []);
+
+        return () => !noGenerateAutoSearch && removeSearchItem(searchItem);
+    }, [searchLabel, searchDescription, name]);
 
     React.useEffect(() => {
-        const page = {name, link: pagePath};
+        /**
+         * page - page data for auto menu.
+         * @type PageData
+         */
+        const page = {
+            name,
+            link: pagePath
+        };
         !noAutoMenu && addPage(page);
+
 //        return !noAutoMenu && deletePage(name); //TODO: fix name outdated
     }, [name]);
 
