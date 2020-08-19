@@ -43,6 +43,14 @@ export interface DocsLayoutProps
      * @default false
      */
     autoMenu?: boolean;
+    /**
+     * router - react-router-dom Router type.
+     * @type string
+     * @default browser-router
+     * @see https://reactrouter.com/web/api/BrowserRouter
+     * @see https://reactrouter.com/web/api/HashRouter
+     */
+    router?: "hash-router" | "browser-router";
 }
 
 /**

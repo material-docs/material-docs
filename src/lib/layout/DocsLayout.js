@@ -17,7 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from './styles'
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter, BrowserRouter, Switch} from "react-router-dom";
 import {ChangeRouteProvider} from "routing-manager";
 import DocsMenu from "../components/DocsMenu";
 import DocsPages from "../components/DocsPages";
@@ -201,26 +201,39 @@ const DocsLayout = React.forwardRef(({
     );
 });
 
-function DocsLayoutProviders({mask, ...props}, ref) {
+function DocsLayoutProviders({mask, router = "browser-router", ...props}, ref) {
     const routeMask = typeof mask === "string" ? mask : "/:page";
     const theme = useTheme();
 
+    const providers = (
+        <ChangeRouteProvider routeMask={routeMask}>
+            <MuiThemeProvider theme={theme}>
+                <SnackbarProvider
+                    maxSnack={3}
+                    anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "center",
+                    }}
+                >
+                    <DocsLayout {...props} ref={ref}/>
+                </SnackbarProvider>
+            </MuiThemeProvider>
+        </ChangeRouteProvider>
+    );
+
     return (
-        <Router>
-            <ChangeRouteProvider routeMask={routeMask}>
-                <MuiThemeProvider theme={theme}>
-                    <SnackbarProvider
-                        maxSnack={3}
-                        anchorOrigin={{
-                            vertical: "bottom",
-                            horizontal: "center",
-                        }}
-                    >
-                        <DocsLayout {...props} ref={ref}/>
-                    </SnackbarProvider>
-                </MuiThemeProvider>
-            </ChangeRouteProvider>
-        </Router>
+        <React.Fragment>
+            {router === "browser-router" &&
+            <BrowserRouter>
+                {providers}
+            </BrowserRouter>
+            }
+            {router === "hash-router" &&
+            <HashRouter basename={"/"}>
+                {providers}
+            </HashRouter>
+            }
+        </React.Fragment>
     );
 }
 

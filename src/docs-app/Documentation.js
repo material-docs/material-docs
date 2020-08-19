@@ -17,7 +17,7 @@ import useLang from "../lib/hooks/useLang/useLang";
 
 export default function Documentation() {
     return(
-        <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]}>
+        <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} router={"hash-router"}>
             <DocsPages>
                 <PagesGroup name={"Getting started"}>
 
