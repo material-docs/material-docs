@@ -18,7 +18,29 @@ yarn add @danilandreev/material-docs
 [Read installation guide]()
 ## Usage
 ```jsx
+import React from "react";
+import DocsLayout from "@danilandreev/material-docs/layout/DocsLayout";
+import DocsPages from "@danilandreev/material-docs/components/DocsPages";
+import PagesGroup from "@danilandreev/material-docs/components/PagesGroup/PagesGroup";
 
+
+export default function MyApp() {
+    return(
+        <DocsLayout autoMenu>
+            <DocsPages>
+                <PagesGroup name={"Getting started"}>
+
+                </PagesGroup>
+                <PagesGroup name={"Components"}>
+                    <DocsPageDemo... />
+                </PagesGroup>
+                <PagesGroup name={"APIs"}>
+                    <DocsPageAPI... />
+                </PagesGroup>
+            </DocsPages>
+        </DocsLayout>
+    );
+}
 ```
 [Explore the docs]()
 ## Author
