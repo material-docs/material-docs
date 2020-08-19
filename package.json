@@ -35,6 +35,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "clsx": "^1.1.1",
+    "helmet": "^4.1.0",
     "lodash": "^4.17.20",
     "marked": "^1.1.1",
     "notistack": "^0.9.17",
@@ -46,15 +47,12 @@
     "react-syntax-highlighter": "^13.0.0",
     "routing-manager": "^2.0.1"
   },
-  "devDependencies": {
-    "gh-pages": "^3.1.0"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy-gh-pages": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
