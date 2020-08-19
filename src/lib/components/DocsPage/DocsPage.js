@@ -32,11 +32,11 @@ export default function DocsPage({
     const [content, setContent] = React.useState(null);
     const {addSearchItem, removeSearchItem} = useSearch();
     const {addPage, deletePage} = useGroups();
-    const prevName = React.useRef(null);
+    const prevPage = React.useRef(null);
     const prevSearchItem = React.useRef(null);
 
     React.useEffect(() => {
-        prevName.current = name;
+        prevPage.current = {name, link: pagePath};
     }, []);
 
     React.useEffect(() => {
@@ -53,7 +53,7 @@ export default function DocsPage({
         }
 
         if (!noGenerateAutoSearch) {
-            removeSearchItem(prevSearchItem.current); //TODO: fix bug with prev item remove before add new.
+            removeSearchItem(prevSearchItem.current);
             prevSearchItem.current = searchItem;
             addSearchItem(searchItem);
         }
@@ -70,9 +70,11 @@ export default function DocsPage({
             name,
             link: pagePath
         };
+        !noAutoMenu && deletePage(prevPage.current);
+        prevPage.current = page;
         !noAutoMenu && addPage(page);
 
-//        return !noAutoMenu && deletePage(name); //TODO: fix name outdated
+        return !noAutoMenu && deletePage(page);
     }, [name]);
 
     function insertTagCallbacksInChildren(source) {
