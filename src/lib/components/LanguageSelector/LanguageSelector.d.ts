@@ -8,4 +8,9 @@ export interface LanguageSelectorProps {
 
 }
 
+/**
+ * LanguageSelector - react component, designed to provide language selection and manipulation.
+ * @param {LanguageSelectorProps} props
+ * @constructor
+ */
 export default function LanguageSelector(props: LanguageSelectorProps): JSX.Element;

@@ -47,7 +47,7 @@ export interface DocsLayoutProps
 
 /**
  * DocsLayout - main component of MaterialDocs.
- * @param props
+ * @param {DocsLayoutProps} props
  * @constructor
  * @example
  * <DocsLayout>

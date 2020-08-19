@@ -28,7 +28,7 @@ export interface SearchMenuItemProps
 
 /**
  * SearchMenuItem - react component for displaying found data.
- * @param props
+ * @param {SearchMenuItemProps} props
  * @constructor
  * @example
  * <SearchMenuItem data={...data: SearchDataItem...} />

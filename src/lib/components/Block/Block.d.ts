@@ -11,4 +11,13 @@ export interface BlockProps
 
 }
 
+/**
+ * Block - react component, designed to create blocks of data. Looks like markdown blockquote element.
+ * @param {BlockProps} props
+ * @constructor
+ * @example
+ * <Block>
+ *     I am a blocked text
+ * </Block>
+ */
 export default function Block(props: BlockProps): JSX.Element;

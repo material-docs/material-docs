@@ -59,7 +59,7 @@ export interface DocsMenuItemProps
 
 /**
  * DocsMenuItem - component, used in DocsMenu component to create menu items.
- * @param props
+ * @param {DocsMenuItemProps} props
  * @constructor
  * @example
  * <DocsMenu>

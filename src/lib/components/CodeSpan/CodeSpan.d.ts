@@ -11,4 +11,11 @@ export interface CodeSpanProps
 
 }
 
+/**
+ * CodeSpan - react component, designed to create inline code spans.
+ * @param {CodeSpanProps} props
+ * @constructor
+ * @example
+ * I am <CodeSpan>code span</CodeSpan> in the text.
+ */
 export default function CodeSpan(props: CodeSpanProps): JSX.Element;

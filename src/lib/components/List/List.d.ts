@@ -14,7 +14,7 @@ export interface ListProps
 
 /**
  * List - list container for <ListItem /> components.
- * @param props
+ * @param {ListProps} props
  * @constructor
  * @example
  * <List>

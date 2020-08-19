@@ -7,24 +7,24 @@ import React from "react";
 import marked from "marked";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";
+import clsx from "clsx";
 
-function Markdown({file, children, ...props}, ref) {
+function Markdown({children, className, style, ...props}, ref) {
     const commonClasses = useCommonStyles();
-    const [text, setText] = React.useState({});
     const [content, setContent] = React.useState([]);
-
 
     React.useEffect(() => {
         try {
             const child = React.Children.map(children, String).join("");
             setContent(generateMaterialDocsFromMarkdown(child));
         } catch (error) {
-            setText(file);
+            setContent(null);
+            console.log(error);
         }
     }, [children]);
 
     return (
-        <div ref={ref} className={commonClasses.pageBlock}>
+        <div ref={ref} className={clsx(commonClasses.pageBlock, className)} style={style}>
             {content}
         </div>
     );

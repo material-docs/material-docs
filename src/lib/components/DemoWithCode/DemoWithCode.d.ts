@@ -43,7 +43,7 @@ export interface DemoWithCodeProps
 
 /**
  * DemoWithCode - component, designed to show demo element with source code.
- * @param props
+ * @param {DemoWithCodeProps} props
  * @constructor
  * @example
  * <DemoWithCode

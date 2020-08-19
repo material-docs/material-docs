@@ -26,7 +26,7 @@ export interface SearchFieldProps
 
 /**
  * SearchField - react component, designed to provide search mechanism.
- * @param props
+ * @param {SearchFieldProps} props
  * @constructor
  * @example
  * <SearchField searchData={...data...} />

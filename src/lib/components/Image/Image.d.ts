@@ -34,7 +34,7 @@ export interface ImageProps
 
 /**
  * Image - an image component with lazy load mechanism.
- * @param props
+ * @param {ImageProps} props
  * @constructor
  * @example
  * <Image src={image1} alt="This text will be displayed if the image is not loaded." fullWidth>

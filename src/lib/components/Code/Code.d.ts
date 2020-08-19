@@ -45,7 +45,7 @@ export interface CodeProps extends Stylable, Containerable {
 
 /**
  * Code - react component, designed to display and highlight code.
- * @param props
+ * @param {CodeProps} props
  * @constructor
  * @example
  * <Code language="code language" theme="darcula">

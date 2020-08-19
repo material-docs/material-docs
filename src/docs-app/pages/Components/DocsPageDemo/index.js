@@ -100,7 +100,7 @@ export default function DocsPageDemo() {
         <DocsPage name={"DocsPages"} searchDescription={"Docs pages sdfsfs"}>
             <H1 noDivider>DocsPages</H1>
             <H3>DocsPages description</H3>
-            <Markdown>{pageMarkdown}</Markdown>
+            <Markdown>{pageMarkdown2}</Markdown>
 
         </DocsPage>
     );

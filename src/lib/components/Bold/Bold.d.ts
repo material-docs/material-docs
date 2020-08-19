@@ -11,4 +11,11 @@ export interface BoldProps
 
 }
 
+/**
+ * Bold - react component, designed to make text bold.
+ * @param {BoldProps} props
+ * @constructor
+ * @example
+ * <Bold> I am bold </Bold>
+ */
 export default function Bold(props: BoldProps): JSX.Element;

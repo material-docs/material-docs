@@ -46,7 +46,7 @@ export interface DocsPageProps
 
 /**
  * DocsPage - component, used to create page in DocsPages.
- * @param props
+ * @param {DocsPageProps} props
  * @constructor
  * @example
  * <DocsPages>
