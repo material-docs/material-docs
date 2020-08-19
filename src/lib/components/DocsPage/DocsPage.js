@@ -69,10 +69,15 @@ export default function DocsPage({
     function makeKeysFromTags() {
         const keys = [];
         for (const key in tags) {
-            const {label, ref} = tags[key] || {};
+            const {label, ref, topOffset} = tags[key] || {};
             const id = key;
-            keys.push({id, label, ref});
+            keys.push({id, label, ref, topOffset});
         }
+        keys.sort((a, b) => {
+            if (a.topOffset > b.topOffset) return 1;
+            if (a.topOffset === b.topOffset) return 0;
+            if (a.topOffset < b.topOffset) return -1;
+        });
         return keys;
     }
 
