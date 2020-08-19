@@ -9,7 +9,9 @@
     "documentation",
     "documentation-tool",
     "framework",
-    "components-library"
+    "components-library",
+    "markdown",
+    "markdown-converter"
   ],
   "author": {
     "name": "Andrieiev Danil",
