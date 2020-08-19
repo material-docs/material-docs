@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {H1, H2, H3, H4, H5, H6, Header, Tagable} from "./Headers";
+export {default} from "./Italic";

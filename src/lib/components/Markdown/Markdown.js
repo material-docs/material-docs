@@ -11,10 +11,8 @@ import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFr
 function Markdown({file, children, ...props}, ref) {
     const commonClasses = useCommonStyles();
     const [text, setText] = React.useState({});
-    const [content, setContent] = React.useState(null);
+    const [content, setContent] = React.useState([]);
 
-    console.log(text);
-    console.log(children)
 
     React.useEffect(() => {
         try {

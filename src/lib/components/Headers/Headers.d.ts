@@ -7,7 +7,7 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
-export interface HeaderProps
+export interface TagableProps
     extends Stylable, Containerable {
     /**
      * variant - variant of header. h1 h2 h3 h4 h5.
@@ -36,10 +36,28 @@ export interface HeaderProps
     children?: any;
 }
 
-export function Tagable(props: HeaderProps): JSX.Element;
+export interface HeaderProps
+    extends TagableProps {
+    /**
+     * haeding - heading depth.
+     * @type number
+     * @default 1
+     */
+    heading?: 1 | 2 | 3 | 4 | 5 | 6;
+}
 
-export function H1(props: HeaderProps): JSX.Element;
-export function H2(props: HeaderProps): JSX.Element;
-export function H3(props: HeaderProps): JSX.Element;
-export function H4(props: HeaderProps): JSX.Element;
-export function H5(props: HeaderProps): JSX.Element;
+export function Tagable(props: TagableProps): JSX.Element;
+
+export function H1(props: TagableProps): JSX.Element;
+
+export function H2(props: TagableProps): JSX.Element;
+
+export function H3(props: TagableProps): JSX.Element;
+
+export function H4(props: TagableProps): JSX.Element;
+
+export function H5(props: TagableProps): JSX.Element;
+
+export function H6(props: TagableProps): JSX.Element;
+
+export function Header(props: HeaderProps): JSX.Element;
