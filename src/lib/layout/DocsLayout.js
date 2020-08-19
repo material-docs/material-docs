@@ -201,7 +201,7 @@ const DocsLayout = React.forwardRef(({
     );
 });
 
-function DocsLayoutProviders({mask, router = "browser-router", ...props}, ref) {
+function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
     const routeMask = typeof mask === "string" ? mask : "/:page";
     const theme = useTheme();
 
@@ -224,12 +224,12 @@ function DocsLayoutProviders({mask, router = "browser-router", ...props}, ref) {
     return (
         <React.Fragment>
             {router === "browser-router" &&
-            <BrowserRouter>
+            <BrowserRouter basename={basename}>
                 {providers}
             </BrowserRouter>
             }
             {router === "hash-router" &&
-            <HashRouter basename={"/"}>
+            <HashRouter basename={basename}>
                 {providers}
             </HashRouter>
             }

@@ -51,6 +51,13 @@ export interface DocsLayoutProps
      * @see https://reactrouter.com/web/api/HashRouter
      */
     router?: "hash-router" | "browser-router";
+    /**
+     * basename - basename param for react-router-dom Router.
+     * @type string
+     * @see https://reactrouter.com/web/api/BrowserRouter
+     * @see https://reactrouter.com/web/api/HashRouter
+     */
+    basename?: string;
 }
 
 /**
