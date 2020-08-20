@@ -47,10 +47,13 @@
     "react-syntax-highlighter": "^13.0.0",
     "routing-manager": "^2.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "copyfiles": "^2.3.0"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:docs": "react-scripts build",
+    "build:test": "npx babel src/lib --out-dir dest && copyfiles -u 2 \\\"src/lib/**/*.d.ts\\\" dest",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
