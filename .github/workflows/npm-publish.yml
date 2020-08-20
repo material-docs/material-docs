@@ -1,4 +1,4 @@
-name: Node.js Package
+name: material-docs-publish-npm
 
 on:
 #   release:
