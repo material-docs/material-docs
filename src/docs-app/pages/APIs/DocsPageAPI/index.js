@@ -4,19 +4,23 @@
  */
 
 import React from "react";
-import DocsPage from "../../../../lib/components/DocsPage/DocsPage";
-import {H1, H2, H3} from "../../../../lib/components/Headers";
-import Code from "../../../../lib/components/Code/Code";
-import Table from "@material-ui/core/Table";
-import TableRow from "@material-ui/core/TableRow";
-import TableHead from "@material-ui/core/TableHead";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import List from "../../../../lib/components/List/List";
-import ListItem from "../../../../lib/components/ListItem/ListItem";
 import {Link} from "@material-ui/core";
-import useLang from "../../../../lib/hooks/useLang/useLang";
 import Typography from "@material-ui/core/Typography";
+
+import {
+    DocsPage,
+    Code,
+    Table,
+    TableRow,
+    TableHead,
+    TableCell,
+    List,
+    ListItem,
+    useLang,
+    H1,
+    H2,
+    H3
+} from "@danilandreev/material-docs";
 
 const importCode = `
 import {DocsPage} from "@danilandreev/material-docs";
