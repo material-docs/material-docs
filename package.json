@@ -61,7 +61,7 @@
     "build:prod:declarations": "copyfiles --up 2 \"src/lib/**/*.d.ts\" ./ --verbose",
     "build:prod:library": "npx babel src/lib --out-dir ./",
     "build:prod": "yarn run build:prod:library && yarn run build:prod:declarations",
-    "test": "react-scripts test",
+    "test": "npm --version",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
