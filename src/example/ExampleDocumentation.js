@@ -1,0 +1,43 @@
+/*
+ * Author: Andrieiev Danil |  danssg08@gmail.com | https://github.com/DanilAndreev
+ * Copyright (C) 2020.
+ */
+
+import React from "react";
+import DocsPageDemo from "./Pages/Components/DocsPageDemo/index";
+import DocsPageAPI from "./Pages/APIs/DocsPageAPI";
+import DemoWithCodeAPI from "./Pages/APIs/DemoWithCode";
+
+import {DocsLayout, DocsPages, PagesGroup, DocsPage} from "../lib";
+
+import RU from "./locale/RU.json";
+import EN from "./locale/EN.json";
+
+
+export default function ExampleDocumentation() {
+    return (
+        <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
+            <DocsPages>
+                <PagesGroup name={"Getting started"}>
+
+                </PagesGroup>
+                <PagesGroup name={"Components"}>
+                    <DocsPageDemo/>
+                </PagesGroup>
+                <PagesGroup name={"APIs"}>
+                    <DocsPageAPI/>
+                    <DemoWithCodeAPI/>
+                    <DocsPage name={"TestPage1"} searchDescription={"sdfsfsd"}>
+                        asfasf
+                    </DocsPage>
+                    <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
+                        asfasfsdfasdf
+                    </DocsPage>
+                    <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
+                        asfasf2324
+                    </DocsPage>
+                </PagesGroup>
+            </DocsPages>
+        </DocsLayout>
+    );
+}

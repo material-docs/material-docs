@@ -3,9 +3,9 @@
  * Copyright (C) 2020.
  */
 
+/// <reference types="react" />
 import PagesGroupData from "../../interfaces/PagesGroupData";
 
-/// <reference types="react" />
 export interface AutoDocsMenuProps {
     layoutData: PagesGroupData;
 }

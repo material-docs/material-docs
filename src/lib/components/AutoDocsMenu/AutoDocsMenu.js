@@ -4,9 +4,10 @@
  */
 
 import React from "react";
-import DocsMenuItem from "../DocsMenuItem/DocsMenuItem";
+import DocsMenuItem from "../DocsMenuItem";
 
-function AutoDocsMenu({layoutData, ...props}, ref) { //TODO: add ref
+function AutoDocsMenu({layoutData, ...props}, ref) {
+    //TODO: add ref
     if (!layoutData || typeof layoutData !== "object")
         throw new ReferenceError(`MaterialDocs: param layoutData is required, expected object, got ${typeof layoutData}`);
 
@@ -34,11 +35,6 @@ function AutoDocsMenu({layoutData, ...props}, ref) { //TODO: add ref
     if (!layoutData.pages || !layoutData.groups) return null;
 
     return recursiveGenerateMenu(layoutData);
-    // return (
-    //     <DocsMenu>
-    //         {recursiveGenerateMenu(layoutData)}
-    //     </DocsMenu>
-    // );
 }
 
 export default React.forwardRef(AutoDocsMenu);
