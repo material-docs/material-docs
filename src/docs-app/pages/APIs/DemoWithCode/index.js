@@ -29,18 +29,18 @@ import {DocsPage} from "@danilandreev/material-docs";
 import DocsPage from "@danilandreev/material-docs/components/DocsPage";
 `.trim();
 
-export default function DocsPageAPI() {
+export default function DemoWithCodeAPI() {
     const {lang} = useLang();
     const locale = lang.locale.pages.DocsPageAPI;
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
     return (
         <DocsPage
-            name={"DocsPage API"}
-            searchTags={["docs", "page", "api"]}
+            name={"DemoWithCode API"}
+            searchTags={["demo", "with", "code", "api"]}
             searchDescription={locale.pageSearchDescription}
         >
-            <H1 noDivider>DocsPage API</H1>
+            <H1 noDivider>DemoWithCode API</H1>
             <H3 noDivider noTag>{locale.pageAbout}</H3>
             <H2>{localeSpells.Import}</H2>
             <Code language={"javascript"} theme={"darcula"}>

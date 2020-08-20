@@ -11,6 +11,7 @@ import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
+import DemoWithCodeAPI from "./pages/APIs/DemoWithCode";
 
 
 export default function Documentation() {
@@ -25,6 +26,7 @@ export default function Documentation() {
                 </PagesGroup>
                 <PagesGroup name={"APIs"}>
                     <DocsPageAPI/>
+                    <DemoWithCodeAPI/>
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>

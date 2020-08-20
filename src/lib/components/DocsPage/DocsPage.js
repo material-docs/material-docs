@@ -70,7 +70,7 @@ export default function DocsPage({
             name,
             link: pagePath
         };
-        !noAutoMenu && deletePage(prevPage.current);
+//        !noAutoMenu && deletePage(prevPage.current);
         prevPage.current = page;
         !noAutoMenu && addPage(page);
 
