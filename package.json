@@ -55,7 +55,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build:docs": "react-scripts build",
-    "build:test": "npx babel src/lib --out-dir dest && copyfiles -u 2 \\\"src/lib/**/*.d.ts\\\" dest",
+    "build:test:declarations": "copyfiles -u 2 \\\"src/lib/**/*.d.ts\\\" dist",
+    "build:test:library": "npx babel src/lib --out-dir dist",
+    "build:test": "yarn run build:test:library && yarn run build:test:declarations",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
