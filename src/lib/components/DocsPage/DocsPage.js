@@ -74,7 +74,7 @@ export default function DocsPage({
         prevPage.current = page;
         !noAutoMenu && addPage(page);
 
-        return !noAutoMenu && deletePage(page);
+//        return !noAutoMenu && deletePage(page);
     }, [name]);
 
     function insertTagCallbacksInChildren(source) {
