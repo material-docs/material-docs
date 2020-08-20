@@ -48,7 +48,9 @@
     "routing-manager": "^2.0.1"
   },
   "devDependencies": {
-    "copyfiles": "^2.3.0"
+    "copyfiles": "^2.3.0",
+    "@babel/cli": "^7.10.1",
+    "@babel/preset-react": "^7.10.1"
   },
   "scripts": {
     "start": "react-scripts start",
