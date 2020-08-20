@@ -14,6 +14,7 @@ import {
     TableRow,
     TableHead,
     TableCell,
+    TableBody,
     List,
     ListItem,
     useLang,

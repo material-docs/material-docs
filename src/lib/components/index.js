@@ -3,7 +3,7 @@
  * Copyright (C) 2020.
  */
 
-export {default as AutoDocsMenu} from "AutoDocsMenu";
+//export {default as AutoDocsMenu} from "AutoDocsMenu";
 export {default as Block} from "./Block";
 export {default as Bold} from "./Bold";
 export {default as Code} from "./Code";
