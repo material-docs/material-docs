@@ -8,8 +8,8 @@ import ListItemContained from "../ListItemContained";
 import {useStyles} from "./styles";
 import clsx from "clsx";
 
-function ListItem({children, type = "circle", ...props}, ref) {
-    const classes = useStyles();
+function ListItem({children, type = "circle", dense = false, style, className, ...props}, ref) {
+    const classes = {...useStyles(), ...props.classes};
     const containers = React.Children.map(children, child => child.type === ListItemContained ? child : null);
     if (containers.length > 1) console.error("MaterialDocs: List item can contain only one ListItemContained element");
 
@@ -33,7 +33,12 @@ function ListItem({children, type = "circle", ...props}, ref) {
     }
 
     return (
-        <li {...props} ref={ref} className={clsx(classes.root, listTypeClass)}>
+        <li
+            className={clsx(classes.root, dense && classes.dense, listTypeClass, className)}
+            {...props}
+            ref={ref}
+            style={style}
+        >
             <div>
                 <div>
                     {content}

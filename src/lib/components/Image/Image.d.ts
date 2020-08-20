@@ -24,7 +24,7 @@ export interface ImageProps
      * @type boolean
      * @default false
      */
-    fullwidth?: boolean;
+    fullWidth?: boolean;
     /**
      * children - elements, which will appear in image caption.
      * @type any

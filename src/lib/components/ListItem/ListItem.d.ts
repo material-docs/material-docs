@@ -14,6 +14,12 @@ export interface ListItemProps
      * @type string
      */
     type?: "circle" | "square" | "upper-roman" | "lower-alpha" | "none";
+    /**
+     * dense - if true, vertical distance between list items will be smaller.
+     * @type boolean
+     * @default false
+     */
+    dense?: boolean;
 }
 
 /**

@@ -21,7 +21,66 @@
           "contentItem": "Styles applied to the item element of content panel.",
           "contentItemActive": "Styles applied to the item element of content panel if it is active.",
           "contentLink": "Styles applied to the link of item element of content panel.",
-          "copyright": "Styles applied copyright panel if it shown."
+          "copyright": "Styles applied to copyright panel if it shown."
+        }
+      },
+      "DemoWithCodeAPI": {
+        "pageAbout": "The API documentation of the DemoWithCode React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DemoWithCode - react component, designed to create code blocks with interactive demo.",
+        "ComponentNameText": "The DemoWithCode name can be used for providing default props or style overriders at the theme level.",
+        "props": {
+          "code": "Code to display in inner Code block.",
+          "defaultExpanded": "If true - code area will be expanded on startup.",
+          "name": "Name of the component. Will be displayed in H3 header if defined.",
+          "noTag": "If true and name prop is defined - header with name will not generate tag for content tab.",
+          "paperContainer": "If true - demo content will be wrapped in Paper component.",
+          "actions": "Array of additional actions. The actions will be displayed in the dropdown menu when you click the ExpandMore icon button."
+        },
+        "css": {
+          "root": "Styles applied to the root element.",
+          "collapse": "Styles applied to the Collapse element, which contains code.",
+          "toolbar": "Styles applied to the Toolbar element with icon buttons and name.",
+          "paperContainer": "Styles applied to the Paper container element if paperContainer prop is true.",
+          "menuButtonLink": "Styles applied to link in extra actions menu."
+        }
+      },
+      "CodeAPI": {
+        "pageAbout": "The API documentation of the Code React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "Code - react component, designed to create code blocks.",
+        "ComponentNameText": "The Code name can be used for providing default props or style overriders at the theme level.",
+        "props": {
+          "children": "Code to display in code highlighter.",
+          "theme": "Code highlighting and background styling type.",
+          "language": "Language name for code highlighter."
+        },
+        "css": {
+          "root": "Styles applied to the root element.",
+          "highlighterContainer": "Styles applied to the code highlighter container."
+        }
+      },
+      "PagesGroupAPI": {
+        "pageAbout": "The API documentation of the PagesGroup React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "PagesGroup - react component, designed to combine pages in groups for AutoDocsMenu.",
+        "ComponentNameText": "The PagesGroup name can be used for providing default props or style overriders at the theme level.",
+        "props": {
+          "name": "Name of the group. Will be displayed on button in menu.",
+          "getData": "Callback, provided to get group data without context usage."
+        },
+        "noCssText": "This is a service component. It doesn't generate html elements."
+      },
+      "ImageAPI": {
+        "pageAbout": "The API documentation of the Image React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "Image - react component, designed to show images. Image component uses lazy load technology.",
+        "ComponentNameText": "The Image name can be used for providing default props or style overriders at the theme level.",
+        "props": {
+          "src": "Source link. Used to define image path.",
+          "alt": "Alternative text. Will be displayed if image can not load.",
+          "fullWidth": "If true - image will be 100 percent wide.",
+          "children": "Elements, which will appear in image caption."
+        },
+        "css": {
+          "root": "Styles applied to the root element.",
+          "fullWidth": "Styles applied to the root component if fullWidth prop is true."
         }
       }
     },
@@ -46,7 +105,8 @@
         "propName": "Name",
         "propType": "Type",
         "propDefault": "Default",
-        "propDescription": "Description"
+        "propDescription": "Description",
+        "ComponentNameHeader": "Component name"
       }
     }
   }

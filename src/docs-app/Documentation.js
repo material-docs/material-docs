@@ -4,14 +4,17 @@
  */
 
 import React from "react";
-import DocsPageDemo from "./pages/Components/DocsPageDemo";
+import DocsPageDemoAPI from "./pages/Components/DocsPageDemo";
 import DocsPageAPI from "./pages/APIs/DocsPageAPI";
+import DemoWithCodeAPI from "./pages/APIs/DemoWithCodeAPI";
+import CodeAPI from "./pages/APIs/CodeAPI";
+import PagesGroupAPI from "./pages/APIs/PagesGroupAPI";
+import ImageAPI from "./pages/APIs/ImageAPI";
 
 import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
-import DemoWithCodeAPI from "./pages/APIs/DemoWithCode";
 
 
 export default function Documentation() {
@@ -22,11 +25,14 @@ export default function Documentation() {
 
                 </PagesGroup>
                 <PagesGroup name={"Components"}>
-                    <DocsPageDemo/>
+                    <DocsPageDemoAPI/>
                 </PagesGroup>
                 <PagesGroup name={"APIs"}>
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
+                    <CodeAPI />
+                    <PagesGroupAPI/>
+                    <ImageAPI/>
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>

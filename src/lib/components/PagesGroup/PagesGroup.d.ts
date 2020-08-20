@@ -5,8 +5,10 @@
 
 /// <reference types="react" />
 import PagesGroupData from "../../interfaces/PagesGroupData";
+import Containerable from "../../interfaces/Containerable";
 
-export interface PagesGroupProps {
+export interface PagesGroupProps
+    extends Containerable {
     /**
      * name - name of the group.
      * @type string
@@ -19,11 +21,6 @@ export interface PagesGroupProps {
      * @return void
      */
     getData?(data: PagesGroupData): void;
-    /**
-     * children - children of an element.
-     * @type any
-     */
-    children?: any;
 }
 
 /**

@@ -24,23 +24,23 @@ import {
 } from "@danilandreev/material-docs";
 
 const importCode = `
-import {DocsPage} from "@danilandreev/material-docs";
+import {Code} from "@danilandreev/material-docs";
 // or
-import DocsPage from "@danilandreev/material-docs/components/DocsPage";
+import Code from "@danilandreev/material-docs/components/Code";
 `.trim();
 
-export default function DocsPageAPI() {
+export default function CodeAPI() {
     const {lang} = useLang();
-    const locale = lang.locale.pages.DocsPageAPI;
+    const locale = lang.locale.pages.CodeAPI;
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
     return (
         <DocsPage
-            name={"DocsPage API"}
-            searchTags={["docs", "page", "api"]}
+            name={"Code API"}
+            searchTags={["code", "highlight", "language", "api"]}
             searchDescription={locale.pageSearchDescription}
         >
-            <H1 noDivider>DocsPage API</H1>
+            <H1 noDivider>Code API</H1>
             <H3 noDivider noTag>{locale.pageAbout}</H3>
             <H2>{localeSpells.Import}</H2>
             <Code language={"javascript"} theme={"darcula"}>
@@ -67,40 +67,22 @@ export default function DocsPageAPI() {
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell>name</TableCell>
+                        <TableCell>language</TableCell>
                         <TableCell>string</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>{locale.props.name}</TableCell>
+                        <TableCell>{locale.props.language}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>searchTags</TableCell>
-                        <TableCell>string[]</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.searchTags}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>searchLabel</TableCell>
+                        <TableCell>theme</TableCell>
                         <TableCell>string</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>{locale.props.searchLabel}</TableCell>
+                        <TableCell>{locale.props.theme}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>searchDescription</TableCell>
+                        <TableCell>children</TableCell>
                         <TableCell>string</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>{locale.props.searchDescription}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>noGenerateAutoSearch</TableCell>
-                        <TableCell>boolean</TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>{locale.props.noGenerateAutoSearch}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>noAutoMenu</TableCell>
-                        <TableCell>boolean</TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>{locale.props.noAutoMenu}</TableCell>
+                        <TableCell>{locale.props.children}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -118,20 +100,8 @@ export default function DocsPageAPI() {
                         <TableCell>{locale.css.root}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>contentItem</TableCell>
-                        <TableCell>{locale.css.contentItem}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>contentItemActive</TableCell>
-                        <TableCell>{locale.css.contentItemActive}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>contentLink</TableCell>
-                        <TableCell>{locale.css.contentLink}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>copyright</TableCell>
-                        <TableCell>{locale.css.copyright}</TableCell>
+                        <TableCell>highlighterContainer</TableCell>
+                        <TableCell>{locale.css.highlighterContainer}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -163,7 +133,7 @@ export default function DocsPageAPI() {
             {componentAPILocale.customizationFooterText}
             <H2>Demos</H2>
             <List>
-                <ListItem><Link>DocsPages</Link></ListItem>
+                <ListItem><Link>Code showers</Link></ListItem>
             </List>
         </DocsPage>
     );

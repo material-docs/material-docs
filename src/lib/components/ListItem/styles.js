@@ -32,5 +32,10 @@ export const useStyles = makeStyles((theme) => ({
     },
     list: {
         paddingLeft: theme.spacing(2),
+    },
+    dense: {
+        padding: theme.spacing(0.3),
+        paddingLeft: theme.spacing(0.5),
+        paddingTop: theme.spacing(0.4),
     }
 }));

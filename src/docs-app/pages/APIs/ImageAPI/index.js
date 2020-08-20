@@ -24,23 +24,23 @@ import {
 } from "@danilandreev/material-docs";
 
 const importCode = `
-import {DocsPage} from "@danilandreev/material-docs";
+import {DemoWithCode} from "@danilandreev/material-docs";
 // or
-import DocsPage from "@danilandreev/material-docs/components/DocsPage";
+import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode";
 `.trim();
 
-export default function DemoWithCodeAPI() {
+export default function ImageAPI() {
     const {lang} = useLang();
-    const locale = lang.locale.pages.DocsPageAPI;
+    const locale = lang.locale.pages.ImageAPI;
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
     return (
         <DocsPage
-            name={"DemoWithCode API"}
+            name={"Image API"}
             searchTags={["demo", "with", "code", "api"]}
             searchDescription={locale.pageSearchDescription}
         >
-            <H1 noDivider>DemoWithCode API</H1>
+            <H1 noDivider>Image API</H1>
             <H3 noDivider noTag>{locale.pageAbout}</H3>
             <H2>{localeSpells.Import}</H2>
             <Code language={"javascript"} theme={"darcula"}>
@@ -53,7 +53,7 @@ export default function DemoWithCodeAPI() {
                 </Link>
                 {componentAPILocale.importDifferenceText.text2}
             </Typography>
-            <H2>ComponentName</H2>
+            <H2>{componentAPILocale.ComponentNameHeader}</H2>
             {locale.ComponentNameText}
             <H2>Props</H2>
             <Table>
@@ -67,40 +67,28 @@ export default function DemoWithCodeAPI() {
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell>name</TableCell>
+                        <TableCell>src</TableCell>
                         <TableCell>string</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>{locale.props.name}</TableCell>
+                        <TableCell>{locale.props.src}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>searchTags</TableCell>
-                        <TableCell>string[]</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.searchTags}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>searchLabel</TableCell>
+                        <TableCell>alt</TableCell>
                         <TableCell>string</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>{locale.props.searchLabel}</TableCell>
+                        <TableCell>{locale.props.alt}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>searchDescription</TableCell>
-                        <TableCell>string</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.searchDescription}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>noGenerateAutoSearch</TableCell>
+                        <TableCell>fullWidth</TableCell>
                         <TableCell>boolean</TableCell>
                         <TableCell>false</TableCell>
-                        <TableCell>{locale.props.noGenerateAutoSearch}</TableCell>
+                        <TableCell>{locale.props.fullWidth}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>noAutoMenu</TableCell>
-                        <TableCell>boolean</TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>{locale.props.noAutoMenu}</TableCell>
+                        <TableCell>children</TableCell>
+                        <TableCell>node</TableCell>
+                        <TableCell></TableCell>
+                        <TableCell>{locale.props.children}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -118,20 +106,8 @@ export default function DemoWithCodeAPI() {
                         <TableCell>{locale.css.root}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>contentItem</TableCell>
-                        <TableCell>{locale.css.contentItem}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>contentItemActive</TableCell>
-                        <TableCell>{locale.css.contentItemActive}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>contentLink</TableCell>
-                        <TableCell>{locale.css.contentLink}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>copyright</TableCell>
-                        <TableCell>{locale.css.copyright}</TableCell>
+                        <TableCell>fullWidth</TableCell>
+                        <TableCell>{locale.css.fullWidth}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -163,7 +139,7 @@ export default function DemoWithCodeAPI() {
             {componentAPILocale.customizationFooterText}
             <H2>Demos</H2>
             <List>
-                <ListItem><Link>DocsPages</Link></ListItem>
+                <ListItem><Link>Images</Link></ListItem>
             </List>
         </DocsPage>
     );

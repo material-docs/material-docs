@@ -13,7 +13,7 @@ export interface MarkdownProps
      * children - children of an element. Should contain markdown text.
      * @type string | any
      */
-    children?: string | any;
+    children?: string | string[];
 }
 
 /**

@@ -6,7 +6,6 @@
       "DocsPageAPI": {
         "pageAbout": "API документация компонента React DocsPage. Узнайте больше о props и кастомизации CSS.",
         "pageSearchDescription": "DocsPage - реакт компонент, созданный для того, чтоб беспечивать пользователя функционалом страниц. ",
-        "ComponentNameHeader": "Имя компонента",
         "ComponentNameText": "Имя  DocsPage может быть использовано для для обемпеччения значений по умолчанию для props или переопределения стилей на уровне темы.",
         "props": {
           "name": "Название страницы. Route будет сгенерирован автоматически из имени.",
@@ -46,7 +45,8 @@
         "propName": "Название",
         "propType": "Тип",
         "propDefault": "По умолчанию",
-        "propDescription": "Описание"
+        "propDescription": "Описание",
+        "ComponentNameHeader": "Имя компонента"
       }
     }
   }
