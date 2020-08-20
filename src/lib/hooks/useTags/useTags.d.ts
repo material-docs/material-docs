@@ -5,7 +5,7 @@
 
 /// <reference types="react" />
 
-import {Tag} from "../../interfaces/Tag";
+import Tag from "../../interfaces/Tag";
 
 export interface TaggingContext {
     /**

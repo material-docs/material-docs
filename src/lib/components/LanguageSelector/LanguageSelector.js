@@ -13,10 +13,11 @@ import TranslateIcon from '@material-ui/icons/Translate';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import Divider from "@material-ui/core/Divider";
 import useLang from "../../hooks/useLang";
+import clsx from "clsx";
 
 
-function LanguageSelector({...props}, ref) {
-    const classes = useStyles();
+function LanguageSelector({className, style, ...props}, ref) {
+    const classes = {...useStyles(), ...props.classes};
     const {langs, lang, switchLang, onHelpToTranslate} = useLang();
     const [opened, setOpened] = React.useState(false);
     const buttonRef = React.useRef(null);
@@ -29,13 +30,14 @@ function LanguageSelector({...props}, ref) {
     return (
         <React.Fragment>
             <Button
-                className={classes.root}
+                className={clsx(classes.root. className)}
                 color={"inherit"}
                 ref={reference => {
                     buttonRef.current = reference;
                     ref = reference;
                 }}
                 onClick={event => setOpened(true)}
+                style={style}
             >
                 <TranslateIcon/>
                 {lang.label}

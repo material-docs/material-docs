@@ -4,7 +4,6 @@
  */
 
 /// <reference types="react" />
-
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 

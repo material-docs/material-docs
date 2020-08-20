@@ -3,7 +3,7 @@
  * Copyright (C) 2020.
  */
 
-export interface PageData {
+export default interface PageData {
     /**
      * name - name of the page.
      * @type string

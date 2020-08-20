@@ -4,8 +4,8 @@
  */
 
 /// <reference types="react" />
-import {PageData} from "../../interfaces/PageData";
-import {PagesGroupData} from "../../interfaces/PagesGroupData";
+import PageData from "../../interfaces/PageData";
+import PagesGroupData from "../../interfaces/PagesGroupData";
 
 export interface GroupsContext {
     /**

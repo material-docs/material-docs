@@ -3,7 +3,7 @@
  * Copyright (C) 2020.
  */
 
-export interface Tag {
+export default interface Tag {
     /**
      * ref - react ref object to link element.
      * @type RefObject<T>

@@ -6,6 +6,7 @@
 /// <reference types="react" />
 import SearchDataItem from "../../interfaces/SearchDataItem";
 import Stylable from "../../interfaces/Stylable";
+
 export interface SearchMenuItemProps
     extends Stylable {
     /**

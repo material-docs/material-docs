@@ -3,9 +3,9 @@
  * Copyright (C) 2020. 
  */
 
-import {PageData} from "./PageData";
+import PageData from "./PageData";
 
-export interface PagesGroupData {
+export default interface PagesGroupData {
     /**
      * name - name of the group.
      * @type string

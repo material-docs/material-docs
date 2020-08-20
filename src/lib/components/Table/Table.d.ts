@@ -3,6 +3,7 @@
  * Copyright (C) 2020.
  */
 
+/// <reference types="react" />
 import {TableProps} from "@material-ui/core";
 
 /**
