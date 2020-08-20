@@ -4,12 +4,13 @@
  */
 
 import React from "react";
-import DocsPageDemoAPI from "./pages/Components/DocsPageDemo";
+import DocsPageDemo from "./pages/Components/DocsPageDemo";
 import DocsPageAPI from "./pages/APIs/DocsPageAPI";
 import DemoWithCodeAPI from "./pages/APIs/DemoWithCodeAPI";
 import CodeAPI from "./pages/APIs/CodeAPI";
 import PagesGroupAPI from "./pages/APIs/PagesGroupAPI";
 import ImageAPI from "./pages/APIs/ImageAPI";
+import ListItemAPI from "./pages/APIs/ListItemAPI";
 
 import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
@@ -25,7 +26,7 @@ export default function Documentation() {
 
                 </PagesGroup>
                 <PagesGroup name={"Components"}>
-                    <DocsPageDemoAPI/>
+                    <DocsPageDemo/>
                 </PagesGroup>
                 <PagesGroup name={"APIs"}>
                     <DocsPageAPI/>
@@ -33,6 +34,7 @@ export default function Documentation() {
                     <CodeAPI />
                     <PagesGroupAPI/>
                     <ImageAPI/>
+                    <ListItemAPI/>
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>

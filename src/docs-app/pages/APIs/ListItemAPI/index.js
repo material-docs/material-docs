@@ -31,7 +31,7 @@ import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode";
 
 export default function ListItemAPI() {
     const {lang} = useLang();
-    const locale = lang.locale.pages.ImageAPI;
+    const locale = lang.locale.pages.ListItemAPI;
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
     return (
@@ -70,13 +70,13 @@ export default function ListItemAPI() {
                         <TableCell>type</TableCell>
                         <TableCell>"circle" | "square" | "upper-roman" | "lower-alpha" | "none"</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>{locale.props.src}</TableCell>
+                        <TableCell>{locale.props.type}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>dense</TableCell>
                         <TableCell>boolean</TableCell>
                         <TableCell>false</TableCell>
-                        <TableCell>{locale.props.alt}</TableCell>
+                        <TableCell>{locale.props.dense}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>

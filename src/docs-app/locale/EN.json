@@ -89,7 +89,7 @@
         "ComponentNameText": "The ListItem name can be used for providing default props or style overriders at the theme level.",
         "props": {
           "type": "Type of list decoration.",
-          "dense": "Ff true, vertical distance between list items will be smaller."
+          "dense": "If true, vertical distance between list items will be smaller."
         },
         "css": {
           "root": "Styles applied to the root element.",
