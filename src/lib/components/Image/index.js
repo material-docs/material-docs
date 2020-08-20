@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export * from "./Image"
+export {default} from "./Image"

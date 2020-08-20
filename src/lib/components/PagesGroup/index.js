@@ -4,4 +4,3 @@
  */
 
 export {default} from "./PagesGroup";
-export {default as useGroups} from "../../hooks/useGroups/useGroups"

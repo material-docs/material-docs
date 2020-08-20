@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export * from "./Markdown"
+export {default} from "./Markdown"
