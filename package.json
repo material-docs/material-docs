@@ -1,7 +1,7 @@
 {
-  "name": "material-docs",
+  "name": "@danilandreev/material-docs",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "material-docs - react framework for easy creating documentation site in material design style.",
   "homepage": "https://danilandreev.github.io/material-docs/",
   "keywords": [
@@ -55,7 +55,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build:docs": "react-scripts build",
-    "build:test:declarations": "copyfiles -u 2 \\\"src/lib/**/*.d.ts\\\" dist",
+    "build:test:declarations": "copyfiles --up 2 \"src/lib/**/*.d.ts\" dist --verbose",
     "build:test:library": "npx babel src/lib --out-dir dist",
     "build:test": "yarn run build:test:library && yarn run build:test:declarations",
     "test": "react-scripts test",
