@@ -30,8 +30,6 @@ export default function generateMaterialDocsFromMarkdown(input) {
     if (typeof input === "string") {
         tokens = marked.lexer(input);
     }
-    typeof input === "string" && console.log(tokens, input);
-
     return (
         <React.Fragment>
             {tokens.map(token => {

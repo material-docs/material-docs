@@ -4,9 +4,7 @@
  */
 
 import React from "react";
-import DocsPage from "../../../../lib/components/DocsPage/DocsPage";
-import {H1, H2, H3} from "../../../../lib/components/Headers";
-import Markdown from "../../../../lib/components/Markdown/Markdown";
+import {DocsPage, H1, H2, H3, Markdown} from "@danilandreev/material-docs";
 
 const pageMarkdown = `
 # Hello, i ___italic text___ am header 1

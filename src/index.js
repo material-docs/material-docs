@@ -2,12 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import MaterialDocsExample from "./example/MaterialDocsExample";
 import Documentation from "./docs-app/Documentation";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/*<MaterialDocsExample />*/}
     <Documentation />
   </React.StrictMode>,
   document.getElementById('root')
