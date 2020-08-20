@@ -82,6 +82,25 @@
           "root": "Styles applied to the root element.",
           "fullWidth": "Styles applied to the root component if fullWidth prop is true."
         }
+      },
+      "ListItemAPI": {
+        "pageAbout": "The API documentation of the ListItem React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "ListItem - react component, designed to generate list. Component simulates list item component.",
+        "ComponentNameText": "The ListItem name can be used for providing default props or style overriders at the theme level.",
+        "props": {
+          "type": "Type of list decoration.",
+          "dense": "Ff true, vertical distance between list items will be smaller."
+        },
+        "css": {
+          "root": "Styles applied to the root element.",
+          "typeCircle": "Styles applied to the root component if type prop equals circle.",
+          "typeSquare": "Styles applied to the root component if type prop equals square.",
+          "typeRoman": "Styles applied to the root component if type prop equals upper-roman.",
+          "typeAlpha": "Styles applied to the root component if type prop equals lower-alpha.",
+          "typeNone": "Styles applied to the root component if type prop equals none.",
+          "list": "Styles applied to the inner ul element.",
+          "dense": "Styles applied to the root element if prop dense is true."
+        }
       }
     },
     "common": {
