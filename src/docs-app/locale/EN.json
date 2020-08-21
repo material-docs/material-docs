@@ -101,6 +101,28 @@
           "list": "Styles applied to the inner ul element.",
           "dense": "Styles applied to the root element if prop dense is true."
         }
+      },
+      "ExpansionCodeAPI": {
+        "pageAbout": "The API documentation of the ExpansionCode React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "ExpansionCode - react component, designed to show code in collapsable blocks. User can view full code or part of code.",
+        "ComponentNameText": "The ExpansionCode name can be used for providing default props or style overriders at the theme level.",
+        "props": {
+          "name": "Name of the code block. If defined - it will appear in H3 header in ExpansionCode toolbar.",
+          "noTag": "If true and name prop is true - header will not generate tags fot content panel.",
+          "demoCode": "This code will appear in the Code block if component is not expanded.",
+          "actions": "Array of additional actions. The actions will be displayed in the dropdown menu when you click the ExpandMore icon button.",
+          "theme": "Code highlighting and background styling type.",
+          "language": "Language name for code highlighter.",
+          "children": "Code to display in code highlighter. This code will appear in the Code block if component is expanded."
+        },
+        "css": {
+          "root": "Styles applied to the root element.",
+          "collapsedCode": "Styles applied to the div element between Collapse component and Code component when code is collapsed.",
+          "collapse": "Styles applied to the Collapse component, which contains Code.",
+          "toolbar": "Styles applied to the Toolbar component.",
+          "codeName": "Styles applied to the H3 header with text from prop name.",
+          "menuButtonLink": "Styles applied to link element of actions menu button."
+        }
       }
     },
     "common": {

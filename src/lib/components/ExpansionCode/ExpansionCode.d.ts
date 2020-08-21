@@ -5,17 +5,19 @@
 
 /// <reference types="react" />
 import {CodeProps} from "../Code/Code";
+import DemoCodeAction from "../../interfaces/DemoCodeAction";
 
 export interface ExpansionCodeProps
     extends CodeProps {
     /**
      * name - string or JSX structure to be displayed in name field.
-     * @type any
+     * @type string
      */
-    name?: any;
+    name?: string;
     /**
      * noTag - if true, code will not be tagable (no anchor generated).
      * @type boolean
+     * @default false
      */
     noTag?: boolean;
     /**
@@ -23,6 +25,11 @@ export interface ExpansionCodeProps
      * @type string
      */
     demoCode?: string;
+    /**
+     * actions - if defined, on code actions panel will be displayed [ShowMoreIcon] with list of defined actions.
+     * @type DemoCodeAction[]
+     */
+    actions?: DemoCodeAction[];
 }
 
 /**

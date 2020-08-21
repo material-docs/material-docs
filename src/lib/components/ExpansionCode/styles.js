@@ -6,6 +6,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
+    root: {},
     collapsedCode: {
         height: "100%",
         overflow: "auto",
@@ -21,5 +22,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     codeName: {
         flexGrow: 1,
-    }
+    },
+    menuButtonLink: {
+        textDecoration: "none",
+        color: "inherit",
+    },
 }));

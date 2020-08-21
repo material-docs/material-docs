@@ -16,6 +16,7 @@ import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
+import ExpansionCodeAPI from "./pages/APIs/ExpansionCodeAPI";
 
 
 export default function Documentation() {
@@ -35,6 +36,7 @@ export default function Documentation() {
                     <PagesGroupAPI/>
                     <ImageAPI/>
                     <ListItemAPI/>
+                    <ExpansionCodeAPI/>
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>

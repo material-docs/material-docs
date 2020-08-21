@@ -22,6 +22,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import {H3} from "../Headers";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 
+
+//TODO: finish
 export default function ExpansionCode({theme, language, children, name, noTag, style, className, demoCode = '', actions, ...props}) {
     const classes = {...useStyles(), ...props.classes};
     const commonClasses = useCommonStyles();
@@ -33,7 +35,7 @@ export default function ExpansionCode({theme, language, children, name, noTag, s
     const [menuOpen, setMenuOpen] = React.useState(false);
 
     return (
-        <Box className={clsx(commonClasses.pageBlock, className)} style={style}>
+        <Box className={clsx(classes.root, commonClasses.pageBlock, className)} style={style}>
             <Toolbar className={classes.toolbar}>
                 {actions &&
                 <React.Fragment>
