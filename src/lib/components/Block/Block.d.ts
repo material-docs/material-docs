@@ -9,7 +9,12 @@ import Containerable from "../../interfaces/Containerable";
 
 export interface BlockProps
     extends Stylable, Containerable {
-
+    /**
+     * color - color styling of block.
+     * @type string
+     * @default "light"
+     */
+    color?: "dark" | "light";
 }
 
 /**

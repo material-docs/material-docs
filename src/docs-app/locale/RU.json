@@ -4,23 +4,56 @@
   "locale": {
     "pages": {
       "DocsPageAPI": {
-        "pageAbout": "API документация компонента React DocsPage. Узнайте больше о props и кастомизации CSS.",
-        "pageSearchDescription": "DocsPage - реакт компонент, созданный для того, чтоб беспечивать пользователя функционалом страниц. ",
-        "ComponentNameText": "Имя  DocsPage может быть использовано для для обемпеччения значений по умолчанию для props или переопределения стилей на уровне темы.",
-        "props": {
-          "name": "Название страницы. Route будет сгенерирован автоматически из имени.",
-          "searchTags": "Ключевые слова для поиска.",
-          "searchLabel": "Название страницы, которое будет показано в поиске, если страница будет соответствовать условиям поиска.",
-          "searchDescription": "Описание, которое будет показываться вместе с названием страницы, когда она будет соответствовать условиям поиска.",
-          "noGenerateAutoSearch": "Если true, страница не будет генерировать информацию для поиска.",
-          "noAutoMenu": "Если true, страница не будет участвовать в автоматическом создании меню."
-        },
+        "pageAbout": "The API documentation of the DocsPage React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DocsPage - react component, designed to provide user with page functional",
+        "ComponentNameHeader": "Component name",
+        "ComponentNameText": "The DocsPage name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Название страницы. Route будет сгенерирован автоматически из названия."
+          },
+          {
+            "name": "searchTags",
+            "type": "string[]",
+            "default": "",
+            "description": "Ключевые слова для поиска страницы."
+          },
+          {
+            "name": "searchLabel",
+            "type": "string",
+            "default": "",
+            "description": "Label text, displayed in search result if page match search requirements."
+          },
+          {
+            "name": "searchDescription",
+            "type": "string",
+            "default": "",
+            "description": "Description text, displayed in search result if page match search requirements."
+          },
+          {
+            "name": "noGenerateAutoSearch",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, page will not generate search items from pages automatically."
+          },
+          {
+            "name": "noAutoMenu",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, page will not participate in auto menu generation."
+          }
+        ],
+        "enableCss": true,
         "css": {
-          "root": "Стили, примеённые к корневому компоненту.",
-          "contentItem": "Стили, применённые к элементу item панели содержания.",
-          "contentItemActive": "Стили, применённые к компоненту item панели соержания, если она отображается.",
-          "contentLink": "Стили, применённые к компоненту link элемента item панели содержания.",
-          "copyright": "Стили, применённые к панели copyright, если она отображается."
+          "root": "Styles applied to the root element.",
+          "contentItem": "Styles applied to the item element of content panel.",
+          "contentItemActive": "Styles applied to the item element of content panel if it is active.",
+          "contentLink": "Styles applied to the link of item element of content panel.",
+          "copyright": "Styles applied to copyright panel if it shown."
         }
       }
     },

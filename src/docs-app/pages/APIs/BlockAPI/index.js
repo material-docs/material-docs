@@ -10,23 +10,23 @@ import {H2, List, ListItem, useLang} from "@danilandreev/material-docs";
 import ApiPage from "../../../components/ApiPage";
 
 const importCode = `
-import {DocsPage} from "@danilandreev/material-docs";
+import {Block} from "@danilandreev/material-docs";
 // or
-import DocsPage from "@danilandreev/material-docs/components/DocsPage";
+import Block from "@danilandreev/material-docs/components/Block";
 `.trim();
 
-export default function DocsPageAPI() {
+export default function BlockAPI() {
     const {lang} = useLang();
-    const locale = lang.locale.pages.DocsPageAPI;
+    const locale = lang.locale.pages.BlockAPI;
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
 
     return (
         <ApiPage
             lang={lang}
-            localeName={"DocsPageAPI"}
-            searchTags={["docs", "page", "api"]}
-            name={"DocsPageAPI"}
+            localeName={"BlockAPI"}
+            searchTags={["block", "tip", "slided", "separated", "blockquote", "quote"]}
+            name={"BlockAPI"}
             importCode={importCode}
         >
             <H2>Demos</H2>

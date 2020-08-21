@@ -11,12 +11,14 @@ import CodeAPI from "./pages/APIs/CodeAPI";
 import PagesGroupAPI from "./pages/APIs/PagesGroupAPI";
 import ImageAPI from "./pages/APIs/ImageAPI";
 import ListItemAPI from "./pages/APIs/ListItemAPI";
+import ExpansionCodeAPI from "./pages/APIs/ExpansionCodeAPI";
+import BlockAPI from "./pages/APIs/BlockAPI";
+import CodeSpanAPI from "./pages/APIs/CodeSpanAPI";
 
 import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
-import ExpansionCodeAPI from "./pages/APIs/ExpansionCodeAPI";
 
 
 export default function Documentation() {
@@ -37,6 +39,8 @@ export default function Documentation() {
                     <ImageAPI/>
                     <ListItemAPI/>
                     <ExpansionCodeAPI/>
+                    <BlockAPI/>
+                    <CodeSpanAPI/>
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>

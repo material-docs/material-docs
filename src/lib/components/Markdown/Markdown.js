@@ -9,7 +9,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";
 import clsx from "clsx";
 
-function Markdown({children, className, style, ...props}, ref) {
+function Markdown({children, className, style, inline = false, ...props}, ref) {
     const commonClasses = useCommonStyles();
     const [content, setContent] = React.useState([]);
 
@@ -22,6 +22,14 @@ function Markdown({children, className, style, ...props}, ref) {
             console.log(error);
         }
     }, [children]);
+
+    if (inline) {
+        return (
+            <span ref={ref} className={clsx(commonClasses.pageBlock, className)} style={style}>
+                {content}
+            </span>
+        );
+    }
 
     return (
         <div ref={ref} className={clsx(commonClasses.pageBlock, className)} style={style}>

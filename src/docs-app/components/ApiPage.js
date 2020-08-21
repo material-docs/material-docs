@@ -11,24 +11,42 @@
 import React from "react";
 import {Link} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-
 import {
-    DocsPage,
     Code,
-    Table,
-    TableRow,
-    TableHead,
-    TableCell,
-    TableBody,
-    List,
-    ListItem,
-    useLang,
+    DocsPage,
     H1,
     H2,
-    H3
+    H3,
+    List,
+    ListItem,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow
 } from "@danilandreev/material-docs";
+import {makeStyles} from "@material-ui/core/styles";
+import {grey, purple} from "@material-ui/core/colors";
+import clsx from "clsx";
+import Markdown from "../../lib/components/Markdown/Markdown";
+import {CodeSpan} from "../../lib/components";
+
+
+const useStyles = makeStyles(theme => ({
+    datatype: {
+        color: purple[800],
+    },
+    code: {
+        fontFamily: "monospace",
+        fontSize: "14px",
+    },
+    underlined: {
+        textDecoration: `underline dotted ${grey[500]}`,
+    }
+}));
 
 export default function ApiPage({lang, localeName, importCode, name, searchTags, children, ...props}) {
+    const classes = useStyles();
     if (!lang) throw new Error(`Documentation: lang is required prop`);
     if (!localeName) throw new Error(`Documentation: localeName is required prop`);
 
@@ -47,15 +65,9 @@ export default function ApiPage({lang, localeName, importCode, name, searchTags,
             <Code language={"javascript"} theme={"darcula"}>
                 {importCode}
             </Code>
-            <Typography>
-                {componentAPILocale.importDifferenceText.text1}&nbsp;
-                <Link href={"https://material-ui.com/guides/minimizing-bundle-size/"}>
-                    {componentAPILocale.importDifferenceText.link1}
-                </Link>
-                {componentAPILocale.importDifferenceText.text2}
-            </Typography>
+            <Markdown>{componentAPILocale.importDifferenceText}</Markdown>
             <H2>{componentAPILocale.ComponentNameHeader}</H2>
-            {locale.ComponentNameText}
+            <Markdown>{locale.ComponentNameText}</Markdown>
             {<H2>Props</H2>}
             {locale.enableProps &&
             <Table>
@@ -70,16 +82,17 @@ export default function ApiPage({lang, localeName, importCode, name, searchTags,
                 <TableBody>
                     {locale.props.map(prop => (
                         <TableRow key={prop.name}>
-                            <TableCell>{prop.name}</TableCell>
-                            <TableCell>{prop.type}</TableCell>
-                            <TableCell>{prop.default}</TableCell>
+                            <TableCell className={classes.code}>{prop.name}</TableCell>
+                            <TableCell className={clsx(classes.datatype, classes.code)}>{prop.type}</TableCell>
+                            <TableCell className={clsx(classes.code, classes.underlined)}>{prop.default}</TableCell>
                             <TableCell>{prop.description}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
             }
-            {!locale.enableProps && locale.noPropsText || null}
+            {!locale.enableProps && <Markdown>{locale.noPropsText}</Markdown>}
+            {locale.forwardRef && <Markdown>{componentAPILocale.ref}</Markdown>}
             <H2>CSS</H2>
             {locale.enableCss &&
             <Table>
@@ -92,43 +105,16 @@ export default function ApiPage({lang, localeName, importCode, name, searchTags,
                 <TableBody>
                     {Object.keys(locale.css).map(key => (
                         <TableRow key={key}>
-                            <TableCell>{key}</TableCell>
+                            <TableCell className={classes.code}>{key}</TableCell>
                             <TableCell>{locale.css[key]}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
             }
-            {!locale.enableCss && locale.noCssText || null}
+            {!locale.enableCss && <Markdown>{locale.noCssText}</Markdown>}
             {locale.enableCss &&
-                <React.Fragment>
-                    {componentAPILocale.customizationText}
-                    <List>
-                        <ListItem>
-                            {componentAPILocale.customizationRule}&nbsp;
-                            <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-classes"}>
-                                classes object prop
-                            </Link>
-                            .
-                        </ListItem>
-                        <ListItem>
-                            {componentAPILocale.customizationClass}&nbsp;
-                            <Link
-                                href={"https://material-ui.com/customization/components/#overriding-styles-with-global-class-names"}>
-                                global class name
-                            </Link>
-                            .
-                        </ListItem>
-                        <ListItem>
-                            {componentAPILocale.customizationTheme}&nbsp;
-                            <Link href={"https://material-ui.com/customization/globals/#css"}>
-                                overrides property
-                            </Link>
-                            .
-                        </ListItem>
-                    </List>
-                    {componentAPILocale.customizationFooterText}
-                </React.Fragment>
+            <Markdown>{componentAPILocale.customization}</Markdown>
             }
             {children}
         </DocsPage>
