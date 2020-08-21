@@ -8,14 +8,46 @@
         "pageSearchDescription": "DocsPage - react component, designed to provide user with page functional",
         "ComponentNameHeader": "Component name",
         "ComponentNameText": "The DocsPage name can be used for providing default props or style overriders at the theme level.",
-        "props": {
-          "name": "Page name. Route will be generated automatically from name.",
-          "searchTags": "Keywords for search engine.",
-          "searchLabel": "Label text, displayed in search result if page match search requirements.",
-          "searchDescription": "Description text, displayed in search result if page match search requirements.",
-          "noGenerateAutoSearch": "If true, page will not generate search items from pages automatically.",
-          "noAutoMenu": "If true, page will not participate in auto menu generation."
-        },
+        "enableProps": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Page name. Route will be generated automatically from name."
+          },
+          {
+            "name": "searchTags",
+            "type": "string[]",
+            "default": "",
+            "description": "Keywords for search engine."
+          },
+          {
+            "name": "searchLabel",
+            "type": "string",
+            "default": "",
+            "description": "Label text, displayed in search result if page match search requirements."
+          },
+          {
+            "name": "searchDescription",
+            "type": "string",
+            "default": "",
+            "description": "Description text, displayed in search result if page match search requirements."
+          },
+          {
+            "name": "noGenerateAutoSearch",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, page will not generate search items from pages automatically."
+          },
+          {
+            "name": "noAutoMenu",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, page will not participate in auto menu generation."
+          }
+        ],
+        "enableCss": true,
         "css": {
           "root": "Styles applied to the root element.",
           "contentItem": "Styles applied to the item element of content panel.",
@@ -28,14 +60,46 @@
         "pageAbout": "The API documentation of the DemoWithCode React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "DemoWithCode - react component, designed to create code blocks with interactive demo.",
         "ComponentNameText": "The DemoWithCode name can be used for providing default props or style overriders at the theme level.",
-        "props": {
-          "code": "Code to display in inner Code block.",
-          "defaultExpanded": "If true - code area will be expanded on startup.",
-          "name": "Name of the component. Will be displayed in H3 header if defined.",
-          "noTag": "If true and name prop is defined - header with name will not generate tag for content tab.",
-          "paperContainer": "If true - demo content will be wrapped in Paper component.",
-          "actions": "Array of additional actions. The actions will be displayed in the dropdown menu when you click the ExpandMore icon button."
-        },
+        "enableProps": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Name of the component. Will be displayed in H3 header if defined."
+          },
+          {
+            "name": "code",
+            "type": "string",
+            "default": "",
+            "description": "Code to display in inner Code block."
+          },
+          {
+            "name": "defaultExpanded",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true - code area will be expanded on startup."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true and name prop is defined - header with name will not generate tag for content tab."
+          },
+          {
+            "name": "paperContainer",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true - demo content will be wrapped in Paper component."
+          },
+          {
+            "name": "actions",
+            "type": "DemoCodeAction[]",
+            "default": "",
+            "description": "Array of additional actions. The actions will be displayed in the dropdown menu when you click the ExpandMore icon button."
+          }
+        ],
+        "enableCss": true,
         "css": {
           "root": "Styles applied to the root element.",
           "collapse": "Styles applied to the Collapse element, which contains code.",
@@ -48,11 +112,28 @@
         "pageAbout": "The API documentation of the Code React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "Code - react component, designed to create code blocks.",
         "ComponentNameText": "The Code name can be used for providing default props or style overriders at the theme level.",
-        "props": {
-          "children": "Code to display in code highlighter.",
-          "theme": "Code highlighting and background styling type.",
-          "language": "Language name for code highlighter."
-        },
+        "enableProps": true,
+        "props": [
+          {
+            "name": "language",
+            "type": "string",
+            "default": "\"javascript\"",
+            "description": "Language name for code highlighter."
+          },
+          {
+            "name": "theme",
+            "type": "\"light\"",
+            "default": "\"light\" | \"dark\" | \"darcula\"",
+            "description": "\tCode highlighting and background styling type."
+          },
+          {
+            "name": "children",
+            "type": "string",
+            "default": "",
+            "description": "\tCode to display in code highlighter."
+          }
+        ],
+        "enableCss": true,
         "css": {
           "root": "Styles applied to the root element.",
           "highlighterContainer": "Styles applied to the code highlighter container."
@@ -62,22 +143,56 @@
         "pageAbout": "The API documentation of the PagesGroup React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "PagesGroup - react component, designed to combine pages in groups for AutoDocsMenu.",
         "ComponentNameText": "The PagesGroup name can be used for providing default props or style overriders at the theme level.",
-        "props": {
-          "name": "Name of the group. Will be displayed on button in menu.",
-          "getData": "Callback, provided to get group data without context usage."
-        },
+        "enableProps": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Name of the group. Will be displayed on button in menu."
+          },
+          {
+            "name": "getData",
+            "type": "(data: PagesGroupData): void",
+            "default": "",
+            "description": "Callback, provided to get group data without context usage."
+          }
+        ],
+        "enableCss": false,
         "noCssText": "This is a service component. It doesn't generate html elements."
       },
       "ImageAPI": {
         "pageAbout": "The API documentation of the Image React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "Image - react component, designed to show images. Image component uses lazy load technology.",
         "ComponentNameText": "The Image name can be used for providing default props or style overriders at the theme level.",
-        "props": {
-          "src": "Source link. Used to define image path.",
-          "alt": "Alternative text. Will be displayed if image can not load.",
-          "fullWidth": "If true - image will be 100 percent wide.",
-          "children": "Elements, which will appear in image caption."
-        },
+        "enableProps": true,
+        "props": [
+          {
+            "name": "src",
+            "type": "string",
+            "default": "",
+            "description": "Source link. Used to define image path."
+          },
+          {
+            "name": "alt",
+            "type": "string",
+            "default": "",
+            "description": "Alternative text. Will be displayed if image can not load."
+          },
+          {
+            "name": "fullWidth",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true - image will be 100 percent wide."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Elements, which will appear in image caption."
+          }
+        ],
+        "enableCss": true,
         "css": {
           "root": "Styles applied to the root element.",
           "fullWidth": "Styles applied to the root component if fullWidth prop is true."
@@ -87,10 +202,22 @@
         "pageAbout": "The API documentation of the ListItem React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "ListItem - react component, designed to generate list. Component simulates list item component.",
         "ComponentNameText": "The ListItem name can be used for providing default props or style overriders at the theme level.",
-        "props": {
-          "type": "Type of list decoration.",
-          "dense": "If true, vertical distance between list items will be smaller."
-        },
+        "enableProps": true,
+        "props": [
+          {
+            "name": "type",
+            "type": "\"circle\" | \"square\" | \"upper-roman\" | \"lower-alpha\" | \"none\"",
+            "default": "\"circle\"",
+            "description": "Type of list decoration."
+          },
+          {
+            "name": "dense",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, vertical distance between list items will be smaller."
+          }
+        ],
+        "enableCss": true,
         "css": {
           "root": "Styles applied to the root element.",
           "typeCircle": "Styles applied to the root component if type prop equals circle.",
@@ -106,15 +233,52 @@
         "pageAbout": "The API documentation of the ExpansionCode React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "ExpansionCode - react component, designed to show code in collapsable blocks. User can view full code or part of code.",
         "ComponentNameText": "The ExpansionCode name can be used for providing default props or style overriders at the theme level.",
-        "props": {
-          "name": "Name of the code block. If defined - it will appear in H3 header in ExpansionCode toolbar.",
-          "noTag": "If true and name prop is true - header will not generate tags fot content panel.",
-          "demoCode": "This code will appear in the Code block if component is not expanded.",
-          "actions": "Array of additional actions. The actions will be displayed in the dropdown menu when you click the ExpandMore icon button.",
-          "theme": "Code highlighting and background styling type.",
-          "language": "Language name for code highlighter.",
-          "children": "Code to display in code highlighter. This code will appear in the Code block if component is expanded."
-        },
+        "enableProps": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Name of the code block. If defined - it will appear in H3 header in ExpansionCode toolbar."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true and name prop is true - header will not generate tags fot content panel."
+          },
+          {
+            "name": "demoCode",
+            "type": "string",
+            "default": "",
+            "description": "This code will appear in the Code block if component is not expanded."
+          },
+          {
+            "name": "actions",
+            "type": "DemoCodeAction[]",
+            "default": "",
+            "description": "Array of additional actions. The actions will be displayed in the dropdown menu when you click the ExpandMore icon button."
+          },
+          {
+            "name": "theme",
+            "type": "\"light\" | \"dark\" | \"darcula\"",
+            "default": "\"light\"",
+            "description": "Code highlighting and background styling type."
+          },
+          {
+            "name": "language",
+            "type": "string",
+            "default": "\"javascript\"",
+            "description": "Language name for code highlighter."
+          },
+          {
+            "name": "children",
+            "type": "string",
+            "default": "\"light\"",
+            "description": "Code to display in code highlighter. This code will appear in the Code block if component is expanded."
+          }
+        ],
+        "enableCss": true,
         "css": {
           "root": "Styles applied to the root element.",
           "collapsedCode": "Styles applied to the div element between Collapse component and Code component when code is collapsed.",

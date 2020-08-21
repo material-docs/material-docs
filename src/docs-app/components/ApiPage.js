@@ -28,7 +28,7 @@ import {
     H3
 } from "@danilandreev/material-docs";
 
-export default function ApiPage({lang, localeName, importCode, ...props}) {
+export default function ApiPage({lang, localeName, importCode, name, searchTags, children, ...props}) {
     if (!lang) throw new Error(`Documentation: lang is required prop`);
     if (!localeName) throw new Error(`Documentation: localeName is required prop`);
 
@@ -37,8 +37,8 @@ export default function ApiPage({lang, localeName, importCode, ...props}) {
     const componentAPILocale = lang.locale.common.ComponentAPI;
     return (
         <DocsPage
-            name={"DemoWithCode API"}
-            searchTags={["demo", "with", "code", "api"]}
+            name={name}
+            searchTags={searchTags || locale.searchTags}
             searchDescription={locale.pageSearchDescription}
         >
             <H1 noDivider>DemoWithCode API</H1>
@@ -56,7 +56,8 @@ export default function ApiPage({lang, localeName, importCode, ...props}) {
             </Typography>
             <H2>{componentAPILocale.ComponentNameHeader}</H2>
             {locale.ComponentNameText}
-            <H2>Props</H2>
+            {<H2>Props</H2>}
+            {locale.enableProps &&
             <Table>
                 <TableHead>
                     <TableRow>
@@ -67,45 +68,20 @@ export default function ApiPage({lang, localeName, importCode, ...props}) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell>name</TableCell>
-                        <TableCell>string</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.name}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>code</TableCell>
-                        <TableCell>string</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.code}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>defaultExpanded</TableCell>
-                        <TableCell>boolean</TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>{locale.props.defaultExpanded}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>noTag</TableCell>
-                        <TableCell>boolean</TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>{locale.props.noTag}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>paperContainer</TableCell>
-                        <TableCell>boolean</TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>{locale.props.paperContainer}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>actions</TableCell>
-                        <TableCell>DemoCodeAction[]</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.actions}</TableCell>
-                    </TableRow>
+                    {locale.props.map(prop => (
+                        <TableRow key={prop.name}>
+                            <TableCell>{prop.name}</TableCell>
+                            <TableCell>{prop.type}</TableCell>
+                            <TableCell>{prop.default}</TableCell>
+                            <TableCell>{prop.description}</TableCell>
+                        </TableRow>
+                    ))}
                 </TableBody>
             </Table>
+            }
+            {!locale.enableProps && locale.noPropsText || null}
             <H2>CSS</H2>
+            {locale.enableCss &&
             <Table>
                 <TableHead>
                     <TableRow>
@@ -114,58 +90,47 @@ export default function ApiPage({lang, localeName, importCode, ...props}) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell>root</TableCell>
-                        <TableCell>{locale.css.root}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>collapse</TableCell>
-                        <TableCell>{locale.css.collapse}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>toolbar</TableCell>
-                        <TableCell>{locale.css.toolbar}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>paperContainer</TableCell>
-                        <TableCell>{locale.css.paperContainer}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>menuButtonLink</TableCell>
-                        <TableCell>{locale.css.menuButtonLink}</TableCell>
-                    </TableRow>
+                    {Object.keys(locale.css).map(key => (
+                        <TableRow key={key}>
+                            <TableCell>{key}</TableCell>
+                            <TableCell>{locale.css[key]}</TableCell>
+                        </TableRow>
+                    ))}
                 </TableBody>
             </Table>
-            {componentAPILocale.customizationText}
-            <List>
-                <ListItem>
-                    {componentAPILocale.customizationRule}&nbsp;
-                    <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-classes"}>
-                        classes object prop
-                    </Link>
-                    .
-                </ListItem>
-                <ListItem>
-                    {componentAPILocale.customizationClass}&nbsp;
-                    <Link
-                        href={"https://material-ui.com/customization/components/#overriding-styles-with-global-class-names"}>
-                        global class name
-                    </Link>
-                    .
-                </ListItem>
-                <ListItem>
-                    {componentAPILocale.customizationTheme}&nbsp;
-                    <Link href={"https://material-ui.com/customization/globals/#css"}>
-                        overrides property
-                    </Link>
-                    .
-                </ListItem>
-            </List>
-            {componentAPILocale.customizationFooterText}
-            <H2>Demos</H2>
-            <List>
-                <ListItem><Link>Code showers</Link></ListItem>
-            </List>
+            }
+            {!locale.enableCss && locale.noCssText || null}
+            {locale.enableCss &&
+                <React.Fragment>
+                    {componentAPILocale.customizationText}
+                    <List>
+                        <ListItem>
+                            {componentAPILocale.customizationRule}&nbsp;
+                            <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-classes"}>
+                                classes object prop
+                            </Link>
+                            .
+                        </ListItem>
+                        <ListItem>
+                            {componentAPILocale.customizationClass}&nbsp;
+                            <Link
+                                href={"https://material-ui.com/customization/components/#overriding-styles-with-global-class-names"}>
+                                global class name
+                            </Link>
+                            .
+                        </ListItem>
+                        <ListItem>
+                            {componentAPILocale.customizationTheme}&nbsp;
+                            <Link href={"https://material-ui.com/customization/globals/#css"}>
+                                overrides property
+                            </Link>
+                            .
+                        </ListItem>
+                    </List>
+                    {componentAPILocale.customizationFooterText}
+                </React.Fragment>
+            }
+            {children}
         </DocsPage>
     );
 }

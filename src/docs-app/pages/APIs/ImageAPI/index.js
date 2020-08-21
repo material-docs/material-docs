@@ -22,11 +22,12 @@ import {
     H2,
     H3
 } from "@danilandreev/material-docs";
+import ApiPage from "../../../components/ApiPage";
 
 const importCode = `
-import {DemoWithCode} from "@danilandreev/material-docs";
+import {Image} from "@danilandreev/material-docs";
 // or
-import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode";
+import Image from "@danilandreev/material-docs/components/Image";
 `.trim();
 
 export default function ImageAPI() {
@@ -34,113 +35,19 @@ export default function ImageAPI() {
     const locale = lang.locale.pages.ImageAPI;
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
+
     return (
-        <DocsPage
-            name={"Image API"}
-            searchTags={["demo", "with", "code", "api"]}
-            searchDescription={locale.pageSearchDescription}
+        <ApiPage
+            lang={lang}
+            localeName={"ImageAPI"}
+            searchTags={["image", "lazy", "load", "picture", "card", "banner", "logo"]}
+            name={"ImageAPI"}
+            importCode={importCode}
         >
-            <H1 noDivider>Image API</H1>
-            <H3 noDivider noTag>{locale.pageAbout}</H3>
-            <H2>{localeSpells.Import}</H2>
-            <Code language={"javascript"} theme={"darcula"}>
-                {importCode}
-            </Code>
-            <Typography>
-                {componentAPILocale.importDifferenceText.text1}&nbsp;
-                <Link href={"https://material-ui.com/guides/minimizing-bundle-size/"}>
-                    {componentAPILocale.importDifferenceText.link1}
-                </Link>
-                {componentAPILocale.importDifferenceText.text2}
-            </Typography>
-            <H2>{componentAPILocale.ComponentNameHeader}</H2>
-            {locale.ComponentNameText}
-            <H2>Props</H2>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>{componentAPILocale.propName}</TableCell>
-                        <TableCell>{componentAPILocale.propType}</TableCell>
-                        <TableCell>{componentAPILocale.propDefault}</TableCell>
-                        <TableCell>{componentAPILocale.propDescription}</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    <TableRow>
-                        <TableCell>src</TableCell>
-                        <TableCell>string</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.src}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>alt</TableCell>
-                        <TableCell>string</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.alt}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>fullWidth</TableCell>
-                        <TableCell>boolean</TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>{locale.props.fullWidth}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>children</TableCell>
-                        <TableCell>node</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{locale.props.children}</TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
-            <H2>CSS</H2>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>{componentAPILocale.ruleName}</TableCell>
-                        <TableCell>{componentAPILocale.ruleDescription}</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    <TableRow>
-                        <TableCell>root</TableCell>
-                        <TableCell>{locale.css.root}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>fullWidth</TableCell>
-                        <TableCell>{locale.css.fullWidth}</TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
-            {componentAPILocale.customizationText}
-            <List>
-                <ListItem>
-                    {componentAPILocale.customizationRule}&nbsp;
-                    <Link href={"https://material-ui.com/customization/components/#overriding-styles-with-classes"}>
-                        classes object prop
-                    </Link>
-                    .
-                </ListItem>
-                <ListItem>
-                    {componentAPILocale.customizationClass}&nbsp;
-                    <Link
-                        href={"https://material-ui.com/customization/components/#overriding-styles-with-global-class-names"}>
-                        global class name
-                    </Link>
-                    .
-                </ListItem>
-                <ListItem>
-                    {componentAPILocale.customizationTheme}&nbsp;
-                    <Link href={"https://material-ui.com/customization/globals/#css"}>
-                        overrides property
-                    </Link>
-                    .
-                </ListItem>
-            </List>
-            {componentAPILocale.customizationFooterText}
             <H2>Demos</H2>
             <List>
                 <ListItem><Link>Images</Link></ListItem>
             </List>
-        </DocsPage>
+        </ApiPage>
     );
 }
