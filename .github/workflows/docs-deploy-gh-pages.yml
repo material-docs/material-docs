@@ -23,6 +23,7 @@ jobs:
     - run: yarn --frozen-lockfile
     - run: yarn install
     - run: yarn run build:docs
+    - run: rm -r docs
     - run: cp -R build/* docs
     - run: touch .nojekyll
     - run: git add --all
