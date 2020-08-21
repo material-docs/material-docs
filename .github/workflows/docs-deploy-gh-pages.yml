@@ -26,6 +26,7 @@ jobs:
       env:
         CI: false
     - run: rm -r docs
+    - run: mkdir docs
     - run: cp -R build/* docs
     - run: touch .nojekyll
     - run: git add --all
