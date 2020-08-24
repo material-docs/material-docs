@@ -14,11 +14,15 @@ import ListItemAPI from "./pages/APIs/ListItemAPI";
 import ExpansionCodeAPI from "./pages/APIs/ExpansionCodeAPI";
 import BlockAPI from "./pages/APIs/BlockAPI";
 import CodeSpanAPI from "./pages/APIs/CodeSpanAPI";
+import ItalicAPI from "./pages/APIs/ItalicAPI";
+import ListAPI from "./pages/APIs/ListAPI";
+import DocsMenuItemAPI from "./pages/APIs/DocsMenuItemAPI";
 
 import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
+import MarkdownAPI from "./pages/APIs/MarkdownAPI";
 
 
 export default function Documentation() {
@@ -31,7 +35,7 @@ export default function Documentation() {
                 <PagesGroup name={"Components"}>
                     <DocsPageDemo/>
                 </PagesGroup>
-                <PagesGroup name={"APIs"}>
+                <PagesGroup name={"Component APIs"}>
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
                     <CodeAPI />
@@ -41,6 +45,13 @@ export default function Documentation() {
                     <ExpansionCodeAPI/>
                     <BlockAPI/>
                     <CodeSpanAPI/>
+                    <ItalicAPI/>
+                    <ListAPI/>
+                    <DocsMenuItemAPI/>
+                    <MarkdownAPI/>
+                    <PagesGroup name={"System components"}>
+
+                    </PagesGroup>
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>

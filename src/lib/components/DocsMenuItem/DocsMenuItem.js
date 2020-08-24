@@ -24,9 +24,10 @@ function DocsMenuItem({
                           icon,
                           onClick,
                           page,
-                          isCurrent,
+                          isCurrent = false,
                           className,
                           style,
+                          dense = false,
                           ...props
                       }, ref) {
     const classes = {...useStyles(), ...props.classes};
@@ -70,6 +71,7 @@ function DocsMenuItem({
                 className={clsx(classes.root, highlight && classes.highlighted, className)}
                 style={{paddingLeft: theme.spacing(paddingShift), ...style}}
                 ref={ref}
+                dense={dense}
             >
                 {icon &&
                 <ListItemIcon>

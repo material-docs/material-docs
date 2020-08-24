@@ -382,6 +382,156 @@
           "textWhite": "Styles applied to the root element when prop text equals \"white\"",
           "textBlack": "Styles applied to the root element when prop text equals \"black\""
         }
+      },
+      "ItalicAPI": {
+        "pageAbout": "The API documentation of the Italic React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "Italic - react component, designed to make text italic.",
+        "ComponentNameText": "The Italic name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "italic": "Styles applied to the root element, provides italic text styling."
+        }
+      },
+      "ListAPI": {
+        "pageAbout": "The API documentation of the List React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "List - react component, designed to show code in monospace font inside inline code block.",
+        "ComponentNameText": "The List name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "image",
+            "type": "string",
+            "default": "",
+            "description": "List styling image. If defined - will be applied to list-style-image style."
+          },
+          {
+            "name": "styling",
+            "type": "\"inside\" | \"outside\" | \"inherit\" | \"revert\" | \"unset\"",
+            "default": "\"inside\"",
+            "description": "List styling type."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "stylePositionInside": "Styles applied to the root element when prop styling equals \"inside\"",
+          "stylePositionOutside": "Styles applied to the root element when prop styling equals \"outside\"",
+          "stylePositionInherit": "Styles applied to the root element when prop styling equals \"inherit\"",
+          "stylePositionRevert": "Styles applied to the root element when prop styling equals \"revert\"",
+          "stylePositionUnset": "Styles applied to the root element when prop styling equals \"unset\""
+        }
+      },
+      "DocsMenuItemAPI": {
+        "pageAbout": "The API documentation of the DocsMenuItem React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DocsMenuItem - react component, designed create menu items for <DocsMenu/>.",
+        "ComponentNameText": "The DocsMenuItem name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "defaultExpanded",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, panel will be expanded on startup."
+          },
+          {
+            "name": "textPrimary",
+            "type": "string",
+            "default": "",
+            "description": "Primary text form menu list item."
+          },
+          {
+            "name": "textSecondary",
+            "type": "string",
+            "default": "",
+            "description": "Secondary text for menu list item. Will be displayed in the bottom."
+          },
+          {
+            "name": "icon",
+            "type": "string",
+            "default": "node",
+            "description": "Icon, displayed in left corner. Used to customize menu item appearance."
+          },
+          {
+            "name": "onClick",
+            "type": "function(event: any): void",
+            "default": "",
+            "description": "Callback, will be triggered on onclick event handling."
+          },
+          {
+            "name": "page",
+            "type": "string | any",
+            "default": "",
+            "description": "Page name for redirecting or object structure for routing-manager changeRoute."
+          },
+          {
+            "name": "isCurrent",
+            "type": "(function(routeParams, pageRoute, page): boolean) | boolean",
+            "default": "false",
+            "description": "If equals true or function returned true, button will be active. Used when displayed page, connected to this menu item."
+          },
+          {
+            "name": "dense",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, compact vertical padding designed for keyboard and mouse input will be used for the list and list items. The prop is available to descendant components as the dense context."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "highlighted": "Styles applied to the root element when prop isCurrent equals or returned true",
+          "collapse": "Styles applied to the Collapse element for nested menu items."
+        }
+      },
+      "MarkdownAPI": {
+        "pageAbout": "The API documentation of the DocsMenuItem React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DocsMenuItem - react component, designed create menu items for <DocsMenu/>.",
+        "ComponentNameText": "The DocsMenuItem name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "inline",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, markdown container will be inline."
+          },
+          {
+            "name": "children",
+            "type": "string | string[]",
+            "default": "",
+            "description": "Markdown based notation. Used to generate visual elements."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element."
+        }
       }
     },
     "common": {

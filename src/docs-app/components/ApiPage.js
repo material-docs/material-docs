@@ -9,16 +9,12 @@
  */
 
 import React from "react";
-import {Link} from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
 import {
     Code,
     DocsPage,
     H1,
     H2,
     H3,
-    List,
-    ListItem,
     Table,
     TableBody,
     TableCell,
@@ -29,7 +25,6 @@ import {makeStyles} from "@material-ui/core/styles";
 import {grey, purple} from "@material-ui/core/colors";
 import clsx from "clsx";
 import Markdown from "../../lib/components/Markdown/Markdown";
-import {CodeSpan} from "../../lib/components";
 
 
 const useStyles = makeStyles(theme => ({
@@ -53,13 +48,16 @@ export default function ApiPage({lang, localeName, importCode, name, searchTags,
     const locale = lang.locale.pages[localeName];
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
+
+    const showProps = !!locale.enableProps || !!locale.noPropsText;
+    const showCss = !!locale.enableCss || !!locale.noCssText;
     return (
         <DocsPage
             name={name}
             searchTags={searchTags || locale.searchTags}
             searchDescription={locale.pageSearchDescription}
         >
-            <H1 noDivider>DemoWithCode API</H1>
+            <H1 noDivider>{name}</H1>
             <H3 noDivider noTag>{locale.pageAbout}</H3>
             <H2>{localeSpells.Import}</H2>
             <Code language={"javascript"} theme={"darcula"}>
@@ -68,7 +66,7 @@ export default function ApiPage({lang, localeName, importCode, name, searchTags,
             <Markdown>{componentAPILocale.importDifferenceText}</Markdown>
             <H2>{componentAPILocale.ComponentNameHeader}</H2>
             <Markdown>{locale.ComponentNameText}</Markdown>
-            {<H2>Props</H2>}
+            {showProps && <H2>Props</H2>}
             {locale.enableProps &&
             <Table>
                 <TableHead>
@@ -93,8 +91,8 @@ export default function ApiPage({lang, localeName, importCode, name, searchTags,
             }
             {!locale.enableProps && <Markdown>{locale.noPropsText}</Markdown>}
             {locale.forwardRef && <Markdown>{componentAPILocale.ref}</Markdown>}
-            <H2>CSS</H2>
-            {locale.enableCss &&
+            {showCss && <H2>CSS</H2>}
+            {locale.css &&
             <Table>
                 <TableHead>
                     <TableRow>
