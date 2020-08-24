@@ -9,7 +9,16 @@ import Stylable from "../../interfaces/Stylable";
 
 export interface ListProps
     extends Containerable, Stylable {
-
+    /**
+     * image - list styling image. If defined - will be applied to list-style-image style.
+     * @type string
+     */
+    image?: string;
+    /**
+     * styling - list styling type.
+     * @type string
+     */
+    styling?: "inside" | "outside" | "inherit" | "revert" | "unset";
 }
 
 /**

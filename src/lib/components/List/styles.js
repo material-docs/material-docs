@@ -7,6 +7,20 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
     root: {
-        paddingLeft: 17,
+    },
+    stylePositionInside: {
+        listStylePosition: "inside",
+    },
+    stylePositionOutside: {
+        listStylePosition: "outside",
+    },
+    stylePositionInherit: {
+        listStylePosition: "inherit",
+    },
+    stylePositionRevert: {
+        listStylePosition: "revert",
+    },
+    stylePositionUnset: {
+        listStylePosition: "unset",
     },
 }));

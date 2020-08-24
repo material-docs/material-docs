@@ -13,4 +13,10 @@ export const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(1),
         paddingLeft: theme.spacing(2),
     },
+    colorLight: {
+        backgroundColor: grey[200],
+    },
+    colorDark: {
+        backgroundColor: grey[400],
+    }
 }));

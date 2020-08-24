@@ -9,7 +9,18 @@ import Containerable from "../../interfaces/Containerable";
 
 export interface CodeSpanProps
     extends Stylable, Containerable {
-
+    /**
+     * color - background color of the inline code block.
+     * @type string
+     * @default "default"
+     */
+    color?: "default" | "primary" | "secondary" | "grey";
+    /**
+     * text - text color of code.
+     * @type string
+     * @default "inherit"
+     */
+    text?: "white" | "black" | "inherit";
 }
 
 /**
