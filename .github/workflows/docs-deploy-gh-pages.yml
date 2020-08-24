@@ -1,10 +1,8 @@
 name: docs-deploy-gh-pages
 
 on:
-#   push:
-#     branches: [ docs ]
   pull_request:
-    types: [ created ]
+    types: [ closed ]
     branches: [ docs ]
 
 
