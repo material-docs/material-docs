@@ -535,7 +535,7 @@
       },
       "TableAPI": {
         "pageAbout": "The API documentation of the Table React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "Table - react component, designed create tables.",
+        "pageSearchDescription": "Table - react component, designed to create tables.",
         "ComponentNameText": "The Table name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
@@ -579,7 +579,7 @@
       },
       "TableRowAPI": {
         "pageAbout": "The API documentation of the TableRow React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "TableRow - react component, designed create tables.",
+        "pageSearchDescription": "TableRow - react component, designed to create tables.",
         "ComponentNameText": "The TableRow name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
@@ -620,7 +620,7 @@
       },
       "TableCellAPI": {
         "pageAbout": "The API documentation of the TableCell React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "TableCell - react component, designed create tables.",
+        "pageSearchDescription": "TableCell - react component, designed to create tables.",
         "ComponentNameText": "The TableCell name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
@@ -692,7 +692,7 @@
       },
       "TableBodyAPI": {
         "pageAbout": "The API documentation of the TableBody React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "TableBody - react component, designed create tables.",
+        "pageSearchDescription": "TableBody - react component, designed to create tables.",
         "ComponentNameText": "The TableBody name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
@@ -717,7 +717,7 @@
       },
       "TableHeadAPI": {
         "pageAbout": "The API documentation of the TableHead React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "TableHead - react component, designed create tables.",
+        "pageSearchDescription": "TableHead - react component, designed to create tables.",
         "ComponentNameText": "The TableHead name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
@@ -742,7 +742,7 @@
       },
       "BoldAPI": {
         "pageAbout": "The API documentation of the Bold React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "Bold - react component, designed create tables.",
+        "pageSearchDescription": "Bold - react component, designed to create tables.",
         "ComponentNameText": "The Bold name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
@@ -777,6 +777,51 @@
         "enableCss": false,
         "css": {},
         "noCssText": "This component is service and doesn't have any styles."
+      },
+      "LanguageSelectorAPI": {
+        "pageAbout": "The API documentation of the LanguageSelector React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "LanguageSelector - react component, designed to add language selection mechanism and locale management.",
+        "ComponentNameText": "The LanguageSelector name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": false,
+        "props": [],
+        "noPropsText": "This component has no props and takes info with useLang hook. It must be placed inside LangContext.Provider",
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element."
+        }
+      },
+      "SearchFieldAPI": {
+        "pageAbout": "The API documentation of the SearchField React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "SearchField - react component, designed to add search mechanism.",
+        "ComponentNameText": "The SearchField name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "searchData",
+            "type": "SearchDataItem[]",
+            "default": "",
+            "description": "Array of SearchDataItem items to do search from."
+          },
+          {
+            "name": "doSearch",
+            "type": "function(query, searchData): Promise<SearchDataItem[]>",
+            "default": "",
+            "description": "Callback, called on search. If defined, default search function will not be called. Must return array of SearchDataItem."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "rootFocused": "Styles applied to the root element when result item is focused.",
+          "input": "Styles applied to the Input element.",
+          "iconButton": "Styles applied to the IconButton component.",
+          "icon": "Styles applied to the icons.",
+          "iconClickable": "Styles applied to the icons with button functional.",
+          "popper": "Styles applied to the Popper element.",
+          "listPaper": "Styles applied to the Paper element, which contains results List."
+        }
       }
     },
     "common": {
