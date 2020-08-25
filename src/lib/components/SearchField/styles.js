@@ -56,5 +56,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     listPaper: {
         marginTop: theme.spacing(2),
+        maxHeight: "70vh",
+        overflowY: "auto",
     },
 }));
