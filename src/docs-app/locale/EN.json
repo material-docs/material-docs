@@ -759,6 +759,24 @@
           "root": "Styles applied to the root element.",
           "bold": "Styles applied to the root element with bold text styling."
         }
+      },
+      "AutoDocsMenuAPI": {
+        "pageAbout": "The API documentation of the AutoDocsMenu React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "AutoDocsMenu - react component, designed create tables.",
+        "ComponentNameText": "The AutoDocsMenu name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "layoutData",
+            "type": "PagesGroupData",
+            "default": "",
+            "description": "Pages and groups hierarchy data."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "This component is service and doesn't have any styles."
       }
     },
     "common": {

@@ -4,7 +4,10 @@
  */
 
 import React from "react";
+
 import DocsPageDemo from "./pages/Components/DocsPageDemo";
+
+// API pages
 import DocsPageAPI from "./pages/APIs/DocsPageAPI";
 import DemoWithCodeAPI from "./pages/APIs/DemoWithCodeAPI";
 import CodeAPI from "./pages/APIs/CodeAPI";
@@ -19,16 +22,17 @@ import ListAPI from "./pages/APIs/ListAPI";
 import DocsMenuItemAPI from "./pages/APIs/DocsMenuItemAPI";
 import MarkdownAPI from "./pages/APIs/MarkdownAPI";
 import TableAPI from "./pages/APIs/TableAPI";
-
-import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
-
-import RU from "./locale/RU.json";
-import EN from "./locale/EN.json";
 import TableRowAPI from "./pages/APIs/TableRowAPI";
 import TableCellAPI from "./pages/APIs/TableCellAPI";
 import TableBodyAPI from "./pages/APIs/TableBodyAPI";
 import TableHeadAPI from "./pages/APIs/TableHeadAPI";
 import BoldAPI from "./pages/APIs/BoldAPI";
+
+import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
+
+import RU from "./locale/RU.json";
+import EN from "./locale/EN.json";
+import AutoDocsMenuAPI from "./pages/APIs/AutoDocsMenuAPI";
 
 
 export default function Documentation() {
@@ -62,7 +66,7 @@ export default function Documentation() {
                     <TableBodyAPI/>
                     <TableHeadAPI/>
                     <PagesGroup name={"System components"}>
-
+                        <AutoDocsMenuAPI/>
                     </PagesGroup>
                 </PagesGroup>
             </DocsPages>
