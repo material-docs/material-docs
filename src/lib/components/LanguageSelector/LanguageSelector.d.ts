@@ -8,7 +8,7 @@ import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
 export interface LanguageSelectorProps
-    extends Stylable, Containerable {
+    extends Stylable {
 
 }
 
