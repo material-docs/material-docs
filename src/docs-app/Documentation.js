@@ -41,6 +41,7 @@ import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
+import ListsDemo from "./pages/Components/ListsDemo";
 
 
 export default function Documentation() {
@@ -52,6 +53,7 @@ export default function Documentation() {
                 </PagesGroup>
                 <PagesGroup name={"Components"}>
                     <DocsPageDemo/>
+                    <ListsDemo/>
                 </PagesGroup>
                 <PagesGroup name={"Component APIs"}>
                     <DocsLayoutAPI/>
