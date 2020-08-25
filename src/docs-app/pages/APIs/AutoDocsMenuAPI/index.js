@@ -10,28 +10,28 @@ import {H2, List, ListItem, useLang} from "@danilandreev/material-docs";
 import ApiPage from "../../../components/ApiPage";
 
 const importCode = `
-import {Italic} from "@danilandreev/material-docs";
+import {AutoDocsMenu} from "@danilandreev/material-docs";
 // or
-import Italic from "@danilandreev/material-docs/components/Italic";
+import AutoDocsMenu from "@danilandreev/material-docs/components/AutoDocsMenu";
 `.trim();
 
-export default function ItalicAPI() {
+export default function AutoDocsMenuAPI() {
     const {lang} = useLang();
-    const locale = lang.locale.pages.ItalicAPI;
+    const locale = lang.locale.pages.AutoDocsMenuAPI;
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
 
     return (
         <ApiPage
             lang={lang}
-            localeName={"ItalicAPI"}
-            searchTags={["italic", "font", "text", "styling", "api"]}
-            name={"ItalicAPI"}
+            localeName={"AutoDocsMenuAPI"}
+            searchTags={["auto", "menu", "docs", "system", "api"]}
+            name={"AutoDocsMenuAPI"}
             importCode={importCode}
         >
             <H2>Demos</H2>
             <List>
-                <ListItem><Link>Text styling</Link></ListItem>
+                <ListItem><Link>Auto menu</Link></ListItem>
             </List>
         </ApiPage>
     );

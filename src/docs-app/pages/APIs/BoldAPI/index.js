@@ -5,28 +5,43 @@
 
 import React from "react";
 import {Link} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 
-import {H2, List, ListItem, useLang} from "@danilandreev/material-docs";
+import {
+    DocsPage,
+    Code,
+    Table,
+    TableRow,
+    TableHead,
+    TableCell,
+    TableBody,
+    List,
+    ListItem,
+    useLang,
+    H1,
+    H2,
+    H3
+} from "@danilandreev/material-docs";
 import ApiPage from "../../../components/ApiPage";
 
 const importCode = `
-import {Italic} from "@danilandreev/material-docs";
+import {Bold} from "@danilandreev/material-docs";
 // or
-import Italic from "@danilandreev/material-docs/components/Italic";
+import Bold from "@danilandreev/material-docs/components/Bold";
 `.trim();
 
-export default function ItalicAPI() {
+export default function BoldAPI() {
     const {lang} = useLang();
-    const locale = lang.locale.pages.ItalicAPI;
+    const locale = lang.locale.pages.BoldAPI;
     const localeSpells = lang.locale.common.spells;
     const componentAPILocale = lang.locale.common.ComponentAPI;
 
     return (
         <ApiPage
             lang={lang}
-            localeName={"ItalicAPI"}
-            searchTags={["italic", "font", "text", "styling", "api"]}
-            name={"ItalicAPI"}
+            localeName={"BoldAPI"}
+            searchTags={["bold", "font", "text", "styling", "api"]}
+            name={"BoldAPI"}
             importCode={importCode}
         >
             <H2>Demos</H2>
