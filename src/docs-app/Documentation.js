@@ -17,12 +17,18 @@ import CodeSpanAPI from "./pages/APIs/CodeSpanAPI";
 import ItalicAPI from "./pages/APIs/ItalicAPI";
 import ListAPI from "./pages/APIs/ListAPI";
 import DocsMenuItemAPI from "./pages/APIs/DocsMenuItemAPI";
+import MarkdownAPI from "./pages/APIs/MarkdownAPI";
+import TableAPI from "./pages/APIs/TableAPI";
 
 import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
-import MarkdownAPI from "./pages/APIs/MarkdownAPI";
+import TableRowAPI from "./pages/APIs/TableRowAPI";
+import TableCellAPI from "./pages/APIs/TableCellAPI";
+import TableBodyAPI from "./pages/APIs/TableBodyAPI";
+import TableHeadAPI from "./pages/APIs/TableHeadAPI";
+import BoldAPI from "./pages/APIs/BoldAPI";
 
 
 export default function Documentation() {
@@ -46,9 +52,15 @@ export default function Documentation() {
                     <BlockAPI/>
                     <CodeSpanAPI/>
                     <ItalicAPI/>
+                    <BoldAPI/>
                     <ListAPI/>
                     <DocsMenuItemAPI/>
                     <MarkdownAPI/>
+                    <TableAPI/>
+                    <TableRowAPI/>
+                    <TableCellAPI/>
+                    <TableBodyAPI/>
+                    <TableHeadAPI/>
                     <PagesGroup name={"System components"}>
 
                     </PagesGroup>

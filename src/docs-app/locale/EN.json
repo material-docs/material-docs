@@ -532,6 +532,233 @@
         "css": {
           "root": "Styles applied to the root element."
         }
+      },
+      "TableAPI": {
+        "pageAbout": "The API documentation of the Table React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "Table - react component, designed create tables.",
+        "ComponentNameText": "The Table name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "\"table\"",
+            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+          },
+          {
+            "name": "padding",
+            "type": "\"default\" | \"checkbox\" | \"none\"",
+            "default": "\"default\"",
+            "description": "Allows TableCells to inherit padding of the Table."
+          },
+          {
+            "name": "size",
+            "type": "\"small\" | \"medium\"",
+            "default": "\"medium\"",
+            "description": "Allows TableCells to inherit size of the Table."
+          },
+          {
+            "name": "stickyHeader",
+            "type": "boolean",
+            "default": "false",
+            "description": "Set the header sticky."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "The content of the table, normally TableHead and TableBody."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "stickyHeader": "Styles applied to the root element if stickyHeader={true}."
+        }
+      },
+      "TableRowAPI": {
+        "pageAbout": "The API documentation of the TableRow React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "TableRow - react component, designed create tables.",
+        "ComponentNameText": "The TableRow name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "\"tr\"",
+            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+          },
+          {
+            "name": "hover",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, the table row will shade on hover."
+          },
+          {
+            "name": "selected",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, the table row will have the selected shading."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Should be valid <tr> children such as TableCell."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "selected": "Pseudo-class applied to the root element if selected={true}.",
+          "hover": "Pseudo-class applied to the root element if hover={true}.",
+          "head": "Styles applied to the root element if table variant=\"head\".",
+          "footer": "Styles applied to the root element if table variant=\"footer\"."
+        }
+      },
+      "TableCellAPI": {
+        "pageAbout": "The API documentation of the TableCell React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "TableCell - react component, designed create tables.",
+        "ComponentNameText": "The TableCell name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "align",
+            "type": "\"center\" | \"inherit\" | \"justify\" | \"left\" | \"right\"",
+            "default": "\"inherit\"",
+            "description": "Set the text-align on the table cell content.\nMonetary or generally number fields should be right aligned as that allows you to add them up quickly in your head without having to worry about decimals."
+          },
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "false",
+            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+          },
+          {
+            "name": "padding",
+            "type": "\"checkbox\" | \"default\" | \"none\"",
+            "default": "\"default\"",
+            "description": "Sets the padding applied to the cell. By default, the Table parent component set the value (default)."
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "default": "",
+            "description": "\tSet scope attribute."
+          },
+          {
+            "name": "size",
+            "type": "\"medium\" | \"small\"",
+            "default": "\"medium\"",
+            "description": "Specify the size of the cell. By default, the Table parent component set the value (medium)."
+          },
+          {
+            "name": "sortDirection",
+            "type": "\"asc\" | \"desc\" | \"false\"",
+            "default": "\"false\"",
+            "description": "Set aria-sort direction."
+          },
+          {
+            "name": "variant",
+            "type": "\"body\" | \"footer\" | \"head\"",
+            "default": "\"body\"",
+            "description": "Specify the cell type. By default, the TableHead, TableBody or TableFooter parent component set the value."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "The table cell contents."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "head": "Styles applied to the root element if variant=\"head\" or context.table.head.",
+          "body": "Styles applied to the root element if variant=\"body\" or context.table.body.",
+          "footer": "Styles applied to the root element if variant=\"footer\" or context.table.footer.",
+          "sizeSmall": "Styles applied to the root element if size=\"small\".",
+          "paddingCheckbox": "Styles applied to the root element if padding=\"checkbox\".",
+          "paddingNone": "Styles applied to the root element if padding=\"none\".",
+          "alignLeft": "Styles applied to the root element if align=\"left\".",
+          "alignCenter": "Styles applied to the root element if align=\"center\".",
+          "alignRight": "Styles applied to the root element if align=\"right\".",
+          "alignJustify": "Styles applied to the root element if align=\"justify\".",
+          "stickyHeader": "Styles applied to the root element if context.table.stickyHeader={true}."
+        }
+      },
+      "TableBodyAPI": {
+        "pageAbout": "The API documentation of the TableBody React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "TableBody - react component, designed create tables.",
+        "ComponentNameText": "The TableBody name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "\"tbody\"",
+            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "The content of the component, normally TableRow."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element."
+        }
+      },
+      "TableHeadAPI": {
+        "pageAbout": "The API documentation of the TableHead React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "TableHead - react component, designed create tables.",
+        "ComponentNameText": "The TableHead name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "\"thead\"",
+            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "The content of the component, normally TableRow."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element."
+        }
+      },
+      "BoldAPI": {
+        "pageAbout": "The API documentation of the Bold React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "Bold - react component, designed create tables.",
+        "ComponentNameText": "The Bold name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "The content of the component."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "bold": "Styles applied to the root element with bold text styling."
+        }
       }
     },
     "common": {
