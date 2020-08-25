@@ -10,6 +10,12 @@ import Containerable from "../../interfaces/Containerable";
 export interface MarkdownProps
     extends Stylable, Containerable {
     /**
+     * inline - if true, markdown container will be inline.
+     * @type boolean
+     * @default false
+     */
+    inline?: boolean;
+    /**
      * children - children of an element. Should contain markdown text.
      * @type string | any
      */

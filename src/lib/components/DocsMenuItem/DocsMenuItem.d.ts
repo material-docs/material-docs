@@ -36,7 +36,6 @@ export interface DocsMenuItemProps
      * @param event
      */
     onClick?(event: any): void,
-
     /**
      * page - page name for redirecting or object structure for routing-manager changeRoute.
      * @see https://github.com/DanilAndreev/routing-manager/wiki/changeRoute
@@ -45,9 +44,16 @@ export interface DocsMenuItemProps
     page?: string | any,
     /**
      * isCurrent - if true, button will be active. Used when displayed page, connected to this menu item.
+     * @default false
      * @type function | boolean
      */
     isCurrent?: ((routeParams, pageRoute, page) => boolean) | boolean,
+    /**
+     * dense - if true, compact vertical padding designed for keyboard and mouse input will be used for the list and list items. The prop is available to descendant components as the dense context.
+     * @default false
+     * @type boolean
+     */
+    dense?: boolean,
     /**
      * nesting - system information about component nesting.
      * @type number

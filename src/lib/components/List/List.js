@@ -8,7 +8,7 @@ import {useStyles} from "./styles";
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 
-function List({children, className, style, ...props}, ref) {
+function List({children, className, style, image, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const commonClasses = useCommonStyles();
 

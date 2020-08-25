@@ -8,11 +8,33 @@ import {grey, yellow} from "@material-ui/core/colors";
 
 export const useStyles = makeStyles(theme => ({
     root: {
-        backgroundColor: yellow[100],
         padding: theme.spacing(0.4),
+        borderRadius: theme.spacing(0.4),
+    },
+    colorDefault: {
+        backgroundColor: yellow[100],
+    },
+    colorPrimary: {
+        backgroundColor: theme.palette.primary.light,
+    },
+    colorSecondary: {
+        backgroundColor: theme.palette.secondary.light,
+    },
+    colorGrey: {
+        backgroundColor: grey[200],
     },
     font: {
         fontFamily: "monospace",
         fontWeight: 500,
-    }
+        fontSize: "inherit",
+    },
+    textInherit: {
+        color: "inherit",
+    },
+    textWhite: {
+        color: theme.palette.common.white,
+    },
+    textBlack: {
+        color: theme.palette.common.black,
+    },
 }));
