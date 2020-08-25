@@ -92,7 +92,7 @@ export default function ApiPage({lang, localeName, importCode, name, searchTags,
             {!locale.enableProps && <Markdown>{locale.noPropsText}</Markdown>}
             {locale.forwardRef && <Markdown>{componentAPILocale.ref}</Markdown>}
             {showCss && <H2>CSS</H2>}
-            {locale.css &&
+            {locale.enableCss &&
             <Table>
                 <TableHead>
                     <TableRow>

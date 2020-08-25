@@ -824,36 +824,58 @@
         }
       },
       "DocsMenuAPI": {
-        "pageAbout": "The API documentation of the SearchField React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "SearchField - react component, designed to add search mechanism.",
-        "ComponentNameText": "The SearchField name can be used for providing default props or style overriders at the theme level.",
+        "pageAbout": "The API documentation of the DocsMenu React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DocsMenu - react component, designed to create menu.",
+        "ComponentNameText": "The DocsMenu name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
           {
-            "name": "searchData",
-            "type": "SearchDataItem[]",
+            "name": "children",
+            "type": "node",
             "default": "",
-            "description": "Array of SearchDataItem items to do search from."
-          },
-          {
-            "name": "doSearch",
-            "type": "function(query, searchData): Promise<SearchDataItem[]>",
-            "default": "",
-            "description": "Callback, called on search. If defined, default search function will not be called. Must return array of SearchDataItem."
+            "description": "Children of an element. Normally DocsMenuItem."
           }
         ],
         "forwardRef": true,
-        "enableCss": true,
-        "css": {
-          "root": "Styles applied to the root element.",
-          "rootFocused": "Styles applied to the root element when result item is focused.",
-          "input": "Styles applied to the Input element.",
-          "iconButton": "Styles applied to the IconButton component.",
-          "icon": "Styles applied to the icons.",
-          "iconClickable": "Styles applied to the icons with button functional.",
-          "popper": "Styles applied to the Popper element.",
-          "listPaper": "Styles applied to the Paper element, which contains results List."
-        }
+        "enableCss": false,
+        "css": {},
+        "noCssText": "This is service element. It doesn't have any styles."
+      },
+      "DocsPagesAPI": {
+        "pageAbout": "The API documentation of the DocsPages React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DocsPages - react component, designed to create pages.",
+        "ComponentNameText": "The DocsPages name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsPage."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "This is service element. It doesn't have any styles."
+      },
+      "ListItemContainedAPI": {
+        "pageAbout": "The API documentation of the ListItemContained React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "ListItemContained - react component, designed to add list items nesting mechanism.",
+        "ComponentNameText": "The ListItemContained name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally ListItem."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "This is service element. It doesn't have any styles."
       }
     },
     "common": {

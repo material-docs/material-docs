@@ -37,6 +37,9 @@ import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
+import ListItemContainedAPI from "./pages/APIs/ListItemContainedAPI";
+import DocsPagesAPI from "./pages/APIs/DocsPagesAPI";
+import DocsMenuAPI from "./pages/APIs/DocsMenuAPI";
 
 
 export default function Documentation() {
@@ -69,6 +72,9 @@ export default function Documentation() {
                     <TableCellAPI/>
                     <TableBodyAPI/>
                     <TableHeadAPI/>
+                    <ListItemContainedAPI/>
+                    <DocsPagesAPI/>
+                    <DocsMenuAPI/>
                     <PagesGroup name={"System components"}>
                         <AutoDocsMenuAPI/>
                         <LanguageSelectorAPI/>
