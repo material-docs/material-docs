@@ -16,7 +16,7 @@ import useLang from "../../hooks/useLang";
 import clsx from "clsx";
 
 
-function LanguageSelector({className, style, ...props}, ref) {
+function LanguageSelector({className, style, size = "large", ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {langs, lang, switchLang, onHelpToTranslate} = useLang();
     const [opened, setOpened] = React.useState(false);
@@ -40,7 +40,7 @@ function LanguageSelector({className, style, ...props}, ref) {
                 style={style}
             >
                 <TranslateIcon/>
-                {lang.label}
+                {size === "large" && lang.label}
                 <KeyboardArrowDownIcon/>
             </Button>
             <Menu
@@ -61,6 +61,7 @@ function LanguageSelector({className, style, ...props}, ref) {
                             switchLang(item).then();
                             setOpened(false);
                         }}
+                        selected={item.name === lang.name}
                     >
                         {item.label}
                     </MenuItem>

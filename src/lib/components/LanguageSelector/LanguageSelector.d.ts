@@ -9,7 +9,12 @@ import Containerable from "../../interfaces/Containerable";
 
 export interface LanguageSelectorProps
     extends Stylable {
-
+    /**
+     * size - the size of an element. If small - will be displayed just locale icon, if large - locale icon with current language name.
+     * @type string
+     * @default "large"
+     */
+    size?: "small" | "large";
 }
 
 /**

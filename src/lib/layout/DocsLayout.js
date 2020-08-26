@@ -32,19 +32,20 @@ import AutoDocsMenu from "../components/AutoDocsMenu";
 import {LangContext} from "../hooks/useLang/useLang"
 import {SearchContext} from "../hooks/useSearch/useSearch";
 import * as _ from "lodash";
-import {List} from "@material-ui/core";
+import {isWidthDown, isWidthUp, List, withWidth} from "@material-ui/core";
 
 
-const DocsLayout = React.forwardRef(({
-                                         children,
-                                         noGenerateAutoSearch = false,
-                                         defaultLang,
-                                         langs,
-                                         onHelpToTranslate,
-                                         autoMenu = false,
-                                         autoMenuDense = false,
-                                         ...props
-                                     }, ref) => {
+const DocsLayout = withWidth()(React.forwardRef(({
+                                                   children,
+                                                   noGenerateAutoSearch = false,
+                                                   defaultLang,
+                                                   langs,
+                                                   onHelpToTranslate,
+                                                   autoMenu = false,
+                                                   autoMenuDense = false,
+                                                   width,
+                                                   ...props
+                                               }, ref) => {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
@@ -139,7 +140,7 @@ const DocsLayout = React.forwardRef(({
                     <CssBaseline/>
                     <AppBar
                         position="fixed"
-                        className={clsx(classes.appBar, {
+                        className={clsx(classes.appBar, !isWidthDown("md", width) && {
                             [classes.appBarShift]: open,
                         })}
                     >
@@ -156,8 +157,8 @@ const DocsLayout = React.forwardRef(({
                             <Typography variant="h6" noWrap className={classes.headerText}>
                                 MUI Flexible Table Wiki
                             </Typography>
-                            <SearchField searchData={getSearchData()}/>
-                            <LanguageSelector/>
+                            {isWidthUp("md", width) && <SearchField searchData={getSearchData()}/>}
+                            <LanguageSelector size={isWidthDown("xs", width) ? "small" : "large"}/>
                             <IconButton>
                                 <GitHubIcon className={classes.headerIcon}/>
                             </IconButton>
@@ -168,7 +169,7 @@ const DocsLayout = React.forwardRef(({
                     </AppBar>
                     <Drawer
                         className={classes.drawer}
-                        variant="persistent"
+                        variant={isWidthUp("md", width) ? "persistent" : "temporary"}
                         anchor="left"
                         open={open}
                         classes={{
@@ -181,11 +182,12 @@ const DocsLayout = React.forwardRef(({
                             </IconButton>
                         </div>
                         <Divider/>
-                        {autoMenu ? <List dense={autoMenuDense}><AutoDocsMenu layoutData={autoMenuData}/></List> : content.menu}
+                        {autoMenu ?
+                            <List dense={autoMenuDense}><AutoDocsMenu layoutData={autoMenuData}/></List> : content.menu}
                     </Drawer>
                     <main
                         className={clsx(classes.content, {
-                            [classes.contentShift]: open,
+                            [classes.contentShift]: isWidthUp("md", width) ? open : true,
                         })}
                     >
                         <div className={classes.drawerHeader}/>
@@ -201,7 +203,7 @@ const DocsLayout = React.forwardRef(({
             </SearchContext.Provider>
         </LangContext.Provider>
     );
-});
+}));
 
 function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
     const routeMask = typeof mask === "string" ? mask : "/:page";

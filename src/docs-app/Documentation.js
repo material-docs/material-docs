@@ -47,7 +47,7 @@ import Installation from "./pages/GettingStarted/Installation";
 
 export default function Documentation() {
     return (
-        <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
+        <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL} autoMenuDense>
             <DocsPages>
                 <PagesGroup name={"Getting started"}>
                     <Installation/>
@@ -85,6 +85,9 @@ export default function Documentation() {
                         <LanguageSelectorAPI/>
                         <SearchFieldAPI/>
                     </PagesGroup>
+                </PagesGroup>
+                <PagesGroup name={"Tutorials"}>
+
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>

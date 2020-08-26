@@ -103,7 +103,7 @@ export default function ListsDemo() {
                 For example, you want to show people your TO DO list or list of programs you use. Each ```ListItem``` can contain
                 its content and nested list items inside ```ListItemContained``` component.
             </Markdown>
-            <DemoWithCode code={SimpleListCode} paperContainer theme={"darcula"} name={"Simple list"}>
+            <DemoWithCode code={SimpleListCode} paperContainer theme={"darcula"} name={"Simple list"} defaultExpanded>
                 <Box p={2}>
                     <SimpleList/>
                 </Box>
