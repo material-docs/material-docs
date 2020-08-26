@@ -15,16 +15,18 @@ import useSearch from "../../hooks/useSearch";
 import useGroups from "../../hooks/useGroups";
 import {TaggingContext} from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
+import {isWidthDown, isWidthUp} from "@material-ui/core";
 
-export default function DocsPage({
-                                     name = "home",
-                                     searchTags,
-                                     searchLabel,
-                                     searchDescription,
-                                     noGenerateAutoSearch = false,
-                                     noAutoMenu = false,
-                                     children
-                                 }) {
+function DocsPage({
+                      name = "home",
+                      searchTags,
+                      searchLabel,
+                      searchDescription,
+                      noGenerateAutoSearch = false,
+                      noAutoMenu = false,
+                      width,
+                      children
+                  }, ref) {
     const classes = useStyles();
     const commonClasses = useCommonStyles();
     const pagePath = createRouteFromName(name);
@@ -44,13 +46,13 @@ export default function DocsPage({
          * searchItem - search item for current page;
          * @type SearchDataItem
          */
-        //debugger;
+            //debugger;
         const searchItem = {
-            redirect: {page: pagePath},
-            label: searchLabel || name,
-            description: searchDescription || (Object.keys(tags).length && tags[Object.keys[Object.keys(tags)[0]]]) || "",
-            tags: searchTags || [],
-        }
+                redirect: {page: pagePath},
+                label: searchLabel || name,
+                description: searchDescription || (Object.keys(tags).length && tags[Object.keys[Object.keys(tags)[0]]]) || "",
+                tags: searchTags || [],
+            }
 
         if (!noGenerateAutoSearch) {
             removeSearchItem(prevSearchItem.current);
@@ -73,7 +75,7 @@ export default function DocsPage({
         prevPage.current = page;
         !noAutoMenu && addPage(page);
 
-      return () => !noAutoMenu && deletePage(page);
+        return () => !noAutoMenu && deletePage(page);
     }, [name]);
 
     function insertTagCallbacksInChildren(source) {
@@ -115,10 +117,10 @@ export default function DocsPage({
     return (
         <Route path={`/${pagePath}`}>
             <TaggingContext.Provider value={{setTag, removeTag, tags}}>
-                <Grid container>
+                <Grid container ref={ref}>
                     <Grid item xs={12} md={1}/>
                     <Grid item xs={12} md={8}>
-                        <Box p={1}>
+                        <Box p={isWidthUp("md", width) ? 1 : 3}>
                             {content}
                         </Box>
                     </Grid>
@@ -137,3 +139,4 @@ export default function DocsPage({
     );
 }
 
+export default React.forwardRef(DocsPage);
