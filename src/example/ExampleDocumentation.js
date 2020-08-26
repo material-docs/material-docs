@@ -12,6 +12,7 @@ import {DocsLayout, DocsPages, PagesGroup, DocsPage} from "../lib";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
+import {H1, H2} from "../lib/components/Headers";
 
 
 export default function ExampleDocumentation() {
@@ -28,7 +29,8 @@ export default function ExampleDocumentation() {
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
                     <DocsPage name={"TestPage1"} searchDescription={"sdfsfsd"}>
-                        asfasf
+                        <H1>Hello</H1>
+                        <H2>Darkness</H2>
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
                         asfasfsdfasdf

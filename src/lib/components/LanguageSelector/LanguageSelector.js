@@ -61,6 +61,7 @@ function LanguageSelector({className, style, size = "large", ...props}, ref) {
                             switchLang(item).then();
                             setOpened(false);
                         }}
+                        selected={item.name === lang.name}
                     >
                         {item.label}
                     </MenuItem>
