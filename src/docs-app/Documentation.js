@@ -42,6 +42,7 @@ import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
 import ListsDemo from "./pages/Components/ListsDemo";
+import Installation from "./pages/GettingStarted/Installation";
 
 
 export default function Documentation() {
@@ -49,7 +50,7 @@ export default function Documentation() {
         <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
             <DocsPages>
                 <PagesGroup name={"Getting started"}>
-
+                    <Installation/>
                 </PagesGroup>
                 <PagesGroup name={"Components"}>
                     <DocsPageDemo/>
