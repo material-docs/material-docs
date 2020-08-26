@@ -11,6 +11,10 @@ import SimpleList from "../../../examples/Lists/SimpleList";
 import Box from "@material-ui/core/Box";
 import ListWithNestedItems from "../../../examples/Lists/ListWithNestedItems";
 import DecoratedList from "../../../examples/Lists/DecoratedList";
+import List from "@danilandreev/material-docs/components/List/List";
+import ListItem from "@danilandreev/material-docs/components/ListItem/ListItem";
+import Link from "@material-ui/core/Link";
+import Markdown from "@danilandreev/material-docs/components/Markdown/Markdown";
 
 const SimpleListCode = `
 import React from "react";
@@ -94,24 +98,39 @@ export default function ListsDemo() {
             searchTags={["lists", "demo", "tutorial"]}
         >
             <H1>Lists</H1>
+            <H3 noTag noDivider>Lists can be used to show structured information with list items.</H3>
+            <Markdown>
+                For example, you want to show people your TO DO list or list of programs you use. Each ```ListItem``` can contain
+                its content and nested list items inside ```ListItemContained``` component.
+            </Markdown>
             <DemoWithCode code={SimpleListCode} paperContainer theme={"darcula"} name={"Simple list"}>
                 <Box p={2}>
                     <SimpleList/>
                 </Box>
             </DemoWithCode>
 
+            <Markdown>
+                You can create __nested lists__ inside ```ListItem``` component. Just place __nested items__ inside ```ListItemContained``` component in ```ListItem```.
+            </Markdown>
             <DemoWithCode code={ListWithNestedItemsCode} paperContainer theme={"darcula"} name={"List with nested items"}>
                 <Box p={2}>
                     <ListWithNestedItems/>
                 </Box>
             </DemoWithCode>
 
+            <Markdown>Lists can be __decorated__ with several points type.</Markdown>
             <DemoWithCode code={DecoratedListCode} paperContainer theme={"darcula"} name={"List with items decoration"}>
                 <Box p={2}>
                     <DecoratedList/>
                 </Box>
             </DemoWithCode>
 
+            <H2>API</H2>
+            <List>
+                <ListItem><Link>ListItem</Link></ListItem>
+                <ListItem><Link>List</Link></ListItem>
+                <ListItem><Link>ListItemContained</Link></ListItem>
+            </List>
 
         </DocsPage>
     );
