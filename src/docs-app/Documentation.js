@@ -27,6 +27,10 @@ import TableCellAPI from "./pages/APIs/TableCellAPI";
 import TableBodyAPI from "./pages/APIs/TableBodyAPI";
 import TableHeadAPI from "./pages/APIs/TableHeadAPI";
 import BoldAPI from "./pages/APIs/BoldAPI";
+import ListItemContainedAPI from "./pages/APIs/ListItemContainedAPI";
+import DocsPagesAPI from "./pages/APIs/DocsPagesAPI";
+import DocsMenuAPI from "./pages/APIs/DocsMenuAPI";
+import DocsLayoutAPI from "./pages/APIs/DocsLayoutAPI";
 
 import AutoDocsMenuAPI from "./pages/APIs/AutoDocsMenuAPI";
 import LanguageSelectorAPI from "./pages/APIs/LanguageSelectorAPI";
@@ -37,6 +41,8 @@ import {DocsLayout, DocsPages, PagesGroup} from "@danilandreev/material-docs";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
+import ListsDemo from "./pages/Components/ListsDemo";
+import Installation from "./pages/GettingStarted/Installation";
 
 
 export default function Documentation() {
@@ -44,12 +50,14 @@ export default function Documentation() {
         <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
             <DocsPages>
                 <PagesGroup name={"Getting started"}>
-
+                    <Installation/>
                 </PagesGroup>
                 <PagesGroup name={"Components"}>
                     <DocsPageDemo/>
+                    <ListsDemo/>
                 </PagesGroup>
                 <PagesGroup name={"Component APIs"}>
+                    <DocsLayoutAPI/>
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
                     <CodeAPI />
@@ -69,6 +77,9 @@ export default function Documentation() {
                     <TableCellAPI/>
                     <TableBodyAPI/>
                     <TableHeadAPI/>
+                    <ListItemContainedAPI/>
+                    <DocsPagesAPI/>
+                    <DocsMenuAPI/>
                     <PagesGroup name={"System components"}>
                         <AutoDocsMenuAPI/>
                         <LanguageSelectorAPI/>
