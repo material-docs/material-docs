@@ -822,6 +822,139 @@
           "popper": "Styles applied to the Popper element.",
           "listPaper": "Styles applied to the Paper element, which contains results List."
         }
+      },
+      "DocsMenuAPI": {
+        "pageAbout": "The API documentation of the DocsMenu React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DocsMenu - react component, designed to create menu.",
+        "ComponentNameText": "The DocsMenu name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenuItem."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "This is service element. It doesn't have any styles."
+      },
+      "DocsPagesAPI": {
+        "pageAbout": "The API documentation of the DocsPages React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DocsPages - react component, designed to create pages.",
+        "ComponentNameText": "The DocsPages name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsPage."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "This is service element. It doesn't have any styles."
+      },
+      "ListItemContainedAPI": {
+        "pageAbout": "The API documentation of the ListItemContained React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "ListItemContained - react component, designed to add list items nesting mechanism.",
+        "ComponentNameText": "The ListItemContained name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally ListItem."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "This is service element. It doesn't have any styles."
+      },
+      "DocsLayoutAPI": {
+        "pageAbout": "The API documentation of the DocsLayout React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "DocsLayout - react component, designed to create MaterialDocs layout.",
+        "ComponentNameText": "The DocsLayout name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "searchData",
+            "type": "SearchDataItem[]",
+            "default": "",
+            "description": "An array of SearchDataItem items to do search from."
+          },
+          {
+            "name": "noGenerateAutoSearch",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, Material Docs will not generate search items from pages automatically."
+          },
+          {
+            "name": "defaultLang",
+            "type": "Lang",
+            "default": "",
+            "description": "Default language settings."
+          },
+          {
+            "name": "langs",
+            "type": "Lang[]",
+            "default": "",
+            "description": "List of all available langs."
+          },
+          {
+            "name": "onHelpToTranslate",
+            "type": "function(lang: Lang): void",
+            "default": "",
+            "description": "Function, called on help to translate button click. If not defined - button will not be rendered."
+          },
+          {
+            "name": "autoMenu",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, menu will be generated automatically."
+          },
+          {
+            "name": "router",
+            "type": "\"hash-router\" | \"browser-router\"",
+            "default": "\"browser-router\"",
+            "description": "react-router-dom Router type."
+          },
+          {
+            "name": "basename",
+            "type": "string",
+            "default": "",
+            "description": "Basename param for react-router-dom Router."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "appBar": "Styles applied to the AppBar element.",
+          "appBarShift": "Styles applied to element, designed to compensate drawer.",
+          "menuButton": "Styles applied to the menu button.",
+          "hide": "Styles applied to the menu button when drawer opened.",
+          "drawer": "Styles applied to the Drawer element.",
+          "drawerPaper": "Styles applied to the Paper element inside menu Drawer.",
+          "drawerHeader": "Styles applied to the head element inside menu Drawer.",
+          "content": "Styles applied to the content block.",
+          "contentShift": "Styles applied to the content element to compensate drawer.",
+          "headerText": "Styles applied to the Typography in AppBar.",
+          "toolbar": "Styles applied to the ToolBar element.",
+          "headerIcon": "Styles applied to icons in Toolbar."
+        }
       }
     },
     "common": {

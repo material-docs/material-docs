@@ -7,13 +7,17 @@ import React from "react";
 import {Table as MUITable} from "@material-ui/core";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import clsx from "clsx";
+import {useStyles} from "./styles";
 
-function Table({children, ...props}, ref) {
+function Table({children, className, style, ...props}, ref) {
     const commonClasses = useCommonStyles();
+    const classes = {...useStyles(), ...props.classes};
     return (
-        <MUITable {...props} className={commonClasses.pageBlock} ref={ref}>
-            {children}
-        </MUITable>
+        <div className={clsx(classes.container, className)} style={style}>
+            <MUITable {...props} className={commonClasses.pageBlock} ref={ref}>
+                {children}
+            </MUITable>
+        </div>
     );
 }
 
