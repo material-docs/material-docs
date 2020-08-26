@@ -44,6 +44,12 @@ export interface DocsLayoutProps
      */
     autoMenu?: boolean;
     /**
+     * autoMenuDense - if true, auto menu will be dense. Spacing between items will be smaller.
+     * @type boolean
+     * @default false
+     */
+    autoMenuDense?: boolean;
+    /**
      * router - react-router-dom Router type.
      * @type string
      * @default browser-router

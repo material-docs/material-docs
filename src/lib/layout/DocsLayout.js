@@ -32,6 +32,7 @@ import AutoDocsMenu from "../components/AutoDocsMenu";
 import {LangContext} from "../hooks/useLang/useLang"
 import {SearchContext} from "../hooks/useSearch/useSearch";
 import * as _ from "lodash";
+import {List} from "@material-ui/core";
 
 
 const DocsLayout = React.forwardRef(({
@@ -41,6 +42,7 @@ const DocsLayout = React.forwardRef(({
                                          langs,
                                          onHelpToTranslate,
                                          autoMenu = false,
+                                         autoMenuDense = false,
                                          ...props
                                      }, ref) => {
     const classes = useStyles();
@@ -179,7 +181,7 @@ const DocsLayout = React.forwardRef(({
                             </IconButton>
                         </div>
                         <Divider/>
-                        {autoMenu ? <AutoDocsMenu layoutData={autoMenuData} /> : content.menu}
+                        {autoMenu ? <List dense={autoMenuDense}><AutoDocsMenu layoutData={autoMenuData}/></List> : content.menu}
                     </Drawer>
                     <main
                         className={clsx(classes.content, {
