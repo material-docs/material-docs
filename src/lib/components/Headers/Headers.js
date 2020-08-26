@@ -38,21 +38,26 @@ function TagableF({children, noTag = false, variant, style, className, noDivider
 
     return (
         <div
-            className={clsx(commonClasses.pageBlock, classes.root, classes.anchor, className)}
-            id={noTag ? undefined : id.current}
+            className={clsx(commonClasses.pageBlock, classes.root, className)}
+
             style={style}
             ref={ref}
         >
-            <div className={classes.container}>
-                <Typography variant={variant} classes={typographyClasses}>
-                    {children}
-                    {!noDivider && <Divider className={classes.divider}/>}
-                </Typography>
-                {!noTag &&
-                <a href={`#${id.current}`} className={classes.tagHook} ref={aref}>
-                    <LinkIcon className={classes.anchorIcon}/>
-                </a>
-                }
+            <div
+                className={classes.anchor}
+                id={noTag ? undefined : id.current}
+            >
+                <div className={classes.container}>
+                    <Typography variant={variant} classes={typographyClasses}>
+                        {children}
+                        {!noDivider && <Divider className={classes.divider}/>}
+                    </Typography>
+                    {!noTag &&
+                    <a href={`#${id.current}`} className={classes.tagHook} ref={aref}>
+                        <LinkIcon className={classes.anchorIcon}/>
+                    </a>
+                    }
+                </div>
             </div>
         </div>
     );
