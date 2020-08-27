@@ -44,6 +44,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-lazy-load-image-component": "^1.5.0",
+    "react-parallax": "^3.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-syntax-highlighter": "^13.0.0",

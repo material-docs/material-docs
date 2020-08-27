@@ -6,15 +6,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class ListItemContained extends React.Component {
+class Landing extends React.Component {
     render() {
         return this.props.children;
     }
 }
 
-ListItemContained.propTypes = {
-    // Containerable
+Landing.propTypes = {
     children: PropTypes.node,
 }
 
-export default ListItemContained;
+export default Landing;

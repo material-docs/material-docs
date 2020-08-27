@@ -57,6 +57,9 @@ const DocsLayoutF = React.forwardRef(({
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
 
+    console.log(content.pages[0] && content.pages[0].name, content.pages);
+    console.log(typeof DocsPages);
+
     async function switchLang(inputLang) {
         let newLang = {...inputLang};
         if (typeof inputLang !== "object")
