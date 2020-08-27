@@ -33,26 +33,29 @@ import {LangContext} from "../hooks/useLang/useLang"
 import {SearchContext} from "../hooks/useSearch/useSearch";
 import * as _ from "lodash";
 import {isWidthDown, isWidthUp, List, withWidth} from "@material-ui/core";
+import PropTypes from "prop-types";
+import SearchDataItemValidator from "../validators/SearchDataItemValidator";
+import LangValidator from "../validators/LangValidator";
 
 
-const DocsLayout = withWidth()(React.forwardRef(({
-                                                   children,
-                                                   noGenerateAutoSearch = false,
-                                                   defaultLang,
-                                                   langs,
-                                                   onHelpToTranslate,
-                                                   autoMenu = false,
-                                                   autoMenuDense = false,
-                                                   width,
-                                                   ...props
-                                               }, ref) => {
+const DocsLayoutF = React.forwardRef(({
+                                          children,
+                                          noGenerateAutoSearch = false,
+                                          defaultLang,
+                                          langs,
+                                          onHelpToTranslate,
+                                          autoMenu = false,
+                                          autoMenuDense = false,
+                                          width,
+                                          ...props
+                                      }, ref) => {
     const classes = useStyles();
     const theme = useTheme();
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: []});
     const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
-    const [autoMenuData, setAutoMenuData] = React.useState({});
+    const [autoMenuData, setAutoMenuData] = React.useState(null);
 
     async function switchLang(inputLang) {
         let newLang = {...inputLang};
@@ -175,6 +178,7 @@ const DocsLayout = withWidth()(React.forwardRef(({
                         classes={{
                             paper: classes.drawerPaper,
                         }}
+                        onClose={event => setOpen(false)}
                     >
                         <div className={classes.drawerHeader}>
                             <IconButton onClick={handleDrawerClose}>
@@ -182,8 +186,16 @@ const DocsLayout = withWidth()(React.forwardRef(({
                             </IconButton>
                         </div>
                         <Divider/>
-                        {autoMenu ?
-                            <List dense={autoMenuDense}><AutoDocsMenu layoutData={autoMenuData}/></List> : content.menu}
+                        {autoMenu
+                            ?
+                            <List dense={autoMenuDense}>
+                                {autoMenuData &&
+                                <AutoDocsMenu layoutData={autoMenuData}/>
+                                }
+                            </List>
+                            :
+                            content.menu
+                        }
                     </Drawer>
                     <main
                         className={clsx(classes.content, {
@@ -203,9 +215,22 @@ const DocsLayout = withWidth()(React.forwardRef(({
             </SearchContext.Provider>
         </LangContext.Provider>
     );
-}));
+});
 
-function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
+DocsLayoutF.propTypes = {
+    // DocsLayoutProps
+    searchData: PropTypes.arrayOf(SearchDataItemValidator),
+    noGenerateAutoSearch: PropTypes.bool,
+    defaultLang: LangValidator,
+    langs: PropTypes.arrayOf(LangValidator),
+    onHelpToTranslate: PropTypes.func,
+    autoMenu: PropTypes.bool,
+    autoMenuDense: PropTypes.bool,
+}
+
+const DocsLayout = withWidth()(DocsLayoutF);
+
+const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
     const routeMask = typeof mask === "string" ? mask : "/:page";
     const theme = useTheme();
 
@@ -239,6 +264,13 @@ function DocsLayoutProviders({mask, router = "browser-router", basename, ...prop
             }
         </React.Fragment>
     );
+});
+
+DocsLayoutProviders.propTypes = {
+    // DocsLayoutProps
+    mask: PropTypes.string,
+    router: PropTypes.oneOf(["hash-router", "browser-router"]),
+    basename: PropTypes.string,
 }
 
-export default React.forwardRef(DocsLayoutProviders);
+export default DocsLayoutProviders;

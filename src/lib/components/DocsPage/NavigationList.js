@@ -13,9 +13,10 @@ import clsx from "clsx";
 import {Link} from "@material-ui/core";
 import usePageScroll from "../../utils/usePageScroll";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
+import PropTypes from "prop-types";
 
 
-export default function NavigationList({keys}) {
+const NavigationList = React.forwardRef(function NavigationList({keys}, ref) {
     const classes = useStyles();
     const {scrollY} = usePageScroll();
     const [selected, setSelected] = React.useState({id: keys[0] && keys[0].id || null, clicked: false});
@@ -65,7 +66,7 @@ export default function NavigationList({keys}) {
     }
 
     return (
-        <List dense style={{position: "fixed"}}>
+        <List dense style={{position: "fixed"}} ref={ref}>
             <ListItem>
                 <Typography variant={"h6"}>
                     Content
@@ -98,4 +99,10 @@ export default function NavigationList({keys}) {
             })}
         </List>
     );
+});
+
+NavigationList.propTypes = {
+    keys: PropTypes.array,
 }
+
+export default NavigationList;

@@ -19,9 +19,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import {useChangeRoute} from "routing-manager";
+import PropTypes from "prop-types";
+import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 
 
-function SearchField({className, style, searchData = [], doSearch, ...props}, ref) {
+const SearchField = React.forwardRef(function SearchField({className, style, searchData = [], doSearch, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
@@ -125,7 +127,10 @@ function SearchField({className, style, searchData = [], doSearch, ...props}, re
             <Paper
                 elevation={0}
                 className={clsx(classes.root, focused && classes.rootFocused, className)}
-                ref={rootRef}
+                ref={element => {
+                    rootRef.current = element;
+                    if (ref) ref.current = element;
+                }}
                 style={style}
                 onClick={event => inputRef.current && inputRef.current.focus()}
             >
@@ -179,6 +184,16 @@ function SearchField({className, style, searchData = [], doSearch, ...props}, re
             </Paper>
         </ClickAwayListener>
     );
+});
+
+SearchField.propTypes = {
+    // SearchFieldProps
+    searchData: PropTypes.arrayOf(SearchDataItemValidator),
+    doSearch: PropTypes.func,
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
 }
 
-export default React.forwardRef(SearchField);
+export default SearchField;

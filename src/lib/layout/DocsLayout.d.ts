@@ -64,6 +64,13 @@ export interface DocsLayoutProps
      * @see https://reactrouter.com/web/api/HashRouter
      */
     basename?: string;
+    /**
+     * mask - mask for routing-manager ChangeRouteProvider routeMask property.
+     * @type string
+     * @default "/:page"
+     * @see https://github.com/DanilAndreev/routing-manager/wiki/ChangeRouteProvider#routemask
+     */
+    mask?: string;
 }
 
 /**
