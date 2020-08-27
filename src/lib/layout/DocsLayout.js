@@ -48,7 +48,7 @@ const DocsLayout = withWidth()(React.forwardRef(({
                                                }, ref) => {
     const classes = useStyles();
     const theme = useTheme();
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: []});
     const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
@@ -175,6 +175,7 @@ const DocsLayout = withWidth()(React.forwardRef(({
                         classes={{
                             paper: classes.drawerPaper,
                         }}
+                        onBackdropClick={event => setOpen(false)}
                     >
                         <div className={classes.drawerHeader}>
                             <IconButton onClick={handleDrawerClose}>
