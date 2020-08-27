@@ -39,23 +39,23 @@ import LangValidator from "../validators/LangValidator";
 
 
 const DocsLayoutF = React.forwardRef(({
-                                                   children,
-                                                   noGenerateAutoSearch = false,
-                                                   defaultLang,
-                                                   langs,
-                                                   onHelpToTranslate,
-                                                   autoMenu = false,
-                                                   autoMenuDense = false,
-                                                   width,
-                                                   ...props
-                                               }, ref) => {
+                                          children,
+                                          noGenerateAutoSearch = false,
+                                          defaultLang,
+                                          langs,
+                                          onHelpToTranslate,
+                                          autoMenu = false,
+                                          autoMenuDense = false,
+                                          width,
+                                          ...props
+                                      }, ref) => {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: []});
     const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
-    const [autoMenuData, setAutoMenuData] = React.useState({});
+    const [autoMenuData, setAutoMenuData] = React.useState(null);
 
     async function switchLang(inputLang) {
         let newLang = {...inputLang};
@@ -186,8 +186,16 @@ const DocsLayoutF = React.forwardRef(({
                             </IconButton>
                         </div>
                         <Divider/>
-                        {autoMenu ?
-                            <List dense={autoMenuDense}><AutoDocsMenu layoutData={autoMenuData}/></List> : content.menu}
+                        {autoMenu
+                            ?
+                            <List dense={autoMenuDense}>
+                                {autoMenuData &&
+                                <AutoDocsMenu layoutData={autoMenuData}/>
+                                }
+                            </List>
+                            :
+                            content.menu
+                        }
                     </Drawer>
                     <main
                         className={clsx(classes.content, {

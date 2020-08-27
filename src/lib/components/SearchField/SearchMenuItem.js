@@ -40,6 +40,7 @@ const SearchMenuItem = React.forwardRef(function SearchMenuItem({data, style, cl
             style={style}
             selected={!!active}
             onMouseMove={onMouseMove}
+            ref={ref}
         >
             <ListItemIcon>
                 asfs

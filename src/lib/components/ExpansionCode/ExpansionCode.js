@@ -26,7 +26,7 @@ import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 
 
 //TODO: finish
-const ExpansionCode = React.forwardRef(function ExpansionCode({theme, language, children, name, noTag, style, className, demoCode = '', actions, ...props}) {
+const ExpansionCode = React.forwardRef(function ExpansionCode({theme, language, children, name, noTag, style, className, demoCode = '', actions, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const commonClasses = useCommonStyles();
     const {enqueueSnackbar} = useSnackbar();
@@ -37,7 +37,7 @@ const ExpansionCode = React.forwardRef(function ExpansionCode({theme, language, 
     const [menuOpen, setMenuOpen] = React.useState(false);
 
     return (
-        <Box className={clsx(classes.root, commonClasses.pageBlock, className)} style={style}>
+        <Box className={clsx(classes.root, commonClasses.pageBlock, className)} style={style} ref={ref}>
             <Toolbar className={classes.toolbar}>
                 {actions &&
                 <React.Fragment>

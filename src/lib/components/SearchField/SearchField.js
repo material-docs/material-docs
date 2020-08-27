@@ -127,7 +127,10 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
             <Paper
                 elevation={0}
                 className={clsx(classes.root, focused && classes.rootFocused, className)}
-                ref={rootRef}
+                ref={element => {
+                    rootRef.current = element;
+                    if (ref) ref.current = element;
+                }}
                 style={style}
                 onClick={event => inputRef.current && inputRef.current.focus()}
             >
