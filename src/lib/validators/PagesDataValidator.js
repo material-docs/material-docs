@@ -17,7 +17,7 @@ export function pagesDataValidate(prop, propName, componentName) {
     if (typeof prop.name !== "string")
         return Error(`Incorrect field 'name' type on prop ${propName} in component ${componentName}, expected "string", got "${typeof prop.name}"`);
     if (!(typeof prop.link === "string" || typeof prop.link === "object"))
-        return Error(`Incorrect field 'link' type on prop ${propName} in component ${componentName}, expected "string | object", got "${typeof prop.name}"`);
+        return Error(`Incorrect field 'link' type on prop ${propName} in component ${componentName}, expected "string | object", got "${typeof prop.link}"`);
 }
 
 function PagesDataValidator(props, propName, componentName) {

@@ -5,8 +5,9 @@
 
 import React from "react";
 import useGroups, {GroupsContext} from "../../hooks/useGroups";
+import PropTypes from "prop-types";
 
-function PagesGroup({name, children, getData, ...props}, ref) {
+const PagesGroup = React.forwardRef(function PagesGroup({name, children, getData, ...props}, ref) {
     if (getData && typeof getData !== "function")
         throw new TypeError(`MaterialDocs: incorrect type of getData, expected function, got ${typeof getData}`);
     if (typeof name !== "string")
@@ -89,6 +90,14 @@ function PagesGroup({name, children, getData, ...props}, ref) {
             {children}
         </GroupsContext.Provider>
     );
+});
+
+PagesGroup.propTypes = {
+    // PagesGroupProps
+    name: PropTypes.string,
+    getData: PropTypes.func,
+    // Containerable
+    children: PropTypes.node,
 }
 
-export default React.forwardRef(PagesGroup);
+export default PagesGroup;

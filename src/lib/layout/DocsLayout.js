@@ -33,9 +33,12 @@ import {LangContext} from "../hooks/useLang/useLang"
 import {SearchContext} from "../hooks/useSearch/useSearch";
 import * as _ from "lodash";
 import {isWidthDown, isWidthUp, List, withWidth} from "@material-ui/core";
+import PropTypes from "prop-types";
+import SearchDataItemValidator from "../validators/SearchDataItemValidator";
+import LangValidator from "../validators/LangValidator";
 
 
-const DocsLayout = withWidth()(React.forwardRef(({
+const DocsLayoutF = React.forwardRef(({
                                                    children,
                                                    noGenerateAutoSearch = false,
                                                    defaultLang,
@@ -204,9 +207,22 @@ const DocsLayout = withWidth()(React.forwardRef(({
             </SearchContext.Provider>
         </LangContext.Provider>
     );
-}));
+});
 
-function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
+DocsLayoutF.propTypes = {
+    // DocsLayoutProps
+    searchData: PropTypes.arrayOf(SearchDataItemValidator),
+    noGenerateAutoSearch: PropTypes.bool,
+    defaultLang: LangValidator,
+    langs: PropTypes.arrayOf(LangValidator),
+    onHelpToTranslate: PropTypes.func,
+    autoMenu: PropTypes.bool,
+    autoMenuDense: PropTypes.bool,
+}
+
+const DocsLayout = withWidth()(DocsLayoutF);
+
+const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
     const routeMask = typeof mask === "string" ? mask : "/:page";
     const theme = useTheme();
 
@@ -240,6 +256,13 @@ function DocsLayoutProviders({mask, router = "browser-router", basename, ...prop
             }
         </React.Fragment>
     );
+});
+
+DocsLayoutProviders.propTypes = {
+    // DocsLayoutProps
+    mask: PropTypes.string,
+    router: PropTypes.oneOf(["hash-router", "browser-router"]),
+    basename: PropTypes.string,
 }
 
-export default React.forwardRef(DocsLayoutProviders);
+export default DocsLayoutProviders;

@@ -9,8 +9,9 @@ import {useStyles} from "./styles";
 import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import PropTypes from "prop-types";
 
-export default function Image({src = "", alt = "", style, className, children, fullWidth = false, ...props}) {
+const Image = React.forwardRef(function Image({src = "", alt = "", style, className, children, fullWidth = false, ...props}) {
     const classes = useStyles();
     return (
         <React.Fragment>
@@ -25,4 +26,19 @@ export default function Image({src = "", alt = "", style, className, children, f
             {children && <Typography color={"textSecondary"} variant={"subtitle2"}>{children}</Typography>}
         </React.Fragment>
     );
+});
+
+Image.propTypes = {
+    // ImageProps
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    fullWidth: PropTypes.bool,
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
+    children: PropTypes.node,
 }
+
+export default Image;

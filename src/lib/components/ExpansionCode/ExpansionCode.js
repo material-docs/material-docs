@@ -21,10 +21,12 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import {H3} from "../Headers";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
+import PropTypes from "prop-types";
+import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 
 
 //TODO: finish
-export default function ExpansionCode({theme, language, children, name, noTag, style, className, demoCode = '', actions, ...props}) {
+const ExpansionCode = React.forwardRef(function ExpansionCode({theme, language, children, name, noTag, style, className, demoCode = '', actions, ...props}) {
     const classes = {...useStyles(), ...props.classes};
     const commonClasses = useCommonStyles();
     const {enqueueSnackbar} = useSnackbar();
@@ -106,4 +108,41 @@ export default function ExpansionCode({theme, language, children, name, noTag, s
             </Collapse>
         </Box>
     );
+});
+
+ExpansionCode.propTypes = {
+    // ExpansionCodeProps
+    name: PropTypes.string,
+    noTag: PropTypes.bool,
+    demoCode: PropTypes.string,
+    actions: DemoCodeActionValidator,
+    // CodeProps
+    theme: PropTypes.oneOf(["light", "dark", "darcula"]),
+    language: PropTypes.oneOf([
+        "1c", "abnf", "accesslog", "actionscript", "ada", "angelscript", "apache", "applescript", "arcade",
+        "arduino", "armasm", "asciidoc", "aspectj", "autohotkey", "autoit", "avrasm", "awk", "axapta", "bash",
+        "basic", "bnf", "brainfuck", "c-like", "c", "cal", "capnproto", "ceylon", "clean", "clojure-repl", "clojure",
+        "cmake", "coffeescript", "coq", "cos", "cpp", "crmsh", "crystal", "csharp", "csp", "css", "d", "dart",
+        "delphi", "diff", "django", "dns", "dockerfile", "dos", "dsconfig", "dts", "dust", "ebnf", "elixir",
+        "elm", "erb", "erlang-repl", "erlang", "excel", "fix", "flix", "fortran", "fsharp", "gams", "gauss",
+        "gcode", "gherkin", "glsl", "gml", "go", "golo", "gradle", "groovy", "haml", "handlebars", "haskell",
+        "haxe", "hsp", "htmlbars", "http", "hy", "inform7", "ini", "irpf90", "isbl", "java", "javascript",
+        "jboss-cli", "json", "julia-repl", "julia", "kotlin", "lasso", "latex", "ldif", "leaf", "less", "lisp",
+        "livecodeserver", "livescript", "llvm", "lsl", "lua", "makefile", "markdown", "mathematica", "matlab",
+        "maxima", "mel", "mercury", "mipsasm", "mizar", "mojolicious", "monkey", "moonscript", "n1ql", "nginx",
+        "nim", "nix", "nsis", "objectivec", "ocaml", "openscad", "oxygene", "parser3", "perl", "pf", "pgsql",
+        "php-template", "php", "plaintext", "pony", "powershell", "processing", "profile", "prolog", "properties",
+        "protobuf", "puppet", "purebasic", "python-repl", "python", "q", "qml", "r", "reasonml", "rib", "roboconf",
+        "routeros", "rsl", "ruby", "ruleslanguage", "rust", "sas", "scala", "scheme", "scilab", "scss", "shell",
+        "smali", "smalltalk", "sml", "sqf", "sql", "stan", "stata", "step21", "stylus", "subunit", "swift",
+        "taggerscript", "tap", "tcl", "thrift", "tp", "twig", "typescript", "vala", "vbnet", "vbscript-html",
+        "vbscript", "verilog", "vhdl", "vim", "x86asm", "xl", "xml", "xquery", "yaml", "zephir"
+    ]),
+    children: PropTypes.string,
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
 }
+
+export default ExpansionCode;

@@ -15,9 +15,9 @@ import createChainableTypeChecker from "../utils/createChainableTypeChecker";
  */
 export function demoCodeActionValidate(prop, propName, componentName) {
     if (typeof prop.label !== "string")
-        return Error(`Incorrect field 'label' type on prop ${propName} in component ${componentName}, expected "string", got "${typeof prop.name}"`);
+        return Error(`Incorrect field 'label' type on prop ${propName} in component ${componentName}, expected "string", got "${typeof prop.label}"`);
     if (typeof prop.link !== "string")
-        return Error(`Incorrect field 'link' type on prop ${propName} in component ${componentName}, expected "string", got "${typeof prop.name}"`);
+        return Error(`Incorrect field 'link' type on prop ${propName} in component ${componentName}, expected "string", got "${typeof prop.link}"`);
 }
 
 function DemoCodeActionValidator(props, propName, componentName) {

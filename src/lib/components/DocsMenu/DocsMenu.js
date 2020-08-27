@@ -10,7 +10,6 @@ export default class DocsMenu extends React.Component {
     static propTypes = {
         // Containerable
         children: PropTypes.node,
-
     }
     render() {
         return this.props.children;

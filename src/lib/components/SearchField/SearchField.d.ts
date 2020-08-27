@@ -18,10 +18,11 @@ export interface SearchFieldProps
      * doSearch - callback, called on search. If defined, default search function will not be called. Must return array of SearchDataItem.
      * @function
      * @async
-     * @param query
+     * @param {string} query
+     * @param {SearchDataItem[]} searchData
      * @return SearchDataItem[]
      */
-    doSearch?(query, searchData): Promise<SearchDataItem[]>;
+    doSearch?(query: string, searchData: SearchDataItem[]): Promise<SearchDataItem[]>;
 }
 
 /**

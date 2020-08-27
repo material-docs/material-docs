@@ -9,8 +9,9 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";
 import clsx from "clsx";
 import {useStyles} from "./styles";
+import PropTypes from "prop-types";
 
-function Markdown({children, className, style, inline = false, ...props}, ref) {
+const Markdown = React.forwardRef(function Markdown({children, className, style, inline = false, ...props}, ref) {
     const commonClasses = useCommonStyles();
     const classes = useStyles();
     const [content, setContent] = React.useState([]);
@@ -38,6 +39,17 @@ function Markdown({children, className, style, inline = false, ...props}, ref) {
             {content}
         </div>
     );
+});
+
+Markdown.propTypes = {
+    // MarkdownProps
+    inline: PropTypes.bool,
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
 }
 
-export default React.forwardRef(Markdown);
+export default Markdown;

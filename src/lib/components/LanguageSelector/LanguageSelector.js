@@ -14,9 +14,10 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import Divider from "@material-ui/core/Divider";
 import useLang from "../../hooks/useLang";
 import clsx from "clsx";
+import PropTypes from "prop-types";
 
 
-function LanguageSelector({className, style, size = "large", ...props}, ref) {
+const LanguageSelector = React.forwardRef(function LanguageSelector({className, style, size = "large", ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {langs, lang, switchLang, onHelpToTranslate} = useLang();
     const [opened, setOpened] = React.useState(false);
@@ -77,6 +78,14 @@ function LanguageSelector({className, style, size = "large", ...props}, ref) {
             </Menu>
         </React.Fragment>
     );
+});
+
+LanguageSelector.propTypes = {
+    size: PropTypes.oneOf(["small", "large"]),
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
 }
 
-export default React.forwardRef(LanguageSelector);
+export default LanguageSelector;
