@@ -6,12 +6,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class DocsMenu extends React.Component {
-    static propTypes = {
-        // Containerable
-        children: PropTypes.node,
-    }
+class DocsMenu extends React.Component {
     render() {
         return this.props.children;
     }
 }
+
+DocsMenu.propTypes = {
+    // Containerable
+    children: PropTypes.node,
+}
+
+export default DocsMenu;
