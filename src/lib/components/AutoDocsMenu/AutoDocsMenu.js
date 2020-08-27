@@ -5,8 +5,10 @@
 
 import React from "react";
 import DocsMenuItem from "../DocsMenuItem";
+import PropTypes from 'prop-types';
+import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
 
-function AutoDocsMenu({layoutData, ...props}, ref) {
+const AutoDocsMenu = React.forwardRef(function AutoDocsMenu({layoutData, ...props}, ref) {
     //TODO: add ref
     if (!layoutData || typeof layoutData !== "object")
         throw new ReferenceError(`MaterialDocs: param layoutData is required, expected object, got ${typeof layoutData}`);
@@ -35,10 +37,10 @@ function AutoDocsMenu({layoutData, ...props}, ref) {
     if (!layoutData.pages || !layoutData.groups) return null;
 
     return recursiveGenerateMenu(layoutData);
-}
+});
 
 AutoDocsMenu.propTypes = {
-    
+    layoutData: PagesGroupDataValidator.isRequired,
 }
 
-export default React.forwardRef(AutoDocsMenu);
+export default AutoDocsMenu;

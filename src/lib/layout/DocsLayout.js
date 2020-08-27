@@ -175,7 +175,7 @@ const DocsLayout = withWidth()(React.forwardRef(({
                         classes={{
                             paper: classes.drawerPaper,
                         }}
-                        onBackdropClick={event => setOpen(false)}
+                        onClose={event => setOpen(false)}
                     >
                         <div className={classes.drawerHeader}>
                             <IconButton onClick={handleDrawerClose}>
