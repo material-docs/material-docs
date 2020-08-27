@@ -37,4 +37,8 @@ function AutoDocsMenu({layoutData, ...props}, ref) {
     return recursiveGenerateMenu(layoutData);
 }
 
+AutoDocsMenu.propTypes = {
+    
+}
+
 export default React.forwardRef(AutoDocsMenu);
