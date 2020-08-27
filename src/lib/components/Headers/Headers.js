@@ -12,8 +12,9 @@ import LinkIcon from '@material-ui/icons/Link';import clsx from "clsx";
 import useTags from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
+import PropTypes from "prop-types";
 
-function TagableF({children, noTag = false, variant, style, className, noDivider = false, ...props}, ref) {
+const TagableF = React.forwardRef(function TagableF({children, noTag = false, variant, style, className, noDivider = false, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const commonClasses = useCommonStyles();
     const {setTag, removeTag} = useTags();
@@ -61,12 +62,21 @@ function TagableF({children, noTag = false, variant, style, className, noDivider
             </div>
         </div>
     );
+});
+
+TagableF.propTypes = {
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
+    children: PropTypes.node,
 }
 
-export const Tagable = React.forwardRef(TagableF);
+export const Tagable = TagableF;
 
 
-export function H1F({children, ...props}, ref) {
+function H1F({children, ...props}, ref) {
     return <Tagable variant={"h1"} {...props} ref={ref}>{children}</Tagable>
 }
 
@@ -108,7 +118,7 @@ function H6F({children, noDivider = true, noTag = true, ...props}, ref) {
 export const H6 = React.forwardRef(H6F);
 
 
-function HeaderF({children, heading = 1, ...props}, ref) {
+const HeaderF = React.forwardRef(function HeaderF({children, heading = 1, ...props}, ref) {
     switch (heading) {
         case 1:
             return <H1 {...props} ref={ref}>{children}</H1>;
@@ -123,7 +133,10 @@ function HeaderF({children, heading = 1, ...props}, ref) {
         default:
             return <H6 {...props} ref={ref}>{children}</H6>;
     }
+});
 
+HeaderF.propTypes = {
+    heading: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
 }
 
-export const Header = React.forwardRef(HeaderF);
+export const Header = HeaderF;

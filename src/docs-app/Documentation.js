@@ -43,6 +43,7 @@ import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
 import ListsDemo from "./pages/Components/ListsDemo";
 import Installation from "./pages/GettingStarted/Installation";
+import LayoutDemo from "./pages/Components/LayoutDemo";
 
 
 export default function Documentation() {
@@ -55,6 +56,7 @@ export default function Documentation() {
                 <PagesGroup name={"Components"}>
                     <DocsPageDemo/>
                     <ListsDemo/>
+                    <LayoutDemo/>
                 </PagesGroup>
                 <PagesGroup name={"Component APIs"}>
                     <DocsLayoutAPI/>

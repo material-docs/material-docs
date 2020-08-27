@@ -8,8 +8,9 @@ import Paper from "@material-ui/core/Paper";
 import {useStyles} from "./styles";
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
+import PropTypes from "prop-types";
 
-function Block({className, style, children, color = "light", ...props}, ref) {
+const Block = React.forwardRef(function Block({className, style, children, color = "light", ...props}, ref) {
     const commonClasses = useCommonStyles();
     const classes = {...useStyles(), ...props.classes};
     return (
@@ -29,6 +30,17 @@ function Block({className, style, children, color = "light", ...props}, ref) {
             {children}
         </Paper>
     );
+});
+
+Block.propTypes = {
+    // BlockProps
+    color: PropTypes.string,
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
+    children: PropTypes.node,
 }
 
-export default React.forwardRef(Block);
+export default Block;

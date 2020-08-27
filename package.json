@@ -1,6 +1,6 @@
 {
   "name": "@danilandreev/material-docs",
-  "version": "0.1.12",
+  "version": "0.2.1",
   "private": false,
   "description": "material-docs - react framework for easy creating documentation site in material design style.",
   "homepage": "https://danilandreev.github.io/material-docs/",
@@ -40,6 +40,7 @@
     "lodash": "^4.17.20",
     "marked": "^1.1.1",
     "notistack": "^0.9.17",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-lazy-load-image-component": "^1.5.0",
@@ -51,7 +52,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
-    "@danilandreev/material-docs": "^0.1.12",
+    "@danilandreev/material-docs": "^0.2.1",
     "copyfiles": "^2.3.0"
   },
   "scripts": {

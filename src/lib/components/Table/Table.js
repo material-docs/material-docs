@@ -8,8 +8,9 @@ import {Table as MUITable} from "@material-ui/core";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import clsx from "clsx";
 import {useStyles} from "./styles";
+import PropTypes from "prop-types";
 
-function Table({children, className, style, ...props}, ref) {
+const Table = React.forwardRef(function Table({children, className, style, ...props}, ref) {
     const commonClasses = useCommonStyles();
     const classes = {...useStyles(), ...props.classes};
     return (
@@ -19,6 +20,13 @@ function Table({children, className, style, ...props}, ref) {
             </MUITable>
         </div>
     );
+});
+
+Table.propTypes = {
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    children: PropTypes.node,
 }
 
-export default React.forwardRef(Table);
+export default Table;

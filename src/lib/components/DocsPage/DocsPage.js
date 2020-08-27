@@ -16,8 +16,9 @@ import useGroups from "../../hooks/useGroups";
 import {TaggingContext} from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import {isWidthDown, isWidthUp} from "@material-ui/core";
+import PropTypes from "prop-types";
 
-function DocsPage({
+const DocsPage = React.forwardRef(function DocsPage({
                       name = "home",
                       searchTags,
                       searchLabel,
@@ -137,6 +138,22 @@ function DocsPage({
             </TaggingContext.Provider>
         </Route>
     );
+});
+
+DocsPage.propTypes = {
+    // DocsPageProps
+    name: PropTypes.string,
+    searchTags: PropTypes.arrayOf(PropTypes.string),
+    searchLabel: PropTypes.string,
+    searchDescription: PropTypes.string,
+    noGenerateAutoSearch: PropTypes.bool,
+    noAutoMenu: PropTypes.bool,
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
+    children: PropTypes.node,
 }
 
-export default React.forwardRef(DocsPage);
+export default DocsPage;

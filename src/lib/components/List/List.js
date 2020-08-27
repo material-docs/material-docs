@@ -7,8 +7,9 @@ import React from "react";
 import {useStyles} from "./styles";
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
+import PropTypes from "prop-types";
 
-function List({children, className, style, image, ...props}, ref) {
+const List = React.forwardRef(function List({children, className, style, image, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const commonClasses = useCommonStyles();
 
@@ -17,6 +18,18 @@ function List({children, className, style, image, ...props}, ref) {
             {children}
         </ul>
     );
+});
+
+List.propTypes = {
+    // ListProps
+    image: PropTypes.string,
+    styling: PropTypes.oneOf(["inside", "outside", "inherit", "revert", "unset"]),
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
+    children: PropTypes.node,
 }
 
-export default React.forwardRef(List);
+export default List;

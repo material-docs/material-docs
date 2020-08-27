@@ -4,9 +4,17 @@
  */
 
 import React from "react";
+import PropTypes from "prop-types";
 
-export default class DocsPages extends React.Component {
+class DocsPages extends React.Component {
     render() {
         return this.props.children;
     }
 }
+
+DocsPages.propTypes = {
+    // Containerable
+    children: PropTypes.node,
+}
+
+export default DocsPages;
