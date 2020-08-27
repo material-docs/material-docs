@@ -6,8 +6,9 @@
 import React from "react";
 import {useStyles} from "./styles";
 import clsx from "clsx";
+import PropTypes from "prop-types";
 
-function Bold({children, className, style, ...props}, ref) {
+const Bold =  React.forwardRef(function Bold({children, className, style, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     return (
         <span className={clsx(classes.root, classes.bold, className)} ref={ref} style={style}>
@@ -15,6 +16,15 @@ function Bold({children, className, style, ...props}, ref) {
         </span>
     )
 
+});
+
+Bold.propTypes = {
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
+    children: PropTypes.node,
 }
 
-export default React.forwardRef(Bold)
+export default Bold;

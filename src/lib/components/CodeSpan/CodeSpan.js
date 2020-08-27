@@ -6,8 +6,9 @@
 import React from "react";
 import clsx from "clsx";
 import {useStyles} from "./styles";
+import PropTypes from "prop-types";
 
-function CodeSpan({className, style, children, color = "default", text = "inherit", ...props}, ref) {
+const CodeSpan = React.forwardRef(function CodeSpan({className, style, children, color = "default", text = "inherit", ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     return (
         <span
@@ -29,6 +30,18 @@ function CodeSpan({className, style, children, color = "default", text = "inheri
             {children}
         </span>
     );
+});
+
+CodeSpan.propTypes = {
+    // CodeSpanProps
+    color: PropTypes.oneOf(["default", "primary", "secondary", "grey"]),
+    text: PropTypes.oneOf(["white", "black", "inherit"]),
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
+    children: PropTypes.node,
 }
 
-export default React.forwardRef(CodeSpan);
+export default CodeSpan;

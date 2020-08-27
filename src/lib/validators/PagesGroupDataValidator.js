@@ -7,7 +7,7 @@ import {pagesDataValidate} from "./PagesDataValidator";
 import createChainableTypeChecker from "../utils/createChainableTypeChecker";
 
 /**
- * pagesGroupDataValidator - PropTypes validator for PagesGroupData interface.
+ * pagesGroupDataValidate - PropTypes validator for PagesGroupData interface.
  * @function
  * @param {object} props
  * @param {string} propName
@@ -31,13 +31,13 @@ export function pagesGroupDataValidate(prop, propName, componentName) {
     }
 }
 
-function PagesDataValidator(props, propName, componentName) {
+function PagesGroupDataValidator(props, propName, componentName) {
     const prop = props[propName];
     if (!prop) return null;
     return pagesGroupDataValidate(prop, propName, componentName);
 }
 
 /**
- * PagesDataValidator - PropTypes validator for PagesData interface.
+ * PagesGroupDataValidator - PropTypes validator for PagesData interface.
  */
-export default createChainableTypeChecker(pagesGroupDataValidate);
+export default createChainableTypeChecker(PagesGroupDataValidator);

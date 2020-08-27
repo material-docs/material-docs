@@ -15,8 +15,9 @@ import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {useTheme} from "@material-ui/core";
 import useNesting, {NestingContext} from "../../hooks/useNesting";
+import PropTypes from "prop-types";
 
-function DocsMenuItem({
+const DocsMenuItem = React.forwardRef(function DocsMenuItem({
                           children,
                           defaultExpanded = false,
                           textPrimary = "",
@@ -94,6 +95,25 @@ function DocsMenuItem({
             }
         </React.Fragment>
     );
+});
+
+DocsMenuItem.propTypes = {
+    // DocsMenuItemProps
+    defaultExpanded: PropTypes.bool,
+    textPrimary: PropTypes.string,
+    textSecondary: PropTypes.string,
+    icon: PropTypes.node,
+    onClick: PropTypes.func,
+    page: PropTypes.any,
+    isCurrent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    dense: PropTypes.bool,
+    nesting: PropTypes.number,
+    // Stylable
+    style: PropTypes.object,
+    className: PropTypes.string,
+    classes: PropTypes.object,
+    // Containerable
+    children: PropTypes.node,
 }
 
-export default React.forwardRef(DocsMenuItem);
+export default DocsMenuItem;

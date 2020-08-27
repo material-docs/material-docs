@@ -7,7 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
-export interface CodeProps extends Stylable, Containerable {
+export interface CodeProps
+    extends Stylable, Containerable {
     /**
      * theme - highlighting and background styling type.
      * @type string
