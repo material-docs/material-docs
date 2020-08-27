@@ -64,7 +64,6 @@ ListItem.propTypes = {
     classes: PropTypes.object,
     // Containerable
     children: PropTypes.node,
-
 }
 
 export default ListItem;
