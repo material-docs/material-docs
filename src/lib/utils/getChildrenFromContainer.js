@@ -4,31 +4,22 @@
  */
 
 import React from "react";
+import getContainerByType from "./getContainerByType";
 
+/**
+ * getChildrenFromContainer - function, designed to get children elements from containers with input types.
+ * @function
+ * @param {JSX.Element} children
+ * @param {string | string[] | object | object[]} types
+ * @param {boolean} multiple
+ * @return {JSX.Element | JSX.Element[] | null}
+ */
 export default function getChildrenFromContainer(children, types, multiple = false) {
-    function checkType(candidate) {
-        /**
-         * typeMatch - returns true is candidate component match input type
-         * @param {node} candidate
-         * @param {string | object} type
-         * @return boolean
-         */
-        function typeMatch(candidate, type) {
-            //TODO: finish
-        }
-
-        if (Array.isArray(types)) {
-            for (const type of types) {
-                if (typeMatch(candidate, type)) return true;
-            }
-        } else if (typeof types === "string" || typeof types === "object") {
-            return typeMatch(candidate, types);
-        }
-        return false;
+    const containers = getContainerByType(children, types, multiple);
+    if (Array.isArray(containers)) {
+        return containers.map(container => container.props.children).flat(1);
+    } else if(containers) {
+        return containers.props.children;
     }
-
-    const candidates = React.Children.map(children, candidate => candidate.type === DocsPages ? candidate : undefined);
-    if (candidates.length > 1) throw new TypeError("DocsLayout: layout can contain only one pages block"); //TODO: change to quantity error
-    const menu = candidates[0] && candidates[0].props.children;
-    return menu || null;
+    return null;
 }
