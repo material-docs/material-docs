@@ -3,28 +3,31 @@
  * Copyright (C) 2020.
  */
 
-import React from "react";
+import React, {Children} from "react";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {useStyles} from "./styles";
-import LinkIcon from '@material-ui/icons/Link';import clsx from "clsx";
+import LinkIcon from '@material-ui/icons/Link';
+import clsx from "clsx";
 import useTags from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
 import PropTypes from "prop-types";
+import getTextFromChildren from "../../utils/getTextFromChildren";
+
 
 const TagableF = React.forwardRef(function TagableF({children, noTag = false, variant, style, className, noDivider = false, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
     const commonClasses = useCommonStyles();
     const {setTag, removeTag} = useTags();
     const [topOffset, setTopOffset] = React.useState(0);
-    const id = React.useRef(props.id || (typeof children === "string" && createRouteFromName(children)));
+    const id = React.useRef(props.id || createRouteFromName(getTextFromChildren(children, 6)));
     const aref = React.useRef(null);
     const typographyClasses = {h1: classes.h1, h2: classes.h2, h3: classes.h3, h4: classes.h4, h5: classes.h5}
 
     React.useEffect(() => {
-        !noTag && setTag(id.current, {label: String(children), ref: aref, topOffset});
+        !noTag && setTag(id.current, {label: children, ref: aref, topOffset});
         return () => {
             if (!noTag) {
                 removeTag(id.current);

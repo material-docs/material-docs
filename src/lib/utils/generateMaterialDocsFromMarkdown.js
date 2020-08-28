@@ -35,8 +35,7 @@ export default function generateMaterialDocsFromMarkdown(input) {
             {tokens.map(token => {
                 switch (token.type) {
                     case "heading":
-//                        return <Header heading={token.depth}>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Header>
-                        return <Header heading={token.depth}>{token.text}</Header>
+                       return <Header heading={token.depth}>{token.tokens && generateMaterialDocsFromMarkdown(token.tokens)}</Header>
                     case "text":
                         return token.tokens ? generateMaterialDocsFromMarkdown(token.tokens) : token.text;
                     case "paragraph":
