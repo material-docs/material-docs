@@ -10,7 +10,7 @@ import getContainerByType from "./getContainerByType";
  * getChildrenFromContainer - function, designed to get children elements from containers with input types.
  * @function
  * @param {JSX.Element} children
- * @param {string | string[] | object | object[]} types
+ * @param {string | string[]} types
  * @param {boolean} multiple
  * @return {JSX.Element | JSX.Element[] | null}
  */

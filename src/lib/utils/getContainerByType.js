@@ -9,7 +9,7 @@ import React from "react";
  * getContainerByType - function designed to get containers from components list by types.
  * @function
  * @param {JSX.Element} children
- * @param {string | string[] | object | object[]} types
+ * @param {string | string[]} types
  * @param {boolean} multiple
  * @return {JSX.Element | JSX.Element[] | null}
  */
@@ -25,18 +25,17 @@ export default function getContainerByType(children, types, multiple = false) {
          * typeMatch - returns true is candidate component match input type.
          * @function
          * @param {JSX.Element} candidate
-         * @param {string | object} type
+         * @param {string} type
          * @return boolean
          */
         function typeMatch(candidate, type) {
-            if (typeof type !== "string" && typeof type !== "object")
+            if (typeof type !== "string")
                 console.error(`MaterialDocs: getChildrenFromContainer: incorrect type of variable 'type', expected "string | object", got ${typeof type}!`);
             if (candidate.type && candidate.type.name === type) return true;
             if (candidate.type && candidate.type.render && candidate.type.render.name === type) return true;
             if (candidate.type === type) return true;
             return false;
         }
-
         if (Array.isArray(types)) {
             for (const type of types) {
                 if (typeMatch(candidate, type)) return true;
