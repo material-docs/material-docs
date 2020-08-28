@@ -28,7 +28,7 @@ jobs:
     - run: rm -r docs
     - run: mkdir docs
     - run: cp -R build/* docs
-    - run: touch .nojekyll
+    - run: touch docs/.nojekyll
     - run: git add --all
     # setting up git
     - run: git config --local user.email "action@github.com"
