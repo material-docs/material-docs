@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import {DocsPage, H1, H2, H3, Markdown} from "../../../../lib";
+import {DocsPage, ExpansionCode, H1, H2, H3, Markdown} from "../../../../lib";
 
 const pageMarkdown = `
 # Hello, i ___italic text___ am header 1
@@ -53,7 +53,7 @@ _italic_
 `;
 
 const pageMarkdown2 = `
-# FlexibleTable API
+# ___FlexibleTable___ API
 ### The API documentation of the FlexibleTable React component. Learn more about the props and the CSS customization points.
 
 ## Import
@@ -99,7 +99,11 @@ export default function DocsPageDemo() {
             <H1 noDivider>DocsPages</H1>
             <H3>DocsPages description</H3>
             <Markdown>{pageMarkdown2}</Markdown>
-
+            <ExpansionCode
+                demoCode={"asdfasfasfsd\n\n\nasdfn\nsdf"}
+            >
+                {pageMarkdown}
+            </ExpansionCode>
         </DocsPage>
     );
 }

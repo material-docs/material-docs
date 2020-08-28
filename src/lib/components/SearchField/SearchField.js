@@ -61,6 +61,8 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
     }
 
     function handleKeyDown(event) {
+        console.log(event.key);
+        console.log(inputRef)
         switch (event.key) {
             case "ArrowUp":
                 setSelected(prev => prev > 0 ? prev - 1 : found.length - 1);
@@ -75,7 +77,12 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
             case "Enter":
                 found[selected] &&  handleItemAction(found[selected]);
                 found[selected] && setText("");
-                //TODO: add unfocus on menu select.
+                inputRef.current.blur();
+                setFocused(false);
+                break;
+            case "Escape":
+                inputRef.current.blur();
+                setFocused(false);
                 break;
         }
     }
@@ -142,7 +149,7 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
                     placeholder={"Seacrh"}
                     onFocus={event => setFocused(true)}
                     onKeyDown={handleKeyDown}
-                    ref={inputRef}
+                    inputRef={inputRef}
                 />
                 <CloseIcon
                     className={clsx(classes.icon, classes.iconClickable)}

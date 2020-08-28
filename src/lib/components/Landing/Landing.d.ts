@@ -6,15 +6,10 @@
 import * as React from "react";
 import Containerable from "../../interfaces/Containerable";
 
-export interface ListItemContainedProps
+export interface LandingProps
     extends Containerable {
-    /**
-     * children - children components, normally - ListItem.
-     * @type any
-     */
-    children?: any;
 }
 
-export default class ListItemContained extends React.Component<ListItemContainedProps, any> {
+export default class Landing extends React.Component<LandingProps, any> {
     render(): JSX.Element;
 }
