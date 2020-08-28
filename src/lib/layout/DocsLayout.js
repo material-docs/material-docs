@@ -38,6 +38,7 @@ import LangValidator from "../validators/LangValidator";
 import getChildrenFromContainer from "../utils/getChildrenFromContainer";
 import Box from "@material-ui/core/Box";
 import {Helmet, HelmetProvider} from "react-helmet-async";
+import DefaultTheme from "../theme/DefaultTheme";
 
 
 const DocsLayoutF = React.forwardRef(({
@@ -245,7 +246,7 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask,
 
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
-            <MuiThemeProvider theme={theme}>
+            <MuiThemeProvider theme={DefaultTheme}>
                 <SnackbarProvider
                     maxSnack={3}
                     anchorOrigin={{
