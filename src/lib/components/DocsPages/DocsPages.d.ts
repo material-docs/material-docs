@@ -3,8 +3,7 @@
  * Copyright (C) 2020.
  */
 
-// @ts-ignore
-import React from "react";
+import * as React from "react";
 import Containerable from "../../interfaces/Containerable";
 
 export interface DocsPagesProps

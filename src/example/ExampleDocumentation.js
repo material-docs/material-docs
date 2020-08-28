@@ -13,6 +13,7 @@ import {DocsLayout, DocsPages, PagesGroup, DocsPage} from "../lib";
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
 import {H1, H2} from "../lib/components/Headers";
+import Landing from "../lib/components/Landing/Landing";
 
 
 export default function ExampleDocumentation() {
@@ -40,6 +41,9 @@ export default function ExampleDocumentation() {
                     </DocsPage>
                 </PagesGroup>
             </DocsPages>
+            <Landing>
+
+            </Landing>
         </DocsLayout>
     );
 }
