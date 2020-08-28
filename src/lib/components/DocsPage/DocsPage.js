@@ -15,8 +15,10 @@ import useSearch from "../../hooks/useSearch";
 import useGroups from "../../hooks/useGroups";
 import {TaggingContext} from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
-import {isWidthDown, isWidthUp} from "@material-ui/core";
+import {isWidthUp} from "@material-ui/core";
 import PropTypes from "prop-types";
+import {Helmet} from "react-helmet-async";
+
 
 const DocsPage = React.forwardRef(function DocsPage({
                       name = "home",
@@ -136,6 +138,9 @@ const DocsPage = React.forwardRef(function DocsPage({
                     </Grid>
                 </Grid>
             </TaggingContext.Provider>
+            <Helmet>
+                <title>{name}</title>
+            </Helmet>
         </Route>
     );
 });
