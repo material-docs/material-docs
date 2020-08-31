@@ -59,7 +59,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:docs": "react-scripts docs",
+    "build:docs": "react-scripts build",
     "build:test:declarations": "copyfiles --up 2 \"src/lib/**/*.d.ts\" dist --verbose",
     "build:test:library": "npx babel src/lib --out-dir dist",
     "build:test": "yarn run build:test:library && yarn run build:test:declarations",
