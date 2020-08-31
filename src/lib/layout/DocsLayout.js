@@ -60,8 +60,7 @@ const DocsLayoutF = React.forwardRef(({
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
 
-    console.log(autoMenuData);
-
+    console.log(autoMenuData, children);
 
     async function switchLang(inputLang) {
         let newLang = {...inputLang};
@@ -125,7 +124,6 @@ const DocsLayoutF = React.forwardRef(({
             pages: getPagesFromChildren(),
             landing: getLanding(),
         });
-        console.log("Layout getters: ", getMenuFromChildren(), getPagesFromChildren(), getLanding());
     }, [children]);
 
     const handleDrawerOpen = () => {

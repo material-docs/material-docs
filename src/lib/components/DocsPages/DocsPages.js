@@ -7,6 +7,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 class DocsPages extends React.Component {
+    static displayName = "DocsPages";
     render() {
         return this.props.children;
     }

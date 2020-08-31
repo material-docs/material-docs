@@ -31,9 +31,10 @@ export default function getContainerByType(children, types, multiple = false) {
         function typeMatch(candidate, type) {
             if (typeof type !== "string")
                 console.error(`MaterialDocs: getChildrenFromContainer: incorrect type of variable 'type', expected "string | object", got ${typeof type}!`);
-            if (candidate.type && candidate.type.name === type) return true;
-            if (candidate.type && candidate.type.render && candidate.type.render.name === type) return true;
-            if (candidate.type === type) return true;
+            // if (candidate.type && candidate.type.name === type) return true;
+            // if (candidate.type && candidate.type.render && candidate.type.render.name === type) return true;
+            if (candidate.type && candidate.type.displayName === type) return true;
+//            if (candidate.type === type) return true;
             return false;
         }
         if (Array.isArray(types)) {
