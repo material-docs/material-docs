@@ -125,6 +125,7 @@ const DocsLayoutF = React.forwardRef(({
             pages: getPagesFromChildren(),
             landing: getLanding(),
         });
+        console.log("Layout getters: ", getMenuFromChildren(), getPagesFromChildren(), getLanding());
     }, [children]);
 
     const handleDrawerOpen = () => {
