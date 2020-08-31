@@ -25,7 +25,7 @@ jobs:
     - run: yarn run build:docs
       env:
         CI: false
-    - run: [ -d "docs" ] && rm -r docs
+    - run: test -d "docs" && rm -r docs
     - run: mkdir docs
     - run: cp -R build/* docs
     - run: touch docs/.nojekyll
