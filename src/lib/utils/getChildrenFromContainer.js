@@ -3,7 +3,6 @@
  * Copyright (C) 2020.
  */
 
-import React from "react";
 import getContainerByType from "./getContainerByType";
 
 /**

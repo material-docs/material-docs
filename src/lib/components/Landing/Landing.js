@@ -7,6 +7,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 class Landing extends React.Component {
+    static displayName = "Landing";
     render() {
         return this.props.children;
     }
