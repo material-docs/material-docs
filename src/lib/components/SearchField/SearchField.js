@@ -61,8 +61,6 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
     }
 
     function handleKeyDown(event) {
-        console.log(event.key);
-        console.log(inputRef)
         switch (event.key) {
             case "ArrowUp":
                 setSelected(prev => prev > 0 ? prev - 1 : found.length - 1);
@@ -130,7 +128,6 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
         <ClickAwayListener
             onClickAway={event => setFocused(false)}
         >
-            {/*TODO: fix focus on paper click*/}
             <Paper
                 elevation={0}
                 className={clsx(classes.root, focused && classes.rootFocused, className)}
@@ -193,6 +190,8 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
     );
 });
 
+SearchField.displayName = "SearchField";
+
 SearchField.propTypes = {
     // SearchFieldProps
     searchData: PropTypes.arrayOf(SearchDataItemValidator),
@@ -201,6 +200,10 @@ SearchField.propTypes = {
     style: PropTypes.object,
     className: PropTypes.string,
     classes: PropTypes.object,
+}
+
+SearchField.defaultProps = {
+    searchData: [],
 }
 
 export default SearchField;
