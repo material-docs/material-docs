@@ -55,6 +55,9 @@ export const useStyles = makeStyles((theme) => ({
     h6: {
         fontSize: "0.6rem",
     },
+    typography: {
+        overflowWrap: "break-word",
+    },
     anchorIcon: {
         transform: "rotate(45deg)",
     },

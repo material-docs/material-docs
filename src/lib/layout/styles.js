@@ -33,11 +33,15 @@ export const useStyles = makeStyles((theme) => ({
         display: 'none',
     },
     drawer: {
-        width: drawerWidth,
+        // width: drawerWidth,
+        maxWidth: drawerWidth,
+        width: "100%",
         flexShrink: 0,
     },
     drawerPaper: {
-        width: drawerWidth,
+        // width: drawerWidth,
+        maxWidth: drawerWidth,
+        width: "100%",
     },
     drawerHeader: {
         display: 'flex',

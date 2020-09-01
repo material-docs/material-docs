@@ -52,7 +52,7 @@ const TagableF = React.forwardRef(function TagableF({children, noTag = false, va
                 id={noTag ? undefined : id.current}
             >
                 <div className={classes.container}>
-                    <Typography variant={variant} classes={typographyClasses}>
+                    <Typography variant={variant} classes={clsx(classes.typography, typographyClasses)}>
                         {children}
                         {!noDivider && <Divider className={classes.divider}/>}
                     </Typography>

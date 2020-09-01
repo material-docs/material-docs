@@ -39,6 +39,7 @@ import getChildrenFromContainer from "../utils/getChildrenFromContainer";
 import Box from "@material-ui/core/Box";
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import DefaultTheme from "../theme/DefaultTheme";
+import {createGenerateClassName, StylesProvider} from "@material-ui/styles";
 
 
 const DocsLayoutF = React.forwardRef(({
@@ -63,6 +64,9 @@ const DocsLayoutF = React.forwardRef(({
     const {l: langName} = getQueryParams();
 
     React.useEffect(() => {
+        if (!langName) {
+            changeRoute({}, {l: defaultLang.name});
+        }
         const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
         switchLang(newLang).then();
     }, [langName]);
@@ -256,6 +260,10 @@ DocsLayoutF.propTypes = {
 
 const DocsLayout = withWidth()(DocsLayoutF);
 
+const generateClassName = createGenerateClassName({
+    productionPrefix: 'MaterialDocs',
+});
+
 const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
     const routeMask = typeof mask === "string" ? mask : "/:page";
     const theme = useTheme();
@@ -263,15 +271,17 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask,
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
             <MuiThemeProvider theme={DefaultTheme}>
-                <SnackbarProvider
-                    maxSnack={3}
-                    anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "center",
-                    }}
-                >
-                    <DocsLayout {...props} ref={ref}/>
-                </SnackbarProvider>
+                <StylesProvider generateClassName={generateClassName}>
+                    <SnackbarProvider
+                        maxSnack={3}
+                        anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "center",
+                        }}
+                    >
+                        <DocsLayout {...props} ref={ref}/>
+                    </SnackbarProvider>
+                </StylesProvider>
             </MuiThemeProvider>
         </ChangeRouteProvider>
     );
