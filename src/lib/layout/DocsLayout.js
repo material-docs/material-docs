@@ -18,7 +18,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from './styles'
 import {BrowserRouter, HashRouter, Switch, Route} from "react-router-dom";
-import {ChangeRouteProvider} from "routing-manager";
+import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 import DocsMenu from "../components/DocsMenu";
 import DocsPages from "../components/DocsPages";
 import {SnackbarProvider} from "notistack";
@@ -54,11 +54,26 @@ const DocsLayoutF = React.forwardRef(({
                                       }, ref) => {
     const classes = useStyles();
     const theme = useTheme();
+    const {getQueryParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: [], landing: []});
     const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
+    const {l: langName} = getQueryParams();
+
+    React.useEffect(() => {
+        const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
+        switchLang(newLang).then();
+    }, [langName]);
+
+    async function switchLangRoute(inputLang) {
+        if (typeof inputLang !== "object")
+            throw new TypeError(`MaterialDocs: incorrect type of lang, expected Lang, got ${typeof inputLang}`);
+        if (typeof inputLang.name !== "string")
+            throw new TypeError(`MaterialDocs: incorrect type of lang.name, expected string, got ${typeof inputLang.name}`);
+        changeRoute({}, {l: inputLang.name});
+    }
 
     async function switchLang(inputLang) {
         let newLang = {...inputLang};
@@ -89,12 +104,13 @@ const DocsLayoutF = React.forwardRef(({
                 _.merge(newLang.locale, inputLang.locale);
             }
         }
-        setLang(newLang);
+       setLang(newLang);
     }
 
-    React.useEffect(() => {
-        defaultLang && switchLang(defaultLang).then();
-    }, [defaultLang]);
+    // Deprecated, now languages are changing by route hash.
+    // React.useEffect(() => {
+    //     defaultLang && switchLangRoute(defaultLang).then();
+    // }, [defaultLang]);
 
     const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
         const newData = new Set(prev);
@@ -133,7 +149,7 @@ const DocsLayoutF = React.forwardRef(({
     };
 
     return (
-        <LangContext.Provider value={{lang, switchLang, langs, onHelpToTranslate}}>
+        <LangContext.Provider value={{lang, switchLang: switchLangRoute, langs, onHelpToTranslate}}>
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
                 <HelmetProvider>
                     <Helmet>
