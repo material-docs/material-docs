@@ -28,6 +28,14 @@ const Image = React.forwardRef(function Image({src = "", alt = "", style, classN
     );
 });
 
+Image.displayName = "Image";
+
+Image.defaultProps = {
+    src: "",
+    alt: "",
+    fullWidth: false
+}
+
 Image.propTypes = {
     // ImageProps
     src: PropTypes.string,

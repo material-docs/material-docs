@@ -20,6 +20,11 @@ const List = React.forwardRef(function List({children, className, style, image, 
     );
 });
 
+List.displayName = "List";
+
+List.defaultProps = {
+}
+
 List.propTypes = {
     // ListProps
     image: PropTypes.string,

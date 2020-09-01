@@ -97,6 +97,16 @@ const DocsMenuItem = React.forwardRef(function DocsMenuItem({
     );
 });
 
+DocsMenuItem.displayName = "DocsMenuItem";
+
+DocsMenuItem.defaultProps = {
+    defaultExpanded: false,
+    textPrimary: "",
+    textSecondary: "",
+    isCurrent: false,
+    dense: false,
+}
+
 DocsMenuItem.propTypes = {
     // DocsMenuItemProps
     defaultExpanded: PropTypes.bool,

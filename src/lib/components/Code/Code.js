@@ -14,7 +14,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
 
 
-const Code = React.forwardRef(function Code({children, language = 'javascript', theme = 'light', style, className}, ref) {
+const Code = React.forwardRef(function Code({children, language = "javascript", theme = "light", style, className}, ref) {
     const classes = useStyles();
     const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
@@ -83,6 +83,13 @@ const Code = React.forwardRef(function Code({children, language = 'javascript', 
         </Paper>
     );
 });
+
+Code.displayName = "Code";
+
+Code.defaultProps = {
+    language: "javascript",
+    theme: "light",
+}
 
 Code.propTypes = {
     // CodeProps

@@ -67,6 +67,13 @@ const TagableF = React.forwardRef(function TagableF({children, noTag = false, va
     );
 });
 
+TagableF.displayName = "Tagable";
+
+TagableF.defaultProps = {
+    noTag: false,
+    noDivider: false,
+}
+
 TagableF.propTypes = {
     // Stylable
     style: PropTypes.object,
@@ -137,6 +144,12 @@ const HeaderF = React.forwardRef(function HeaderF({children, heading = 1, ...pro
             return <H6 {...props} ref={ref}>{children}</H6>;
     }
 });
+
+HeaderF.displayName = "Header";
+
+HeaderF.defaultProps = {
+    heading: 1,
+}
 
 HeaderF.propTypes = {
     heading: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),

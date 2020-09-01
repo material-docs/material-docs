@@ -39,6 +39,8 @@ const AutoDocsMenu = React.forwardRef(function AutoDocsMenu({layoutData, ...prop
     return recursiveGenerateMenu(layoutData);
 });
 
+AutoDocsMenu.displayName = "AutoDocsMenu";
+
 AutoDocsMenu.propTypes = {
     layoutData: PagesGroupDataValidator.isRequired,
 }

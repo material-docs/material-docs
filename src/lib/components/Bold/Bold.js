@@ -18,6 +18,8 @@ const Bold =  React.forwardRef(function Bold({children, className, style, ...pro
 
 });
 
+Bold.displayName = "Bold";
+
 Bold.propTypes = {
     // Stylable
     style: PropTypes.object,

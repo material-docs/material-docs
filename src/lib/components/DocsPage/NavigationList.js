@@ -101,6 +101,11 @@ const NavigationList = React.forwardRef(function NavigationList({keys}, ref) {
     );
 });
 
+NavigationList.displayName = "NavigationList";
+
+NavigationList.defaultProps = {
+}
+
 NavigationList.propTypes = {
     keys: PropTypes.array,
 }

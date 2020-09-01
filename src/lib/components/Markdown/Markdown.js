@@ -41,6 +41,12 @@ const Markdown = React.forwardRef(function Markdown({children, className, style,
     );
 });
 
+Markdown.displayName = "Markdown";
+
+Markdown.defaultProps = {
+    inline: false,
+}
+
 Markdown.propTypes = {
     // MarkdownProps
     inline: PropTypes.bool,
