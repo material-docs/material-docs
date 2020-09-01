@@ -12,6 +12,11 @@ class ListItemContained extends React.Component {
     }
 }
 
+ListItemContained.displayName = "ListItemContained";
+
+ListItemContained.defaultProps = {
+}
+
 ListItemContained.propTypes = {
     // Containerable
     children: PropTypes.node,

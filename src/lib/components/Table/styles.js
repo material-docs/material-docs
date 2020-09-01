@@ -11,5 +11,13 @@ export const useStyles = makeStyles((theme) => ({
     container: {
         width: "100%",
         overflowX: "auto",
+        position: "relative",
     },
+    table: {
+        position: "absolute",
+        left: 0,
+        right: 0,
+        top: 0,
+        minWidth: 650,
+    }
 }));

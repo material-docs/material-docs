@@ -32,6 +32,12 @@ const Block = React.forwardRef(function Block({className, style, children, color
     );
 });
 
+Block.displayName = "Block";
+
+Block.defaultProps = {
+    color: "light",
+}
+
 Block.propTypes = {
     // BlockProps
     color: PropTypes.string,

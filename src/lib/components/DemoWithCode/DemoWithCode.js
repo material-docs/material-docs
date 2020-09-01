@@ -99,6 +99,13 @@ const DemoWithCode = React.forwardRef(function DemoWithCode({children, defaultEx
     );
 });
 
+DemoWithCode.displayName = "DemoWithCode";
+
+DemoWithCode.defaultProps = {
+    noTag: false,
+    paperContainer: false,
+}
+
 DemoWithCode.propTypes = {
     // DemoWithCodeProps
     defaultExpanded: PropTypes.bool,

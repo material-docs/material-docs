@@ -110,6 +110,12 @@ const ExpansionCode = React.forwardRef(function ExpansionCode({theme, language, 
     );
 });
 
+ExpansionCode.displayName = "ExpansionCode";
+
+ExpansionCode.defaultProps = {
+    demoCode: "",
+}
+
 ExpansionCode.propTypes = {
     // ExpansionCodeProps
     name: PropTypes.string,

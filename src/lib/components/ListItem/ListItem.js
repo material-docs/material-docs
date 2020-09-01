@@ -54,6 +54,13 @@ const ListItem = React.forwardRef(function ListItem({children, type = "circle", 
     );
 });
 
+ListItem.displayName = "ListItem";
+
+ListItem.defaultProps = {
+    type: "circle",
+    dense: false,
+}
+
 ListItem.propTypes = {
     // ListItemProps
     type: PropTypes.oneOf(["circle", "square", "upper-roman", "lower-alpha", "none"]),
