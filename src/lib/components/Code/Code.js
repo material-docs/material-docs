@@ -25,7 +25,7 @@ const Code = React.forwardRef(function Code({children, language = 'javascript', 
         onResize();
         window.addEventListener("resize", onResize);
         return () => window.removeEventListener("resize", onResize);
-    }, []);
+    }, [children]);
 
     function onResize(event) {
         const scrollbar = rootRef.current ? rootRef.current.offsetHeight - rootRef.current.clientHeight : 0;
