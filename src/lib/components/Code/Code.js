@@ -19,14 +19,23 @@ const Code = React.forwardRef(function Code({children, language = 'javascript', 
     const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
     const codeRef = React.useRef(null);
+    const rootRef = React.useRef(null);
 
     React.useEffect(() => {
+        onResize();
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
+    }, []);
+
+    function onResize(event) {
+        console.log("resizing");
+        const scrollbar = rootRef.current ? rootRef.current.offsetHeight - rootRef.current.clientHeight : 0;
         if (codeRef.current) {
-            setHeight(codeRef.current.clientHeight);
+            setHeight(codeRef.current.clientHeight + scrollbar);
         } else {
             setHeight(0);
         }
-    }, [codeRef.current, children]);
+    }
 
     function fixStyle(style) {
         return {...style, hljs: {...style.hljs, background: 'none'}};
@@ -65,7 +74,7 @@ const Code = React.forwardRef(function Code({children, language = 'javascript', 
             style={{backgroundColor: codeStyle.background, height, ...style}}
             className={clsx(commonClasses.pageBlock, classes.root, className)}
             elevation={0}
-            ref={ref}
+            ref={element => {rootRef.current = element; if (ref) ref.current = element}}
         >
             <div className={classes.highlighterContainer} ref={codeRef}>
                 <SyntaxHighlighter language={language} style={codeStyle.highlight}>
