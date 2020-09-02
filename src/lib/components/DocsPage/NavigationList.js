@@ -91,7 +91,9 @@ const NavigationList = React.forwardRef(function NavigationList({keys}, ref) {
                                 primaryTypographyProps={{
                                     variant: "subtitle2",
                                     color: active ? "textPrimary" : "textSecondary",
+                                    className: classes.typography,
                                 }}
+                                className={classes.typography}
                             />
                         </ListItem>
                     </Link>
@@ -103,8 +105,7 @@ const NavigationList = React.forwardRef(function NavigationList({keys}, ref) {
 
 NavigationList.displayName = "NavigationList";
 
-NavigationList.defaultProps = {
-}
+NavigationList.defaultProps = {}
 
 NavigationList.propTypes = {
     keys: PropTypes.array,

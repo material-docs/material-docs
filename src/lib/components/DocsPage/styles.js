@@ -25,4 +25,7 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: grey[100],
         color: grey[300],
     },
+    typography: {
+        overflowWrap: "break-word",
+    }
 }));
