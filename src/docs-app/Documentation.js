@@ -44,11 +44,16 @@ import EN from "./locale/EN.json";
 import ListsDemo from "./pages/Components/ListsDemo";
 import Installation from "./pages/GettingStarted/Installation";
 import LayoutDemo from "./pages/Components/LayoutDemo";
+import DocsMenu from "@danilandreev/material-docs/components/DocsMenu/DocsMenu";
+import AutoDocsMenu from "@danilandreev/material-docs/components/AutoDocsMenu/AutoDocsMenu";
 
 
 export default function Documentation() {
     return (
-        <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL} autoMenuDense>
+        <DocsLayout defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
+            <DocsMenu dense>
+                <AutoDocsMenu/>
+            </DocsMenu>
             <DocsPages>
                 <PagesGroup name={"Getting started"}>
                     <Installation/>
