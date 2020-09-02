@@ -11,7 +11,7 @@ export interface AutoDocsMenuProps {
      * layoutData - pages and groups hierarchy data.
      * @type PagesGroupData
      */
-    layoutData: PagesGroupData;
+    layoutData?: PagesGroupData;
 }
 
 export default function AutoDocsMenu(props: AutoDocsMenuProps): JSX.Element;

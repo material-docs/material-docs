@@ -18,7 +18,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from './styles'
 import {BrowserRouter, HashRouter, Switch, Route} from "react-router-dom";
-import {ChangeRouteProvider} from "routing-manager";
+import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 import DocsMenu from "../components/DocsMenu";
 import DocsPages from "../components/DocsPages";
 import {SnackbarProvider} from "notistack";
@@ -39,6 +39,8 @@ import getChildrenFromContainer from "../utils/getChildrenFromContainer";
 import Box from "@material-ui/core/Box";
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import DefaultTheme from "../theme/DefaultTheme";
+import {createGenerateClassName, StylesProvider} from "@material-ui/styles";
+import getContainerByType from "../utils/getContainerByType";
 
 
 const DocsLayoutF = React.forwardRef(({
@@ -47,18 +49,34 @@ const DocsLayoutF = React.forwardRef(({
                                           defaultLang,
                                           langs,
                                           onHelpToTranslate,
-                                          autoMenu = false,
-                                          autoMenuDense = false,
                                           width,
                                           ...props
                                       }, ref) => {
     const classes = useStyles();
     const theme = useTheme();
+    const {getQueryParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
-    const [content, setContent] = React.useState({pages: [], menu: [], landing: []});
+    const [content, setContent] = React.useState({pages: [], menu: null, landing: []});
     const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
+    const {l: langName} = getQueryParams();
+
+    React.useEffect(() => {
+        if (!langName) {
+            changeRoute({}, {l: defaultLang.name});
+        }
+        const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
+        switchLang(newLang).then();
+    }, [langName]);
+
+    async function switchLangRoute(inputLang) {
+        if (typeof inputLang !== "object")
+            throw new TypeError(`MaterialDocs: incorrect type of lang, expected Lang, got ${typeof inputLang}`);
+        if (typeof inputLang.name !== "string")
+            throw new TypeError(`MaterialDocs: incorrect type of lang.name, expected string, got ${typeof inputLang.name}`);
+        changeRoute({}, {l: inputLang.name});
+    }
 
     async function switchLang(inputLang) {
         let newLang = {...inputLang};
@@ -89,12 +107,8 @@ const DocsLayoutF = React.forwardRef(({
                 _.merge(newLang.locale, inputLang.locale);
             }
         }
-        setLang(newLang);
+       setLang(newLang);
     }
-
-    React.useEffect(() => {
-        defaultLang && switchLang(defaultLang).then();
-    }, [defaultLang]);
 
     const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
         const newData = new Set(prev);
@@ -110,7 +124,12 @@ const DocsLayoutF = React.forwardRef(({
 
     const getSearchData = () => [...searchData];
 
-    const getMenuFromChildren = () => getChildrenFromContainer(children, "DocsMenu") || [];
+    const getMenuFromChildren = () => {
+        const menu = getContainerByType(children, "DocsMenu");
+        if (menu && React.isValidElement(menu))
+            return React.cloneElement(menu, {layoutData: autoMenuData});
+        return null;
+    };
 
     const getPagesFromChildren = () => getChildrenFromContainer(children, "DocsPages") || [];
 
@@ -122,7 +141,7 @@ const DocsLayoutF = React.forwardRef(({
             pages: getPagesFromChildren(),
             landing: getLanding(),
         });
-    }, [children]);
+    }, [children, autoMenuData]);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -133,7 +152,7 @@ const DocsLayoutF = React.forwardRef(({
     };
 
     return (
-        <LangContext.Provider value={{lang, switchLang, langs, onHelpToTranslate}}>
+        <LangContext.Provider value={{lang, switchLang: switchLangRoute, langs, onHelpToTranslate}}>
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
                 <HelmetProvider>
                     <Helmet>
@@ -195,16 +214,7 @@ const DocsLayoutF = React.forwardRef(({
                                         </IconButton>
                                     </div>
                                     <Divider/>
-                                    {autoMenu
-                                        ?
-                                        <List dense={autoMenuDense}>
-                                            {autoMenuData &&
-                                            <AutoDocsMenu layoutData={autoMenuData}/>
-                                            }
-                                        </List>
-                                        :
-                                        content.menu
-                                    }
+                                    {content.menu}
                                 </Drawer>
                                 <main
                                     className={clsx(classes.content, {
@@ -240,6 +250,10 @@ DocsLayoutF.propTypes = {
 
 const DocsLayout = withWidth()(DocsLayoutF);
 
+const generateClassName = createGenerateClassName({
+    productionPrefix: 'MaterialDocs',
+});
+
 const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
     const routeMask = typeof mask === "string" ? mask : "/:page";
     const theme = useTheme();
@@ -247,15 +261,17 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask,
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
             <MuiThemeProvider theme={DefaultTheme}>
-                <SnackbarProvider
-                    maxSnack={3}
-                    anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "center",
-                    }}
-                >
-                    <DocsLayout {...props} ref={ref}/>
-                </SnackbarProvider>
+                <StylesProvider generateClassName={generateClassName}>
+                    <SnackbarProvider
+                        maxSnack={3}
+                        anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "center",
+                        }}
+                    >
+                        <DocsLayout {...props} ref={ref}/>
+                    </SnackbarProvider>
+                </StylesProvider>
             </MuiThemeProvider>
         </ChangeRouteProvider>
     );

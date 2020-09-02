@@ -40,7 +40,7 @@ export default function DemoWithCodeAPI() {
             searchTags={["demo", "with", "code", "api"]}
             searchDescription={locale.pageSearchDescription}
         >
-            <H1 noDivider>DemoWithCode API</H1>
+            <H1 noDivider>DemoWithCodeAPI_LOLOLOLOLO</H1>
             <H3 noDivider noTag>{locale.pageAbout}</H3>
             <H2>{localeSpells.Import}</H2>
             <Code language={"javascript"} theme={"darcula"}>

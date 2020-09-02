@@ -3,18 +3,28 @@
  * Copyright (C) 2020.
  */
 
-import * as React from "react";
 import Containerable from "../../interfaces/Containerable";
+import PagesGroupData from "@danilandreev/material-docs/interfaces/PagesGroupData";
 
 export interface DocsMenuProps
     extends Containerable {
+    /**
+     * dense - if true, menu wll have smaller spacing between items.
+     * @default false
+     * @type boolean
+     */
+    dense?: boolean,
     /**
      * children - children components, normally - DocsMenuItem.
      * @type any
      */
     children?: any;
+    /**
+     * layoutData - pages and groups hierarchy data.
+     * @ignore
+     * @type PagesGroupData
+     */
+    layoutData?: PagesGroupData;
 }
 
-export default class DocsMenu extends React.Component<DocsMenuProps, any> {
-    render(): JSX.Element;
-}
+export default function DocsMenu(props: DocsMenuProps): JSX.Element;

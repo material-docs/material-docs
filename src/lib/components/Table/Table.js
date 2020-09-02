@@ -21,7 +21,7 @@ const Table = React.forwardRef(function Table({children, className, style, ...pr
         onResize();
         window.addEventListener("resize", onResize);
         return () => window.removeEventListener("resize", onResize);
-    }, [children]);
+    }, [children, tableRef.current, containerRef.current]);
 
     function onResize() {
         const scrollbar = containerRef.current ? containerRef.current.offsetHeight - containerRef.current.clientHeight : 0;

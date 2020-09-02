@@ -14,11 +14,17 @@ import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
 import {H1, H2} from "../lib/components/Headers";
 import Landing from "../lib/components/Landing/Landing";
+import AutoDocsMenu from "../lib/components/AutoDocsMenu/AutoDocsMenu";
+import DocsMenu from "../lib/components/DocsMenu/DocsMenu";
+import DocsMenuItem from "../lib/components/DocsMenuItem/DocsMenuItem";
 
 
 export default function ExampleDocumentation() {
     return (
         <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
+            <DocsMenu dense>
+                <AutoDocsMenu/>
+            </DocsMenu>
             <DocsPages>
                 <PagesGroup name={"Getting started"}>
 
