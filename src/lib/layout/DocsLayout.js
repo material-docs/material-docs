@@ -62,8 +62,6 @@ const DocsLayoutF = React.forwardRef(({
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const {l: langName} = getQueryParams();
 
-    console.log(content);
-
     React.useEffect(() => {
         if (!langName) {
             changeRoute({}, {l: defaultLang.name});
@@ -125,16 +123,6 @@ const DocsLayoutF = React.forwardRef(({
     });
 
     const getSearchData = () => [...searchData];
-
-    // const getMenuFromChildren = () => {
-    //     const menu = getChildrenFromContainer(children, "DocsMenu") || [];
-    //     const basicMenu = React.Children.map(menu, item => {
-    //         if (React.isValidElement(item) && item.type.displayName !== "AutoDocsMenu") return item;
-    //     }).filter(item => item);
-    //     let autoMenu = getContainerByType(menu, "AutoDocsMenu");
-    //     if (autoMenu) autoMenu = React.cloneElement(autoMenu, {layoutData: autoMenuData});
-    //     return {basicMenu, autoMenu}
-    // }
 
     const getMenuFromChildren = () => {
         const menu = getContainerByType(children, "DocsMenu");
