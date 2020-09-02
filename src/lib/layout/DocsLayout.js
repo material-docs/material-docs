@@ -40,6 +40,7 @@ import Box from "@material-ui/core/Box";
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import DefaultTheme from "../theme/DefaultTheme";
 import {createGenerateClassName, StylesProvider} from "@material-ui/styles";
+import getContainerByType from "../utils/getContainerByType";
 
 
 const DocsLayoutF = React.forwardRef(({
@@ -48,8 +49,6 @@ const DocsLayoutF = React.forwardRef(({
                                           defaultLang,
                                           langs,
                                           onHelpToTranslate,
-                                          autoMenu = false,
-                                          autoMenuDense = false,
                                           width,
                                           ...props
                                       }, ref) => {
@@ -57,11 +56,13 @@ const DocsLayoutF = React.forwardRef(({
     const theme = useTheme();
     const {getQueryParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
-    const [content, setContent] = React.useState({pages: [], menu: [], landing: []});
+    const [content, setContent] = React.useState({pages: [], menu: {basicMenu: [], autoMenu: null}, landing: []});
     const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const {l: langName} = getQueryParams();
+
+    console.log(content);
 
     React.useEffect(() => {
         if (!langName) {
@@ -111,11 +112,6 @@ const DocsLayoutF = React.forwardRef(({
        setLang(newLang);
     }
 
-    // Deprecated, now languages are changing by route hash.
-    // React.useEffect(() => {
-    //     defaultLang && switchLangRoute(defaultLang).then();
-    // }, [defaultLang]);
-
     const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
         const newData = new Set(prev);
         newData.add(item);
@@ -130,7 +126,15 @@ const DocsLayoutF = React.forwardRef(({
 
     const getSearchData = () => [...searchData];
 
-    const getMenuFromChildren = () => getChildrenFromContainer(children, "DocsMenu") || [];
+    const getMenuFromChildren = () => {
+        const menu = getChildrenFromContainer(children, "DocsMenu") || [];
+        const basicMenu = React.Children.map(menu, item => {
+            if (React.isValidElement(item) && item.type.displayName !== "AutoDocsMenu") return item;
+        }).filter(item => item);
+        let autoMenu = getContainerByType(menu, "AutoDocsMenu");
+        if (autoMenu) autoMenu = React.cloneElement(autoMenu, {layoutData: autoMenuData});
+        return {basicMenu, autoMenu}
+    }
 
     const getPagesFromChildren = () => getChildrenFromContainer(children, "DocsPages") || [];
 
@@ -142,7 +146,7 @@ const DocsLayoutF = React.forwardRef(({
             pages: getPagesFromChildren(),
             landing: getLanding(),
         });
-    }, [children]);
+    }, [children, autoMenuData]);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -215,16 +219,9 @@ const DocsLayoutF = React.forwardRef(({
                                         </IconButton>
                                     </div>
                                     <Divider/>
-                                    {autoMenu
-                                        ?
-                                        <List dense={autoMenuDense}>
-                                            {autoMenuData &&
-                                            <AutoDocsMenu layoutData={autoMenuData}/>
-                                            }
-                                        </List>
-                                        :
-                                        content.menu
-                                    }
+                                    {/*{getAutoMenu()}*/}
+                                    {content.menu.autoMenu}
+                                    {content.menu.basicMenu}
                                 </Drawer>
                                 <main
                                     className={clsx(classes.content, {
