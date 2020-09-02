@@ -56,7 +56,7 @@ const DocsLayoutF = React.forwardRef(({
     const theme = useTheme();
     const {getQueryParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
-    const [content, setContent] = React.useState({pages: [], menu: {basicMenu: [], autoMenu: null}, landing: []});
+    const [content, setContent] = React.useState({pages: [], menu: null, landing: []});
     const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
@@ -126,15 +126,22 @@ const DocsLayoutF = React.forwardRef(({
 
     const getSearchData = () => [...searchData];
 
+    // const getMenuFromChildren = () => {
+    //     const menu = getChildrenFromContainer(children, "DocsMenu") || [];
+    //     const basicMenu = React.Children.map(menu, item => {
+    //         if (React.isValidElement(item) && item.type.displayName !== "AutoDocsMenu") return item;
+    //     }).filter(item => item);
+    //     let autoMenu = getContainerByType(menu, "AutoDocsMenu");
+    //     if (autoMenu) autoMenu = React.cloneElement(autoMenu, {layoutData: autoMenuData});
+    //     return {basicMenu, autoMenu}
+    // }
+
     const getMenuFromChildren = () => {
-        const menu = getChildrenFromContainer(children, "DocsMenu") || [];
-        const basicMenu = React.Children.map(menu, item => {
-            if (React.isValidElement(item) && item.type.displayName !== "AutoDocsMenu") return item;
-        }).filter(item => item);
-        let autoMenu = getContainerByType(menu, "AutoDocsMenu");
-        if (autoMenu) autoMenu = React.cloneElement(autoMenu, {layoutData: autoMenuData});
-        return {basicMenu, autoMenu}
-    }
+        const menu = getContainerByType(children, "DocsMenu");
+        if (menu && React.isValidElement(menu))
+            return React.cloneElement(menu, {layoutData: autoMenuData});
+        return null;
+    };
 
     const getPagesFromChildren = () => getChildrenFromContainer(children, "DocsPages") || [];
 
@@ -219,9 +226,7 @@ const DocsLayoutF = React.forwardRef(({
                                         </IconButton>
                                     </div>
                                     <Divider/>
-                                    {/*{getAutoMenu()}*/}
-                                    {content.menu.autoMenu}
-                                    {content.menu.basicMenu}
+                                    {content.menu}
                                 </Drawer>
                                 <main
                                     className={clsx(classes.content, {

@@ -38,18 +38,6 @@ export interface DocsLayoutProps
      */
     onHelpToTranslate?(lang: Lang): void;
     /**
-     * autoMenu - if true, menu will be generated automatically.
-     * @type boolean
-     * @default false
-     */
-    autoMenu?: boolean;
-    /**
-     * autoMenuDense - if true, auto menu will be dense. Spacing between items will be smaller.
-     * @type boolean
-     * @default false
-     */
-    autoMenuDense?: boolean;
-    /**
      * router - react-router-dom Router type.
      * @type string
      * @default browser-router

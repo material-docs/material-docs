@@ -22,7 +22,7 @@ import DocsMenuItem from "../lib/components/DocsMenuItem/DocsMenuItem";
 export default function ExampleDocumentation() {
     return (
         <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
-            <DocsMenu>
+            <DocsMenu dense>
                 <AutoDocsMenu/>
             </DocsMenu>
             <DocsPages>
