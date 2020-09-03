@@ -255,7 +255,7 @@ const generateClassName = createGenerateClassName({
 });
 
 const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
-    const routeMask = typeof mask === "string" ? mask : "/:page";
+    const routeMask = typeof mask === "string" ? mask : "/*page";
     const theme = useTheme();
 
     const providers = (
