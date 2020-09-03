@@ -9,6 +9,7 @@ export const GroupsContext = React.createContext({
     pages: [],
     groups: [],
     name: "",
+    path: [],
     addPage: (page) => {
     },
     deletePage: (page) => {

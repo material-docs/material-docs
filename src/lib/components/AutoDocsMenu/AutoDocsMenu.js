@@ -29,7 +29,7 @@ const AutoDocsMenu = React.forwardRef(function AutoDocsMenu({layoutData, ...prop
                     </DocsMenuItem>
                 ))}
                 {layout.pages.map(page => (
-                    <DocsMenuItem page={page.name} key={`auto-docs-menu-item-${page.link}`}/>
+                    <DocsMenuItem page={page.name} link={page.link} key={`auto-docs-menu-item-${page.name}`}/>
                 ))}
             </React.Fragment>
         );

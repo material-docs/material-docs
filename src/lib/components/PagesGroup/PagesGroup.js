@@ -15,10 +15,11 @@ const PagesGroup = React.forwardRef(function PagesGroup({name, children, getData
 
     const [pages, setPages] = React.useState([]);
     const [groups, setGroups] = React.useState([]);
-    const {addGroup, deleteGroup} = useGroups();
+    const {addGroup, deleteGroup, path: parentPath} = useGroups();
+    const groupPath = getData ? [] : [...(parentPath || []), name];
 
     React.useEffect(() => {
-        const group = {name, pages, groups};
+        const group = {name, pages, groups, path: groupPath};
         !getData && addGroup(group);
         getData && getData(group);
 //        return () => !getData && deleteGroup(group);
@@ -82,6 +83,7 @@ const PagesGroup = React.forwardRef(function PagesGroup({name, children, getData
             pages,
             groups,
             name,
+            path: groupPath,
             addPage: _addPage,
             deletePage: _deletePage,
             addGroup: _addGroup,

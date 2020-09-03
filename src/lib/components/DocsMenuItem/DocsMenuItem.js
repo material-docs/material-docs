@@ -18,19 +18,20 @@ import useNesting, {NestingContext} from "../../hooks/useNesting";
 import PropTypes from "prop-types";
 
 const DocsMenuItem = React.forwardRef(function DocsMenuItem({
-                          children,
-                          defaultExpanded = false,
-                          textPrimary = "",
-                          textSecondary = "",
-                          icon,
-                          onClick,
-                          page,
-                          isCurrent = false,
-                          className,
-                          style,
-                          dense = false,
-                          ...props
-                      }, ref) {
+                                                                children,
+                                                                defaultExpanded = false,
+                                                                textPrimary = "",
+                                                                textSecondary = "",
+                                                                icon,
+                                                                onClick,
+                                                                link,
+                                                                page,
+                                                                isCurrent = false,
+                                                                className,
+                                                                style,
+                                                                dense = false,
+                                                                ...props
+                                                            }, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute, getRouteParams} = useChangeRoute();
     const theme = useTheme();
@@ -56,10 +57,14 @@ const DocsMenuItem = React.forwardRef(function DocsMenuItem({
     }
 
     function handleButtonClick() {
-        if (typeof pageRoute === "string") {
-            changeRoute({page: pageRoute});
-        } else if (typeof page === "object") {
-            changeRoute({...page});
+        if (typeof link === "string") {
+            changeRoute({page: link});
+        } else {
+            if (typeof pageRoute === "string") {
+                changeRoute({page: pageRoute});
+            } else if (typeof page === "object") {
+                changeRoute({...page});
+            }
         }
     }
 

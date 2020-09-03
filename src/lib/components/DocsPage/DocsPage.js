@@ -32,13 +32,13 @@ const DocsPage = React.forwardRef(function DocsPage({
                   }, ref) {
     const classes = useStyles();
     const commonClasses = useCommonStyles();
-    const pagePath = createRouteFromName(name);
     const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
     const {addSearchItem, removeSearchItem} = useSearch();
-    const {addPage, deletePage} = useGroups();
+    const {addPage, deletePage, path: parentPath} = useGroups();
     const prevPage = React.useRef(null);
     const prevSearchItem = React.useRef(null);
+    const pagePath = [...(parentPath || []), name].map(name => createRouteFromName(name)).join("/");
 
     React.useEffect(() => {
         prevPage.current = {name, link: pagePath};
@@ -49,7 +49,6 @@ const DocsPage = React.forwardRef(function DocsPage({
          * searchItem - search item for current page;
          * @type SearchDataItem
          */
-            //debugger;
         const searchItem = {
                 redirect: {page: pagePath},
                 label: searchLabel || name,
@@ -73,7 +72,8 @@ const DocsPage = React.forwardRef(function DocsPage({
          */
         const page = {
             name,
-            link: pagePath
+            link: pagePath,
+            path: [...(parentPath || []), name],
         };
         prevPage.current = page;
         !noAutoMenu && addPage(page);
