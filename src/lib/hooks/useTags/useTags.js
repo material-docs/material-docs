@@ -7,10 +7,10 @@ import React from "react";
 
 export const TaggingContext = React.createContext({
     setTag: (key, value) => {
-        throw new ReferenceError("MaterialDocs: This function (setTag) hasn't been initialized yet. Maybe, you forget to call hook useTags() inside TaggingContext.Provider")
+        throw new ReferenceError("MaterialDocs: This function (setTag) hasn't been initialized yet. Maybe, you forget to call hook useTags() inside TaggingContext.Provider");
     },
     removeTag: (key) => {
-        throw new ReferenceError("MaterialDocs: This function (removeTag) hasn't been initialized yet. Maybe, you forget to call hook useTags() inside TaggingContext.Provider")
+        throw new ReferenceError("MaterialDocs: This function (removeTag) hasn't been initialized yet. Maybe, you forget to call hook useTags() inside TaggingContext.Provider");
     },
     tags: {},
 });

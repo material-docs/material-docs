@@ -13,25 +13,28 @@ import {useChangeRoute} from "routing-manager";
 import {useStyles} from "./styles";
 import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
-import {useTheme} from "@material-ui/core";
+import {isWidthUp, useTheme} from "@material-ui/core";
 import useNesting, {NestingContext} from "../../hooks/useNesting";
 import PropTypes from "prop-types";
+import useMenu from "../../hooks/useMenu/useMenu";
+import withWidth from "@material-ui/core/withWidth";
 
-const DocsMenuItem = React.forwardRef(function DocsMenuItem({
-                                                                children,
-                                                                defaultExpanded = false,
-                                                                textPrimary = "",
-                                                                textSecondary = "",
-                                                                icon,
-                                                                onClick,
-                                                                link,
-                                                                page,
-                                                                isCurrent = false,
-                                                                className,
-                                                                style,
-                                                                dense = false,
-                                                                ...props
-                                                            }, ref) {
+const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem({
+                                                                            children,
+                                                                            defaultExpanded = false,
+                                                                            textPrimary = "",
+                                                                            textSecondary = "",
+                                                                            icon,
+                                                                            onClick,
+                                                                            link,
+                                                                            page,
+                                                                            isCurrent = false,
+                                                                            className,
+                                                                            style,
+                                                                            dense = false,
+                                                                            width,
+                                                                            ...props
+                                                                        }, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute, getRouteParams} = useChangeRoute();
     const theme = useTheme();
@@ -39,6 +42,7 @@ const DocsMenuItem = React.forwardRef(function DocsMenuItem({
     const [expanded, setExpanded] = React.useState(defaultExpanded);
     const context_nesting = useNesting();
     const nesting = props.nesting || context_nesting;
+    const {closeMenu} = useMenu();
 
     let highlight = false;
     if (typeof isCurrent === "boolean") {
@@ -56,16 +60,21 @@ const DocsMenuItem = React.forwardRef(function DocsMenuItem({
         setExpanded(!expanded);
     }
 
-    function handleButtonClick() {
-        if (typeof link === "string") {
-            changeRoute({page: link});
+    function handleButtonClick(event) {
+        if (typeof onClick === "function") {
+            onClick(event)
         } else {
-            if (typeof pageRoute === "string") {
-                changeRoute({page: pageRoute});
-            } else if (typeof page === "object") {
-                changeRoute({...page});
+            if (typeof link === "string") {
+                changeRoute({page: link});
+            } else {
+                if (typeof pageRoute === "string") {
+                    changeRoute({page: pageRoute});
+                } else if (typeof page === "object") {
+                    changeRoute({...page});
+                }
             }
         }
+        if (!isWidthUp("md", width)) closeMenu();
     }
 
     return (
@@ -100,7 +109,7 @@ const DocsMenuItem = React.forwardRef(function DocsMenuItem({
             }
         </React.Fragment>
     );
-});
+}));
 
 DocsMenuItem.displayName = "DocsMenuItem";
 

@@ -27,10 +27,10 @@ export interface TaggingContext {
      */
     removeTag(key: string): void;
     /**
-     * tags - all registered tags in page
+     * tags - all registered tags in page.
      * @type any
      */
-    tags: {};
+    tags: any;
 }
 
 /**

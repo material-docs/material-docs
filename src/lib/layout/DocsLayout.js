@@ -41,6 +41,7 @@ import {Helmet, HelmetProvider} from "react-helmet-async";
 import DefaultTheme from "../theme/DefaultTheme";
 import {createGenerateClassName, StylesProvider} from "@material-ui/styles";
 import getContainerByType from "../utils/getContainerByType";
+import {MenuContext} from "../hooks/useMenu/useMenu";
 
 
 const DocsLayoutF = React.forwardRef(({
@@ -107,7 +108,7 @@ const DocsLayoutF = React.forwardRef(({
                 _.merge(newLang.locale, inputLang.locale);
             }
         }
-       setLang(newLang);
+        setLang(newLang);
     }
 
     const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
@@ -167,68 +168,76 @@ const DocsLayoutF = React.forwardRef(({
                         </Route>
                         }
                         <Route path={"/"}>
-                            <div className={classes.root} ref={ref}>
-                                <CssBaseline/>
-                                <AppBar
-                                    position="fixed"
-                                    className={clsx(classes.appBar, !isWidthDown("md", width) && {
-                                        [classes.appBarShift]: open,
-                                    })}
-                                >
-                                    <Toolbar className={classes.toolbar}>
-                                        <IconButton
-                                            color="inherit"
-                                            aria-label="open drawer"
-                                            onClick={handleDrawerOpen}
-                                            edge="start"
-                                            className={clsx(classes.menuButton, open && classes.hide)}
-                                        >
-                                            <MenuIcon/>
-                                        </IconButton>
-                                        <Typography variant="h6" noWrap className={classes.headerText}>
-                                            MUI Flexible Table Wiki
-                                        </Typography>
-                                        {isWidthUp("md", width) && <SearchField searchData={getSearchData()}/>}
-                                        <LanguageSelector size={isWidthDown("xs", width) ? "small" : "large"}/>
-                                        <IconButton>
-                                            <GitHubIcon className={classes.headerIcon}/>
-                                        </IconButton>
-                                        <IconButton>
-                                            <Brightness4Icon className={classes.headerIcon}/>
-                                        </IconButton>
-                                    </Toolbar>
-                                </AppBar>
-                                <Drawer
-                                    className={classes.drawer}
-                                    variant={isWidthUp("md", width) ? "persistent" : "temporary"}
-                                    anchor="left"
-                                    open={open}
-                                    classes={{
-                                        paper: classes.drawerPaper,
-                                    }}
-                                    onClose={event => setOpen(false)}
-                                >
-                                    <div className={classes.drawerHeader}>
-                                        <IconButton onClick={handleDrawerClose}>
-                                            {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
-                                        </IconButton>
-                                    </div>
-                                    <Divider/>
-                                    {content.menu}
-                                </Drawer>
-                                <main
-                                    className={clsx(classes.content, {
-                                        [classes.contentShift]: isWidthUp("md", width) ? open : true,
-                                    })}
-                                >
-                                    <div className={classes.drawerHeader}/>
-                                    <PagesGroup name={"root"} getData={(group) => {
-                                        setAutoMenuData(group)
-                                    }}>
-                                        {content.pages}
-                                    </PagesGroup>
-                                </main>
-                            </div>
+                            <MenuContext.Provider
+                                value={{
+                                    openMenu: handleDrawerOpen,
+                                    closeMenu: handleDrawerClose,
+                                    menuOpened: open,
+                                }}
+                            >
+                                <div className={classes.root} ref={ref}>
+                                    <CssBaseline/>
+                                    <AppBar
+                                        position="fixed"
+                                        className={clsx(classes.appBar, !isWidthDown("md", width) && {
+                                            [classes.appBarShift]: open,
+                                        })}
+                                    >
+                                        <Toolbar className={classes.toolbar}>
+                                            <IconButton
+                                                color="inherit"
+                                                aria-label="open drawer"
+                                                onClick={handleDrawerOpen}
+                                                edge="start"
+                                                className={clsx(classes.menuButton, open && classes.hide)}
+                                            >
+                                                <MenuIcon/>
+                                            </IconButton>
+                                            <Typography variant="h6" noWrap className={classes.headerText}>
+                                                MUI Flexible Table Wiki
+                                            </Typography>
+                                            {isWidthUp("md", width) && <SearchField searchData={getSearchData()}/>}
+                                            <LanguageSelector size={isWidthDown("xs", width) ? "small" : "large"}/>
+                                            <IconButton>
+                                                <GitHubIcon className={classes.headerIcon}/>
+                                            </IconButton>
+                                            <IconButton>
+                                                <Brightness4Icon className={classes.headerIcon}/>
+                                            </IconButton>
+                                        </Toolbar>
+                                    </AppBar>
+                                    <Drawer
+                                        className={classes.drawer}
+                                        variant={isWidthUp("md", width) ? "persistent" : "temporary"}
+                                        anchor="left"
+                                        open={open}
+                                        classes={{
+                                            paper: classes.drawerPaper,
+                                        }}
+                                        onClose={event => setOpen(false)}
+                                    >
+                                        <div className={classes.drawerHeader}>
+                                            <IconButton onClick={handleDrawerClose}>
+                                                {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
+                                            </IconButton>
+                                        </div>
+                                        <Divider/>
+                                        {content.menu}
+                                    </Drawer>
+                                    <main
+                                        className={clsx(classes.content, {
+                                            [classes.contentShift]: isWidthUp("md", width) ? open : true,
+                                        })}
+                                    >
+                                        <div className={classes.drawerHeader}/>
+                                        <PagesGroup name={"root"} getData={(group) => {
+                                            setAutoMenuData(group)
+                                        }}>
+                                            {content.pages}
+                                        </PagesGroup>
+                                    </main>
+                                </div>
+                            </MenuContext.Provider>
                         </Route>
                     </Switch>
                 </HelmetProvider>
