@@ -38,8 +38,6 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
         setFocused(false);
     }
 
-    console.log(focused);
-
     function handleTextInput(event) {
         setText(event.target.value);
         if (doSearch && typeof doSearch !== "function")

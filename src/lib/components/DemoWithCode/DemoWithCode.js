@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Code from "../Code/Code";
 import Collapse from "@material-ui/core/Collapse";
 import copyToClipboard from "../../utils/copyToClipboard";
-import {H1, H2, H3} from "../Headers";
+import {H3} from "../Headers";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 // Material UI Icons
@@ -23,21 +23,51 @@ import Paper from "@material-ui/core/Paper";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
+import AspectRatio from "../../utils/AspectRatio";
 
-const DemoWithCode = React.forwardRef(function DemoWithCode({children, defaultExpanded, code, name, theme, noTag = false, paperContainer = false, actions, ...props}, ref) {
+const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
+    const {
+        children,
+        defaultExpanded,
+        code,
+        name,
+        theme,
+        noTag = false,
+        paperContainer = false,
+        actions,
+        ratio,
+        ...other
+    } = props;
     const classes = useStyles();
     const commonClasses = useCommonStyles();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);
     const [menuOpen, setMenuOpen] = React.useState(false);
     const {enqueueSnackbar} = useSnackbar();
+    const demoRef = React.useRef(null);
+
+    const [height, setHeight] = React.useState(null);
+
+    React.useEffect(() => {
+        handleAspectRatio();
+        window.addEventListener("resize", handleAspectRatio);
+        return () => window.removeEventListener("resize", handleAspectRatio);
+    }, [children, ratio, demoRef.current]);
+
+    function handleAspectRatio() {
+        if (demoRef.current) {
+            const width = demoRef.current.clientWidth || 0;
+            if (ratio instanceof AspectRatio)
+                setHeight(ratio.getHeight(width));
+        }
+    }
 
     return (
         <Box className={commonClasses.pageBlock}>
             {name &&
             <H3 noDivider noTag={noTag}>{name}</H3>
             }
-            <Box>
+            <Box style={{height: height || undefined}} ref={demoRef}>
                 {!paperContainer && children}
                 {paperContainer &&
                 <Paper elevation={0} variant={"outlined"} className={classes.paperContainer}>

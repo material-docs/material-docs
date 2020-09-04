@@ -17,6 +17,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     paperContainer: {
         background: "transparent",
+        height: "100%",
     },
     menuButtonLink: {
         textDecoration: "none",

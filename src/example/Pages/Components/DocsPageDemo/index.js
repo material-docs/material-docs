@@ -5,6 +5,8 @@
 
 import React from "react";
 import {DocsPage, ExpansionCode, H1, H2, H3, Markdown} from "../../../../lib";
+import DemoWithCode from "../../../../lib/components/DemoWithCode/DemoWithCode";
+import AspectRatio from "../../../../lib/utils/AspectRatio";
 
 const pageMarkdown = `
 # Hello, i ___italic text___ am header 1
@@ -104,6 +106,10 @@ export default function DocsPageDemo() {
             >
                 {pageMarkdown}
             </ExpansionCode>
+
+            <DemoWithCode ratio={new AspectRatio(2, 1)} paperContainer>
+                adsfasfasfasfds
+            </DemoWithCode>
         </DocsPage>
     );
 }
