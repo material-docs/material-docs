@@ -36,7 +36,7 @@ export default function DocsPageAPI() {
     const componentAPILocale = lang.locale.common.ComponentAPI;
     return (
         <DocsPage
-            name={"DocsPage API"}
+            name={"DocsPage, API.? lol ! sd & = d"}
             searchTags={["docs", "page", "api"]}
             searchDescription={locale.pageSearchDescription}
         >
