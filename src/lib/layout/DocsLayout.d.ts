@@ -78,6 +78,31 @@ export interface DocsLayoutProps
      * @type AppBarAction[]
      */
     actions?: AppBarAction[];
+    /**
+     * author - author of the docs. Needs for metadata.
+     * @type string
+     */
+    author?: string;
+    /**
+     * keywords - keywords of the docs for search engines. Needs for metadata.
+     * @type string[]
+     */
+    keywords?: string[];
+    /**
+     * description - description of the docs. Needs for metadata.
+     * @type string
+     */
+    description?: string;
+    /**
+     * name - name of the docs. Needs for metadata.
+     * @type string
+     */
+    name?: string;
+    /**
+     * version - version of the docs. Needs for metadata.
+     * @type string
+     */
+    version?: string;
 }
 
 /**

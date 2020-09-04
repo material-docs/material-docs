@@ -43,24 +43,30 @@ import AppBarActionValidator from "../validators/AppBarActionValidator";
 import generateHeaderIcon from "./generateHeaderIcon";
 
 
-const DocsLayoutF = React.forwardRef(({
-                                          children,
-                                          noGenerateAutoSearch = false,
-                                          defaultLang,
-                                          langs,
-                                          onHelpToTranslate,
-                                          width,
-                                          noSearchField = false,
-                                          noLanguageSelector = false,
-                                          actions = [],
-                                          ...props
-                                      }, ref) => {
+const DocsLayoutF = React.forwardRef((props, ref) => {
+    const {
+        children,
+        noGenerateAutoSearch = false,
+        defaultLang,
+        langs,
+        onHelpToTranslate,
+        width,
+        noSearchField = false,
+        noLanguageSelector = false,
+        actions = [],
+        author,
+        keywords,
+        description,
+        name,
+        version,
+        ...other
+    } = props;
     const classes = useStyles();
     const theme = useTheme();
     const {getQueryParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: null, landing: []});
-    const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
+    const [searchData, setSearchData] = React.useState(other.searchData ? new Set(other.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const {l: langName} = getQueryParams();
@@ -159,7 +165,11 @@ const DocsLayoutF = React.forwardRef(({
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
                 <HelmetProvider>
                     <Helmet>
-                        <title>Product name</title> {/*TODO: Add name*/}
+                        <title>{name || "MaterialDocs"}</title>
+                        {typeof description === "string" && <meta name="description" content={description}/>}
+                        {typeof author === "string" && <meta name="author" content={author}/>}
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                        {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
                     </Helmet>
                     <Switch>
                         {content.landing &&
@@ -202,9 +212,9 @@ const DocsLayoutF = React.forwardRef(({
                                             <SearchField searchData={getSearchData()}/>
                                             }
                                             {!noLanguageSelector &&
-                                                <LanguageSelector
-                                                    size={isWidthDown("xs", width) ? "small" : "large"}
-                                                />
+                                            <LanguageSelector
+                                                size={isWidthDown("xs", width) ? "small" : "large"}
+                                            />
                                             }
                                             {Array.isArray(actions) && actions.map((action, index) =>
                                                 generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
@@ -272,6 +282,11 @@ DocsLayoutF.propTypes = {
     noSearchField: PropTypes.bool,
     noLanguageSelector: PropTypes.bool,
     actions: PropTypes.arrayOf(AppBarActionValidator),
+    author: PropTypes.string,
+    keywords: PropTypes.arrayOf(PropTypes.string),
+    description: PropTypes.string,
+    name: PropTypes.string,
+    version: PropTypes.string,
 }
 
 const DocsLayout = withWidth()(DocsLayoutF);
@@ -280,9 +295,14 @@ const generateClassName = createGenerateClassName({
     productionPrefix: 'MaterialDocs',
 });
 
-const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
+const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props, ref) {
+    const {
+        mask,
+        router = "browser-router",
+        basename,
+        ...other
+    } = props;
     const routeMask = typeof mask === "string" ? mask : "/*page";
-    const theme = useTheme();
 
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
@@ -295,7 +315,7 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask,
                             horizontal: "center",
                         }}
                     >
-                        <DocsLayout {...props} ref={ref}/>
+                        <DocsLayout {...other} ref={ref}/>
                     </SnackbarProvider>
                 </StylesProvider>
             </MuiThemeProvider>
