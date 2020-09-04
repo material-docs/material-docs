@@ -7,6 +7,7 @@
 import Containerable from "../interfaces/Containerable";
 import SearchDataItem from "../interfaces/SearchDataItem";
 import Lang from "../interfaces/Lang";
+import AppBarAction from "../interfaces/AppBarAction";
 
 export interface DocsLayoutProps
     extends Containerable {
@@ -55,10 +56,28 @@ export interface DocsLayoutProps
     /**
      * mask - mask for routing-manager ChangeRouteProvider routeMask property.
      * @type string
-     * @default "/:page"
+     * @default "/*page"
      * @see https://github.com/DanilAndreev/routing-manager/wiki/ChangeRouteProvider#routemask
      */
     mask?: string;
+    /**
+     * noSearchField - if true, search field will not be displayed.
+     * @default false
+     * @type boolean
+     */
+    noSearchField?: boolean;
+    /**
+     * noLanguageSelector - if true, language selector will not be displayed.
+     * @default false
+     * @type boolean
+     */
+    noLanguageSelector?: boolean;
+    /**
+     * actions - an array of actions. Will be displayed in material-ui IconButton components in Toolbar component inside AppBar.
+     * @default []
+     * @type AppBarAction[]
+     */
+    actions?: AppBarAction[];
 }
 
 /**

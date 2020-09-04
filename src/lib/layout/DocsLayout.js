@@ -42,6 +42,8 @@ import DefaultTheme from "../theme/DefaultTheme";
 import {createGenerateClassName, StylesProvider} from "@material-ui/styles";
 import getContainerByType from "../utils/getContainerByType";
 import {MenuContext} from "../hooks/useMenu/useMenu";
+import AppBarActionValidator from "../validators/AppBarActionValidator";
+import generateHeaderIcon from "./generateHeaderIcon";
 
 
 const DocsLayoutF = React.forwardRef(({
@@ -51,6 +53,9 @@ const DocsLayoutF = React.forwardRef(({
                                           langs,
                                           onHelpToTranslate,
                                           width,
+                                          noSearchField = false,
+                                          noLanguageSelector = false,
+                                          actions = [],
                                           ...props
                                       }, ref) => {
     const classes = useStyles();
@@ -196,8 +201,19 @@ const DocsLayoutF = React.forwardRef(({
                                             <Typography variant="h6" noWrap className={classes.headerText}>
                                                 MUI Flexible Table Wiki
                                             </Typography>
-                                            {isWidthUp("md", width) && <SearchField searchData={getSearchData()}/>}
-                                            <LanguageSelector size={isWidthDown("xs", width) ? "small" : "large"}/>
+                                            {!noSearchField && isWidthUp("md", width) &&
+                                            <SearchField searchData={getSearchData()}/>
+                                            }
+                                            {!noLanguageSelector &&
+                                                <LanguageSelector
+                                                    size={isWidthDown("xs", width) ? "small" : "large"}
+                                                />
+                                            }
+                                            {Array.isArray(actions) && actions.map((action, index) =>
+                                                generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
+                                            )
+
+                                            }
                                             <IconButton>
                                                 <GitHubIcon className={classes.headerIcon}/>
                                             </IconButton>
@@ -246,6 +262,13 @@ const DocsLayoutF = React.forwardRef(({
     );
 });
 
+DocsLayoutF.defaultProps = {
+    noGenerateAutoSearch: false,
+    noSearchField: false,
+    noLanguageSelector: false,
+    actions: [],
+}
+
 DocsLayoutF.propTypes = {
     // DocsLayoutProps
     searchData: PropTypes.arrayOf(SearchDataItemValidator),
@@ -255,6 +278,9 @@ DocsLayoutF.propTypes = {
     onHelpToTranslate: PropTypes.func,
     autoMenu: PropTypes.bool,
     autoMenuDense: PropTypes.bool,
+    noSearchField: PropTypes.bool,
+    noLanguageSelector: PropTypes.bool,
+    actions: PropTypes.arrayOf(AppBarActionValidator),
 }
 
 const DocsLayout = withWidth()(DocsLayoutF);
@@ -300,6 +326,13 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask,
         </React.Fragment>
     );
 });
+
+DocsLayoutProviders.displayName = "DocsLayout";
+
+DocsLayoutProviders.defaultProps = {
+    router: "browser-router",
+    mask: "/*page",
+}
 
 DocsLayoutProviders.propTypes = {
     // DocsLayoutProps
