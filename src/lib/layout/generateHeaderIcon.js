@@ -5,17 +5,19 @@
 
 import React from "react";
 import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
 
 /**
- *
- * @param changeRoute
- * @param key
- * @param icon
- * @param onClick
- * @param link
- * @param tooltip
- * @param className
- * @return {*}
+ * generateHeaderIcon - function ,designed to generate material-ui IconButtons for Toolbar in DocsLayout.
+ * @function
+ * @param {function} changeRoute
+ * @param {string} key
+ * @param {any} icon
+ * @param {function} onClick
+ * @param {string | object} link
+ * @param {string} tooltip
+ * @param {string} className
+ * @return {JSX.Element}
  */
 export default function generateHeaderIcon(changeRoute, key, icon, onClick, link, tooltip, className) {
     if (!React.isValidElement(icon))
@@ -45,6 +47,15 @@ export default function generateHeaderIcon(changeRoute, key, icon, onClick, link
             }
         }
     }
+
+    if (typeof tooltip === "string")
+        return (
+            <Tooltip title={tooltip}>
+                <IconButton onClick={handleClick} key={`header-action-item-${link}-${key}`}>
+                    {styledIcon}
+                </IconButton>
+            </Tooltip>
+        );
 
     return (
         <IconButton onClick={handleClick} key={`header-action-item-${link}-${key}`}>

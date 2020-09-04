@@ -22,12 +22,9 @@ import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 import DocsMenu from "../components/DocsMenu";
 import DocsPages from "../components/DocsPages";
 import {SnackbarProvider} from "notistack";
-import GitHubIcon from '@material-ui/icons/GitHub';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
 import SearchField from "../components/SearchField";
 import LanguageSelector from "../components/LanguageSelector";
 import PagesGroup from "../components/PagesGroup";
-import AutoDocsMenu from "../components/AutoDocsMenu";
 import {LangContext} from "../hooks/useLang/useLang"
 import {SearchContext} from "../hooks/useSearch/useSearch";
 import * as _ from "lodash";
@@ -214,12 +211,6 @@ const DocsLayoutF = React.forwardRef(({
                                             )
 
                                             }
-                                            <IconButton>
-                                                <GitHubIcon className={classes.headerIcon}/>
-                                            </IconButton>
-                                            <IconButton>
-                                                <Brightness4Icon className={classes.headerIcon}/>
-                                            </IconButton>
                                         </Toolbar>
                                     </AppBar>
                                     <Drawer
