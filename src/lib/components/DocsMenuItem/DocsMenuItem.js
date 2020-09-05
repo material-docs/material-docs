@@ -129,7 +129,7 @@ DocsMenuItem.propTypes = {
     icon: PropTypes.node,
     onClick: PropTypes.func,
     page: PropTypes.any,
-    isCurrent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    isCurrent: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
     dense: PropTypes.bool,
     nesting: PropTypes.number,
     // Stylable

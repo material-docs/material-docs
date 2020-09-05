@@ -16,17 +16,17 @@ import createChainableTypeChecker from "../utils/createChainableTypeChecker";
  */
 export function pagesGroupDataValidate(prop, propName, componentName) {
     if (typeof prop.name !== "string")
-        return Error(`Incorrect field 'name' type on prop ${propName} in component ${componentName}, expected "string", got "${typeof prop.name}"`);
+        return new Error(`Incorrect field 'name' type on prop ${propName} in component ${componentName}, expected "string", got "${typeof prop.name} ${JSON.stringify(prop)}"`);
     if (!Array.isArray(prop.pages))
-        return Error(`Incorrect field 'pages' type on prop ${propName} in component ${componentName}, expected "PageData[]", got "${typeof prop.pages}"`)
+        return new Error(`Incorrect field 'pages' type on prop ${propName} in component ${componentName}, expected "PageData[]", got "${typeof prop.pages}"`)
     for (const item of prop.pages) {
-        const validatePages = pagesDataValidate(prop.pages, propName, componentName);
+        const validatePages = pagesDataValidate(item, propName, componentName);
         if (validatePages) return validatePages;
     }
     if (!Array.isArray(prop.groups))
-        return Error(`Incorrect field 'groups' type on prop ${propName} in component ${componentName}, expected "PagesGroupData[]", got "${typeof prop.groups}"`)
+        return new Error(`Incorrect field 'groups' type on prop ${propName} in component ${componentName}, expected "PagesGroupData[]", got "${typeof prop.groups}"`)
     for (const item of prop.groups) {
-        const validateGroups = pagesGroupDataValidate(prop.groups, propName, componentName);
+        const validateGroups = pagesGroupDataValidate(item, propName, componentName);
         if (validateGroups) return validateGroups;
     }
 }

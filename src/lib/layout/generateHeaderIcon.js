@@ -50,8 +50,8 @@ export default function generateHeaderIcon(changeRoute, key, icon, onClick, link
 
     if (typeof tooltip === "string")
         return (
-            <Tooltip title={tooltip}>
-                <IconButton onClick={handleClick} key={`header-action-item-${link}-${key}`}>
+            <Tooltip title={tooltip} key={`header-action-item-${link}-${key}`}>
+                <IconButton onClick={handleClick}>
                     {styledIcon}
                 </IconButton>
             </Tooltip>
