@@ -15,6 +15,7 @@ import Divider from "@material-ui/core/Divider";
 import useLang from "../../hooks/useLang";
 import clsx from "clsx";
 import PropTypes from "prop-types";
+import Tooltip from "@material-ui/core/Tooltip";
 
 
 const LanguageSelector = React.forwardRef(function LanguageSelector({className, style, size = "large", ...props}, ref) {
@@ -30,20 +31,22 @@ const LanguageSelector = React.forwardRef(function LanguageSelector({className, 
 
     return (
         <React.Fragment>
-            <Button
-                className={clsx(classes.root. className)}
-                color={"inherit"}
-                ref={reference => {
-                    buttonRef.current = reference;
-                    ref = reference;
-                }}
-                onClick={event => setOpened(true)}
-                style={style}
-            >
-                <TranslateIcon/>
-                {size === "large" && lang.label}
-                <KeyboardArrowDownIcon/>
-            </Button>
+            <Tooltip title={"Select language"}>
+                <Button
+                    className={clsx(classes.root. className)}
+                    color={"inherit"}
+                    ref={reference => {
+                        buttonRef.current = reference;
+                        ref = reference;
+                    }}
+                    onClick={event => setOpened(true)}
+                    style={style}
+                >
+                    <TranslateIcon/>
+                    {size === "large" && lang.label}
+                    <KeyboardArrowDownIcon/>
+                </Button>
+            </Tooltip>
             <Menu
                 anchorEl={buttonRef.current}
                 getContentAnchorEl={null}

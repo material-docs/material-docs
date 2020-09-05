@@ -5,6 +5,8 @@
 
 import React from "react";
 import {DocsPage, ExpansionCode, H1, H2, H3, Markdown} from "../../../../lib";
+import DemoWithCode from "../../../../lib/components/DemoWithCode/DemoWithCode";
+import AspectRatio from "../../../../lib/utils/AspectRatio";
 
 const pageMarkdown = `
 # Hello, i ___italic text___ am header 1
@@ -57,7 +59,7 @@ const pageMarkdown2 = `
 ### The API documentation of the FlexibleTable React component. Learn more about the props and the CSS customization points.
 
 ## Import
-\`\`\`jsx
+\`\`\`javascript
 import {FlexibleTable} from "@danilandreev/mui-table-flexible";
 //or 
 import FlexibleTable from "@danilandreev/mui-table-flexible/dist/organizms/FlexibleTable";
@@ -104,6 +106,10 @@ export default function DocsPageDemo() {
             >
                 {pageMarkdown}
             </ExpansionCode>
+
+            <DemoWithCode ratio={new AspectRatio(2, 1)} paperContainer>
+                adsfasfasfasfds
+            </DemoWithCode>
         </DocsPage>
     );
 }

@@ -35,13 +35,18 @@ export interface DocsMenuItemProps
      * @function
      * @param event
      */
-    onClick?(event: any): void,
+    onClick?(event: any): void;
     /**
      * page - page name for redirecting or object structure for routing-manager changeRoute.
      * @see https://github.com/DanilAndreev/routing-manager/wiki/changeRoute
      * @type string
      */
-    page?: string | any,
+    page?: string | any;
+    /**
+     * link - link to page, which includes groups. If defined - will be used with highest priority.
+     * @type string
+     */
+    link?: string;
     /**
      * isCurrent - if true, button will be active. Used when displayed page, connected to this menu item.
      * @default false
@@ -53,14 +58,14 @@ export interface DocsMenuItemProps
      * @default false
      * @type boolean
      */
-    dense?: boolean,
+    dense?: boolean;
     /**
      * nesting - system information about component nesting.
      * @type number
      * @default 0
      * @ignore
      */
-    nesting?: number,
+    nesting?: number;
 }
 
 /**

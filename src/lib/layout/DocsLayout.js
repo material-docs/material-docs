@@ -22,12 +22,9 @@ import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 import DocsMenu from "../components/DocsMenu";
 import DocsPages from "../components/DocsPages";
 import {SnackbarProvider} from "notistack";
-import GitHubIcon from '@material-ui/icons/GitHub';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
 import SearchField from "../components/SearchField";
 import LanguageSelector from "../components/LanguageSelector";
 import PagesGroup from "../components/PagesGroup";
-import AutoDocsMenu from "../components/AutoDocsMenu";
 import {LangContext} from "../hooks/useLang/useLang"
 import {SearchContext} from "../hooks/useSearch/useSearch";
 import * as _ from "lodash";
@@ -41,23 +38,35 @@ import {Helmet, HelmetProvider} from "react-helmet-async";
 import DefaultTheme from "../theme/DefaultTheme";
 import {createGenerateClassName, StylesProvider} from "@material-ui/styles";
 import getContainerByType from "../utils/getContainerByType";
+import {MenuContext} from "../hooks/useMenu/useMenu";
+import AppBarActionValidator from "../validators/AppBarActionValidator";
+import generateHeaderIcon from "./generateHeaderIcon";
 
 
-const DocsLayoutF = React.forwardRef(({
-                                          children,
-                                          noGenerateAutoSearch = false,
-                                          defaultLang,
-                                          langs,
-                                          onHelpToTranslate,
-                                          width,
-                                          ...props
-                                      }, ref) => {
+const DocsLayoutF = React.forwardRef((props, ref) => {
+    const {
+        children,
+        noGenerateAutoSearch = false,
+        defaultLang,
+        langs,
+        onHelpToTranslate,
+        width,
+        noSearchField = false,
+        noLanguageSelector = false,
+        actions = [],
+        author,
+        keywords,
+        description,
+        name,
+        version,
+        ...other
+    } = props;
     const classes = useStyles();
     const theme = useTheme();
     const {getQueryParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: null, landing: []});
-    const [searchData, setSearchData] = React.useState(props.searchData ? new Set(props.searchData) : new Set());
+    const [searchData, setSearchData] = React.useState(other.searchData ? new Set(other.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const {l: langName} = getQueryParams();
@@ -107,7 +116,7 @@ const DocsLayoutF = React.forwardRef(({
                 _.merge(newLang.locale, inputLang.locale);
             }
         }
-       setLang(newLang);
+        setLang(newLang);
     }
 
     const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
@@ -156,7 +165,11 @@ const DocsLayoutF = React.forwardRef(({
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
                 <HelmetProvider>
                     <Helmet>
-                        <title>Product name</title> {/*TODO: Add name*/}
+                        <title>{name || "MaterialDocs"}</title>
+                        {typeof description === "string" && <meta name="description" content={description}/>}
+                        {typeof author === "string" && <meta name="author" content={author}/>}
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                        {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
                     </Helmet>
                     <Switch>
                         {content.landing &&
@@ -167,68 +180,81 @@ const DocsLayoutF = React.forwardRef(({
                         </Route>
                         }
                         <Route path={"/"}>
-                            <div className={classes.root} ref={ref}>
-                                <CssBaseline/>
-                                <AppBar
-                                    position="fixed"
-                                    className={clsx(classes.appBar, !isWidthDown("md", width) && {
-                                        [classes.appBarShift]: open,
-                                    })}
-                                >
-                                    <Toolbar className={classes.toolbar}>
-                                        <IconButton
-                                            color="inherit"
-                                            aria-label="open drawer"
-                                            onClick={handleDrawerOpen}
-                                            edge="start"
-                                            className={clsx(classes.menuButton, open && classes.hide)}
-                                        >
-                                            <MenuIcon/>
-                                        </IconButton>
-                                        <Typography variant="h6" noWrap className={classes.headerText}>
-                                            MUI Flexible Table Wiki
-                                        </Typography>
-                                        {isWidthUp("md", width) && <SearchField searchData={getSearchData()}/>}
-                                        <LanguageSelector size={isWidthDown("xs", width) ? "small" : "large"}/>
-                                        <IconButton>
-                                            <GitHubIcon className={classes.headerIcon}/>
-                                        </IconButton>
-                                        <IconButton>
-                                            <Brightness4Icon className={classes.headerIcon}/>
-                                        </IconButton>
-                                    </Toolbar>
-                                </AppBar>
-                                <Drawer
-                                    className={classes.drawer}
-                                    variant={isWidthUp("md", width) ? "persistent" : "temporary"}
-                                    anchor="left"
-                                    open={open}
-                                    classes={{
-                                        paper: classes.drawerPaper,
-                                    }}
-                                    onClose={event => setOpen(false)}
-                                >
-                                    <div className={classes.drawerHeader}>
-                                        <IconButton onClick={handleDrawerClose}>
-                                            {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
-                                        </IconButton>
-                                    </div>
-                                    <Divider/>
-                                    {content.menu}
-                                </Drawer>
-                                <main
-                                    className={clsx(classes.content, {
-                                        [classes.contentShift]: isWidthUp("md", width) ? open : true,
-                                    })}
-                                >
-                                    <div className={classes.drawerHeader}/>
-                                    <PagesGroup name={"root"} getData={(group) => {
-                                        setAutoMenuData(group)
-                                    }}>
-                                        {content.pages}
-                                    </PagesGroup>
-                                </main>
-                            </div>
+                            <MenuContext.Provider
+                                value={{
+                                    openMenu: handleDrawerOpen,
+                                    closeMenu: handleDrawerClose,
+                                    menuOpened: open,
+                                }}
+                            >
+                                <div className={classes.root} ref={ref}>
+                                    <CssBaseline/>
+                                    <AppBar
+                                        position="fixed"
+                                        className={clsx(classes.appBar, !isWidthDown("md", width) && {
+                                            [classes.appBarShift]: open,
+                                        })}
+                                    >
+                                        <Toolbar className={classes.toolbar}>
+                                            <IconButton
+                                                color="inherit"
+                                                aria-label="open drawer"
+                                                onClick={handleDrawerOpen}
+                                                edge="start"
+                                                className={clsx(classes.menuButton, open && classes.hide)}
+                                            >
+                                                <MenuIcon/>
+                                            </IconButton>
+                                            <Typography variant="h6" noWrap className={classes.headerText}>
+                                                MUI Flexible Table Wiki
+                                            </Typography>
+                                            {!noSearchField && isWidthUp("md", width) &&
+                                            <SearchField searchData={getSearchData()}/>
+                                            }
+                                            {!noLanguageSelector &&
+                                            <LanguageSelector
+                                                size={isWidthDown("xs", width) ? "small" : "large"}
+                                            />
+                                            }
+                                            {Array.isArray(actions) && actions.map((action, index) =>
+                                                generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
+                                            )
+
+                                            }
+                                        </Toolbar>
+                                    </AppBar>
+                                    <Drawer
+                                        className={classes.drawer}
+                                        variant={isWidthUp("md", width) ? "persistent" : "temporary"}
+                                        anchor="left"
+                                        open={open}
+                                        classes={{
+                                            paper: classes.drawerPaper,
+                                        }}
+                                        onClose={event => setOpen(false)}
+                                    >
+                                        <div className={classes.drawerHeader}>
+                                            <IconButton onClick={handleDrawerClose}>
+                                                {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
+                                            </IconButton>
+                                        </div>
+                                        <Divider/>
+                                        {content.menu}
+                                    </Drawer>
+                                    <main
+                                        className={clsx(classes.content, {
+                                            [classes.contentShift]: isWidthUp("md", width) ? open : true,
+                                        })}
+                                    >
+                                        <div className={classes.drawerHeader}/>
+                                        <PagesGroup name={"root"} getData={(group) => {
+                                            setAutoMenuData(group)
+                                        }}>
+                                            {content.pages}
+                                        </PagesGroup>
+                                    </main>
+                                </div>
+                            </MenuContext.Provider>
                         </Route>
                     </Switch>
                 </HelmetProvider>
@@ -236,6 +262,13 @@ const DocsLayoutF = React.forwardRef(({
         </LangContext.Provider>
     );
 });
+
+DocsLayoutF.defaultProps = {
+    noGenerateAutoSearch: false,
+    noSearchField: false,
+    noLanguageSelector: false,
+    actions: [],
+}
 
 DocsLayoutF.propTypes = {
     // DocsLayoutProps
@@ -246,6 +279,14 @@ DocsLayoutF.propTypes = {
     onHelpToTranslate: PropTypes.func,
     autoMenu: PropTypes.bool,
     autoMenuDense: PropTypes.bool,
+    noSearchField: PropTypes.bool,
+    noLanguageSelector: PropTypes.bool,
+    actions: PropTypes.arrayOf(AppBarActionValidator),
+    author: PropTypes.string,
+    keywords: PropTypes.arrayOf(PropTypes.string),
+    description: PropTypes.string,
+    name: PropTypes.string,
+    version: PropTypes.string,
 }
 
 const DocsLayout = withWidth()(DocsLayoutF);
@@ -254,9 +295,14 @@ const generateClassName = createGenerateClassName({
     productionPrefix: 'MaterialDocs',
 });
 
-const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask, router = "browser-router", basename, ...props}, ref) {
-    const routeMask = typeof mask === "string" ? mask : "/:page";
-    const theme = useTheme();
+const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props, ref) {
+    const {
+        mask,
+        router = "browser-router",
+        basename,
+        ...other
+    } = props;
+    const routeMask = typeof mask === "string" ? mask : "/*page";
 
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
@@ -269,7 +315,7 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask,
                             horizontal: "center",
                         }}
                     >
-                        <DocsLayout {...props} ref={ref}/>
+                        <DocsLayout {...other} ref={ref}/>
                     </SnackbarProvider>
                 </StylesProvider>
             </MuiThemeProvider>
@@ -291,6 +337,13 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders({mask,
         </React.Fragment>
     );
 });
+
+DocsLayoutProviders.displayName = "DocsLayout";
+
+DocsLayoutProviders.defaultProps = {
+    router: "browser-router",
+    mask: "/*page",
+}
 
 DocsLayoutProviders.propTypes = {
     // DocsLayoutProps

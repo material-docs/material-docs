@@ -33,6 +33,11 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
     const rootRef = React.useRef(null);
     const inputRef = React.useRef(null);
 
+    function handleSearchItemSelected() {
+        // inputRef.current && inputRef.current.blur();
+        setFocused(false);
+    }
+
     function handleTextInput(event) {
         setText(event.target.value);
         if (doSearch && typeof doSearch !== "function")
@@ -126,7 +131,7 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
 
     return (
         <ClickAwayListener
-            onClickAway={event => setFocused(false)}
+            onClickAway={event => {setFocused(false); inputRef.current && inputRef.current.blur()}}
         >
             <Paper
                 elevation={0}
@@ -165,6 +170,7 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
                         <List disablePadding>
                             {found.map((item, index) =>
                                 <SearchMenuItem
+                                    onBeforeSelected={handleSearchItemSelected}
                                     active={index === selected}
                                     onMouseMove={event => setSelected(index)}
                                     data={item}

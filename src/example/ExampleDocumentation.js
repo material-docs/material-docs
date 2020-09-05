@@ -17,11 +17,23 @@ import Landing from "../lib/components/Landing/Landing";
 import AutoDocsMenu from "../lib/components/AutoDocsMenu/AutoDocsMenu";
 import DocsMenu from "../lib/components/DocsMenu/DocsMenu";
 import DocsMenuItem from "../lib/components/DocsMenuItem/DocsMenuItem";
+import GitHubIcon from '@material-ui/icons/GitHub';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+
 
 
 export default function ExampleDocumentation() {
     return (
-        <DocsLayout autoMenu defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
+        <DocsLayout
+            autoMenu
+            defaultLang={EN}
+            langs={[EN, RU]}
+            basename={process.env.PUBLIC_URL}
+            actions={[
+                {icon: <GitHubIcon />, tooltip: "asdfasdfsf", onClick: () => alert("kuku")},
+                {icon: <Brightness4Icon/>, tooltip: "Hello darkness my old friend.", link: "http://google.com"}
+            ]}
+        >
             <DocsMenu dense>
                 <AutoDocsMenu/>
             </DocsMenu>

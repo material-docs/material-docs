@@ -11,8 +11,11 @@
 export default function createRouteFromName(name) {
     if (typeof name !== "string") throw new TypeError("MaterialDocs: name must be string type");
     const route = name.replace(/\s+/g, " ")
+        .replace(/\p{P}/gu, "")
+        .replace(/=+/g, "")
+        .replace(/#+/g, "")
         .replace(/\ +/g, "-")
         .replace(/'+/g, "")
-        .replace(/\?+/g, "").toLowerCase();
+        .toLowerCase();
     return route;
 }
