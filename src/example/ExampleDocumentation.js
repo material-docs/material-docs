@@ -21,7 +21,6 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 
 
-
 export default function ExampleDocumentation() {
     return (
         <DocsLayout

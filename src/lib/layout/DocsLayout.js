@@ -116,7 +116,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                 _.merge(newLang.locale, inputLang.locale);
             }
         }
-        setLang(newLang);
+       setLang(newLang);
     }
 
     const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
