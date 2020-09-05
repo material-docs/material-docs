@@ -1219,10 +1219,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@danilandreev/material-docs@^0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@danilandreev/material-docs/-/material-docs-0.2.5.tgz#f78ed16de174cb33105ebd6948dbbc58469e6922"
-  integrity sha512-38NsadAGuvHy270fgEXP8tI8LmVHagX9tuXCT+y9n5AsKvg4esfTg4w7YptasiqdCaRk1vExxBM7IOkwhN2zMg==
+"@danilandreev/material-docs@^0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@danilandreev/material-docs/-/material-docs-0.2.6.tgz#3f1e7a2b949ffa46bc6e91b0a8b781711d2ac853"
+  integrity sha512-EFbq0V3YEG14Zy4+sytL9mHXNOjihkMlPayyUno0EJn5pnU/Z+5aWVDZ2APRYdjm4hgZ8Y1ApJVGSXdiahi+qQ==
   dependencies:
     "@material-ui/core" "^4.11.0"
     "@material-ui/icons" "^4.9.1"
