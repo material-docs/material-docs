@@ -54,7 +54,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
-    "@danilandreev/material-docs": "^0.2.6",
+    "@danilandreev/material-docs": "^0.2.7",
     "copyfiles": "^2.3.0"
   },
   "scripts": {
