@@ -59,7 +59,7 @@ const pageMarkdown2 = `
 ### The API documentation of the FlexibleTable React component. Learn more about the props and the CSS customization points.
 
 ## Import
-\`\`\`jsx
+\`\`\`javascript
 import {FlexibleTable} from "@danilandreev/mui-table-flexible";
 //or 
 import FlexibleTable from "@danilandreev/mui-table-flexible/dist/organizms/FlexibleTable";
