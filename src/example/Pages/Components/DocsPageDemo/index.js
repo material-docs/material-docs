@@ -90,7 +90,7 @@ You can override the style of the component thanks to one of these customization
 * With a rule name of the [__classes__ object prop](https://material-ui.com/customization/components/#overriding-styles-with-classes).
 * With a [global class name](https://material-ui.com/customization/components/#overriding-styles-with-global-class-names).
 
-If that's not sufficient, you can check the [implementation of the component](https://github.com/DanilAndreev/mui-table-flexible/blob/master/src/lib/organizms/FlexibleTable/FlexibleTable.tsx) for more detail.
+If that's not s"ufficient, you c/an <check </the [implementation> of the component](https://github.com/DanilAndreev/mui-table-flexible/blob/master/src/lib/organizms/FlexibleTable/FlexibleTable.tsx) for more detail.
 ## Demos
 * [FlexibleTable](/DanilAndreev/mui-table-flexible/wiki/FlexibleTable)
 `;

@@ -23,6 +23,14 @@ import Divider from "@material-ui/core/Divider";
 import Block from "../components/Block/Block";
 import CodeSpan from "../components/CodeSpan/CodeSpan";
 
+function fixShieldedText(text) {
+    if (typeof text !== "string") return "";
+    return text.replace(/&#39;+/g, "'")
+        .replace(/&quot;+/g, "\"")
+        .replace(/&lt;+/g, "<")
+        .replace(/&gt;/g, ">");
+}
+
 export default function generateMaterialDocsFromMarkdown(input, key = 1) {
     if (!(typeof input === "string" || typeof input === "object"))
         throw new TypeError(`MaterialDocs: incorrect type of input param, expected "object | string", got "${typeof input}"`);
@@ -43,7 +51,7 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                     case "text":
                         return token.tokens ?
                             generateMaterialDocsFromMarkdown(token.tokens, tokenId + key) :
-                            <span key={`text-token-${tokenId}`}>{token.text}</span>;
+                            <span key={`text-token-${tokenId}`}>{fixShieldedText(token.text)}</span>;
                     case "paragraph":
                         return (
                             <Typography key={`paragraph-token-${tokenId}`}>
