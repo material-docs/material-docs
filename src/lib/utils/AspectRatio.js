@@ -4,10 +4,6 @@
  */
 
 export default class AspectRatio {
-    height = 0;
-
-    width = 0;
-
     constructor(height, width) {
         if (typeof height !== "number")
             throw new TypeError(`MaterialDocs: Incorrect type of "height", expected "number" got "${typeof height}"`);
