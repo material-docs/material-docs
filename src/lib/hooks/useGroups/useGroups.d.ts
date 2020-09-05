@@ -24,6 +24,11 @@ export interface GroupsContext {
      */
     name: string,
     /**
+     * path - array of parent group names, placed in order which conforms to hierarchical structure.
+     * @type string[]
+     */
+    path: string[],
+    /**
      * deletePage - add page to group.
      * @function
      * @param {object} page

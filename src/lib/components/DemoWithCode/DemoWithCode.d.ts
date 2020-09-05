@@ -6,6 +6,7 @@
 /// <reference types="react" />
 import DemoCodeAction from "../../interfaces/DemoCodeAction";
 import {CodeProps} from "../Code/Code";
+import AspectRatio from "../../utils/AspectRatio";
 
 export interface DemoWithCodeProps
     extends CodeProps {
@@ -39,6 +40,11 @@ export interface DemoWithCodeProps
      * @type DemoCodeAction[]
      */
     actions?: DemoCodeAction[];
+    /**
+     * ratio - if defined, demo field will keep input aspect ratio.
+     * @type AspectRatio
+     */
+    ratio?: AspectRatio;
 }
 
 /**

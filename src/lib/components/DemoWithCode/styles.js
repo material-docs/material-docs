@@ -17,9 +17,14 @@ export const useStyles = makeStyles((theme) => ({
     },
     paperContainer: {
         background: "transparent",
+        height: "100%",
+        position: "relative",
     },
     menuButtonLink: {
         textDecoration: "none",
         color: "inherit",
     },
+    demo: {
+        position: "relative",
+    }
 }));

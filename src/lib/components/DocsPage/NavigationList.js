@@ -10,13 +10,14 @@ import Typography from "@material-ui/core/Typography";
 import ListItemText from "@material-ui/core/ListItemText";
 import {useStyles} from "./styles";
 import clsx from "clsx";
-import {Link} from "@material-ui/core";
+import {isWidthUp, Link} from "@material-ui/core";
 import usePageScroll from "../../utils/usePageScroll";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
 import PropTypes from "prop-types";
+import withWidth from "@material-ui/core/withWidth";
 
 
-const NavigationList = React.forwardRef(function NavigationList({keys}, ref) {
+const NavigationList = withWidth()(React.forwardRef(function NavigationList({keys, width}, ref) {
     const classes = useStyles();
     const {scrollY} = usePageScroll();
     const [selected, setSelected] = React.useState({id: keys[0] && keys[0].id || null, clicked: false});
@@ -65,6 +66,8 @@ const NavigationList = React.forwardRef(function NavigationList({keys}, ref) {
         return null;
     }
 
+    if (!isWidthUp("md", width)) return null;
+
     return (
         <List dense style={{position: "fixed"}} ref={ref}>
             <ListItem>
@@ -101,7 +104,7 @@ const NavigationList = React.forwardRef(function NavigationList({keys}, ref) {
             })}
         </List>
     );
-});
+}));
 
 NavigationList.displayName = "NavigationList";
 

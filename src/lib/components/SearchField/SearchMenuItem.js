@@ -12,11 +12,21 @@ import {useChangeRoute} from "routing-manager";
 import PropTypes from "prop-types";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 
-const SearchMenuItem = React.forwardRef(function SearchMenuItem({data, style, className, active, onMouseMove, ...props}, ref) {
+const SearchMenuItem = React.forwardRef(function SearchMenuItem({
+                                                                    data,
+                                                                    style,
+                                                                    className,
+                                                                    active,
+                                                                    onMouseMove,
+                                                                    onAfterSelected,
+                                                                    onBeforeSelected,
+                                                                    ...props
+                                                                }, ref) {
     const classes = {...useStyles(), ...props.classes};
     const {changeRoute} = useChangeRoute();
 
     function handleItemAction(event) {
+        if (typeof onBeforeSelected === "function") onBeforeSelected();
         switch (typeof data.redirect) {
             case "string":
                 window.location.href = data.redirect;
@@ -30,6 +40,7 @@ const SearchMenuItem = React.forwardRef(function SearchMenuItem({data, style, cl
             default:
                 throw new TypeError(`MaterialDocs: Incorrect type for redirect. Got ${typeof data.redirect}, expected object | string | function`);
         }
+        if (typeof onAfterSelected === "function") onAfterSelected();
     }
 
     return (
@@ -42,9 +53,9 @@ const SearchMenuItem = React.forwardRef(function SearchMenuItem({data, style, cl
             onMouseMove={onMouseMove}
             ref={ref}
         >
-            <ListItemIcon>
-                asfs
-            </ListItemIcon>
+            {/*<ListItemIcon>*/}
+            {/*    asfs*/}
+            {/*</ListItemIcon>*/}
             <ListItemText
                 primary={data.label}
                 secondary={data.description || ""}
@@ -55,8 +66,7 @@ const SearchMenuItem = React.forwardRef(function SearchMenuItem({data, style, cl
 
 SearchMenuItem.displayName = "SearchMenuItem";
 
-SearchMenuItem.defaultProps = {
-}
+SearchMenuItem.defaultProps = {}
 
 SearchMenuItem.propTypes = {
     // SearchMenuItemProps

@@ -22,9 +22,20 @@ export interface SearchMenuItemProps
 
     /**
      * onMouseMove - callback on mouse move event.
+     * @function
      * @param event
      */
-    onMouseMove?(event): void;
+    onMouseMove?(event: any): void;
+    /**
+     * onAfterSelect - function, if defined - will be called after search item selection handler.
+     * @function
+     */
+    onAfterSelect?(): void;
+    /**
+     * onBeforeSelected - function, if defined - will be called before search item selection handler.
+     * @function
+     */
+    onBeforeSelected?(): void;
 }
 
 /**

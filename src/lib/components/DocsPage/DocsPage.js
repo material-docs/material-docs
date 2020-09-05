@@ -21,24 +21,26 @@ import {Helmet} from "react-helmet-async";
 
 
 const DocsPage = React.forwardRef(function DocsPage({
-                      name = "home",
-                      searchTags,
-                      searchLabel,
-                      searchDescription,
-                      noGenerateAutoSearch = false,
-                      noAutoMenu = false,
-                      width,
-                      children
-                  }, ref) {
+                                                        name = "home",
+                                                        searchTags = [],
+                                                        searchLabel,
+                                                        searchDescription,
+                                                        noGenerateAutoSearch = false,
+                                                        noAutoMenu = false,
+                                                        width,
+                                                        children
+                                                    }, ref) {
     const classes = useStyles();
     const commonClasses = useCommonStyles();
-    const pagePath = createRouteFromName(name);
     const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
     const {addSearchItem, removeSearchItem} = useSearch();
-    const {addPage, deletePage} = useGroups();
+    const {addPage, deletePage, path: parentPath} = useGroups();
     const prevPage = React.useRef(null);
     const prevSearchItem = React.useRef(null);
+    const pagePath = [...(parentPath || []), name].map(name => createRouteFromName(name)).join("/");
+
+    const metaKeywords = [...searchTags, name].filter(item => item).join(",");
 
     React.useEffect(() => {
         prevPage.current = {name, link: pagePath};
@@ -49,13 +51,12 @@ const DocsPage = React.forwardRef(function DocsPage({
          * searchItem - search item for current page;
          * @type SearchDataItem
          */
-            //debugger;
         const searchItem = {
-                redirect: {page: pagePath},
-                label: searchLabel || name,
-                description: searchDescription || (Object.keys(tags).length && tags[Object.keys[Object.keys(tags)[0]]]) || "",
-                tags: searchTags || [],
-            }
+            redirect: {page: pagePath},
+            label: searchLabel || name,
+            description: searchDescription || (Object.keys(tags).length && tags[Object.keys[Object.keys(tags)[0]]]) || "",
+            tags: searchTags || [],
+        }
 
         if (!noGenerateAutoSearch) {
             removeSearchItem(prevSearchItem.current);
@@ -73,7 +74,8 @@ const DocsPage = React.forwardRef(function DocsPage({
          */
         const page = {
             name,
-            link: pagePath
+            link: pagePath,
+            path: [...(parentPath || []), name],
         };
         prevPage.current = page;
         !noAutoMenu && addPage(page);
@@ -119,6 +121,11 @@ const DocsPage = React.forwardRef(function DocsPage({
 
     return (
         <Route path={`/${pagePath}`}>
+            <Helmet>
+                <title>{name}</title>
+                <meta name="description" content={searchDescription || ""}/>
+                <meta name="keywords" content={metaKeywords || ""}/>
+            </Helmet>
             <TaggingContext.Provider value={{setTag, removeTag, tags}}>
                 <Grid container ref={ref}>
                     <Grid item xs={12} md={1}/>
@@ -138,9 +145,6 @@ const DocsPage = React.forwardRef(function DocsPage({
                     </Grid>
                 </Grid>
             </TaggingContext.Provider>
-            <Helmet>
-                <title>{name}</title>
-            </Helmet>
         </Route>
     );
 });
@@ -151,6 +155,7 @@ DocsPage.defaultProps = {
     name: "home",
     noGenerateAutoSearch: false,
     noAutoMenu: false,
+    searchTags: [],
 }
 
 DocsPage.propTypes = {
