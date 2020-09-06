@@ -144,6 +144,7 @@ DemoWithCode.propTypes = {
     noTag: PropTypes.bool,
     paperContainer: PropTypes.bool,
     actions: DemoCodeActionValidator,
+    children: PropTypes.node,
     // CodeProps
     theme: PropTypes.oneOf(["light", "dark", "darcula"]),
     language: PropTypes.oneOf([
@@ -166,7 +167,6 @@ DemoWithCode.propTypes = {
         "taggerscript", "tap", "tcl", "thrift", "tp", "twig", "typescript", "vala", "vbnet", "vbscript-html",
         "vbscript", "verilog", "vhdl", "vim", "x86asm", "xl", "xml", "xquery", "yaml", "zephir"
     ]),
-    children: PropTypes.string,
     // Stylable
     style: PropTypes.object,
     className: PropTypes.string,

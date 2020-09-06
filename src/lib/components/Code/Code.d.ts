@@ -41,7 +41,7 @@ export interface CodeProps
      * children - your code.
      * @type string
      */
-    children: string,
+    children?: string,
 }
 
 /**
