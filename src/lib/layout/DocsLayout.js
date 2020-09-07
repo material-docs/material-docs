@@ -41,6 +41,7 @@ import getContainerByType from "../utils/getContainerByType";
 import {MenuContext} from "../hooks/useMenu/useMenu";
 import AppBarActionValidator from "../validators/AppBarActionValidator";
 import generateHeaderIcon from "./generateHeaderIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 
 
 const DocsLayoutF = React.forwardRef((props, ref) => {
@@ -206,7 +207,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                                 <MenuIcon/>
                                             </IconButton>
                                             <Typography variant="h6" noWrap className={classes.headerText}>
-                                                MUI Flexible Table Wiki
+                                                {name  || "Material Docs"}
                                             </Typography>
                                             {!noSearchField && isWidthUp("md", width) &&
                                             <SearchField searchData={getSearchData()}/>
@@ -234,6 +235,12 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         onClose={event => setOpen(false)}
                                     >
                                         <div className={classes.drawerHeader}>
+                                            <ListItemText
+                                                primary={name}
+                                                secondary={version}
+                                                primaryTypographyProps={{variant: "h6"}}
+                                                className={classes.version}
+                                            />
                                             <IconButton onClick={handleDrawerClose}>
                                                 {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
                                             </IconButton>

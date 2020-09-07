@@ -33,6 +33,8 @@ export default function ExampleDocumentation() {
                 {icon: <GitHubIcon />, tooltip: "asdfasdfsf", onClick: () => alert("kuku")},
                 {icon: <Brightness4Icon/>, tooltip: "Hello darkness my old friend.", link: "http://google.com"}
             ]}
+            name={"Material Docs testing"}
+            version={"1.12.2-alpha"}
         >
             <DocsMenu dense>
                 <AutoDocsMenu/>
