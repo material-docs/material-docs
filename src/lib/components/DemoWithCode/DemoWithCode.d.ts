@@ -45,6 +45,11 @@ export interface DemoWithCodeProps
      * @type AspectRatio
      */
     ratio?: AspectRatio;
+    /**
+     * children - element, that will be displayed in demo block.
+     * @type node
+     */
+    children?: any;
 }
 
 /**

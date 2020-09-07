@@ -43,5 +43,8 @@ export default function MyApp() {
 }
 ```
 [Explore the docs]()
+## Support
+You can ask for support by email: help.materialdocs@gmail.com
+
 ## Author
 Danil Andreev | danssg08@gmail.com | https://github.com/DanilAndreev

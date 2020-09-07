@@ -34,8 +34,8 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
     const inputRef = React.useRef(null);
 
     function handleSearchItemSelected() {
-        // inputRef.current && inputRef.current.blur();
         setFocused(false);
+        inputRef.current && inputRef.current.blur();
     }
 
     function handleTextInput(event) {
@@ -131,7 +131,7 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
 
     return (
         <ClickAwayListener
-            onClickAway={event => {setFocused(false); inputRef.current && inputRef.current.blur()}}
+           onClickAway={event => {setFocused(false); inputRef.current && inputRef.current.blur()}}
         >
             <Paper
                 elevation={0}
@@ -148,8 +148,10 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
                     onChange={handleTextInput}
                     value={text}
                     className={classes.input}
-                    placeholder={"Seacrh"}
+                    placeholder={"Search"}
                     onFocus={event => setFocused(true)}
+                    // onFocus={event => console.log(event)}
+                    // onBlur={event => console.log(("blur"))}
                     onKeyDown={handleKeyDown}
                     inputRef={inputRef}
                 />

@@ -101,7 +101,13 @@ const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem({
                 {children && (expanded ? <ExpandLess/> : <ExpandMore/>)}
             </ListItem>
             {children &&
-            <Collapse in={expanded} timeout="auto" unmountOnExit className={classes.collapse}>
+            <Collapse
+                in={expanded}
+                timeout="auto"
+                unmountOnExit
+                className={classes.collapse}
+                disableStrictModeCompat
+            >
                 <NestingContext.Provider value={nesting + 1}>
                     {children}
                 </NestingContext.Provider>

@@ -7,6 +7,7 @@ import React from "react";
 import {DocsPage, ExpansionCode, H1, H2, H3, Markdown} from "../../../../lib";
 import DemoWithCode from "../../../../lib/components/DemoWithCode/DemoWithCode";
 import AspectRatio from "../../../../lib/utils/AspectRatio";
+import Demo from "../../../demos/Demo";
 
 const pageMarkdown = `
 # Hello, i ___italic text___ am header 1
@@ -54,6 +55,10 @@ _italic_
 
 `;
 
+//console.log(Demo);
+
+const settings = JSON.stringify({language: "javascript", type: "demo-with-code", name: "Hello", demo: "demo"});
+
 const pageMarkdown2 = `
 # ___FlexibleTable___ API
 ### The API documentation of the FlexibleTable React component. Learn more about the props and the CSS customization points.
@@ -90,7 +95,20 @@ You can override the style of the component thanks to one of these customization
 * With a rule name of the [__classes__ object prop](https://material-ui.com/customization/components/#overriding-styles-with-classes).
 * With a [global class name](https://material-ui.com/customization/components/#overriding-styles-with-global-class-names).
 
-If that's not sufficient, you can check the [implementation of the component](https://github.com/DanilAndreev/mui-table-flexible/blob/master/src/lib/organizms/FlexibleTable/FlexibleTable.tsx) for more detail.
+
+If that's not s"ufficient, you c/an <check </the [implementation> of the component](https://github.com/DanilAndreev/mui-table-flexible/blob/master/src/lib/organizms/FlexibleTable/FlexibleTable.tsx) for more detail.
+
+\`\`\`${settings}
+adfasf asf asdf asdf
+asdf 
+as
+f s
+f
+s 
+f s
+d
+\`\`\`
+
 ## Demos
 * [FlexibleTable](/DanilAndreev/mui-table-flexible/wiki/FlexibleTable)
 `;
@@ -100,7 +118,9 @@ export default function DocsPageDemo() {
         <DocsPage name={"DocsPages"} searchDescription={"Docs pages sdfsfs"}>
             <H1 noDivider>DocsPages</H1>
             <H3>DocsPages description</H3>
-            <Markdown>{pageMarkdown2}</Markdown>
+            <Markdown data={{demo: <Demo />}}>
+                {pageMarkdown2}
+            </Markdown>
             <ExpansionCode
                 demoCode={"asdfasfasfsd\n\n\nasdfn\nsdf"}
             >

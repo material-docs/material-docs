@@ -21,10 +21,10 @@ export interface ExpansionCodeProps
      */
     noTag?: boolean;
     /**
-     * demoCode - code, displayed in collapsed mode.
-     * @type string
+     * collapsedHeight - height of the component when it is collapsed.
+     * @type number | string
      */
-    demoCode?: string;
+    collapsedHeight?: number | string;
     /**
      * actions - if defined, on code actions panel will be displayed [ShowMoreIcon] with list of defined actions.
      * @type DemoCodeAction[]
