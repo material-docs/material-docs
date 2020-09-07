@@ -3,7 +3,7 @@
  * Copyright (C) 2020.
  */
 
-import React from "react";
+import React, {Suspense} from "react";
 import {useStyles} from "./styles";
 import Box from '@material-ui/core/Box';
 import Code from "../Code/Code";
@@ -24,6 +24,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 import AspectRatio from "../../utils/AspectRatio";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
     const {
@@ -68,12 +69,14 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
             <H3 noDivider noTag={noTag}>{name}</H3>
             }
             <Box style={{height: height || undefined}} ref={demoRef} className={classes.demo}>
-                {!paperContainer && children}
-                {paperContainer &&
-                <Paper elevation={0} variant={"outlined"} className={classes.paperContainer}>
-                    {children}
-                </Paper>
-                }
+                <Suspense fallback={<CircularProgress />}>
+                    {!paperContainer && children}
+                    {paperContainer &&
+                    <Paper elevation={0} variant={"outlined"} className={classes.paperContainer}>
+                        {children}
+                    </Paper>
+                    }
+                </Suspense>
             </Box>
             <Toolbar className={classes.toolbar}>
                 {actions &&
