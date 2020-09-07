@@ -42,6 +42,8 @@ import {MenuContext} from "../hooks/useMenu/useMenu";
 import AppBarActionValidator from "../validators/AppBarActionValidator";
 import generateHeaderIcon from "./generateHeaderIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import Avatar from "@material-ui/core/Avatar";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
 
 const DocsLayoutF = React.forwardRef((props, ref) => {
@@ -60,6 +62,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         description,
         name,
         version,
+        logo,
         ...other
     } = props;
     const classes = useStyles();
@@ -235,10 +238,16 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         onClose={event => setOpen(false)}
                                     >
                                         <div className={classes.drawerHeader}>
+                                            {logo &&
+                                            <ListItemAvatar>
+                                                <Avatar src={logo} variant={"rounded"}/>
+                                            </ListItemAvatar>
+                                            }
                                             <ListItemText
                                                 primary={name}
                                                 secondary={version}
-                                                primaryTypographyProps={{variant: "h6"}}
+                                                primaryTypographyProps={{variant: "h6", noWrap: true}}
+                                                secondaryTypographyProps={{noWrap: true}}
                                                 className={classes.version}
                                             />
                                             <IconButton onClick={handleDrawerClose}>
@@ -294,6 +303,7 @@ DocsLayoutF.propTypes = {
     description: PropTypes.string,
     name: PropTypes.string,
     version: PropTypes.string,
+    logo: PropTypes.string,
 }
 
 const DocsLayout = withWidth()(DocsLayoutF);

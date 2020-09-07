@@ -19,6 +19,7 @@ import DocsMenu from "../lib/components/DocsMenu/DocsMenu";
 import DocsMenuItem from "../lib/components/DocsMenuItem/DocsMenuItem";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import logo from "./../logo.svg";
 
 
 
@@ -35,6 +36,7 @@ export default function ExampleDocumentation() {
             ]}
             name={"Material Docs testing"}
             version={"1.12.2-alpha"}
+            logo={logo}
         >
             <DocsMenu dense>
                 <AutoDocsMenu/>
