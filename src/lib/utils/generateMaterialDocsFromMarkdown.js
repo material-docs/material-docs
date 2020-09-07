@@ -33,14 +33,6 @@ function fixShieldedText(text) {
         .replace(/&gt;/g, ">");
 }
 
-function fixShieldedText(text) {
-    if (typeof text !== "string") return "";
-    return text.replace(/&#39;+/g, "'")
-        .replace(/&quot;+/g, "\"")
-        .replace(/&lt;+/g, "<")
-        .replace(/&gt;/g, ">");
-}
-
 export default function generateMaterialDocsFromMarkdown(input, key = 1) {
     if (!(typeof input === "string" || typeof input === "object"))
         throw new TypeError(`MaterialDocs: incorrect type of input param, expected "object | string", got "${typeof input}"`);
