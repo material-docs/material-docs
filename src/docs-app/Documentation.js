@@ -4,8 +4,7 @@
  */
 
 import React from "react";
-
-import DocsPageDemo from "./pages/Components/DocsPageDemo";
+import logo from "./../logo.svg";
 
 // API pages
 import DocsPageAPI from "./pages/APIs/DocsPageAPI";
@@ -46,20 +45,42 @@ import Installation from "./pages/GettingStarted/Installation";
 import LayoutDemo from "./pages/Components/LayoutDemo";
 import DocsMenu from "@danilandreev/material-docs/components/DocsMenu/DocsMenu";
 import AutoDocsMenu from "@danilandreev/material-docs/components/AutoDocsMenu/AutoDocsMenu";
+import Landing from "@danilandreev/material-docs/components/Landing/Landing";
+import MaterialDocsLanding from "./pages/MaterialDocsLanding";
 
 
 export default function Documentation() {
     return (
-        <DocsLayout defaultLang={EN} langs={[EN, RU]} basename={process.env.PUBLIC_URL}>
+        <DocsLayout
+            defaultLang={EN}
+            langs={[EN, RU]}
+            basename={process.env.PUBLIC_URL}
+            name={"Material Docs"}
+            logo={logo}
+            description={"material-docs - react framework for easy creating documentation site in material design style."}
+            keywords={[
+                "material-design",
+                "material-ui",
+                "documentation",
+                "documentation-tool",
+                "framework",
+                "components-library",
+                "markdown",
+                "markdown-converter"
+            ]}
+            version={"1.0.0"}
+        >
             <DocsMenu dense>
                 <AutoDocsMenu/>
             </DocsMenu>
+            <Landing>
+                <MaterialDocsLanding/>
+            </Landing>
             <DocsPages>
                 <PagesGroup name={"Getting started"}>
                     <Installation/>
                 </PagesGroup>
                 <PagesGroup name={"Components"}>
-                    <DocsPageDemo/>
                     <ListsDemo/>
                     <LayoutDemo/>
                 </PagesGroup>
@@ -67,7 +88,7 @@ export default function Documentation() {
                     <DocsLayoutAPI/>
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
-                    <CodeAPI />
+                    <CodeAPI/>
                     <PagesGroupAPI/>
                     <ImageAPI/>
                     <ListItemAPI/>
