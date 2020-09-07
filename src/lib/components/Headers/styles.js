@@ -8,8 +8,6 @@ import {grey} from "@material-ui/core/colors";
 
 export const useStyles = makeStyles((theme) => ({
     root: {
-        //TODO: Fix problem with text no text wrapping.
-        maxWidth: `calc(100vw - ${theme.spacing(12)}px)`,
     },
     container: {
         position: "relative",
@@ -60,6 +58,10 @@ export const useStyles = makeStyles((theme) => ({
     },
     typography: {
         overflowWrap: "break-word",
+    },
+    textBlock: {
+        overflowWrap: "break-word",
+        maxWidth: `calc(100vw - ${theme.spacing(6)}px)`,
     },
     anchorIcon: {
         transform: "rotate(45deg)",

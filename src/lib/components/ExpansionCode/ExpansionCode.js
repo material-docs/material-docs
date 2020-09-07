@@ -25,14 +25,23 @@ import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 
 
-//TODO: finish
-const ExpansionCode = React.forwardRef(function ExpansionCode({theme, language, children, name, noTag, style, className, demoCode = '', actions, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
+    const {
+        theme,
+        language,
+        children,
+        name,
+        noTag,
+        style,
+        className,
+        collapsedHeight = 100,
+        actions,
+        ...other
+    } = props;
+    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
     const {enqueueSnackbar} = useSnackbar();
-    const [expanded, setExpanded] = React.useState(true);
-    const [expand, setExpand] = React.useState(true);
-    const [code, setCode] = React.useState(demoCode);
+    const [expand, setExpand] = React.useState(false);
     const menuAnchor = React.useRef(null);
     const [menuOpen, setMenuOpen] = React.useState(false);
 
@@ -88,23 +97,13 @@ const ExpansionCode = React.forwardRef(function ExpansionCode({theme, language, 
             </Toolbar>
             <Collapse
                 in={expand}
-                collapsedHeight={"600px"}
-                onExit={() => {
-                    setCode(children);
-                    setExpanded(true);
-                }}
-                onEntered={() => {
-                    setCode(demoCode);
-                    setExpanded(false);
-                }}
-                style={{minHeight: 0}}
+                collapsedHeight={collapsedHeight}
                 className={classes.collapse}
+                disableStrictModeCompat
             >
-                <div className={clsx(!expanded && classes.collapsedCode)}>
-                    <Code theme={theme} language={language}>
-                        {code}
-                    </Code>
-                </div>
+                <Code theme={theme} language={language}>
+                    {children}
+                </Code>
             </Collapse>
         </Box>
     );
@@ -114,13 +113,14 @@ ExpansionCode.displayName = "ExpansionCode";
 
 ExpansionCode.defaultProps = {
     demoCode: "",
+    collapsedHeight: 100,
 }
 
 ExpansionCode.propTypes = {
     // ExpansionCodeProps
     name: PropTypes.string,
     noTag: PropTypes.bool,
-    demoCode: PropTypes.string,
+    collapsedHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     actions: DemoCodeActionValidator,
     // CodeProps
     theme: PropTypes.oneOf(["light", "dark", "darcula"]),

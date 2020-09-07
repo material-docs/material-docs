@@ -1,6 +1,6 @@
 {
   "name": "@danilandreev/material-docs",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "private": false,
   "description": "material-docs - react framework for easy creating documentation site in material design style.",
   "homepage": "http://material-docs.com/",
@@ -25,7 +25,7 @@
   },
   "bugs": {
     "url": "https://github.com/DanilAndreev/material-docs/issues",
-    "email": "danssg08@gmail.com"
+    "email": "help.materialdocs@gmail.com"
   },
   "license": "CC0-1.0",
   "main": "index.js",

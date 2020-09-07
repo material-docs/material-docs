@@ -22,6 +22,16 @@ import TableCell from "../components/TableCell";
 import Divider from "@material-ui/core/Divider";
 import Block from "../components/Block/Block";
 import CodeSpan from "../components/CodeSpan/CodeSpan";
+import ExpansionCode from "../components/ExpansionCode/ExpansionCode";
+import DemoWithCode from "../components/DemoWithCode/DemoWithCode";
+
+function fixShieldedText(text) {
+    if (typeof text !== "string") return "";
+    return text.replace(/&#39;+/g, "'")
+        .replace(/&quot;+/g, "\"")
+        .replace(/&lt;+/g, "<")
+        .replace(/&gt;/g, ">");
+}
 
 function fixShieldedText(text) {
     if (typeof text !== "string") return "";
@@ -71,6 +81,82 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                             </ListItem>
                         );
                     case "code":
+                        try {
+                            let setting = JSON.parse(token.lang);
+                            const {type, language} = setting;
+                            if (type !== "expansion-code" && type !== "code" && type !== "demo-with-code")
+                                console.error(`MaterialDocs: incorrect type of code block setting field "type", expected "expansion-code | code | demo-with-code" got ${type}`);
+                            if (typeof language !== "string")
+                                console.error(`MaterialDocs: incorrect type of code block setting field "language", expected "string" got ${typeof language}`);
+                            switch (setting.type) {
+                                case "expansion-code": {
+                                    const {name, collapsedHeight, theme} = setting;
+                                    if (theme && typeof theme !== "string")
+                                        console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
+                                    return (
+                                        <ExpansionCode
+                                            language={language}
+                                            name={name}
+                                            collapsedHeight={collapsedHeight}
+                                            key={`code-token-${tokenId}`}
+                                            theme={theme}
+                                        >
+                                            {token.text}
+                                        </ExpansionCode>
+                                    );
+                                    break;
+                                }
+                                case "demo-with-code": {
+                                    const {defaultExpanded, text, name, theme} = setting;
+                                    if (theme && typeof theme !== "string")
+                                        console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
+                                    if (text && typeof text !== "string")
+                                        console.error(`MaterialDocs: incorrect type of code block setting field "text", expected "string" got ${typeof text}`);
+                                    let Demo = null;
+                                    if (typeof setting.demo === "string") {
+                                        Demo = React.lazy(() => import(setting.demo));
+                                    }
+                                    return (
+                                        <DemoWithCode
+                                            language={language}
+                                            defaultExpanded={defaultExpanded}
+                                            code={token.text}
+                                            name={name}
+                                            theme={theme}
+                                            key={`code-token-${tokenId}`}
+                                        >
+                                            {<Demo/> || null}
+                                        </DemoWithCode>
+                                    );
+                                    break;
+                                }
+                                default: {
+                                    const  {theme} = setting;
+                                    if (theme && typeof theme !== "string")
+                                        console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
+                                    return (
+                                        <Code
+                                            language={language}
+                                            key={`code-token-${tokenId}`}
+                                            theme={theme}
+                                        >
+                                            {token.text}
+                                        </Code>
+                                    );
+                                }
+                            }
+
+                        } catch (error) {
+                            if (error instanceof SyntaxError) {
+                                return (
+                                    <Code language={token.lang} key={`code-token-${tokenId}`}>
+                                        {token.text}
+                                    </Code>
+                                );
+                            } else {
+                                throw error;
+                            }
+                        }
                         return (
                             <Code language={token.lang} key={`code-token-${tokenId}`}>
                                 {token.text}

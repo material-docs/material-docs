@@ -69,7 +69,7 @@ const NavigationList = withWidth()(React.forwardRef(function NavigationList({key
     if (!isWidthUp("md", width)) return null;
 
     return (
-        <List dense style={{position: "fixed"}} ref={ref}>
+        <List dense style={{position: "fixed", width: "100%"}} ref={ref}>
             <ListItem>
                 <Typography variant={"h6"}>
                     Content

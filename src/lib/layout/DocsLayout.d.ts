@@ -103,6 +103,11 @@ export interface DocsLayoutProps
      * @type string
      */
     version?: string;
+    /**
+     * logo - path to logo image, will be displayed in drawer near name and version.
+     * @type string
+     */
+    logo?: string;
 }
 
 /**

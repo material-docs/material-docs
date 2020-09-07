@@ -53,7 +53,9 @@ const TagableF = React.forwardRef(function TagableF({children, noTag = false, va
             >
                 <div className={classes.container}>
                     <Typography variant={variant} classes={typographyClasses} className={classes.typography}>
+                        <div className={classes.textBlock}>
                         {children}
+                        </div>
                         {!noDivider && <Divider className={classes.divider}/>}
                     </Typography>
                     {!noTag &&

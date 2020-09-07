@@ -82,5 +82,8 @@ export const useStyles = makeStyles((theme) => ({
     },
     headerIcon: {
         color: theme.palette.common.white,
+    },
+    version: {
+        flexGrow: 1,
     }
 }));

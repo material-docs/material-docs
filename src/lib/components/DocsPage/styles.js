@@ -27,5 +27,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     typography: {
         overflowWrap: "break-word",
+        maxWidth: `calc(10vw - ${theme.spacing(2)}px)`,
     }
 }));

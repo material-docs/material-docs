@@ -135,7 +135,7 @@ const DocsPage = React.forwardRef(function DocsPage({
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={1}/>
-                    <Grid item xs={12} md={2}>
+                    <Grid item xs={12} md={2} style={{position: "relative"}}>
                         <NavigationList keys={makeKeysFromTags()}/>
                     </Grid>
                     <Grid item xs={12}>

@@ -7,12 +7,10 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
     root: {},
-    collapsedCode: {
-        height: "100%",
-        overflow: "auto",
-    },
     collapse: {
         marginTop: 0,
+        maxHeight: 600,
+        overflowY: "auto",
     },
     toolbar: {
         padding: 0,
