@@ -57,8 +57,11 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: "0.6rem",
     },
     typography: {
-       // maxWidth: `calc(100vw - ${theme.spacing(12)}px)`,
         overflowWrap: "break-word",
+    },
+    textBlock: {
+        overflowWrap: "break-word",
+        maxWidth: `calc(100vw - ${theme.spacing(6)}px)`,
     },
     anchorIcon: {
         transform: "rotate(45deg)",

@@ -48,11 +48,12 @@ export default function ExampleDocumentation() {
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
                     <DocsPage name={"TestPage1"} searchDescription={"sdfsfsd"}>
-                        <H1>Hello</H1>
+                        <H1>Hello Darkness my old friend</H1>
                         <H2>Darkness</H2>
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
-                        asfasfsdfasdf
+                        <H1>HelloDarknessmyoldfriend</H1>
+                        <H2>Darkness</H2>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
                         asfasf2324
