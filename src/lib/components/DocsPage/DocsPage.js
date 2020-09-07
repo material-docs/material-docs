@@ -129,12 +129,12 @@ const DocsPage = React.forwardRef(function DocsPage({
             <TaggingContext.Provider value={{setTag, removeTag, tags}}>
                 <Grid container ref={ref}>
                     <Grid item xs={12} md={1}/>
-                    <Grid item xs={12} md={8}>
+                    <Grid item xs={11} md={8}>
                         <Box p={isWidthUp("md", width) ? 1 : 3}>
                             {content}
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={1}/>
+                    <Grid item xs={11} md={1}/>
                     <Grid item xs={12} md={2}>
                         <NavigationList keys={makeKeysFromTags()}/>
                     </Grid>

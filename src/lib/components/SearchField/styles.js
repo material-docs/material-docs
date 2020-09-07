@@ -58,5 +58,6 @@ export const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2),
         maxHeight: "70vh",
         overflowY: "auto",
+        width: 420,
     },
 }));
