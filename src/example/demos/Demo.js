@@ -7,7 +7,7 @@ import React from "react";
 
 export default function Demo() {
     return (
-        <div style={{color: "#ff0"}}>
+        <div style={{backgroundColor: "#ff0"}}>
             asasfsaf
         </div>
     );

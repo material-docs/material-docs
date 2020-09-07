@@ -57,7 +57,7 @@ _italic_
 
 //console.log(Demo);
 
-const settings = JSON.stringify({language: "javascript", type: "demo-with-code", name: "Hello", demo: "../../example/demos/Demo"});
+const settings = JSON.stringify({language: "javascript", type: "demo-with-code", name: "Hello", demo: "demo"});
 
 const pageMarkdown2 = `
 # ___FlexibleTable___ API
@@ -118,7 +118,9 @@ export default function DocsPageDemo() {
         <DocsPage name={"DocsPages"} searchDescription={"Docs pages sdfsfs"}>
             <H1 noDivider>DocsPages</H1>
             <H3>DocsPages description</H3>
-            <Markdown>{pageMarkdown2}</Markdown>
+            <Markdown data={{demo: <Demo />}}>
+                {pageMarkdown2}
+            </Markdown>
             <ExpansionCode
                 demoCode={"asdfasfasfsd\n\n\nasdfn\nsdf"}
             >

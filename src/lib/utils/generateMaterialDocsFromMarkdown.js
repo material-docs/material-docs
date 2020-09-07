@@ -33,7 +33,7 @@ function fixShieldedText(text) {
         .replace(/&gt;/g, ">");
 }
 
-export default function generateMaterialDocsFromMarkdown(input, key = 1) {
+export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1) {
     if (!(typeof input === "string" || typeof input === "object"))
         throw new TypeError(`MaterialDocs: incorrect type of input param, expected "object | string", got "${typeof input}"`);
     let tokens = input;
@@ -47,7 +47,7 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                     case "heading":
                         return (
                             <Header heading={token.depth} key={`heading-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, tokenId + key)}
+                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Header>
                         );
                     case "text":
@@ -57,19 +57,19 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                     case "paragraph":
                         return (
                             <Typography key={`paragraph-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, tokenId + key)}
+                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Typography>
                         );
                     case "list":
                         return (
                             <List key={`list-token-${tokenId}`}>
-                                {token.items && generateMaterialDocsFromMarkdown(token.items, tokenId + key)}
+                                {token.items && generateMaterialDocsFromMarkdown(token.items, storage, tokenId + key)}
                             </List>
                         );
                     case "list_item":
                         return (
                             <ListItem key={`list-item-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, tokenId + key)}
+                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </ListItem>
                         );
                     case "code":
@@ -106,7 +106,7 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                                         console.error(`MaterialDocs: incorrect type of code block setting field "text", expected "string" got ${typeof text}`);
                                     let Demo = null;
                                     if (typeof setting.demo === "string") {
-                                        Demo = React.lazy(() => import(setting.demo));
+                                        Demo = storage[setting.demo];
                                     }
                                     return (
                                         <DemoWithCode
@@ -117,13 +117,13 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                                             theme={theme}
                                             key={`code-token-${tokenId}`}
                                         >
-                                            {<Demo/> || null}
+                                            {Demo || null}
                                         </DemoWithCode>
                                     );
                                     break;
                                 }
                                 default: {
-                                    const  {theme} = setting;
+                                    const {theme} = setting;
                                     if (theme && typeof theme !== "string")
                                         console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     return (
@@ -159,7 +159,7 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                     case "link":
                         return (
                             <Link href={token.href} key={`link-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, tokenId + key)}
+                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Link>
                         );
                     case "br":
@@ -169,13 +169,13 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                     case "strong":
                         return (
                             <Bold key={`strong-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, tokenId + key)}
+                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Bold>
                         );
                     case "em":
                         return (
                             <Italic key={`em-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, tokenId + key)}
+                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Italic>
                         );
                     case "image":
@@ -190,7 +190,7 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                                         {header.map((cell, index) => (
                                             <TableCell key={`markdown-table-head-cell-${index}`}>
                                                 <Bold>
-                                                    {cell && generateMaterialDocsFromMarkdown(cell, tokenId + key)}
+                                                    {cell && generateMaterialDocsFromMarkdown(cell, storage, tokenId + key)}
                                                 </Bold>
                                             </TableCell>
                                         ))}
@@ -201,7 +201,7 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                                         <TableRow key={`markdown-table-row-${index}`}>
                                             {row.map((cell, index) =>
                                                 <TableCell key={`markdown-table-cell-${index}`}>
-                                                    {cell && generateMaterialDocsFromMarkdown(cell, tokenId + key)}
+                                                    {cell && generateMaterialDocsFromMarkdown(cell, storage, tokenId + key)}
                                                 </TableCell>)
                                             }
                                         </TableRow>
@@ -212,7 +212,7 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                     case "blockquote":
                         return (
                             <Block key={`blockquote-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, tokenId + key)}
+                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Block>
                         );
                     default:
