@@ -81,19 +81,29 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                             if (typeof language !== "string")
                                 console.error(`MaterialDocs: incorrect type of code block setting field "language", expected "string" got ${typeof language}`);
                             switch (setting.type) {
-                                case "expansion-code":
+                                case "expansion-code": {
+                                    const {name, collapsedHeight, theme} = setting;
+                                    if (theme && typeof theme !== "string")
+                                        console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     return (
                                         <ExpansionCode
                                             language={language}
-                                            name={setting.name}
-                                            collapsedHeight={setting.collapsedHeight}
+                                            name={name}
+                                            collapsedHeight={collapsedHeight}
                                             key={`code-token-${tokenId}`}
+                                            theme={theme}
                                         >
                                             {token.text}
                                         </ExpansionCode>
                                     );
                                     break;
-                                case "demo-with-code":
+                                }
+                                case "demo-with-code": {
+                                    const {defaultExpanded, text, name, theme} = setting;
+                                    if (theme && typeof theme !== "string")
+                                        console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
+                                    if (text && typeof text !== "string")
+                                        console.error(`MaterialDocs: incorrect type of code block setting field "text", expected "string" got ${typeof text}`);
                                     let Demo = null;
                                     if (typeof setting.demo === "string") {
                                         Demo = React.lazy(() => import(setting.demo));
@@ -101,21 +111,31 @@ export default function generateMaterialDocsFromMarkdown(input, key = 1) {
                                     return (
                                         <DemoWithCode
                                             language={language}
-                                            defaultExpanded={setting.defaultExpanded}
+                                            defaultExpanded={defaultExpanded}
                                             code={token.text}
-                                            name={setting.name}
+                                            name={name}
+                                            theme={theme}
                                             key={`code-token-${tokenId}`}
                                         >
-                                            {<Demo /> || null}
+                                            {<Demo/> || null}
                                         </DemoWithCode>
                                     );
                                     break;
-                                default:
+                                }
+                                default: {
+                                    const  {theme} = setting;
+                                    if (theme && typeof theme !== "string")
+                                        console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     return (
-                                        <Code language={language} key={`code-token-${tokenId}`}>
+                                        <Code
+                                            language={language}
+                                            key={`code-token-${tokenId}`}
+                                            theme={theme}
+                                        >
                                             {token.text}
                                         </Code>
                                     );
+                                }
                             }
 
                         } catch (error) {
