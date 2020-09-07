@@ -11,7 +11,15 @@ import clsx from "clsx";
 import {useStyles} from "./styles";
 import PropTypes from "prop-types";
 
-const Markdown = React.forwardRef(function Markdown({children, className, style, inline = false, ...props}, ref) {
+const Markdown = React.forwardRef(function Markdown(props, ref) {
+    const {
+        children,
+        className,
+        style,
+        inline = false,
+        data = {},
+        ...other
+    } = props;
     const commonClasses = useCommonStyles();
     const classes = useStyles();
     const [content, setContent] = React.useState([]);
@@ -19,7 +27,7 @@ const Markdown = React.forwardRef(function Markdown({children, className, style,
     React.useEffect(() => {
         try {
             const child = React.Children.map(children, String).join("");
-            setContent(generateMaterialDocsFromMarkdown(child));
+            setContent(generateMaterialDocsFromMarkdown(child, data));
         } catch (error) {
             setContent(null);
             console.log(error);
@@ -45,6 +53,7 @@ Markdown.displayName = "Markdown";
 
 Markdown.defaultProps = {
     inline: false,
+    data: {},
 }
 
 Markdown.propTypes = {
