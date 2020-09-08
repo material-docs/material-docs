@@ -43,7 +43,7 @@ export interface DocsMenuItemProps
      */
     page?: string | any;
     /**
-     * link - link to page, which includes groups. If defined - will be used with highest priority.
+     * link - link to the page, which includes groups. If defined - will be used with highest priority.
      * @type string
      */
     link?: string;

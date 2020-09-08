@@ -11,6 +11,7 @@ export interface CodeProps
     extends Stylable, Containerable {
     /**
      * theme - highlighting and background styling type.
+     * @default "light"
      * @type string
      */
     theme?: "light" | "dark" | "darcula";

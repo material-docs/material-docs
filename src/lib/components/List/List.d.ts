@@ -16,6 +16,7 @@ export interface ListProps
     image?: string;
     /**
      * styling - list styling type.
+     * @default "inside"
      * @type string
      */
     styling?: "inside" | "outside" | "inherit" | "revert" | "unset";

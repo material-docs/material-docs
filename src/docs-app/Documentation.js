@@ -109,8 +109,8 @@ export default function Documentation() {
                     <ListItemContainedAPI/>
                     <DocsPagesAPI/>
                     <DocsMenuAPI/>
+                    <AutoDocsMenuAPI/>
                     <PagesGroup name={"System components"}>
-                        <AutoDocsMenuAPI/>
                         <LanguageSelectorAPI/>
                         <SearchFieldAPI/>
                     </PagesGroup>

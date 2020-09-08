@@ -82,6 +82,12 @@
             "description": "Code to display in inner Code block."
           },
           {
+            "name": "ratio",
+            "type": "AspectRatio",
+            "default": "",
+            "description": "If defined, demo field will keep input aspect ratio."
+          },
+          {
             "name": "defaultExpanded",
             "type": "boolean",
             "default": "false",
@@ -119,7 +125,8 @@
           "collapse": "Styles applied to the Collapse element, which contains code.",
           "toolbar": "Styles applied to the Toolbar element with icon buttons and name.",
           "paperContainer": "Styles applied to the Paper container element if paperContainer prop is true.",
-          "menuButtonLink": "Styles applied to link in extra actions menu."
+          "menuButtonLink": "Styles applied to link in extra actions menu.",
+          "demo": "Styles applied to demo block."
         }
       },
       "CodeAPI": {
@@ -276,10 +283,10 @@
             "description": "If true and name prop is true - header will not generate tags fot content panel."
           },
           {
-            "name": "demoCode",
-            "type": "string",
-            "default": "",
-            "description": "This code will appear in the Code block if component is not expanded."
+            "name": "collapsedHeight",
+            "type": "number | string",
+            "default": "100px",
+            "description": "Height of the component when it is collapsed."
           },
           {
             "name": "actions",
@@ -482,6 +489,12 @@
             "description": "Page name for redirecting or object structure for routing-manager changeRoute."
           },
           {
+            "name": "link",
+            "type": "string",
+            "default": "",
+            "description": "Link to the page, which includes groups. If defined - will be used with highest priority."
+          },
+          {
             "name": "isCurrent",
             "type": "(function(routeParams, pageRoute, page): boolean) | boolean",
             "default": "false",
@@ -519,6 +532,12 @@
             "type": "boolean",
             "default": "false",
             "description": "If true, markdown container will be inline."
+          },
+          {
+            "name": "data",
+            "type": "object",
+            "default": "{}",
+            "description": "Data structure, used as storage to store components or other data, which can not describe via markdown."
           },
           {
             "name": "children",
@@ -782,8 +801,15 @@
         "pageAbout": "The API documentation of the LanguageSelector React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "LanguageSelector - react component, designed to add language selection mechanism and locale management.",
         "ComponentNameText": "The LanguageSelector name can be used for providing default props or style overriders at the theme level.",
-        "enableProps": false,
-        "props": [],
+        "enableProps": true,
+        "props": [
+          {
+            "name": "size",
+            "type": "\"small\" | \"large\"",
+            "default": "\"large\"",
+            "description": "The size of an element. If small - will be displayed just locale icon, if large - locale icon with current language name."
+          }
+        ],
         "noPropsText": "This component has no props and takes info with useLang hook. It must be placed inside LangContext.Provider",
         "forwardRef": true,
         "enableCss": true,
@@ -829,6 +855,12 @@
         "ComponentNameText": "The DocsMenu name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
+          {
+            "name": "dense",
+            "type": "boolean",
+            "default": "false",
+            "description": "Ff true, menu wll have smaller spacing between items."
+          },
           {
             "name": "children",
             "type": "node",
@@ -932,6 +964,66 @@
             "description": "Basename param for react-router-dom Router."
           },
           {
+            "name": "mask",
+            "type": "string",
+            "default": "\"/*page\"",
+            "description": "Mask for routing-manager ChangeRouteProvider routeMask property."
+          },
+          {
+            "name": "noSearchField",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, search field will not be displayed."
+          },
+          {
+            "name": "noLanguageSelector",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, language selector will not be displayed."
+          },
+          {
+            "name": "actions",
+            "type": "AppBarAction[]",
+            "default": "[]",
+            "description": "An array of actions. Will be displayed in material-ui IconButton components in Toolbar component inside AppBar."
+          },
+          {
+            "name": "keywords",
+            "type": "string[]",
+            "default": "",
+            "description": "An array of keywords of the docs for search engines. Needs for metadata."
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "default": "",
+            "description": "The author of the docs. Needs for metadata."
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "default": "",
+            "description": "The description of the docs. Needs for metadata."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Name of the docs. Needs for metadata. Will be displayed in app header. Also you can find this name near version label in side menu drawer."
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "default": "",
+            "description": "Version of the docs. Needs for metadata."
+          },
+          {
+            "name": "logo",
+            "type": "string",
+            "default": "",
+            "description": "A path to the logo image, will be displayed in drawer near name and version."
+          },
+          {
             "name": "children",
             "type": "node",
             "default": "",
@@ -953,7 +1045,8 @@
           "contentShift": "Styles applied to the content element to compensate drawer.",
           "headerText": "Styles applied to the Typography in AppBar.",
           "toolbar": "Styles applied to the ToolBar element.",
-          "headerIcon": "Styles applied to icons in Toolbar."
+          "headerIcon": "Styles applied to icons in Toolbar.",
+          "version": "Styles applied to version badge in side drawer menu."
         }
       }
     },

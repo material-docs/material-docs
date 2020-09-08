@@ -17,6 +17,7 @@ export interface MarkdownProps
     inline?: boolean;
     /**
      * data - data structure, used as storage to store components or other data, which can not describe via markdown.
+     * @default {}
      * @type object
      * @example
      * You can use data prop to provide your markdown with DemoWithCode demo element.

@@ -22,6 +22,7 @@ export interface ExpansionCodeProps
     noTag?: boolean;
     /**
      * collapsedHeight - height of the component when it is collapsed.
+     * @default 100
      * @type number | string
      */
     collapsedHeight?: number | string;

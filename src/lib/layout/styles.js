@@ -68,12 +68,6 @@ export const useStyles = makeStyles((theme) => ({
         }),
         marginLeft: 0,
     },
-    pageActive: {
-        color: blue[300],
-    },
-    nested: {
-        paddingLeft: theme.spacing(4),
-    },
     headerText: {
         flexGrow: 1,
     },
