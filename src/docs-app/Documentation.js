@@ -47,6 +47,7 @@ import DocsMenu from "@danilandreev/material-docs/components/DocsMenu/DocsMenu";
 import AutoDocsMenu from "@danilandreev/material-docs/components/AutoDocsMenu/AutoDocsMenu";
 import Landing from "@danilandreev/material-docs/components/Landing/Landing";
 import MaterialDocsLanding from "./pages/MaterialDocsLanding";
+import CreatingMaterialDocs from "./pages/Tutorials/CreatingMaterialDocs";
 
 
 export default function Documentation() {
@@ -115,7 +116,7 @@ export default function Documentation() {
                     </PagesGroup>
                 </PagesGroup>
                 <PagesGroup name={"Tutorials"}>
-
+                    <CreatingMaterialDocs/>
                 </PagesGroup>
             </DocsPages>
         </DocsLayout>
