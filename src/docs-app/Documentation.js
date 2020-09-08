@@ -48,6 +48,7 @@ import AutoDocsMenu from "@danilandreev/material-docs/components/AutoDocsMenu/Au
 import Landing from "@danilandreev/material-docs/components/Landing/Landing";
 import MaterialDocsLanding from "./pages/MaterialDocsLanding";
 import CreatingMaterialDocs from "./pages/Tutorials/CreatingMaterialDocs";
+import HeadersDemo from "./pages/Components/HeadersHemo";
 
 
 export default function Documentation() {
@@ -84,6 +85,7 @@ export default function Documentation() {
                 <PagesGroup name={"Components"}>
                     <ListsDemo/>
                     <LayoutDemo/>
+                    <HeadersDemo/>
                 </PagesGroup>
                 <PagesGroup name={"Component APIs"}>
                     <DocsLayoutAPI/>
