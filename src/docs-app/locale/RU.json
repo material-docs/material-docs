@@ -16,6 +16,88 @@
         "customAnchors": "Пользовательские якоря",
         "anchorInfo": "Вы можете задавать якорь для заголовка вручную с помощью параметра ```id```. Если он не указан - заголовок автоматически сгенерирует якорь из своего содержимого."
       },
+      "MarkdownDemo": {
+        "pageAbout": "Markdown - компонент, предназначенный для преобразования текста в нотации markdown в Material Docs.",
+        "infoBlock1": "Markdown - это упрощенный язык разметки, которы удобно использовать для создания статей, заметок и тому подобного.",
+        "overviewExample": "Обзорный пример",
+        "moreInfo": "Больше информации",
+        "moreInfoDetails": "Если вы хотите получить дополнительную информацию о синтаксисе markdown - смотрите [этот гайд](https://www.markdownguide.org/basic-syntax/)",
+        "deepIntegration": "Глубокая интеграция",
+        "infoBlock2": "Классически, __markdown__ поддреживает два вида блоков кода: строчный и блочный. В Material Docs существует три способа продемонстрировать код - с помощью компонентов: ```Code```, ```ExpansionCode```, ```DemoWithCode```. Вы можете выбирать один из этих компонентов прямо в markdown коде.",
+        "codeComponents": [
+          {
+            "name": "Code",
+            "key": "code",
+            "params": [
+              {
+                "name": "type",
+                "description": "Тип блока с кодом. Для Code - \"code\""
+              },
+              {
+                "name": "theme",
+                "description": "Параметр theme для компонента Code."
+              },
+              {
+                "name": "language",
+                "description": "Названия языкового паккета для компонента Code."
+              }
+            ]
+          },
+          {
+            "name": "Expansion code",
+            "key": "expansion-code",
+            "params": [
+              {
+                "name": "type",
+                "description": "Тип блока с кодом. Для ExpansionCode - \"expansion-code\""
+              },
+              {
+                "name": "theme",
+                "description": "Параметр theme для компонента Code."
+              },
+              {
+                "name": "name",
+                "description": "Параметр name для элемента ExpansionCode. Будет показан в заголовке H3."
+              },
+              {
+                "name": "language",
+                "description": "Названия языкового паккета для компонента Code."
+              },
+              {
+                "name": "collapsedHeight",
+                "description": "Параметр collapsedHeight для компонента Code. Высота блока с кодом когда он закрыт."
+              }
+            ]
+          },
+          {
+            "name": "Demo with code",
+            "key": "demo-with-code",
+            "description": "If you want to provide ```DemoWithCode``` element with demo component, you should pass to ```Markdown``` component prop data with object. Then pass key to demo param in markdown code block and ```Markdown``` will get demo component from data.",
+            "params": [
+              {
+                "name": "type",
+                "description": "Тип блока с кодом. Для DemoWithCode - \"demo-with-code\""
+              },
+              {
+                "name": "theme",
+                "description": "Параметр theme для компонента Code."
+              },
+              {
+                "name": "name",
+                "description": "Параметр name для элемента DemoWithCode. Будет показан в заголовке H3."
+              },
+              {
+                "name": "language",
+                "description": "Названия языкового паккета для компонента Code."
+              },
+              {
+                "name": "demo",
+                "description": "Ключ переменной в объекте data."
+              }
+            ]
+          }
+        ]
+      },
       "DocsPageAPI": {
         "pageAbout": "The API documentation of the DocsPage React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "DocsPage - react component, designed to provide user with page functional",

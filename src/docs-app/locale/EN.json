@@ -18,10 +18,85 @@
       },
       "MarkdownDemo": {
         "pageAbout": "Markdown - component, designed to convert text in markdown notation to Material Docs.",
-        "infoBlock1": "Markdown - это упрощенный язык разметки, которы удобно использовать для создания статей, заметок и тому подобного.",
+        "infoBlock1": "Markdown is a lightweight markup language that you can use to create articles, notes, etc.",
         "overviewExample": "Overview example",
+        "moreInfo": "More info",
+        "moreInfoDetails": "If you want to get more info about markdown syntax - see [this guide](https://www.markdownguide.org/basic-syntax/)",
         "deepIntegration": "Deep integration",
-        "infoBlock2": "Классически, __markdown__ поддреживает два вида блоков кода: строчный и блочный. В Material Docs существует три способа продемонстрировать код - с помощью компонентов: ```Code```, ```ExpansionCode```, ```DemoWithCode```. Вы можете выбирать один из этих компонентов прямо в markdown коде."
+        "infoBlock2": "Classically, __markdown__ supports two kinds of code blocks: inline and block. In Material Docs, there are three ways to demonstrate code - using components: ```Code```, ```ExpansionCode```, ```DemoWithCode```. You can select one of these components right in the markdown code.",
+        "codeComponents": [
+          {
+            "name": "Code",
+            "key": "code",
+            "params": [
+              {
+                "name": "type",
+                "description": "Type of code block. For Code - \"code\""
+              },
+              {
+                "name": "theme",
+                "description": "Theme param for Code component."
+              },
+              {
+                "name": "language",
+                "description": "Language name for Code component."
+              }
+            ]
+          },
+          {
+            "name": "Expansion code",
+            "key": "expansion-code",
+            "params": [
+              {
+                "name": "type",
+                "description": "Type of code block. For ExpansionCode - \"expansion-code\""
+              },
+              {
+                "name": "theme",
+                "description": "Theme param for Code component."
+              },
+              {
+                "name": "name",
+                "description": "The name param for ExpansionCode element. Will be displayed in H3 header."
+              },
+              {
+                "name": "language",
+                "description": "Language name for Code component."
+              },
+              {
+                "name": "collapsedHeight",
+                "description": "collapsedHeight param for Code component. This is a code block height when it is collapsed."
+              }
+            ]
+          },
+          {
+            "name": "Demo with code",
+            "key": "demo-with-code",
+            "description": "If you want to provide ```DemoWithCode``` element with demo component, you should pass to ```Markdown``` component prop data with object. Then pass key to demo param in markdown code block and ```Markdown``` will get demo component from data.",
+            "params": [
+              {
+                "name": "type",
+                "description": "Type of code block. For DemoWithCode - \"demo-with-code\""
+              },
+              {
+                "name": "theme",
+                "description": "Theme param for Code component."
+              },
+              {
+                "name": "name",
+                "description": "The name param for DemoWithCode element. Will be displayed in H3 header."
+              },
+              {
+                "name": "language",
+                "description": "Language name for Code component."
+              },
+              {
+                "name": "demo",
+                "description": "Key of variable in data object."
+              }
+            ]
+          }
+        ]
       },
       "DocsPageAPI": {
         "pageAbout": "The API documentation of the DocsPage React component. Learn more about the props and the CSS customization points.",
