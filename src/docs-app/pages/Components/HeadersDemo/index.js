@@ -12,6 +12,7 @@ import {TaggingContext} from "@danilandreev/material-docs/hooks/useTags";
 import AllHeaders from "../../../examples/Headers/AllHeaders";
 import Code from "@danilandreev/material-docs/components/Code/Code";
 import Block from "@danilandreev/material-docs/components/Block/Block";
+import Box from "@material-ui/core/Box";
 
 const AllHeadersCode = `
 import React from "react";
@@ -63,9 +64,11 @@ export default function HeadersDemo() {
                 defaultExpanded
                 name={"Headers example"}
             >
-                <TaggingContext.Provider value={{setTag: () => {}, removeTag: () => {}, tags: {}}}>
-                    <AllHeaders/>
-                </TaggingContext.Provider>
+                <Box p={2}>
+                    <TaggingContext.Provider value={{setTag: () => {}, removeTag: () => {}, tags: {}}}>
+                        <AllHeaders/>
+                    </TaggingContext.Provider>
+                </Box>
             </DemoWithCode>
             <H2>Settings</H2>
             <H3 noDivider>Автоматическая генерация содержания страницы</H3>

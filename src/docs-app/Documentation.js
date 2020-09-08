@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import logo from "./../logo.svg";
+import logo from "./logo.svg";
 
 // API pages
 import DocsPageAPI from "./pages/APIs/DocsPageAPI";
@@ -48,7 +48,8 @@ import AutoDocsMenu from "@danilandreev/material-docs/components/AutoDocsMenu/Au
 import Landing from "@danilandreev/material-docs/components/Landing/Landing";
 import MaterialDocsLanding from "./pages/MaterialDocsLanding";
 import CreatingMaterialDocs from "./pages/Tutorials/CreatingMaterialDocs";
-import HeadersDemo from "./pages/Components/HeadersHemo";
+import HeadersDemo from "./pages/Components/HeadersDemo";
+import MarkdownDemo from "./pages/Components/MarkdownDemo";
 
 
 export default function Documentation() {
@@ -86,6 +87,7 @@ export default function Documentation() {
                     <ListsDemo/>
                     <LayoutDemo/>
                     <HeadersDemo/>
+                    <MarkdownDemo/>
                 </PagesGroup>
                 <PagesGroup name={"Component APIs"}>
                     <DocsLayoutAPI/>
