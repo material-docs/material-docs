@@ -3,6 +3,26 @@
   "label": "English",
   "locale": {
     "pages": {
+      "HeadersDemo": {
+        "pageAbout": "Headers can be used to separate information by sense.",
+        "infoBlock1": "You can use 6 types of headers: ```H1```, ```H2```, ```H3```, ```H4```, ```H5```. They differ from each other in size and in that headings below H3 do not draw a dividing line by default and are not added to the automatically generated page content block. The larger the number in the title, the smaller its size. Thus, ```H1``` is the largest heading, and ```H6``` is the smallest.",
+        "headersExample": "Headers example",
+        "contentAutoGeneration": "Automatic generation of page content",
+        "tagsInfo": "To prevent the title from creating paragraphs in the automatic content of the page - pass it the __parameter__ ```noTag```. If the title creates is present in the content - when you hover over it with the mouse - the button for changing the anchor will be displayed on the left for conveniently specifying the place on the page when copying __url__.",
+        "noTagInfo": "> By default, for headers ```H1```, ```H2```, ```H3``` __prop__ ```noTag = false```",
+        "divider": "Divider",
+        "dividerInfo": "To prevent the title from having a separator line - pass it the __ parameter__ ```noDivider```.",
+        "noDividerInfo": "> By default, for headers ```H1```, ```H2```, ```H3``` __prop__ ```noDivider = false```",
+        "customAnchors": "Custom anchors",
+        "anchorInfo": "You can set the anchor for the title manually using the ```id``` parameter. If not specified, the title will automatically generate an anchor from its content."
+      },
+      "MarkdownDemo": {
+        "pageAbout": "Markdown - component, designed to convert text in markdown notation to Material Docs.",
+        "infoBlock1": "Markdown - это упрощенный язык разметки, которы удобно использовать для создания статей, заметок и тому подобного.",
+        "overviewExample": "Overview example",
+        "deepIntegration": "Deep integration",
+        "infoBlock2": "Классически, __markdown__ поддреживает два вида блоков кода: строчный и блочный. В Material Docs существует три способа продемонстрировать код - с помощью компонентов: ```Code```, ```ExpansionCode```, ```DemoWithCode```. Вы можете выбирать один из этих компонентов прямо в markdown коде."
+      },
       "DocsPageAPI": {
         "pageAbout": "The API documentation of the DocsPage React component. Learn more about the props and the CSS customization points.",
         "pageSearchDescription": "DocsPage - react component, designed to provide user with page functional",

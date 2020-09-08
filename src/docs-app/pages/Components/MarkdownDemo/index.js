@@ -11,6 +11,7 @@ import MarkdownOverview from "../../../examples/Markdown/MarkdownOverview";
 import {TaggingContext} from "@danilandreev/material-docs/hooks/useTags";
 import Box from "@material-ui/core/Box";
 import Markdown from "@danilandreev/material-docs/components/Markdown/Markdown";
+import useLang from "@danilandreev/material-docs/hooks/useLang/useLang";
 
 const MarkdownOverviewCode = `
 import React from "react";
@@ -37,6 +38,9 @@ export default function MarkdownOverview() {
 `.trim();
 
 export default function MarkdownDemo() {
+    const {lang} = useLang();
+    const locale = lang.locale.pages.MarkdownDemo;
+
     return (
         <DocsPage
             name={"Markdown"}
@@ -45,16 +49,14 @@ export default function MarkdownDemo() {
             searchTags={["markdown", "interpreter", "parser", "generator", "demo"]}
         >
             <H1>Markdown</H1>
-            <H3 noTag noDivider>Markdown - component, designed to convert text in markdown notation to Material Docs</H3>
-            <Markdown>
-                Markdown - это упрощенный язык разметки, которы удобно использовать для создания статей, заметок и тому подобного.
-            </Markdown>
+            <H3 noTag noDivider>{locale.pageAbout}</H3>
+            <Markdown>{locale.infoBlock1}</Markdown>
             <DemoWithCode
                 code={MarkdownOverviewCode}
                 theme={"darcula"}
                 paperContainer
                 defaultExpanded
-                name={"Overview example"}
+                name={locale.overviewExample}
             >
                 <Box p={2}>
                     <TaggingContext.Provider value={{setTag: () => {}, removeTag: () => {}, tags: {}}}>
@@ -62,12 +64,8 @@ export default function MarkdownDemo() {
                     </TaggingContext.Provider>
                 </Box>
             </DemoWithCode>
-            <H2>Deep integration</H2>
-            <Markdown>
-                Классически, __markdown__ поддреживает два вида блоков кода: строчный и блочный. В Material Docs
-                существует три способа продемонстрировать код - с помощью компонентов: ```Code```, ```ExpansionCode```, ```DemoWithCode```.
-                Вы можете выбирать один из этих компонентов прямо в markdown коде.
-            </Markdown>
+            <H2>{locale.deepIntegration}</H2>
+            <Markdown>{locale.infoBlock2}</Markdown>
         </DocsPage>
     );
 }

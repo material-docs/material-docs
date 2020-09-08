@@ -5,6 +5,7 @@
 
 import React from "react";
 import logo from "./logo.svg";
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 // API pages
 import DocsPageAPI from "./pages/APIs/DocsPageAPI";
@@ -72,6 +73,9 @@ export default function Documentation() {
                 "markdown-converter"
             ]}
             version={"1.0.0"}
+            actions={[
+                {icon: <GitHubIcon />, link: "https://github.com/DanilAndreev/material-docs", tooltip: "Github source code"}
+            ]}
         >
             <DocsMenu dense>
                 <AutoDocsMenu/>
