@@ -240,13 +240,13 @@
             "name": "theme",
             "type": "\"light\"",
             "default": "\"light\" | \"dark\" | \"darcula\"",
-            "description": "\tCode highlighting and background styling type."
+            "description": "Code highlighting and background styling type."
           },
           {
             "name": "children",
             "type": "string",
             "default": "",
-            "description": "\tCode to display in code highlighter."
+            "description": "Code to display in code highlighter."
           }
         ],
         "enableCss": true,
@@ -760,7 +760,7 @@
             "name": "scope",
             "type": "string",
             "default": "",
-            "description": "\tSet scope attribute."
+            "description": "Set scope attribute."
           },
           {
             "name": "size",
@@ -954,7 +954,7 @@
             "name": "dense",
             "type": "boolean",
             "default": "false",
-            "description": "Ff true, menu wll have smaller spacing between items."
+            "description": "If true, menu will have smaller spacing between items."
           },
           {
             "name": "children",

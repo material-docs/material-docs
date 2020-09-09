@@ -240,13 +240,13 @@
             "name": "theme",
             "type": "\"light\"",
             "default": "\"light\" | \"dark\" | \"darcula\"",
-            "description": "\tТип стиля выделения кода и заднего офна."
+            "description": "Тип стиля выделения кода и заднего офна."
           },
           {
             "name": "children",
             "type": "string",
             "default": "",
-            "description": "\tКод, который будет отображен в компоненте."
+            "description": "Код, который будет отображен в компоненте."
           }
         ],
         "enableCss": true,
@@ -947,62 +947,62 @@
       "DocsMenuAPI": {
         "pageAbout": "API документация компонента React DocsMenu. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsMenu - react component, designed to create menu.",
-        "ComponentNameText": "The DocsMenu может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название DocsMenu может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "dense",
             "type": "boolean",
             "default": "false",
-            "description": "Ff true, menu wll have smaller spacing between items."
+            "description": "Если true, то в меню будет меньший интервал между элементами."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element. Normally DocsMenuItem."
+            "description": "Потомки элемента. Штатно - DocsMenuItem."
           }
         ],
         "forwardRef": true,
         "enableCss": false,
         "css": {},
-        "noCssText": "This is service element. It doesn't have any styles."
+        "noCssText": "Это служебный компонент, который не имеет стилей."
       },
       "DocsPagesAPI": {
         "pageAbout": "API документация компонента React DocsPages. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsPages - react component, designed to create pages.",
-        "ComponentNameText": "The DocsPages может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название DocsPages может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element. Normally DocsPage."
+            "description": "Потомки элемента. Штатно - DocsPage."
           }
         ],
         "forwardRef": true,
         "enableCss": false,
         "css": {},
-        "noCssText": "This is service element. It doesn't have any styles."
+        "noCssText": "Это служебный компонент, который не имеет стилей."
       },
       "ListItemContainedAPI": {
         "pageAbout": "API документация компонента React ListItemContained. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "ListItemContained - react component, designed to add list items nesting mechanism.",
-        "ComponentNameText": "The ListItemContained может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название ListItemContained может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element. Normally ListItem."
+            "description": "Потомки элемента. Штатно - ListItem."
           }
         ],
         "forwardRef": true,
         "enableCss": false,
         "css": {},
-        "noCssText": "This is service element. It doesn't have any styles."
+        "noCssText": "Это служебный компонент, который не имеет стилей."
       },
       "DocsLayoutAPI": {
         "pageAbout": "API документация компонента React DocsLayout. Узнайте больше о props и CSS кастомизации.",
