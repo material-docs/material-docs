@@ -14,4 +14,14 @@ export interface AutoDocsMenuProps {
     layoutData?: PagesGroupData;
 }
 
+/**
+ * AutoDocsMenu - react component, designed to generate menu automatically. Used with <PagesGroup/> component.
+ * @param {AutoDocsMenuProps} props
+ * @constructor
+ * @see http://material-docs.com/component-apis/autodocsmenuapi
+ * @example
+ * <DocsMenu>
+ *     <AutoDocsMenu/>
+ * </DocsMenu>
+ */
 export default function AutoDocsMenu(props: AutoDocsMenuProps): JSX.Element;

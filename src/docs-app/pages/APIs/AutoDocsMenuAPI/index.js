@@ -26,7 +26,7 @@ export default function AutoDocsMenuAPI() {
             lang={lang}
             localeName={"AutoDocsMenuAPI"}
             searchTags={["auto", "menu", "docs", "system", "api"]}
-            name={"AutoDocsMenuAPI"}
+            name={"AutoDocsMenu"}
             importCode={importCode}
         >
             <H2>Demos</H2>

@@ -41,7 +41,7 @@ export default function BoldAPI() {
             lang={lang}
             localeName={"BoldAPI"}
             searchTags={["bold", "font", "text", "styling", "api"]}
-            name={"BoldAPI"}
+            name={"Bold"}
             importCode={importCode}
         >
             <H2>Demos</H2>

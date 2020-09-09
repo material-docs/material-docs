@@ -41,7 +41,7 @@ export default function MarkdownAPI() {
             lang={lang}
             localeName={"MarkdownAPI"}
             searchTags={["mark", "down", "parser", "interpret", "layout", "api"]}
-            name={"MarkdownAPI"}
+            name={"Markdown"}
             importCode={importCode}
         >
             <H2>Demos</H2>

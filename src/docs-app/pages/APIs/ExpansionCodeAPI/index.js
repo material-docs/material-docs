@@ -26,7 +26,7 @@ export default function ExpansionCodeAPI() {
             lang={lang}
             localeName={"ExpansionCodeAPI"}
             searchTags={["demo", "with", "code", "api"]}
-            name={"ExpansionCodeAPI"}
+            name={"ExpansionCode"}
             importCode={importCode}
         >
             <H2>Demos</H2>

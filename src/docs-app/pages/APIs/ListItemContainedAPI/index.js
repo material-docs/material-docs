@@ -41,7 +41,7 @@ export default function ListItemContainedAPI() {
             lang={lang}
             localeName={"ListItemContainedAPI"}
             searchTags={["list", "item", "contain", "api"]}
-            name={"ListItemContainedAPI"}
+            name={"ListItemContained"}
             importCode={importCode}
         >
             <H2>Demos</H2>

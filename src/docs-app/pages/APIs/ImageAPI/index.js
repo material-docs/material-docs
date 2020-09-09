@@ -41,7 +41,7 @@ export default function ImageAPI() {
             lang={lang}
             localeName={"ImageAPI"}
             searchTags={["image", "lazy", "load", "picture", "card", "banner", "logo"]}
-            name={"ImageAPI"}
+            name={"Image"}
             importCode={importCode}
         >
             <H2>Demos</H2>

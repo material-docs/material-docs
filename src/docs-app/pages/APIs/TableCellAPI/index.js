@@ -41,7 +41,7 @@ export default function TableCellAPI() {
             lang={lang}
             localeName={"TableCellAPI"}
             searchTags={["table", "cell", "row", "header", "api"]}
-            name={"TableCellAPI"}
+            name={"TableCell"}
             importCode={importCode}
         >
             <H2>Demos</H2>

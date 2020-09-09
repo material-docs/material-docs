@@ -26,7 +26,7 @@ export default function DocsPageAPI() {
             lang={lang}
             localeName={"DocsPageAPI"}
             searchTags={["docs", "page", "api"]}
-            name={"DocsPageAPI"}
+            name={"DocsPage"}
             importCode={importCode}
         >
             <H2>Demos</H2>

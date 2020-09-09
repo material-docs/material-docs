@@ -26,7 +26,7 @@ export default function ListAPI() {
             lang={lang}
             localeName={"ListAPI"}
             searchTags={["list", "image", "styling", "api"]}
-            name={"ListAPI"}
+            name={"List"}
             importCode={importCode}
         >
             <H2>Demos</H2>

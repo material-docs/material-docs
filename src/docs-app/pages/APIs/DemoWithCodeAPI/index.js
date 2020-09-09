@@ -26,7 +26,7 @@ export default function DemoWithCodeAPI() {
             lang={lang}
             localeName={"DemoWithCodeAPI"}
             searchTags={["demo", "with", "code", "api", "showing", "code"]}
-            name={"DemoWithCodeAPI"}
+            name={"DemoWithCode"}
             importCode={importCode}
         >
             <H2>Demos</H2>
