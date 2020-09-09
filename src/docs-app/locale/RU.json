@@ -227,142 +227,142 @@
       "CodeAPI": {
         "pageAbout": "API документация компонента React Code. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Code - компонент react, созданный для того, чтоб демонстрировать код.",
-        "ComponentNameText": "The Code name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "Название Code может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "language",
             "type": "string",
             "default": "\"javascript\"",
-            "description": "Language name for code highlighter."
+            "description": "Название языка для выделения синтаксиса кода."
           },
           {
             "name": "theme",
             "type": "\"light\"",
             "default": "\"light\" | \"dark\" | \"darcula\"",
-            "description": "\tCode highlighting and background styling type."
+            "description": "\tТип стиля выделения кода и заднего офна."
           },
           {
             "name": "children",
             "type": "string",
             "default": "",
-            "description": "\tCode to display in code highlighter."
+            "description": "\tКод, который будет отображен в компоненте."
           }
         ],
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
-          "highlighterContainer": "Styles applied to the code highlighter container."
+          "root": "Стили, примененные к корневому элементу.",
+          "highlighterContainer": "Стили, примененные к контейнеру выделителю кода."
         }
       },
       "PagesGroupAPI": {
-        "pageAbout": "The API documentation of the PagesGroup React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "PagesGroup - react component, designed to combine pages in groups for AutoDocsMenu.",
-        "ComponentNameText": "The PagesGroup name can be used for providing default props or style overriders at the theme level.",
+        "pageAbout": "API документация компонента React PagesGroup. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "PagesGroup - компонент react, созданный для объединения страниц в смысловые группы.",
+        "ComponentNameText": "Название PagesGroup может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "name",
             "type": "string",
             "default": "",
-            "description": "Name of the group. Will be displayed on button in menu."
+            "description": "Название группы. Будет отображено на кнопке в меню."
           },
           {
             "name": "getData",
             "type": "(data: PagesGroupData): void",
             "default": "",
-            "description": "Callback, provided to get group data without context usage."
+            "description": "Функция обратного вызова, обеспечивающая получение данных групы без использования контекстов."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element."
+            "description": "Дети компонента."
           }
         ],
         "enableCss": false,
-        "noCssText": "This is a service component. It doesn't generate html elements."
+        "noCssText": "Это служебный компонент, который не создает html элементы."
       },
       "ImageAPI": {
-        "pageAbout": "The API documentation of the Image React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React Image. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Image - react component, designed to show images. Image component uses lazy load technology.",
-        "ComponentNameText": "The Image name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "Название Image может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "src",
             "type": "string",
             "default": "",
-            "description": "Source link. Used to define image path."
+            "description": "Ссылка на ресурс. Использовано для указание пути к изображению."
           },
           {
             "name": "alt",
             "type": "string",
             "default": "",
-            "description": "Alternative text. Will be displayed if image can not load."
+            "description": "Альтернативный текст. Будет отображено в том случае, если изображение не может быть загружено."
           },
           {
             "name": "fullWidth",
             "type": "boolean",
             "default": "false",
-            "description": "If true - image will be 100 percent wide."
+            "description": "Если true - изображение будет занимать 100% ширины."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Elements, which will appear in image caption."
+            "description": "Элементы, которые будут отображены в комментарии к изображению."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
-          "fullWidth": "Styles applied to the root component if fullWidth prop is true."
+          "root": "Стили, примененные к корневому элементу.",
+          "fullWidth": "Стили, примененные к корневому элементу если проп fullWidth равен true."
         }
       },
       "ListItemAPI": {
-        "pageAbout": "The API documentation of the ListItem React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React ListItem. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "ListItem - react component, designed to generate list. Component simulates list item component.",
-        "ComponentNameText": "The ListItem name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "Название ListItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "type",
             "type": "\"circle\" | \"square\" | \"upper-roman\" | \"lower-alpha\" | \"none\"",
             "default": "\"circle\"",
-            "description": "Type of list decoration."
+            "description": "Тип декорации списка."
           },
           {
             "name": "dense",
             "type": "boolean",
             "default": "false",
-            "description": "If true, vertical distance between list items will be smaller."
+            "description": "Если true - вертикальная дистанция между элементами списка будет меньше."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element."
+            "description": "Дети компонента."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
-          "typeCircle": "Styles applied to the root component if type prop equals circle.",
-          "typeSquare": "Styles applied to the root component if type prop equals square.",
-          "typeRoman": "Styles applied to the root component if type prop equals upper-roman.",
-          "typeAlpha": "Styles applied to the root component if type prop equals lower-alpha.",
-          "typeNone": "Styles applied to the root component if type prop equals none.",
-          "list": "Styles applied to the inner ul element.",
-          "dense": "Styles applied to the root element if prop dense is true."
+          "root": "Стили, примененные к корневому элементу.",
+          "typeCircle": "Стили, примененные к корневому элементу если проп type равен circle.",
+          "typeSquare": "Стили, примененные к корневому элементу если проп type равен square.",
+          "typeRoman": "Стили, примененные к корневому элементу если проп type равен upper-roman.",
+          "typeAlpha": "Стили, примененные к корневому элементу если проп type равен lower-alpha.",
+          "typeNone": "Стили, примененные к корневому элементу если проп type равен none.",
+          "list": "Стили, примененные к внутреннему элементу ul.",
+          "dense": "Стили, примененные к корневому элементу если проп dense равен true."
         }
       },
       "ExpansionCodeAPI": {
-        "pageAbout": "The API documentation of the ExpansionCode React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React ExpansionCode. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "ExpansionCode - react component, designed to show code in collapsable blocks. User can view full code or part of code.",
-        "ComponentNameText": "The ExpansionCode name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The ExpansionCode может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -411,7 +411,7 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "collapsedCode": "Styles applied to the div element between Collapse component and Code component when code is collapsed.",
           "collapse": "Styles applied to the Collapse component, which contains Code.",
           "toolbar": "Styles applied to the Toolbar component.",
@@ -420,9 +420,9 @@
         }
       },
       "BlockAPI": {
-        "pageAbout": "The API documentation of the Block React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React Block. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Block - react component, designed to show slided information blocks, such as tips, notes, etc.",
-        "ComponentNameText": "The Block name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The Block может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -441,15 +441,15 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "colorLight": "Styles applied to the root element when prop color equals \"light\"",
           "colorDark": "Styles applied to the root element when prop color equals \"dark\""
         }
       },
       "CodeSpanAPI": {
-        "pageAbout": "The API documentation of the CodeSpan React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React CodeSpan. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "CodeSpan - react component, designed to show code in monospace font inside inline code block.",
-        "ComponentNameText": "The CodeSpan name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The CodeSpan может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -474,7 +474,7 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "colorDefault": "Styles applied to the root element when prop color equals \"default\"",
           "colorPrimary": "Styles applied to the root element when prop color equals \"primary\"",
           "colorSecondary": "Styles applied to the root element when prop color equals \"secondary\"",
@@ -486,9 +486,9 @@
         }
       },
       "ItalicAPI": {
-        "pageAbout": "The API documentation of the Italic React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React Italic. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Italic - react component, designed to make text italic.",
-        "ComponentNameText": "The Italic name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The Italic может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -501,14 +501,14 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "italic": "Styles applied to the root element, provides italic text styling."
         }
       },
       "ListAPI": {
-        "pageAbout": "The API documentation of the List React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React List. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "List - react component, designed to show code in monospace font inside inline code block.",
-        "ComponentNameText": "The List name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The List может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -533,7 +533,7 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "stylePositionInside": "Styles applied to the root element when prop styling equals \"inside\"",
           "stylePositionOutside": "Styles applied to the root element when prop styling equals \"outside\"",
           "stylePositionInherit": "Styles applied to the root element when prop styling equals \"inherit\"",
@@ -542,9 +542,9 @@
         }
       },
       "DocsMenuItemAPI": {
-        "pageAbout": "The API documentation of the DocsMenuItem React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React DocsMenuItem. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsMenuItem - react component, designed create menu items for <DocsMenu/>.",
-        "ComponentNameText": "The DocsMenuItem name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The DocsMenuItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -611,15 +611,15 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "highlighted": "Styles applied to the root element when prop isCurrent equals or returned true",
           "collapse": "Styles applied to the Collapse element for nested menu items."
         }
       },
       "MarkdownAPI": {
-        "pageAbout": "The API documentation of the DocsMenuItem React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React DocsMenuItem. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsMenuItem - react component, designed create menu items for <DocsMenu/>.",
-        "ComponentNameText": "The DocsMenuItem name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The DocsMenuItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -644,13 +644,13 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element."
+          "root": "Стили, примененные к корневому элементу."
         }
       },
       "TableAPI": {
-        "pageAbout": "The API documentation of the Table React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React Table. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Table - react component, designed to create tables.",
-        "ComponentNameText": "The Table name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The Table может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -687,14 +687,14 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "stickyHeader": "Styles applied to the root element if stickyHeader={true}."
         }
       },
       "TableRowAPI": {
-        "pageAbout": "The API documentation of the TableRow React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React TableRow. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "TableRow - react component, designed to create tables.",
-        "ComponentNameText": "The TableRow name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The TableRow может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -725,7 +725,7 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "selected": "Pseudo-class applied to the root element if selected={true}.",
           "hover": "Pseudo-class applied to the root element if hover={true}.",
           "head": "Styles applied to the root element if table variant=\"head\".",
@@ -733,9 +733,9 @@
         }
       },
       "TableCellAPI": {
-        "pageAbout": "The API documentation of the TableCell React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React TableCell. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "TableCell - react component, designed to create tables.",
-        "ComponentNameText": "The TableCell name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The TableCell может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -790,7 +790,7 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "head": "Styles applied to the root element if variant=\"head\" or context.table.head.",
           "body": "Styles applied to the root element if variant=\"body\" or context.table.body.",
           "footer": "Styles applied to the root element if variant=\"footer\" or context.table.footer.",
@@ -805,9 +805,9 @@
         }
       },
       "TableBodyAPI": {
-        "pageAbout": "The API documentation of the TableBody React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React TableBody. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "TableBody - react component, designed to create tables.",
-        "ComponentNameText": "The TableBody name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The TableBody может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -826,13 +826,13 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element."
+          "root": "Стили, примененные к корневому элементу."
         }
       },
       "TableHeadAPI": {
-        "pageAbout": "The API documentation of the TableHead React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React TableHead. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "TableHead - react component, designed to create tables.",
-        "ComponentNameText": "The TableHead name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The TableHead может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -851,13 +851,13 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element."
+          "root": "Стили, примененные к корневому элементу."
         }
       },
       "BoldAPI": {
-        "pageAbout": "The API documentation of the Bold React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React Bold. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Bold - react component, designed to create tables.",
-        "ComponentNameText": "The Bold name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The Bold может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -870,14 +870,14 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "bold": "Styles applied to the root element with bold text styling."
         }
       },
       "AutoDocsMenuAPI": {
-        "pageAbout": "The API documentation of the AutoDocsMenu React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React AutoDocsMenu. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "AutoDocsMenu - react component, designed create tables.",
-        "ComponentNameText": "The AutoDocsMenu name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The AutoDocsMenu может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -893,9 +893,9 @@
         "noCssText": "This component is service and doesn't have any styles."
       },
       "LanguageSelectorAPI": {
-        "pageAbout": "The API documentation of the LanguageSelector React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React LanguageSelector. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "LanguageSelector - react component, designed to add language selection mechanism and locale management.",
-        "ComponentNameText": "The LanguageSelector name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The LanguageSelector может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -909,13 +909,13 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element."
+          "root": "Стили, примененные к корневому элементу."
         }
       },
       "SearchFieldAPI": {
-        "pageAbout": "The API documentation of the SearchField React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React SearchField. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "SearchField - react component, designed to add search mechanism.",
-        "ComponentNameText": "The SearchField name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The SearchField может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -934,7 +934,7 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "rootFocused": "Styles applied to the root element when result item is focused.",
           "input": "Styles applied to the Input element.",
           "iconButton": "Styles applied to the IconButton component.",
@@ -945,9 +945,9 @@
         }
       },
       "DocsMenuAPI": {
-        "pageAbout": "The API documentation of the DocsMenu React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React DocsMenu. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsMenu - react component, designed to create menu.",
-        "ComponentNameText": "The DocsMenu name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The DocsMenu может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -969,9 +969,9 @@
         "noCssText": "This is service element. It doesn't have any styles."
       },
       "DocsPagesAPI": {
-        "pageAbout": "The API documentation of the DocsPages React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React DocsPages. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsPages - react component, designed to create pages.",
-        "ComponentNameText": "The DocsPages name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The DocsPages может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -987,9 +987,9 @@
         "noCssText": "This is service element. It doesn't have any styles."
       },
       "ListItemContainedAPI": {
-        "pageAbout": "The API documentation of the ListItemContained React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React ListItemContained. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "ListItemContained - react component, designed to add list items nesting mechanism.",
-        "ComponentNameText": "The ListItemContained name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The ListItemContained может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -1005,9 +1005,9 @@
         "noCssText": "This is service element. It doesn't have any styles."
       },
       "DocsLayoutAPI": {
-        "pageAbout": "The API documentation of the DocsLayout React component. Learn more about the props and the CSS customization points.",
+        "pageAbout": "API документация компонента React DocsLayout. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsLayout - react component, designed to create MaterialDocs layout.",
-        "ComponentNameText": "The DocsLayout name can be used for providing default props or style overriders at the theme level.",
+        "ComponentNameText": "The DocsLayout может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -1128,7 +1128,7 @@
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
+          "root": "Стили, примененные к корневому элементу.",
           "appBar": "Styles applied to the AppBar element.",
           "appBarShift": "Styles applied to element, designed to compensate drawer.",
           "menuButton": "Styles applied to the menu button.",
