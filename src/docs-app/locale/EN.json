@@ -1041,12 +1041,6 @@
             "description": "Function, called on help to translate button click. If not defined - button will not be rendered."
           },
           {
-            "name": "autoMenu",
-            "type": "boolean",
-            "default": "false",
-            "description": "If true, menu will be generated automatically."
-          },
-          {
             "name": "router",
             "type": "\"hash-router\" | \"browser-router\"",
             "default": "\"browser-router\"",
