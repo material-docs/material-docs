@@ -508,137 +508,137 @@
       "ListAPI": {
         "pageAbout": "API документация компонента React List. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "List - react component, designed to show code in monospace font inside inline code block.",
-        "ComponentNameText": "The List может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название List может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "image",
             "type": "string",
             "default": "",
-            "description": "List styling image. If defined - will be applied to list-style-image style."
+            "description": "Изображение для декорации списка. Если определено - будет применено к list-style-image стилю."
           },
           {
             "name": "styling",
             "type": "\"inside\" | \"outside\" | \"inherit\" | \"revert\" | \"unset\"",
             "default": "\"inside\"",
-            "description": "List styling type."
+            "description": "Тип стилизации списка."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element."
+            "description": "Дети компонента."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "stylePositionInside": "Styles applied to the root element when prop styling equals \"inside\"",
-          "stylePositionOutside": "Styles applied to the root element when prop styling equals \"outside\"",
-          "stylePositionInherit": "Styles applied to the root element when prop styling equals \"inherit\"",
-          "stylePositionRevert": "Styles applied to the root element when prop styling equals \"revert\"",
-          "stylePositionUnset": "Styles applied to the root element when prop styling equals \"unset\""
+          "stylePositionInside": "Стили, примененные к корневому элементу когда проп styling равен \"inside\"",
+          "stylePositionOutside": "Стили, примененные к корневому элементу когда проп styling равен \"outside\"",
+          "stylePositionInherit": "Стили, примененные к корневому элементу когда проп styling равен \"inherit\"",
+          "stylePositionRevert": "Стили, примененные к корневому элементу когда проп styling равен \"revert\"",
+          "stylePositionUnset": "Стили, примененные к корневому элементу когда проп styling равен \"unset\""
         }
       },
       "DocsMenuItemAPI": {
         "pageAbout": "API документация компонента React DocsMenuItem. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsMenuItem - react component, designed create menu items for <DocsMenu/>.",
-        "ComponentNameText": "The DocsMenuItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название DocsMenuItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "defaultExpanded",
             "type": "boolean",
             "default": "false",
-            "description": "If true, panel will be expanded on startup."
+            "description": "Если true, панель будет раскрыта при загрузке."
           },
           {
             "name": "textPrimary",
             "type": "string",
             "default": "",
-            "description": "Primary text form menu list item."
+            "description": "Основной текст для элемента списка."
           },
           {
             "name": "textSecondary",
             "type": "string",
             "default": "",
-            "description": "Secondary text for menu list item. Will be displayed in the bottom."
+            "description": "Второстепенный текст для элемента списка. Будет отображён снизу."
           },
           {
             "name": "icon",
             "type": "string",
             "default": "node",
-            "description": "Icon, displayed in left corner. Used to customize menu item appearance."
+            "description": "Иконка, которая будет показана в левом углу. Используется для кастомизации элемента меню."
           },
           {
             "name": "onClick",
             "type": "function(event: any): void",
             "default": "",
-            "description": "Callback, will be triggered on onclick event handling."
+            "description": "Функция обратного вызова, будет вызваа при обработке события onclick."
           },
           {
             "name": "page",
             "type": "string | any",
             "default": "",
-            "description": "Page name for redirecting or object structure for routing-manager changeRoute."
+            "description": "Название страницы для переадресации или обьект для routing-manager changeRoute."
           },
           {
             "name": "link",
             "type": "string",
             "default": "",
-            "description": "Link to the page, which includes groups. If defined - will be used with highest priority."
+            "description": "Ссылка на страницу, которая включает групы. Если определена - будет использоваться с наивысшим приоритетом."
           },
           {
             "name": "isCurrent",
             "type": "(function(routeParams, pageRoute, page): boolean) | boolean",
             "default": "false",
-            "description": "If equals true or function returned true, button will be active. Used when displayed page, connected to this menu item."
+            "description": "Если true или функция вернула true, кнопка будет активной. Используется когда показана страница, относящаяся к это кнопке."
           },
           {
             "name": "dense",
             "type": "boolean",
             "default": "false",
-            "description": "If true, compact vertical padding designed for keyboard and mouse input will be used for the list and list items. The prop is available to descendant components as the dense context."
+            "description": "Если true, для списка и элементов списка будет использоваться компактное вертикальное заполнение, предназначенное для ввода с клавиатуры и мыши. Prop доступен для компонентов-потомков как dense контекст."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element."
+            "description": "Дети компонента."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "highlighted": "Styles applied to the root element when prop isCurrent equals or returned true",
-          "collapse": "Styles applied to the Collapse element for nested menu items."
+          "highlighted": "Стили, примененные к корневому элементу когда проп isCurrent равен или вернул true",
+          "collapse": "Стили, примененные к элементу Collapse для вложенных элементов меню."
         }
       },
       "MarkdownAPI": {
         "pageAbout": "API документация компонента React DocsMenuItem. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "DocsMenuItem - react component, designed create menu items for <DocsMenu/>.",
-        "ComponentNameText": "The DocsMenuItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название DocsMenuItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "inline",
             "type": "boolean",
             "default": "false",
-            "description": "If true, markdown container will be inline."
+            "description": "Если true, контейнер markdown будет строчным."
           },
           {
             "name": "data",
             "type": "object",
             "default": "{}",
-            "description": "Data structure, used as storage to store components or other data, which can not describe via markdown."
+            "description": "Структура данных, использующаяся для хранения компонентов или других данныъ, которые нельзя описать с помощью синтаксиса markdown."
           },
           {
             "name": "children",
             "type": "string | string[]",
             "default": "",
-            "description": "Markdown based notation. Used to generate visual elements."
+            "description": "Текст в нотации markdown. Используется для генерации визуальных элементов."
           }
         ],
         "forwardRef": true,
@@ -1151,11 +1151,7 @@
         "Import": "Импорт"
       },
       "ComponentAPI": {
-        "importDifferenceText": {
-          "text1": "Вы можете узнать больше о разнице, ",
-          "link1": "прочитав этот гайд",
-          "text2": "."
-        },
+        "importDifferenceText": "Вы можете узнать больше о разнице, [прочитав этот гайд](https://material-ui.com/guides/minimizing-bundle-size/).",
         "customizationText": "Вы можете переопределить стиль компонента следующими способами:",
         "customizationRule": "С помощью имени правила в ",
         "customizationClass": "С помощью",
