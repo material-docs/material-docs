@@ -159,74 +159,74 @@
         }
       },
       "DemoWithCodeAPI": {
-        "pageAbout": "The API documentation of the DemoWithCode React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "DemoWithCode - react component, designed to create code blocks with interactive demo.",
-        "ComponentNameText": "The DemoWithCode name can be used for providing default props or style overriders at the theme level.",
+        "pageAbout": "API документация компонента React DemoWithCode. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "DemoWithCode - react компонент для создания блоков кодв с интерактивной демонстрацией.",
+        "ComponentNameText": "Название DemoWithCode может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "name",
             "type": "string",
             "default": "",
-            "description": "Name of the component. Will be displayed in H3 header if defined."
+            "description": "Название блока. Если определено - будет показано в заголовке H3."
           },
           {
             "name": "code",
             "type": "string",
             "default": "",
-            "description": "Code to display in inner Code block."
+            "description": "Код, который будет показан во внутреннем блоке кода."
           },
           {
             "name": "ratio",
             "type": "AspectRatio",
             "default": "",
-            "description": "If defined, demo field will keep input aspect ratio."
+            "description": "Если определен - демонстрационный блок будет удерживать соотноошение сторонон, указанное в параметре."
           },
           {
             "name": "defaultExpanded",
             "type": "boolean",
             "default": "false",
-            "description": "If true - code area will be expanded on startup."
+            "description": "Если true - блок кода будет развернут при загрузке."
           },
           {
             "name": "noTag",
             "type": "boolean",
             "default": "false",
-            "description": "If true and name prop is defined - header with name will not generate tag for content tab."
+            "description": "Если true и проп name определен - заголовок с именем не будет генерировать информацию для автоматического содержания."
           },
           {
             "name": "paperContainer",
             "type": "boolean",
             "default": "false",
-            "description": "If true - demo content will be wrapped in Paper component."
+            "description": "Если true - демонстрационный блок будет обёрнут в компонент Paper."
           },
           {
             "name": "actions",
             "type": "DemoCodeAction[]",
             "default": "",
-            "description": "Array of additional actions. The actions will be displayed in the dropdown menu when you click the ExpandMore icon button."
+            "description": "Массив дополнительных действий. Действия будут отображены в выпадающем меню при нажатии на кнопку с иконкой ExpandMore."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element. Will be placed in demo block."
+            "description": "Дети компонента. Будут помещены в демонстрационный блок."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
-          "collapse": "Styles applied to the Collapse element, which contains code.",
-          "toolbar": "Styles applied to the Toolbar element with icon buttons and name.",
-          "paperContainer": "Styles applied to the Paper container element if paperContainer prop is true.",
-          "menuButtonLink": "Styles applied to link in extra actions menu.",
-          "demo": "Styles applied to demo block."
+          "root": "Стили, примененные к корневому элементу.",
+          "collapse": "Стили, примененные к компоненту Collapse, который содержит код.",
+          "toolbar": "Стили, примененные к компоненту Toolbar с иконками и названием.",
+          "paperContainer": "Стили, примененные к контейнеру Paper если проп paperContainer равен true.",
+          "menuButtonLink": "Стили, примененные к компоненту link в меню дополнительных действий.",
+          "demo": "Стили, примененные к дкмонстрационному блоку."
         }
       },
       "CodeAPI": {
-        "pageAbout": "The API documentation of the Code React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "Code - react component, designed to create code blocks.",
+        "pageAbout": "API документация компонента React Code. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "Code - компонент react, созданный для того, чтоб демонстрировать код.",
         "ComponentNameText": "The Code name can be used for providing default props or style overriders at the theme level.",
         "enableProps": true,
         "props": [
