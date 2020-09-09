@@ -650,177 +650,177 @@
       "TableAPI": {
         "pageAbout": "API документация компонента React Table. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Table - react component, designed to create tables.",
-        "ComponentNameText": "The Table может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название Table может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "component",
             "type": "elementType",
             "default": "\"table\"",
-            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+            "description": "Компонент, который будет использоваться для корневого узла. Или же строка для того, чтоб использовать HTML элемент или компонент."
           },
           {
             "name": "padding",
             "type": "\"default\" | \"checkbox\" | \"none\"",
             "default": "\"default\"",
-            "description": "Allows TableCells to inherit padding of the Table."
+            "description": "Позволяет TableCells наследовать padding у Table."
           },
           {
             "name": "size",
             "type": "\"small\" | \"medium\"",
             "default": "\"medium\"",
-            "description": "Allows TableCells to inherit size of the Table."
+            "description": "Позволяет TableCells наследовать size у Table."
           },
           {
             "name": "stickyHeader",
             "type": "boolean",
             "default": "false",
-            "description": "Set the header sticky."
+            "description": "Делает header липким."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "The content of the table, normally TableHead and TableBody."
+            "description": "Содержание таблицы, штатно - TableHead и TableBody."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "stickyHeader": "Styles applied to the root element if stickyHeader={true}."
+          "stickyHeader": "Стили, примененные к корневому элементу если stickyHeader={true}."
         }
       },
       "TableRowAPI": {
         "pageAbout": "API документация компонента React TableRow. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "TableRow - react component, designed to create tables.",
-        "ComponentNameText": "The TableRow может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название TableRow может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "component",
             "type": "elementType",
             "default": "\"tr\"",
-            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+            "description": "Компонент, который будет использоваться для корневого узла. Или же строка для того, чтоб использовать HTML элемент или компонент."
           },
           {
             "name": "hover",
             "type": "boolean",
             "default": "false",
-            "description": "If true, the table row will shade on hover."
+            "description": "Если true, строка таблицы будет затеняться при hover."
           },
           {
             "name": "selected",
             "type": "boolean",
             "default": "false",
-            "description": "If true, the table row will have the selected shading."
+            "description": "Если true, строка таблицы будет иметь selected затенение."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Should be valid <tr> children such as TableCell."
+            "description": "Должнаы быть правильныя <tr> дети, такие как TableCell."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "selected": "Pseudo-class applied to the root element if selected={true}.",
-          "hover": "Pseudo-class applied to the root element if hover={true}.",
-          "head": "Styles applied to the root element if table variant=\"head\".",
-          "footer": "Styles applied to the root element if table variant=\"footer\"."
+          "selected": "Псевдо-класс, примененный к порневому элементу, если selected={true}.",
+          "hover": "Псевдо-класс, примененный к порневому элементу, если hover={true}.",
+          "head": "Стили, примененные к корневому элементу если table variant=\"head\".",
+          "footer": "Стили, примененные к корневому элементу если table variant=\"footer\"."
         }
       },
       "TableCellAPI": {
         "pageAbout": "API документация компонента React TableCell. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "TableCell - react component, designed to create tables.",
-        "ComponentNameText": "The TableCell может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название TableCell может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "align",
             "type": "\"center\" | \"inherit\" | \"justify\" | \"left\" | \"right\"",
             "default": "\"inherit\"",
-            "description": "Set the text-align on the table cell content.\nMonetary or generally number fields should be right aligned as that allows you to add them up quickly in your head without having to worry about decimals."
+            "description": "Установите выравнивание текста для содержимого ячейки таблицы.\nДенежные или числовые поля должны быть выровнены по правому краю, так как это позволяет вам быстро складывать их в уме, не беспокоясь о десятичных дробях."
           },
           {
             "name": "component",
             "type": "elementType",
             "default": "false",
-            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+            "description": "Компонент, используемый для корневого узла. Либо строка для использования элемента HTML, либо компонента."
           },
           {
             "name": "padding",
             "type": "\"checkbox\" | \"default\" | \"none\"",
             "default": "\"default\"",
-            "description": "Sets the padding applied to the cell. By default, the Table parent component set the value (default)."
+            "description": "Устанавливает padding, применяемый к ячейке. По умолчанию родительский компонент Table устанавливает значение (по умолчанию)."
           },
           {
             "name": "scope",
             "type": "string",
             "default": "",
-            "description": "\tSet scope attribute."
+            "description": "Устанавливает атрибут scope."
           },
           {
             "name": "size",
             "type": "\"medium\" | \"small\"",
             "default": "\"medium\"",
-            "description": "Specify the size of the cell. By default, the Table parent component set the value (medium)."
+            "description": "Укажите размер ячейки. По умолчанию родительский компонент Таблица устанавливает значение (среднее)."
           },
           {
             "name": "sortDirection",
             "type": "\"asc\" | \"desc\" | \"false\"",
             "default": "\"false\"",
-            "description": "Set aria-sort direction."
+            "description": "Установите направление aria-sort."
           },
           {
             "name": "variant",
             "type": "\"body\" | \"footer\" | \"head\"",
             "default": "\"body\"",
-            "description": "Specify the cell type. By default, the TableHead, TableBody or TableFooter parent component set the value."
+            "description": "Укажите тип ячейки. По умолчанию родительский компонент TableHead, TableBody или TableFooter устанавливает значение."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "The table cell contents."
+            "description": "Содержимое ячейки таблицы."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "head": "Styles applied to the root element if variant=\"head\" or context.table.head.",
-          "body": "Styles applied to the root element if variant=\"body\" or context.table.body.",
-          "footer": "Styles applied to the root element if variant=\"footer\" or context.table.footer.",
-          "sizeSmall": "Styles applied to the root element if size=\"small\".",
-          "paddingCheckbox": "Styles applied to the root element if padding=\"checkbox\".",
-          "paddingNone": "Styles applied to the root element if padding=\"none\".",
-          "alignLeft": "Styles applied to the root element if align=\"left\".",
-          "alignCenter": "Styles applied to the root element if align=\"center\".",
-          "alignRight": "Styles applied to the root element if align=\"right\".",
-          "alignJustify": "Styles applied to the root element if align=\"justify\".",
-          "stickyHeader": "Styles applied to the root element if context.table.stickyHeader={true}."
+          "head": "Стили, примененные к корневому элементу если variant=\"head\" или context.table.head.",
+          "body": "Стили, примененные к корневому элементу если variant=\"body\" или context.table.body.",
+          "footer": "Стили, примененные к корневому элементу если variant=\"footer\" или context.table.footer.",
+          "sizeSmall": "Стили, примененные к корневому элементу если size=\"small\".",
+          "paddingCheckbox": "Стили, примененные к корневому элементу если padding=\"checkbox\".",
+          "paddingNone": "Стили, примененные к корневому элементу если padding=\"none\".",
+          "alignLeft": "Стили, примененные к корневому элементу если align=\"left\".",
+          "alignCenter": "Стили, примененные к корневому элементу если align=\"center\".",
+          "alignRight": "Стили, примененные к корневому элементу если align=\"right\".",
+          "alignJustify": "Стили, примененные к корневому элементу если align=\"justify\".",
+          "stickyHeader": "Стили, примененные к корневому элементу если context.table.stickyHeader={true}."
         }
       },
       "TableBodyAPI": {
         "pageAbout": "API документация компонента React TableBody. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "TableBody - react component, designed to create tables.",
-        "ComponentNameText": "The TableBody может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название TableBody может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "component",
             "type": "elementType",
             "default": "\"tbody\"",
-            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+            "description": "91/5000\nКомпонент, используемый для корневого узла. Либо строка для использования элемента HTML, либо компонента."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "The content of the component, normally TableRow."
+            "description": "Содержимое компонента, штатно - TableRow."
           }
         ],
         "forwardRef": true,
@@ -832,20 +832,20 @@
       "TableHeadAPI": {
         "pageAbout": "API документация компонента React TableHead. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "TableHead - react component, designed to create tables.",
-        "ComponentNameText": "The TableHead может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название TableHead может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "component",
             "type": "elementType",
             "default": "\"thead\"",
-            "description": "The component used for the root node. Either a string to use a HTML element or a component."
+            "description": "Компонент, используемый для корневого узла. Либо строка для использования элемента HTML, либо компонента."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "The content of the component, normally TableRow."
+            "description": "Содержисое компонента, штатно - TableRow."
           }
         ],
         "forwardRef": true,
@@ -857,55 +857,55 @@
       "BoldAPI": {
         "pageAbout": "API документация компонента React Bold. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Bold - react component, designed to create tables.",
-        "ComponentNameText": "The Bold может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название Bold может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "The content of the component."
+            "description": "Содержимое компонента."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "bold": "Styles applied to the root element with bold text styling."
+          "bold": "Стили, примененные к корневому элементу со стилизацией текста bold."
         }
       },
       "AutoDocsMenuAPI": {
         "pageAbout": "API документация компонента React AutoDocsMenu. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "AutoDocsMenu - react component, designed create tables.",
-        "ComponentNameText": "The AutoDocsMenu может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название AutoDocsMenu может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "layoutData",
             "type": "PagesGroupData",
             "default": "",
-            "description": "Pages and groups hierarchy data."
+            "description": "Иерархическая информация о группах и страницах."
           }
         ],
         "forwardRef": true,
         "enableCss": false,
         "css": {},
-        "noCssText": "This component is service and doesn't have any styles."
+        "noCssText": "Этот компонент служебный и не имеет стилей."
       },
       "LanguageSelectorAPI": {
         "pageAbout": "API документация компонента React LanguageSelector. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "LanguageSelector - react component, designed to add language selection mechanism and locale management.",
-        "ComponentNameText": "The LanguageSelector может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название LanguageSelector может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "size",
             "type": "\"small\" | \"large\"",
             "default": "\"large\"",
-            "description": "The size of an element. If small - will be displayed just locale icon, if large - locale icon with current language name."
+            "description": "Размер элемента. Если маленький - будет отображаться только значок локали, если большой - значок локали с названием текущего языка."
           }
         ],
-        "noPropsText": "This component has no props and takes info with useLang hook. It must be placed inside LangContext.Provider",
+        "noPropsText": "Этот компонент не имеет пропов и получает информацию с помощью хука useLang. Он должен быть размещен внутри LangContext.Provider.",
         "forwardRef": true,
         "enableCss": true,
         "css": {
@@ -915,33 +915,33 @@
       "SearchFieldAPI": {
         "pageAbout": "API документация компонента React SearchField. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "SearchField - react component, designed to add search mechanism.",
-        "ComponentNameText": "The SearchField может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название SearchField может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "searchData",
             "type": "SearchDataItem[]",
             "default": "",
-            "description": "Array of SearchDataItem items to do search from."
+            "description": "Массив обьектов SearchDataItem, из числа которых осуществляется поиск."
           },
           {
             "name": "doSearch",
             "type": "function(query, searchData): Promise<SearchDataItem[]>",
             "default": "",
-            "description": "Callback, called on search. If defined, default search function will not be called. Must return array of SearchDataItem."
+            "description": "Функция обратного вызова, вызывается при поиске. Если определено, функция поиска по умолчанию не будет вызываться. Должен возвращать массив SearchDataItem."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "rootFocused": "Styles applied to the root element when result item is focused.",
-          "input": "Styles applied to the Input element.",
-          "iconButton": "Styles applied to the IconButton component.",
-          "icon": "Styles applied to the icons.",
-          "iconClickable": "Styles applied to the icons with button functional.",
-          "popper": "Styles applied to the Popper element.",
-          "listPaper": "Styles applied to the Paper element, which contains results List."
+          "rootFocused": "Стили, примененные к корневому элементу когда результат поиска в фокусе.",
+          "input": "Стили, примененные к компоненту Input.",
+          "iconButton": "Стили, примененные к компоненту IconButton.",
+          "icon": "Стили, примененные к иконкам.",
+          "iconClickable": "Стили, примененные к icons with button functional.",
+          "popper": "Стили, примененные к компоненту Popper.",
+          "listPaper": "Стили, примененные к компоненту Paper, который содержит список результатов."
         }
       },
       "DocsMenuAPI": {
