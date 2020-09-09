@@ -1146,18 +1146,15 @@
       },
       "ComponentAPI": {
         "importDifferenceText": "Вы можете узнать больше о разнице, [прочитав этот гайд](https://material-ui.com/guides/minimizing-bundle-size/).",
-        "customizationText": "Вы можете переопределить стиль компонента следующими способами:",
-        "customizationRule": "С помощью имени правила в ",
-        "customizationClass": "С помощью",
-        "customizationTheme": "С помощью темы и",
-        "customizationFooterText": "Если этого недостаточно, Вы можете посмотреть реализацию кода для большей инфрмации.",
+        "customization": "Вы можете переопределить стиль компонента благодаря одной из этих точек настройки: \n* С помощью названия правила  [```classes``` в прорпах объекта](https://material-ui.com/customization/components/#overriding-styles-with-classes). \n* С помощью [глобального имени класса](https://material-ui.com/customization/components/#overriding-styles-with-global-class-names). \n* С помощь темы и  [```overrides``` property](https://material-ui.com/customization/globals/#css). \n\n\n Если этого недостаточно, вы можете посмотреть реализацию компонента для получения более подробной информации.",
         "ruleName": "Название правила",
         "ruleDescription": "Описание",
         "propName": "Название",
         "propType": "Тип",
         "propDefault": "По умолчанию",
         "propDescription": "Описание",
-        "ComponentNameHeader": "Имя компонента"
+        "ComponentNameHeader": "Имя компонента",
+        "ref": "Объект ```ref``` передан в корневой элемент."
       }
     }
   }
