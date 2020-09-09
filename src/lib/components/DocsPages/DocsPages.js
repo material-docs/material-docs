@@ -6,10 +6,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class DocsPages extends React.Component {
-    render() {
-        return this.props.children;
-    }
+function DocsPages(children) {
+    return children;
 }
 
 DocsPages.displayName = "DocsPages";

@@ -29,6 +29,7 @@ export interface SearchFieldProps
  * SearchField - react component, designed to provide search mechanism.
  * @param {SearchFieldProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/system-components/searchfield
  * @example
  * <SearchField searchData={...data...} />
  */

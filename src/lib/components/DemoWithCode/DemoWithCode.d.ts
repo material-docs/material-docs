@@ -56,6 +56,7 @@ export interface DemoWithCodeProps
  * DemoWithCode - component, designed to show demo element with source code.
  * @param {DemoWithCodeProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/demowithcode
  * @example
  * <DemoWithCode
  *     code={myCode} paperContainer

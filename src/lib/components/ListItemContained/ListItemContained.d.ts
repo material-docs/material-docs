@@ -15,6 +15,10 @@ export interface ListItemContainedProps
     children?: any;
 }
 
+/**
+ * @class
+ * @see http://material-docs.com/component-apis/listitemcontained
+ */
 export default class ListItemContained extends React.Component<ListItemContainedProps, any> {
     render(): JSX.Element;
 }

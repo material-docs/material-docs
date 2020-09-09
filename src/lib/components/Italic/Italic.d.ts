@@ -16,6 +16,7 @@ export interface ItalicProps
  * Italic - react component, designed to make text italic.
  * @param {ItalicProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/italic
  * @example
  * <Italic> I am italic </Italic>
  */

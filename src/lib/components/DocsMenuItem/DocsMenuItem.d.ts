@@ -72,6 +72,7 @@ export interface DocsMenuItemProps
  * DocsMenuItem - component, used in DocsMenu component to create menu items.
  * @param {DocsMenuItemProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/docsmenuitem
  * @example
  * <DocsMenu>
  *     <DocsMenuItem textPrimary={"drop down"}>

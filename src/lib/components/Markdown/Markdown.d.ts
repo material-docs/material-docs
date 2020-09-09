@@ -34,6 +34,7 @@ export interface MarkdownProps
  * Markdown - react component, designed to provide markdown based layout generation.
  * @param {MarkdownProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/markdown
  * @example
  * <Markdown>
  *     # I am header 1

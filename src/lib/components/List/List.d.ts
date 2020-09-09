@@ -26,6 +26,7 @@ export interface ListProps
  * List - list container for <ListItem /> components.
  * @param {ListProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/list
  * @example
  * <List>
  *     ...

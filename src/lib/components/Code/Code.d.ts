@@ -49,6 +49,7 @@ export interface CodeProps
  * Code - react component, designed to display and highlight code.
  * @param {CodeProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/code
  * @example
  * <Code language="code language" theme="darcula">
  *     ...your code...

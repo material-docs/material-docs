@@ -10,6 +10,7 @@ import {TableProps} from "@material-ui/core";
  * Table - react component, designed to provide table functional.
  * @param {TableProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/table
  * @example
  * <Table>
  *     ...

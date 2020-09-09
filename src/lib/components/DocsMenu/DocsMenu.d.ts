@@ -27,4 +27,17 @@ export interface DocsMenuProps
     layoutData?: PagesGroupData;
 }
 
+/**
+ * DocsMenu - react component, designed to provide MaterialDocs layout with menu.
+ * @param {DocsMenuProps} props
+ * @constructor
+ * @see http://material-docs.com/component-apis/docsmenu
+ * @example
+ * <DocsLayout>
+ *     <DocsMenu>
+ *         ...
+ *     </DocsMenu>
+ *     ...
+ * </DocsLayout>
+ */
 export default function DocsMenu(props: DocsMenuProps): JSX.Element;

@@ -37,6 +37,7 @@ export interface ExpansionCodeProps
  * ExpansionCode - component, designed to provide smart code displaying.
  * @param {ExpansionCodeProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/expansioncode
  * @example
  * <ExpansionCode theme="darcula" name={"My code name"} demoCode={...your demo  code...}>
  *     ...your full code...
