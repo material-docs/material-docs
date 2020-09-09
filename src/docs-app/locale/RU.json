@@ -362,147 +362,147 @@
       "ExpansionCodeAPI": {
         "pageAbout": "API документация компонента React ExpansionCode. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "ExpansionCode - react component, designed to show code in collapsable blocks. User can view full code or part of code.",
-        "ComponentNameText": "The ExpansionCode может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название ExpansionCode может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "name",
             "type": "string",
             "default": "",
-            "description": "Name of the code block. If defined - it will appear in H3 header in ExpansionCode toolbar."
+            "description": "Название блока кода. Если определено - будет отоюражено в заголовке H3 в компоненте ExpansionCode toolbar."
           },
           {
             "name": "noTag",
             "type": "boolean",
             "default": "false",
-            "description": "If true and name prop is true - header will not generate tags fot content panel."
+            "description": "Если true и проп name равен true - заголовок не будет генерировать информацию для автоматического содержания."
           },
           {
             "name": "collapsedHeight",
             "type": "number | string",
             "default": "100px",
-            "description": "Height of the component when it is collapsed."
+            "description": "Выстота блока кода когда он свернут."
           },
           {
             "name": "actions",
             "type": "DemoCodeAction[]",
             "default": "",
-            "description": "Array of additional actions. The actions will be displayed in the dropdown menu when you click the ExpandMore icon button."
+            "description": "Массив дополнительных действий. Действия будут отображены в выпадающем списке при нажатии на кнопку с иконкой ExpandMore."
           },
           {
             "name": "theme",
             "type": "\"light\" | \"dark\" | \"darcula\"",
             "default": "\"light\"",
-            "description": "Code highlighting and background styling type."
+            "description": "Тип стиля выделения кода и заднего офна."
           },
           {
             "name": "language",
             "type": "string",
             "default": "\"javascript\"",
-            "description": "Language name for code highlighter."
+            "description": "Название языка для выделения синтаксиса кода."
           },
           {
             "name": "children",
             "type": "string",
             "default": "\"light\"",
-            "description": "Code to display in code highlighter. This code will appear in the Code block if component is expanded."
+            "description": "Код, который будет отображен в блоке кода."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "collapsedCode": "Styles applied to the div element between Collapse component and Code component when code is collapsed.",
-          "collapse": "Styles applied to the Collapse component, which contains Code.",
-          "toolbar": "Styles applied to the Toolbar component.",
-          "codeName": "Styles applied to the H3 header with text from prop name.",
-          "menuButtonLink": "Styles applied to link element of actions menu button."
+          "collapsedCode": "Стили, примененные к элементу div внутри компонента Collapse когда код свернут.",
+          "collapse": "Стили, примененные к компоненту Collapse, который содержит компонент Code.",
+          "toolbar": "Стили, примененные к компоненту Toolbar.",
+          "codeName": "Стили, примененные к заголовку H3с текстом из пропа name.",
+          "menuButtonLink": "Стили, примененные к элементу link в списке дополнительных действий."
         }
       },
       "BlockAPI": {
         "pageAbout": "API документация компонента React Block. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Block - react component, designed to show slided information blocks, such as tips, notes, etc.",
-        "ComponentNameText": "The Block может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название Block может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "color",
             "type": "\"dark\" | \"light\"",
             "default": "\"light\"",
-            "description": "Color styling, which will be applied to block."
+            "description": "Стилизация цвета, которая будет применена к блоку."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element."
+            "description": "Дети компонента."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "colorLight": "Styles applied to the root element when prop color equals \"light\"",
-          "colorDark": "Styles applied to the root element when prop color equals \"dark\""
+          "colorLight": "Стили, примененные к корневому элементу если проп color равен \"light\"",
+          "colorDark": "Стили, примененные к корневому элементу если проп color равен \"dark\""
         }
       },
       "CodeSpanAPI": {
         "pageAbout": "API документация компонента React CodeSpan. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "CodeSpan - react component, designed to show code in monospace font inside inline code block.",
-        "ComponentNameText": "The CodeSpan может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название CodeSpan может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "color",
             "type": "\"default\" | \"primary\" | \"secondary\" | \"grey\"",
             "default": "\"default\"",
-            "description": "Background color of the inline code block."
+            "description": "Цвет заднего фона строчного блока кода."
           },
           {
             "name": "text",
             "type": "\"white\" | \"black\" | \"inherit\"",
             "default": "\"inherit\"",
-            "description": "Text color of code."
+            "description": "Цвет текста кода."
           },
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element."
+            "description": "Дети компонента."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "colorDefault": "Styles applied to the root element when prop color equals \"default\"",
-          "colorPrimary": "Styles applied to the root element when prop color equals \"primary\"",
-          "colorSecondary": "Styles applied to the root element when prop color equals \"secondary\"",
-          "colorGrey": "Styles applied to the root element when prop color equals \"grey\"",
-          "font": "Styles applied to the root element and defining font properties",
-          "textInherit": "Styles applied to the root element when prop text equals \"inherit\"",
-          "textWhite": "Styles applied to the root element when prop text equals \"white\"",
-          "textBlack": "Styles applied to the root element when prop text equals \"black\""
+          "colorDefault": "Стили, примененные к корневому элементу когда проп color равен \"default\"",
+          "colorPrimary": "Стили, примененные к корневому элементу когда проп color равен \"primary\"",
+          "colorSecondary": "Стили, примененные к корневому элементу когда проп color равен \"secondary\"",
+          "colorGrey": "Стили, примененные к корневому элементу когда проп color равен \"grey\"",
+          "font": "Стили, примененные к корневому элементу, определяющие настройки шрифта",
+          "textInherit": "Стили, примененные к корневому элементу когда проп text равен \"inherit\"",
+          "textWhite": "Стили, примененные к корневому элементу когда проп text равен \"white\"",
+          "textBlack": "Стили, примененные к корневому элементу когда проп text равен \"black\""
         }
       },
       "ItalicAPI": {
         "pageAbout": "API документация компонента React Italic. Узнайте больше о props и CSS кастомизации.",
         "pageSearchDescription": "Italic - react component, designed to make text italic.",
-        "ComponentNameText": "The Italic может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "ComponentNameText": "Название Italic может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
             "name": "children",
             "type": "node",
             "default": "",
-            "description": "Children of an element."
+            "description": "Дети компонента."
           }
         ],
         "forwardRef": true,
         "enableCss": true,
         "css": {
           "root": "Стили, примененные к корневому элементу.",
-          "italic": "Styles applied to the root element, provides italic text styling."
+          "italic": "Стили, примененные к корневому элементу, обеспечивающие italic стиль текста."
         }
       },
       "ListAPI": {
