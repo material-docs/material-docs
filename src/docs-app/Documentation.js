@@ -51,6 +51,7 @@ import MaterialDocsLanding from "./pages/MaterialDocsLanding";
 import CreatingMaterialDocs from "./pages/Tutorials/CreatingMaterialDocs";
 import HeadersDemo from "./pages/Components/HeadersDemo";
 import MarkdownDemo from "./pages/Components/MarkdownDemo";
+import TextStylingDemo from "./pages/Components/TextStylingDemo";
 
 
 export default function Documentation() {
@@ -92,6 +93,7 @@ export default function Documentation() {
                     <LayoutDemo/>
                     <HeadersDemo/>
                     <MarkdownDemo/>
+                    <TextStylingDemo/>
                 </PagesGroup>
                 <PagesGroup name={"Component APIs"}>
                     <DocsLayoutAPI/>

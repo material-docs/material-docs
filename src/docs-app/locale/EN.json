@@ -3,6 +3,14 @@
   "label": "English",
   "locale": {
     "pages": {
+      "TextDecoratorsDemo": {
+        "pageAbout": "You can customize our text using Material Docs test styling components",
+        "infoBlock1": "Decorating text components serve to make the __ information__ on your page __ more responsive__.\n> Highlight more important information into different __ specialized blocks__.",
+        "overview": "Overview",
+        "nesting": "Nesting",
+        "nestedComponents": "Nested components",
+        "nestingInfo": "Some decoration components support __nesting__:"
+      },
       "HeadersDemo": {
         "pageAbout": "Headers can be used to separate information by sense.",
         "infoBlock1": "You can use 6 types of headers: ```H1```, ```H2```, ```H3```, ```H4```, ```H5```. They differ from each other in size and in that headings below H3 do not draw a dividing line by default and are not added to the automatically generated page content block. The larger the number in the title, the smaller its size. Thus, ```H1``` is the largest heading, and ```H6``` is the smallest.",
