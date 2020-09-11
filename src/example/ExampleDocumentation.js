@@ -12,7 +12,7 @@ import {DocsLayout, DocsPages, PagesGroup, DocsPage} from "../lib";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
-import {H1, H2} from "../lib/components/Headers";
+import {H1, H2, H3, H4, H5, H6} from "../lib/components/Headers";
 import Landing from "../lib/components/Landing/Landing";
 import AutoDocsMenu from "../lib/components/AutoDocsMenu/AutoDocsMenu";
 import DocsMenu from "../lib/components/DocsMenu/DocsMenu";
@@ -53,6 +53,10 @@ export default function ExampleDocumentation() {
                     <DocsPage name={"TestPage1"} searchDescription={"sdfsfsd"}>
                         <H1>Hello Darkness my old friend</H1>
                         <H2>Darkness</H2>
+                        <H3>Darkness</H3>
+                        <H4>Darkness</H4>
+                        <H5>Darkness</H5>
+                        <H6>Darkness</H6>
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
                         <H1>HelloDarknessmyoldfriend</H1>
