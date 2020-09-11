@@ -67,14 +67,16 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     } = props;
     const classes = useStyles();
     const theme = useTheme();
-    const {getQueryParams, changeRoute} = useChangeRoute();
+    const {getQueryParams, getRouteParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: null, landing: []});
     const [searchData, setSearchData] = React.useState(other.searchData ? new Set(other.searchData) : new Set());
     const [lang, setLang] = React.useState(null);
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const {l: langName} = getQueryParams();
+    const {page: routePage} = getRouteParams();
 
+    // Effect for language setup on startup and changing lang on url hash changing.
     React.useEffect(() => {
         if (!langName) {
             changeRoute({}, {l: defaultLang.name});
@@ -82,6 +84,11 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
         switchLang(newLang).then();
     }, [langName]);
+
+    // Effect for page scroll reset when changing page.
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [routePage]);
 
     async function switchLangRoute(inputLang) {
         if (typeof inputLang !== "object")
@@ -148,6 +155,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
 
     const getLanding = () => getChildrenFromContainer(children, "Landing");
 
+    // Effect, designed to get pages, menu and landing components from containers.
     React.useEffect(() => {
         setContent({
             menu: getMenuFromChildren(),
