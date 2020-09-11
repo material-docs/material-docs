@@ -8,3 +8,4 @@ export {default as useLang, LangContext} from "./useLang";
 export {default as useNesting, NestingContext} from "./useNesting";
 export {default as useSearch, SearchContext} from "./useSearch";
 export {default as useTags, TaggingContext} from "./useTags";
+export {default as useMenu, MenuContext} from "./useMenu";
