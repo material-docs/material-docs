@@ -52,6 +52,7 @@ import CreatingMaterialDocs from "./pages/Tutorials/CreatingMaterialDocs";
 import HeadersDemo from "./pages/Components/HeadersDemo";
 import MarkdownDemo from "./pages/Components/MarkdownDemo";
 import TextStylingDemo from "./pages/Components/TextStylingDemo";
+import ImagesDemo from "./pages/Components/ImagesDemo";
 
 
 export default function Documentation() {
@@ -94,6 +95,7 @@ export default function Documentation() {
                     <HeadersDemo/>
                     <MarkdownDemo/>
                     <TextStylingDemo/>
+                    <ImagesDemo/>
                 </PagesGroup>
                 <PagesGroup name={"Component APIs"}>
                     <DocsLayoutAPI/>

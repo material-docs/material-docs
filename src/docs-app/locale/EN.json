@@ -3,6 +3,10 @@
   "label": "English",
   "locale": {
     "pages": {
+      "ImagesDemo": {
+        "pageAbout": "Pictures are needed in order to visually demonstrate some information",
+        "infoBlock": "You don't have to worry about page loading speed due to large images. The __Image__ component supports __lazy loading__ technology."
+      },
       "TextDecoratorsDemo": {
         "pageAbout": "You can customize our text using Material Docs test styling components",
         "infoBlock1": "Decorating text components serve to make the __ information__ on your page __ more responsive__.\n> Highlight more important information into different __ specialized blocks__.",
