@@ -15,6 +15,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
 import PropTypes from "prop-types";
 import getTextFromChildren from "../../utils/getTextFromChildren";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 
 const TagableF = React.forwardRef(function TagableF({children, noTag = false, variant, style, className, noDivider = false, ...props}, ref) {
@@ -88,62 +89,76 @@ TagableF.propTypes = {
 export const Tagable = TagableF;
 
 
-function H1F({children, ...props}, ref) {
-    return <Tagable variant={"h1"} {...props} ref={ref}>{children}</Tagable>
+function H1F(props, ref) {
+    const theme = useTheme();
+    const {children, ...other} = {...theme.props.MDH1, ...props};
+    return <Tagable variant={"h1"} {...other} ref={ref}>{children}</Tagable>
 }
 
 export const H1 = React.forwardRef(H1F);
 
 
 function H2F({children, ...props}, ref) {
-    return <Tagable variant={"h2"} {...props} ref={ref}>{children}</Tagable>
+    const theme = useTheme();
+    const {children, ...other} = {...theme.props.MDH2, ...props};
+    return <Tagable variant={"h2"} {...other} ref={ref}>{children}</Tagable>
 }
 
 export const H2 = React.forwardRef(H2F);
 
 
 function H3F({children, ...props}, ref) {
-    return <Tagable variant={"h3"} {...props} ref={ref}>{children}</Tagable>
+    const theme = useTheme();
+    const {children, ...other} = {...theme.props.MDH3, ...props};
+    return <Tagable variant={"h3"} {...other} ref={ref}>{children}</Tagable>
 }
 
 export const H3 = React.forwardRef(H3F);
 
 
 function H4F({children, noDivider = true, noTag = true, ...props}, ref) {
-    return <Tagable variant={"h4"} {...props} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
+    const theme = useTheme();
+    const {children, ...other} = {...theme.props.MDH4, ...props};
+    return <Tagable variant={"h4"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
 }
 
 export const H4 = React.forwardRef(H4F);
 
 
 function H5F({children, noDivider = true, noTag = true, ...props}, ref) {
-    return <Tagable variant={"h5"} {...props} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
+    const theme = useTheme();
+    const {children, ...other} = {...theme.props.MDH5, ...props};
+    return <Tagable variant={"h5"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
 }
 
 export const H5 = React.forwardRef(H5F);
 
 
 function H6F({children, noDivider = true, noTag = true, ...props}, ref) {
-    return <Tagable variant={"h6"} {...props} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
+    const theme = useTheme();
+    const {children, ...other} = {...theme.props.MDH6, ...props};
+    return <Tagable variant={"h6"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
 }
 
 export const H6 = React.forwardRef(H6F);
 
 
 const HeaderF = React.forwardRef(function HeaderF({children, heading = 1, ...props}, ref) {
+    const theme = useTheme();
+    const {children, ...other} = {...theme.props.MDHeader, ...props};
     switch (heading) {
         case 1:
-            return <H1 {...props} ref={ref}>{children}</H1>;
+            return <H1 {...other} ref={ref}>{children}</H1>;
         case 2:
-            return <H2 {...props} ref={ref}>{children}</H2>;
+            return <H2 {...other} ref={ref}>{children}</H2>;
         case 3:
-            return <H3 {...props} ref={ref}>{children}</H3>;
+            return <H3 {...other} ref={ref}>{children}</H3>;
         case 4:
-            return <H4 {...props} ref={ref}>{children}</H4>;
+            return <H4 {...other} ref={ref}>{children}</H4>;
         case 5:
-            return <H5 {...props} ref={ref}>{children}</H5>;
+            return <H5 {...other} ref={ref}>{children}</H5>;
         default:
-            return <H6 {...props} ref={ref}>{children}</H6>;
+            return <H6 {...other} ref={ref}>{children}</H6>;
     }
 });
 

@@ -9,10 +9,18 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import clsx from "clsx";
 import {useStyles} from "./styles";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
-const Table = React.forwardRef(function Table({children, className, style, ...props}, ref) {
+const Table = React.forwardRef(function Table(props, ref) {
+    const theme = useTheme();
+    const {
+        children,
+        className,
+        style,
+        ...other
+    } = {...theme.props.MDTable, ...props};
     const commonClasses = useCommonStyles();
-    const classes = {...useStyles(), ...props.classes};
+    const classes = {...useStyles(), ...other.classes};
     const [height, setHeight] = React.useState(0);
     const containerRef = React.useRef(null);
     const tableRef = React.useRef(null);

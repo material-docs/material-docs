@@ -7,11 +7,19 @@ import React from "react";
 import {useStyles} from "./styles";
 import clsx from "clsx";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
-const Italic = React.forwardRef(function Italic({children, className, style, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const Italic = React.forwardRef(function Italic(props, ref) {
+    const theme = useTheme();
+    const {
+        children,
+        className,
+        style,
+        ...other
+    } = {...theme.props.MDItalic, ...props};
+    const classes = {...useStyles(), ...other.classes};
     return (
-        <span className={clsx(classes.root, classes.italic, className)} ref={ref} style={style}>
+        <span className={clsx(classes.root, classes.italic, className)} ref={ref} style={style} {...other}>
             {children}
         </span>
     )

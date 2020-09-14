@@ -16,10 +16,18 @@ import useLang from "../../hooks/useLang";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import Tooltip from "@material-ui/core/Tooltip";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 
-const LanguageSelector = React.forwardRef(function LanguageSelector({className, style, size = "large", ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) {
+    const theme = useTheme();
+    const {
+        className,
+        style,
+        size = "large",
+        ...other
+    } = {...theme.props.MDLanguageSelector, ...props};
+    const classes = {...useStyles(), ...other.classes};
     const {langs, lang, switchLang, onHelpToTranslate} = useLang();
     const [opened, setOpened] = React.useState(false);
     const buttonRef = React.useRef(null);

@@ -8,9 +8,14 @@ import ListItemContained from "../ListItemContained";
 import {useStyles} from "./styles";
 import clsx from "clsx";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
-const ListItem = React.forwardRef(function ListItem({children, type = "circle", dense = false, style, className, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const ListItem = React.forwardRef(function ListItem(props, ref) {
+    const theme = useTheme();
+    const {
+        children, type = "circle", dense = false, style, className, ...other
+    } = {...theme.props.MDListItem, ...props};
+    const classes = {...useStyles(), ...other.classes};
     const containers = React.Children.map(children, child => child.type === ListItemContained ? child : null);
     if (containers.length > 1) console.error("MaterialDocs: List item can contain only one ListItemContained element");
 
@@ -36,7 +41,7 @@ const ListItem = React.forwardRef(function ListItem({children, type = "circle", 
     return (
         <li
             className={clsx(classes.root, dense && classes.dense, listTypeClass, className)}
-            {...props}
+            {...other}
             ref={ref}
             style={style}
         >
