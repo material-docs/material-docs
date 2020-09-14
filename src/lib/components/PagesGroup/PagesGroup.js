@@ -6,8 +6,16 @@
 import React from "react";
 import useGroups, {GroupsContext} from "../../hooks/useGroups";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
-const PagesGroup = React.forwardRef(function PagesGroup({name, children, getData, ...props}, ref) {
+const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
+    const theme = useTheme();
+    const {
+        name,
+        children,
+        getData,
+        ...other
+    } = {...theme.props.MDPagesGroup, ...props};
     if (getData && typeof getData !== "function")
         throw new TypeError(`MaterialDocs: incorrect type of getData, expected function, got ${typeof getData}`);
     if (typeof name !== "string")

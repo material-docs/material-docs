@@ -21,10 +21,19 @@ import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import {useChangeRoute} from "routing-manager";
 import PropTypes from "prop-types";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 
-const SearchField = React.forwardRef(function SearchField({className, style, searchData = [], doSearch, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const SearchField = React.forwardRef(function SearchField(props, ref) {
+    const theme = useTheme();
+    const {
+        className,
+        style,
+        searchData = [],
+        doSearch,
+        ...other
+    } = {...theme.props.MDSearchField, ...props};
+    const classes = {...useStyles(), ...other.classes};
     const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
     const [focused, setFocused] = React.useState(false);

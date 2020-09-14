@@ -8,13 +8,22 @@ import {useStyles} from "./styles";
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
-const List = React.forwardRef(function List({children, className, style, image, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const List = React.forwardRef(function List(props, ref) {
+    const theme = useTheme();
+    const {
+        children,
+        className,
+        style,
+        image,
+        ...other
+    } = {...theme.props.MDList, ...props};
+    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
 
     return (
-        <ul {...props} ref={ref} className={clsx(commonClasses.pageBlock, classes.root, className)} style={style}>
+        <ul {...other} ref={ref} className={clsx(commonClasses.pageBlock, classes.root, className)} style={style}>
             {children}
         </ul>
     );

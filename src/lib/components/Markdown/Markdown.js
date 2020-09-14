@@ -10,8 +10,10 @@ import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFr
 import clsx from "clsx";
 import {useStyles} from "./styles";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 const Markdown = React.forwardRef(function Markdown(props, ref) {
+    const theme = useTheme();
     const {
         children,
         className,
@@ -19,7 +21,7 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
         inline = false,
         data = {},
         ...other
-    } = props;
+    } = {...theme.props.MDMarkdown, ...props};
     const commonClasses = useCommonStyles();
     const classes = useStyles();
     const [content, setContent] = React.useState([]);

@@ -10,8 +10,19 @@ import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
-const Image = React.forwardRef(function Image({src = "", alt = "", style, className, children, fullWidth = false, ...props}, ref) {
+const Image = React.forwardRef(function Image(props, ref) {
+    const theme = useTheme();
+    const {
+        src = "",
+        alt = "",
+        style,
+        className,
+        children,
+        fullWidth = false,
+        ...other
+    } = {...theme.props.MDImage, ...props};
     const classes = useStyles();
     return (
         <React.Fragment>
