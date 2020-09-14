@@ -42,19 +42,19 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: "2.8rem",
     },
     h2: {
-        fontSize: "2rem",
+        fontSize: "2.3rem",
     },
     h3: {
-        fontSize: "1.5rem",
+        fontSize: "1.8rem",
     },
     h4: {
-        fontSize: "1.2rem",
+        fontSize: "1.6rem",
     },
     h5: {
-        fontSize: "0.9rem",
+        fontSize: "1.3rem",
     },
     h6: {
-        fontSize: "0.6rem",
+        fontSize: "1.1rem",
     },
     typography: {
         overflowWrap: "break-word",
