@@ -23,9 +23,11 @@ import {H3} from "../Headers";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 
 const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
+    const mtheme = useTheme();
     const {
         theme,
         language,
@@ -37,7 +39,7 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
         collapsedHeight = 100,
         actions,
         ...other
-    } = props;
+    } = {...mtheme.props.MDExpansionCode, ...props};
     const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
     const {enqueueSnackbar} = useSnackbar();

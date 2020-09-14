@@ -10,8 +10,13 @@ import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
 import {useChangeRoute} from "routing-manager";
 import {createRouteFromName} from "../../utils";
 import * as _ from "lodash";
+import useTheme from "@material-ui/core/styles/useTheme";
 
-const AutoDocsMenu = React.forwardRef(function AutoDocsMenu({layoutData, ...props}, ref) {
+const AutoDocsMenu = React.forwardRef(function AutoDocsMenu({props}, ref) {
+    const theme = useTheme();
+    const {
+        layoutData,
+    } = {...theme.props.MDAutoDocsMenu, ...props};
     const {getRouteParams} = useChangeRoute();
     const {page} = getRouteParams();
     const pagePath = typeof page === "string" && page.split("/") || [];

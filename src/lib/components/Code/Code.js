@@ -12,10 +12,20 @@ import clsx from "clsx";
 import {useStyles} from "./styles";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 
-const Code = React.forwardRef(function Code({children, language = "javascript", theme = "light", style, className}, ref) {
-    const classes = useStyles();
+const Code = React.forwardRef(function Code(props, ref) {
+    const mtheme = useTheme();
+    const {
+        children,
+        language = "javascript",
+        theme = "light",
+        style,
+        className,
+        ...other
+    } = {...mtheme.props.MDCode, ...props}
+    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
     const codeRef = React.useRef(null);

@@ -25,8 +25,10 @@ import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 import AspectRatio from "../../utils/AspectRatio";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
+    const mtheme = useTheme();
     const {
         children,
         defaultExpanded,
@@ -38,8 +40,8 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
         actions,
         ratio,
         ...other
-    } = props;
-    const classes = useStyles();
+    } = {...mtheme.props.MDDemoWithCode,...props};
+    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);

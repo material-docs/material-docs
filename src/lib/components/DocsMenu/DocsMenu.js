@@ -9,14 +9,16 @@ import List from "@material-ui/core/List";
 import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
 import getContainerByType from "../../utils/getContainerByType";
 import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 const DocsMenu = React.forwardRef(function DocsMenu(props, ref) {
+    const theme = useTheme();
     const {
         dense = false,
         children,
         layoutData,
         ...other
-    } = props;
+    } = {...theme.props.MDDocsMenu, ...props};
     const [content, setContent] = React.useState({basic: [], auto: null});
 
     React.useEffect(() => {

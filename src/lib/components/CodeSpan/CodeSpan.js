@@ -8,8 +8,16 @@ import clsx from "clsx";
 import {useStyles} from "./styles";
 import PropTypes from "prop-types";
 
-const CodeSpan = React.forwardRef(function CodeSpan({className, style, children, color = "default", text = "inherit", ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const CodeSpan = React.forwardRef(function CodeSpan(props, ref) {
+    const {
+        className,
+        style,
+        children,
+        color = "default",
+        text = "inherit",
+        ...other
+    } = {...props};
+    const classes = {...useStyles(), ...other.classes};
     return (
         <span
             ref={ref}

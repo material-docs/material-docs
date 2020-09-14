@@ -9,10 +9,19 @@ import {useStyles} from "./styles";
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
-const Block = React.forwardRef(function Block({className, style, children, color = "light", ...props}, ref) {
+const Block = React.forwardRef(function Block(props, ref) {
+    const theme = useTheme();
+    const {
+        className,
+        style,
+        children,
+        color = "light",
+        ...other
+    } = {...theme.props.MDBlock, ...props}
     const commonClasses = useCommonStyles();
-    const classes = {...useStyles(), ...props.classes};
+    const classes = {...useStyles(), ...other.classes};
     return (
         <Paper
             ref={ref}

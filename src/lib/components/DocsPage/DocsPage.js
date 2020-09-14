@@ -18,18 +18,22 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import {isWidthUp} from "@material-ui/core";
 import PropTypes from "prop-types";
 import {Helmet} from "react-helmet-async";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 
-const DocsPage = React.forwardRef(function DocsPage({
-                                                        name = "home",
-                                                        searchTags = [],
-                                                        searchLabel,
-                                                        searchDescription,
-                                                        noGenerateAutoSearch = false,
-                                                        noAutoMenu = false,
-                                                        width,
-                                                        children
-                                                    }, ref) {
+const DocsPage = React.forwardRef(function DocsPage(props, ref) {
+    const theme = useTheme();
+    const {
+        name = "home",
+        searchTags = [],
+        searchLabel,
+        searchDescription,
+        noGenerateAutoSearch = false,
+        noAutoMenu = false,
+        width,
+        children,
+        ...other
+    } = {...theme.props.MDDocsPage, ...props}
     const classes = useStyles();
     const commonClasses = useCommonStyles();
     const [tags, setTags] = React.useState({});
