@@ -49,7 +49,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-syntax-highlighter": "^13.0.0",
-    "routing-manager": "^2.0.1"
+    "routing-manager": "^2.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",

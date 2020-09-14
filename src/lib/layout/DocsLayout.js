@@ -76,6 +76,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const {l: langName} = getQueryParams();
     const {page: routePage} = getRouteParams();
 
+    // Effect for drawer auto open/close on resize
     React.useEffect(() => {
         if (isWidthUp("md", width) && isWidthDown("lg", width)) {
             setOpen(true);
@@ -87,7 +88,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     // Effect for language setup on startup and changing lang on url hash changing.
     React.useEffect(() => {
         if (!langName) {
-            changeRoute({}, {l: defaultLang.name});
+            changeRoute({page: null}, {l: defaultLang.name});
         }
         const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
         switchLang(newLang).then();
@@ -335,7 +336,7 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props,
         basename,
         ...other
     } = props;
-    const routeMask = typeof mask === "string" ? mask : "/*page";
+    const routeMask = typeof mask === "string" ? mask : "(/*page)";
 
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
@@ -375,7 +376,7 @@ DocsLayoutProviders.displayName = "DocsLayout";
 
 DocsLayoutProviders.defaultProps = {
     router: "browser-router",
-    mask: "/*page",
+    mask: "/(*page)",
 }
 
 DocsLayoutProviders.propTypes = {

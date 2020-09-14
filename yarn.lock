@@ -9784,6 +9784,24 @@ routing-manager@^2.0.1:
     react-scripts "3.4.1"
     route-parser "0.0.5"
 
+routing-manager@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/routing-manager/-/routing-manager-2.0.2.tgz#be21d29c53523903d7c58ceb35457f658e84926d"
+  integrity sha512-LNJWy5EBQoKcPtQtYwPHrJpEE3XdfdFg+llhQU84c5BGRfF7GsaJrL5bkWUn7fEO6n4AE1g2+hMYxTR0Q3cYnw==
+  dependencies:
+    "@testing-library/jest-dom" "^4.2.4"
+    "@testing-library/react" "^9.5.0"
+    "@testing-library/user-event" "^7.2.1"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    qs "^6.9.4"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+    react-router "^5.2.0"
+    react-router-dom "^5.2.0"
+    react-scripts "3.4.1"
+    route-parser "0.0.5"
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
