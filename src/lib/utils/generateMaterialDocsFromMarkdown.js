@@ -75,10 +75,10 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                     case "code":
                         try {
                             let setting = JSON.parse(token.lang);
-                            const {type, language} = setting;
+                            const {type = "code", language = "javascript"} = setting;
                             if (type !== "expansion-code" && type !== "code" && type !== "demo-with-code")
                                 console.error(`MaterialDocs: incorrect type of code block setting field "type", expected "expansion-code | code | demo-with-code" got ${type}`);
-                            if (typeof language !== "string")
+                            if (language && typeof language !== "string")
                                 console.error(`MaterialDocs: incorrect type of code block setting field "language", expected "string" got ${typeof language}`);
                             switch (setting.type) {
                                 case "expansion-code": {
