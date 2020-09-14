@@ -19,12 +19,12 @@ import getTextFromChildren from "../../utils/getTextFromChildren";
 
 const TagableF = React.forwardRef(function TagableF({children, noTag = false, variant, style, className, noDivider = false, ...props}, ref) {
     const classes = {...useStyles(), ...props.classes};
+    const typographyClasses = {h1: classes.h1, h2: classes.h2, h3: classes.h3, h4: classes.h4, h5: classes.h5, h6: classes.h6}
     const commonClasses = useCommonStyles();
     const {setTag, removeTag} = useTags();
     const [topOffset, setTopOffset] = React.useState(0);
     const id = React.useRef(props.id || createRouteFromName(getTextFromChildren(children, 6)));
     const aref = React.useRef(null);
-    const typographyClasses = {h1: classes.h1, h2: classes.h2, h3: classes.h3, h4: classes.h4, h5: classes.h5}
 
     React.useEffect(() => {
         !noTag && setTag(id.current, {label: children, ref: aref, topOffset});
