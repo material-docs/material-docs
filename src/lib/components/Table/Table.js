@@ -7,9 +7,10 @@ import React from "react";
 import {Table as MUITable} from "@material-ui/core";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import clsx from "clsx";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 const Table = React.forwardRef(function Table(props, ref) {
     const theme = useTheme();
@@ -17,10 +18,10 @@ const Table = React.forwardRef(function Table(props, ref) {
         children,
         className,
         style,
+        classes,
         ...other
     } = {...theme.props.MDTable, ...props};
     const commonClasses = useCommonStyles();
-    const classes = {...useStyles(), ...other.classes};
     const [height, setHeight] = React.useState(0);
     const containerRef = React.useRef(null);
     const tableRef = React.useRef(null);
@@ -69,4 +70,4 @@ Table.propTypes = {
     children: PropTypes.node,
 }
 
-export default Table;
+export default withStyles(styles, {name: "MatDocTable"})(Table);

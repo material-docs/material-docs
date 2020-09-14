@@ -10,7 +10,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
 import {useChangeRoute} from "routing-manager";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {isWidthUp, useTheme} from "@material-ui/core";
@@ -18,6 +18,7 @@ import useNesting, {NestingContext} from "../../hooks/useNesting";
 import PropTypes from "prop-types";
 import useMenu from "../../hooks/useMenu/useMenu";
 import withWidth from "@material-ui/core/withWidth";
+import {withStyles} from "@material-ui/styles";
 
 const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, ref) {
     const theme = useTheme();
@@ -35,9 +36,9 @@ const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, r
         style,
         dense = false,
         width,
+        classes,
         ...other
     } = {...theme.props.MDDocsMenuItem,...props};
-    const classes = {...useStyles(), ...other.classes};
     const {changeRoute, getRouteParams} = useChangeRoute();
     const pageRoute = typeof page === "string" && createRouteFromName(page);
     const [expanded, setExpanded] = React.useState(defaultExpanded);
@@ -147,4 +148,4 @@ DocsMenuItem.propTypes = {
     children: PropTypes.node,
 }
 
-export default DocsMenuItem;
+export default withStyles(styles, {name: "MatDocDocsMenuItem"})(DocsMenuItem);

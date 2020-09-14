@@ -7,7 +7,7 @@ import React, {Children} from "react";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import createRouteFromName from "../../utils/createRouteFromName";
-import {useStyles} from "./styles";
+import {styles, useStyles} from "./styles";
 import LinkIcon from '@material-ui/icons/Link';
 import clsx from "clsx";
 import useTags from "../../hooks/useTags";
@@ -16,10 +16,20 @@ import getElementOffsetSum from "../../utils/getElementOffsetSum";
 import PropTypes from "prop-types";
 import getTextFromChildren from "../../utils/getTextFromChildren";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 
-const TagableF = React.forwardRef(function TagableF({children, noTag = false, variant, style, className, noDivider = false, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const TagableF = React.forwardRef(function TagableF(props, ref) {
+    const {
+        children,
+        noTag = false,
+        variant,
+        style,
+        className,
+        classes,
+        noDivider = false,
+        ...other
+    } = props;
     const typographyClasses = {h1: classes.h1, h2: classes.h2, h3: classes.h3, h4: classes.h4, h5: classes.h5, h6: classes.h6}
     const commonClasses = useCommonStyles();
     const {setTag, removeTag} = useTags();
@@ -86,7 +96,7 @@ TagableF.propTypes = {
     children: PropTypes.node,
 }
 
-export const Tagable = TagableF;
+export const Tagable = withStyles(styles, {name: "MatDocTagable"})(TagableF);
 
 
 function H1F(props, ref) {

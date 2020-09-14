@@ -5,12 +5,13 @@
 
 import React from "react";
 import {LazyLoadImage} from 'react-lazy-load-image-component';
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 const Image = React.forwardRef(function Image(props, ref) {
     const theme = useTheme();
@@ -21,9 +22,9 @@ const Image = React.forwardRef(function Image(props, ref) {
         className,
         children,
         fullWidth = false,
+        classes,
         ...other
     } = {...theme.props.MDImage, ...props};
-    const classes = useStyles();
     return (
         <React.Fragment>
             <div style={style} className={clsx(fullWidth && classes.fullWidth, className)} ref={ref}>
@@ -60,4 +61,4 @@ Image.propTypes = {
     children: PropTypes.node,
 }
 
-export default Image;
+export default withStyles(styles, {name: "MatDocImage"})(Image);

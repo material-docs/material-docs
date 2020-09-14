@@ -4,11 +4,12 @@
  */
 
 import React from "react";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 const List = React.forwardRef(function List(props, ref) {
     const theme = useTheme();
@@ -17,9 +18,9 @@ const List = React.forwardRef(function List(props, ref) {
         className,
         style,
         image,
+        classes,
         ...other
     } = {...theme.props.MDList, ...props};
-    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
 
     return (
@@ -46,4 +47,4 @@ List.propTypes = {
     children: PropTypes.node,
 }
 
-export default List;
+export default withStyles(styles, {name: "MatDocList"})(List);

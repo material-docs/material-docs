@@ -9,10 +9,11 @@ import Paper from "@material-ui/core/Paper";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import {blueGrey, grey} from "@material-ui/core/colors";
 import clsx from "clsx";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/core";
 
 
 const Code = React.forwardRef(function Code(props, ref) {
@@ -23,9 +24,9 @@ const Code = React.forwardRef(function Code(props, ref) {
         theme = "light",
         style,
         className,
+        classes,
         ...other
     } = {...mtheme.props.MDCode, ...props}
-    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
     const codeRef = React.useRef(null);
@@ -131,4 +132,4 @@ Code.propTypes = {
     classes: PropTypes.object,
 }
 
-export default Code;
+export default withStyles(styles, {name: "MatDocCode"})(Code);

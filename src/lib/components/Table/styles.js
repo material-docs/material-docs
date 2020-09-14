@@ -3,11 +3,10 @@
  * Copyright (C) 2020.
  */
 
-import {makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {grey} from "@material-ui/core/colors";
 
-//TODO:  finish tables horizontal scrolling
-export const useStyles = makeStyles((theme) => ({
+export const styles = theme => createStyles({
     container: {
         width: "100%",
         overflowX: "auto",
@@ -20,4 +19,4 @@ export const useStyles = makeStyles((theme) => ({
         top: 0,
         minWidth: 650,
     }
-}));
+});

@@ -20,6 +20,7 @@ import DocsMenuItem from "../lib/components/DocsMenuItem/DocsMenuItem";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import logo from "./../logo.svg";
+import Block from "../lib/components/Block/Block";
 
 
 export default function ExampleDocumentation() {
@@ -64,6 +65,7 @@ export default function ExampleDocumentation() {
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
                         asfasf2324
+                        <Block>asdfasfas</Block>
                     </DocsPage>
                 </PagesGroup>
             </DocsPages>

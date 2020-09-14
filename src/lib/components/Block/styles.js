@@ -3,10 +3,10 @@
  * Copyright (C) 2020.
  */
 
-import {makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {grey} from "@material-ui/core/colors";
 
-export const useStyles = makeStyles((theme) => ({
+export const styles = theme => createStyles({
     root: {
         borderLeft: `5px solid ${grey[400]}`,
         backgroundColor: grey[200],
@@ -19,4 +19,4 @@ export const useStyles = makeStyles((theme) => ({
     colorDark: {
         backgroundColor: grey[400],
     }
-}));
+});

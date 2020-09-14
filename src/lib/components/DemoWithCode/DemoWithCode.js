@@ -4,7 +4,7 @@
  */
 
 import React, {Suspense} from "react";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import Box from '@material-ui/core/Box';
 import Code from "../Code/Code";
 import Collapse from "@material-ui/core/Collapse";
@@ -26,6 +26,7 @@ import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 import AspectRatio from "../../utils/AspectRatio";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
     const mtheme = useTheme();
@@ -39,9 +40,9 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
         paperContainer = false,
         actions,
         ratio,
+        classes,
         ...other
     } = {...mtheme.props.MDDemoWithCode,...props};
-    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);
@@ -178,4 +179,4 @@ DemoWithCode.propTypes = {
     classes: PropTypes.object,
 }
 
-export default DemoWithCode;
+export default withStyles(styles, {name: "MatDocDemoWithCode"})(DemoWithCode);

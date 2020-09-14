@@ -3,9 +3,9 @@
  * Copyright (C) 2020.
  */
 
-import {makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 
-export const useStyles = makeStyles(theme => ({
+export const styles = theme => createStyles({
     root: {
         overflowX: "auto",
         position: "relative",
@@ -15,4 +15,4 @@ export const useStyles = makeStyles(theme => ({
         left: 0,
         top: 0,
     }
-}));
+});

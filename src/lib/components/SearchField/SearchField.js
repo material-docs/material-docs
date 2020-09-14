@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from "@material-ui/core/InputBase";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import clsx from "clsx";
 import SearchMenuItem from "./SearchMenuItem";
 import Popper from "@material-ui/core/Popper";
@@ -22,6 +22,7 @@ import {useChangeRoute} from "routing-manager";
 import PropTypes from "prop-types";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 
 const SearchField = React.forwardRef(function SearchField(props, ref) {
@@ -31,9 +32,9 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
         style,
         searchData = [],
         doSearch,
+        classes,
         ...other
     } = {...theme.props.MDSearchField, ...props};
-    const classes = {...useStyles(), ...other.classes};
     const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
     const [focused, setFocused] = React.useState(false);
@@ -223,4 +224,4 @@ SearchField.defaultProps = {
     searchData: [],
 }
 
-export default SearchField;
+export default withStyles(styles, {name: "MatDocSearchField"})(SearchField);

@@ -8,7 +8,7 @@ import Collapse from "@material-ui/core/Collapse";
 import Box from "@material-ui/core/Box";
 import Code from "../Code";
 import clsx from "clsx";
-import {useStyles} from "./styles";
+import {styles, useStyles} from "./styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import copyToClipboard from "../../utils/copyToClipboard";
@@ -24,6 +24,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 
 const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
@@ -38,9 +39,9 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
         className,
         collapsedHeight = 100,
         actions,
+        classes,
         ...other
     } = {...mtheme.props.MDExpansionCode, ...props};
-    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
     const {enqueueSnackbar} = useSnackbar();
     const [expand, setExpand] = React.useState(false);
@@ -153,4 +154,4 @@ ExpansionCode.propTypes = {
     classes: PropTypes.object,
 }
 
-export default ExpansionCode;
+export default withStyles(styles, {name: "MatDocExpansionCode"})(ExpansionCode);

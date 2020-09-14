@@ -4,25 +4,26 @@
  */
 
 import React from "react";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import {useChangeRoute} from "routing-manager";
 import PropTypes from "prop-types";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
+import {withStyles} from "@material-ui/styles";
 
-const SearchMenuItem = React.forwardRef(function SearchMenuItem({
-                                                                    data,
-                                                                    style,
-                                                                    className,
-                                                                    active,
-                                                                    onMouseMove,
-                                                                    onAfterSelected,
-                                                                    onBeforeSelected,
-                                                                    ...props
-                                                                }, ref) {
-    const classes = {...useStyles(), ...props.classes};
+const SearchMenuItem = React.forwardRef(function SearchMenuItem(props, ref) {
+    const {
+        data,
+        style,
+        className,
+        active,
+        onMouseMove,
+        onAfterSelected,
+        onBeforeSelected,
+        classes,
+        ...other
+    } = props;
     const {changeRoute} = useChangeRoute();
 
     function handleItemAction(event) {
@@ -79,4 +80,4 @@ SearchMenuItem.propTypes = {
     classes: PropTypes.object,
 }
 
-export default SearchMenuItem;
+export default withStyles(styles, {name: "MatDocSearchMenuItem"})(SearchMenuItem);

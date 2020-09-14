@@ -4,10 +4,11 @@
  */
 
 import React from "react";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 const Italic = React.forwardRef(function Italic(props, ref) {
     const theme = useTheme();
@@ -15,9 +16,9 @@ const Italic = React.forwardRef(function Italic(props, ref) {
         children,
         className,
         style,
+        classes,
         ...other
     } = {...theme.props.MDItalic, ...props};
-    const classes = {...useStyles(), ...other.classes};
     return (
         <span className={clsx(classes.root, classes.italic, className)} ref={ref} style={style} {...other}>
             {children}
@@ -39,4 +40,4 @@ Italic.propTypes = {
     children: PropTypes.node,
 }
 
-export default Italic;
+export default withStyles(styles, {name: "MatDocItalic"})(Italic);

@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import NavigationList from "./NavigationList";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
 import useSearch from "../../hooks/useSearch";
 import useGroups from "../../hooks/useGroups";
 import {TaggingContext} from "../../hooks/useTags";
@@ -19,6 +19,7 @@ import {isWidthUp} from "@material-ui/core";
 import PropTypes from "prop-types";
 import {Helmet} from "react-helmet-async";
 import useTheme from "@material-ui/core/styles/useTheme";
+import {withStyles} from "@material-ui/styles";
 
 
 const DocsPage = React.forwardRef(function DocsPage(props, ref) {
@@ -32,9 +33,9 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
         noAutoMenu = false,
         width,
         children,
+        classes,
         ...other
     } = {...theme.props.MDDocsPage, ...props}
-    const classes = useStyles();
     const commonClasses = useCommonStyles();
     const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
@@ -178,4 +179,4 @@ DocsPage.propTypes = {
     children: PropTypes.node,
 }
 
-export default DocsPage;
+export default withStyles(styles, {name: "MatDocDocsPage"})(DocsPage);
