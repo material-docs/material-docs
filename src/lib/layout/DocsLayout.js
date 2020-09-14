@@ -76,6 +76,14 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const {l: langName} = getQueryParams();
     const {page: routePage} = getRouteParams();
 
+    React.useEffect(() => {
+        if (isWidthUp("md", width) && isWidthDown("lg", width)) {
+            setOpen(true);
+        } else if(isWidthUp("sm", width) && isWidthDown("md", width)) {
+            setOpen(false);
+        }
+    }, [width]);
+
     // Effect for language setup on startup and changing lang on url hash changing.
     React.useEffect(() => {
         if (!langName) {
