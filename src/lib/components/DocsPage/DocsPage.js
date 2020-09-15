@@ -18,12 +18,11 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import {isWidthUp} from "@material-ui/core";
 import PropTypes from "prop-types";
 import {Helmet} from "react-helmet-async";
-import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocDocsPage";
 
 const DocsPage = React.forwardRef(function DocsPage(props, ref) {
-    const theme = useTheme();
     const {
         name = "home",
         searchTags = [],
@@ -35,7 +34,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
         children,
         classes,
         ...other
-    } = {...theme.props.MDDocsPage, ...props}
+    } = props;
     const commonClasses = useCommonStyles();
     const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
@@ -154,7 +153,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
     );
 });
 
-DocsPage.displayName = "DocsPage";
+DocsPage.displayName = displayName;
 
 DocsPage.defaultProps = {
     name: "home",
@@ -179,4 +178,4 @@ DocsPage.propTypes = {
     children: PropTypes.node,
 }
 
-export default withStyles(styles, {name: "MatDocDocsPage"})(DocsPage);
+export default withStyles(styles, {name: displayName})(DocsPage);

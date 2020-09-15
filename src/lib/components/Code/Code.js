@@ -12,12 +12,11 @@ import clsx from "clsx";
 import {styles} from "./styles";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import PropTypes from "prop-types";
-import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/core";
 
+export const displayName = "MatDocCode";
 
 const Code = React.forwardRef(function Code(props, ref) {
-    const mtheme = useTheme();
     const {
         children,
         language = "javascript",
@@ -26,7 +25,7 @@ const Code = React.forwardRef(function Code(props, ref) {
         className,
         classes,
         ...other
-    } = {...mtheme.props.MDCode, ...props}
+    } = props;
     const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
     const codeRef = React.useRef(null);
@@ -78,13 +77,15 @@ const Code = React.forwardRef(function Code(props, ref) {
             codeStyle = codeStyles.light;
     }
 
-//    console.log(SyntaxHighlighter.supportedLanguages.map(item => `"${item}"`).join(" | "));
     return (
         <Paper
             style={{backgroundColor: codeStyle.background, height, ...style}}
             className={clsx(commonClasses.pageBlock, classes.root, className)}
             elevation={0}
-            ref={element => {rootRef.current = element; if (ref) ref.current = element}}
+            ref={element => {
+                rootRef.current = element;
+                if (ref) ref.current = element
+            }}
         >
             <div className={classes.highlighterContainer} ref={codeRef}>
                 <SyntaxHighlighter language={language} style={codeStyle.highlight}>
@@ -95,7 +96,7 @@ const Code = React.forwardRef(function Code(props, ref) {
     );
 });
 
-Code.displayName = "Code";
+Code.displayName = displayName;
 
 Code.defaultProps = {
     language: "javascript",
@@ -132,4 +133,4 @@ Code.propTypes = {
     classes: PropTypes.object,
 }
 
-export default withStyles(styles, {name: "MatDocCode"})(Code);
+export default withStyles(styles, {name: displayName})(Code);

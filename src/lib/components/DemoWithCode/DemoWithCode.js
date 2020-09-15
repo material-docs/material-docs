@@ -25,11 +25,11 @@ import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 import AspectRatio from "../../utils/AspectRatio";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocDemoWithCode";
+
 const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
-    const mtheme = useTheme();
     const {
         children,
         defaultExpanded,
@@ -42,7 +42,7 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
         ratio,
         classes,
         ...other
-    } = {...mtheme.props.MDDemoWithCode,...props};
+    } = props;
     const commonClasses = useCommonStyles();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);
@@ -72,7 +72,7 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
             <H3 noDivider noTag={noTag}>{name}</H3>
             }
             <Box style={{height: height || undefined}} ref={demoRef} className={classes.demo}>
-                <Suspense fallback={<CircularProgress />}>
+                <Suspense fallback={<CircularProgress/>}>
                     {!paperContainer && children}
                     {paperContainer &&
                     <Paper elevation={0} variant={"outlined"} className={classes.paperContainer}>
@@ -135,7 +135,7 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
     );
 });
 
-DemoWithCode.displayName = "DemoWithCode";
+DemoWithCode.displayName = displayName;
 
 DemoWithCode.defaultProps = {
     noTag: false,
@@ -179,4 +179,4 @@ DemoWithCode.propTypes = {
     classes: PropTypes.object,
 }
 
-export default withStyles(styles, {name: "MatDocDemoWithCode"})(DemoWithCode);
+export default withStyles(styles, {name: displayName})(DemoWithCode);

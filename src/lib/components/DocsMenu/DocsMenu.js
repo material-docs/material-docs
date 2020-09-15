@@ -6,19 +6,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import List from "@material-ui/core/List";
-import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
 import getContainerByType from "../../utils/getContainerByType";
 import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
-import useTheme from "@material-ui/core/styles/useTheme";
+
+export const displayName = "MatDocDocsMenu";
 
 const DocsMenu = React.forwardRef(function DocsMenu(props, ref) {
-    const theme = useTheme();
     const {
         dense = false,
         children,
         layoutData,
         ...other
-    } = {...theme.props.MDDocsMenu, ...props};
+    } = props;
     const [content, setContent] = React.useState({basic: [], auto: null});
 
     React.useEffect(() => {
@@ -49,7 +48,7 @@ const DocsMenu = React.forwardRef(function DocsMenu(props, ref) {
     );
 });
 
-DocsMenu.displayName = "DocsMenu"
+DocsMenu.displayName = displayName;
 
 DocsMenu.defaultProps = {
     dense: false,

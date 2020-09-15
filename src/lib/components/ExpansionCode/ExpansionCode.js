@@ -26,6 +26,7 @@ import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocExpansionCode";
 
 const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
     const mtheme = useTheme();
@@ -41,7 +42,7 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
         actions,
         classes,
         ...other
-    } = {...mtheme.props.MDExpansionCode, ...props};
+    } = props;
     const commonClasses = useCommonStyles();
     const {enqueueSnackbar} = useSnackbar();
     const [expand, setExpand] = React.useState(false);
@@ -112,7 +113,7 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
     );
 });
 
-ExpansionCode.displayName = "ExpansionCode";
+ExpansionCode.displayName = displayName;
 
 ExpansionCode.defaultProps = {
     demoCode: "",
@@ -154,4 +155,4 @@ ExpansionCode.propTypes = {
     classes: PropTypes.object,
 }
 
-export default withStyles(styles, {name: "MatDocExpansionCode"})(ExpansionCode);
+export default withStyles(styles, {name: displayName})(ExpansionCode);

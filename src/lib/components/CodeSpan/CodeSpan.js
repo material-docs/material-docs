@@ -9,6 +9,8 @@ import {styles} from "./styles";
 import PropTypes from "prop-types";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocCodeSpan";
+
 const CodeSpan = React.forwardRef(function CodeSpan(props, ref) {
     const {
         className,
@@ -18,7 +20,7 @@ const CodeSpan = React.forwardRef(function CodeSpan(props, ref) {
         text = "inherit",
         classes,
         ...other
-    } = {...props};
+    } = props;
     return (
         <span
             ref={ref}
@@ -41,7 +43,7 @@ const CodeSpan = React.forwardRef(function CodeSpan(props, ref) {
     );
 });
 
-CodeSpan.displayName = "CodeSpan";
+CodeSpan.displayName = displayName;
 
 CodeSpan.defaultProps = {
     color: "default",
@@ -60,4 +62,4 @@ CodeSpan.propTypes = {
     children: PropTypes.node,
 }
 
-export default withStyles(styles, {name: "MatDocCodeSpan"})(CodeSpan);
+export default withStyles(styles, {name: displayName})(CodeSpan);

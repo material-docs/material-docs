@@ -17,6 +17,7 @@ import PropTypes from "prop-types";
 import withWidth from "@material-ui/core/withWidth";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocNavigationList";
 
 const NavigationList = React.forwardRef(function NavigationList(props, ref) {
     const {
@@ -111,7 +112,7 @@ const NavigationList = React.forwardRef(function NavigationList(props, ref) {
     );
 });
 
-NavigationList.displayName = "NavigationList";
+NavigationList.displayName = displayName;
 
 NavigationList.defaultProps = {}
 
@@ -119,4 +120,4 @@ NavigationList.propTypes = {
     keys: PropTypes.array,
 }
 
-export default withStyles(styles, {name: "MatDocNavigationList"})(withWidth()(NavigationList));
+export default withStyles(styles, {name: displayName})(withWidth()(NavigationList));

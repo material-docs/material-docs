@@ -12,15 +12,16 @@ import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocTable";
+
 const Table = React.forwardRef(function Table(props, ref) {
-    const theme = useTheme();
     const {
         children,
         className,
         style,
         classes,
         ...other
-    } = {...theme.props.MDTable, ...props};
+    } = props;
     const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
     const containerRef = React.useRef(null);
@@ -58,7 +59,7 @@ const Table = React.forwardRef(function Table(props, ref) {
     );
 });
 
-Table.displayName = "Table";
+Table.displayName = displayName;
 
 Table.defaultProps = {
 }
@@ -70,4 +71,4 @@ Table.propTypes = {
     children: PropTypes.node,
 }
 
-export default withStyles(styles, {name: "MatDocTable"})(Table);
+export default withStyles(styles, {name: displayName})(Table);

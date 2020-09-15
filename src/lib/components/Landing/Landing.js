@@ -6,13 +6,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+export const displayName = "MatDocLanding";
+
 class Landing extends React.Component {
     render() {
         return this.props.children;
     }
 }
 
-Landing.displayName = "Landing";
+Landing.displayName = displayName;
 
 Landing.propTypes = {
     children: PropTypes.node,

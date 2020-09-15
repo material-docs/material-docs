@@ -11,8 +11,9 @@ import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocListItem";
+
 const ListItem = React.forwardRef(function ListItem(props, ref) {
-    const theme = useTheme();
     const {
         children,
         type = "circle",
@@ -21,7 +22,7 @@ const ListItem = React.forwardRef(function ListItem(props, ref) {
         className,
         classes,
         ...other
-    } = {...theme.props.MDListItem, ...props};
+    } = props;
     const containers = React.Children.map(children, child => child.type === ListItemContained ? child : null);
     if (containers.length > 1) console.error("MaterialDocs: List item can contain only one ListItemContained element");
 
@@ -65,7 +66,7 @@ const ListItem = React.forwardRef(function ListItem(props, ref) {
     );
 });
 
-ListItem.displayName = "ListItem";
+ListItem.displayName = displayName;
 
 ListItem.defaultProps = {
     type: "circle",
@@ -84,4 +85,4 @@ ListItem.propTypes = {
     children: PropTypes.node,
 }
 
-export default withStyles(styles, {name: "MatDocListItem"})(ListItem);
+export default withStyles(styles, {name: displayName})(ListItem);

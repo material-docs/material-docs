@@ -12,8 +12,9 @@ import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/core/styles";
 
+export const displayName = "MdBlock";
+
 const Block = React.forwardRef(function Block(props, ref) {
-    const theme = useTheme();
     const {
         className,
         style,
@@ -43,7 +44,7 @@ const Block = React.forwardRef(function Block(props, ref) {
     );
 });
 
-Block.displayName = "MdBlock";
+Block.displayName = displayName;
 
 Block.propTypes = {
     // BlockProps
@@ -56,4 +57,4 @@ Block.propTypes = {
     children: PropTypes.node,
 }
 
-export default  withStyles(styles, {name: "MatDocBlock"})(Block);
+export default withStyles(styles, {name: displayName})(Block);

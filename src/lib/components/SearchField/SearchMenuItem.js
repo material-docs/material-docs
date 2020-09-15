@@ -12,6 +12,8 @@ import PropTypes from "prop-types";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocSearchMenuItem";
+
 const SearchMenuItem = React.forwardRef(function SearchMenuItem(props, ref) {
     const {
         data,
@@ -65,7 +67,7 @@ const SearchMenuItem = React.forwardRef(function SearchMenuItem(props, ref) {
     );
 });
 
-SearchMenuItem.displayName = "SearchMenuItem";
+SearchMenuItem.displayName = displayName;
 
 SearchMenuItem.defaultProps = {}
 
@@ -80,4 +82,4 @@ SearchMenuItem.propTypes = {
     classes: PropTypes.object,
 }
 
-export default withStyles(styles, {name: "MatDocSearchMenuItem"})(SearchMenuItem);
+export default withStyles(styles, {name: displayName})(SearchMenuItem);

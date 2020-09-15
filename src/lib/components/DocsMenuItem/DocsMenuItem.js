@@ -20,8 +20,9 @@ import useMenu from "../../hooks/useMenu/useMenu";
 import withWidth from "@material-ui/core/withWidth";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocDocsMenuItem";
+
 const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, ref) {
-    const theme = useTheme();
     const {
         children,
         defaultExpanded = false,
@@ -38,7 +39,8 @@ const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, r
         width,
         classes,
         ...other
-    } = {...theme.props.MDDocsMenuItem,...props};
+    } = props;
+    const theme = useTheme();
     const {changeRoute, getRouteParams} = useChangeRoute();
     const pageRoute = typeof page === "string" && createRouteFromName(page);
     const [expanded, setExpanded] = React.useState(defaultExpanded);
@@ -119,7 +121,7 @@ const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, r
     );
 }));
 
-DocsMenuItem.displayName = "DocsMenuItem";
+DocsMenuItem.displayName = displayName;
 
 DocsMenuItem.defaultProps = {
     defaultExpanded: false,
@@ -148,4 +150,4 @@ DocsMenuItem.propTypes = {
     children: PropTypes.node,
 }
 
-export default withStyles(styles, {name: "MatDocDocsMenuItem"})(DocsMenuItem);
+export default withStyles(styles, {name: displayName})(DocsMenuItem);

@@ -24,9 +24,9 @@ import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocSearchField";
 
 const SearchField = React.forwardRef(function SearchField(props, ref) {
-    const theme = useTheme();
     const {
         className,
         style,
@@ -34,7 +34,7 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
         doSearch,
         classes,
         ...other
-    } = {...theme.props.MDSearchField, ...props};
+    } = props;
     const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
     const [focused, setFocused] = React.useState(false);
@@ -208,7 +208,7 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
     );
 });
 
-SearchField.displayName = "SearchField";
+SearchField.displayName = displayName;
 
 SearchField.propTypes = {
     // SearchFieldProps
@@ -224,4 +224,4 @@ SearchField.defaultProps = {
     searchData: [],
 }
 
-export default withStyles(styles, {name: "MatDocSearchField"})(SearchField);
+export default withStyles(styles, {name: displayName})(SearchField);

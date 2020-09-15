@@ -6,11 +6,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+export const displayName = "DocsPages";
+
 function DocsPages(children) {
     return children;
 }
 
-DocsPages.displayName = "DocsPages";
+DocsPages.displayName = displayName;
 
 
 DocsPages.propTypes = {

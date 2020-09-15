@@ -3,11 +3,11 @@
  * Copyright (C) 2020.
  */
 
-import React, {Children} from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import createRouteFromName from "../../utils/createRouteFromName";
-import {styles, useStyles} from "./styles";
+import {styles} from "./styles";
 import LinkIcon from '@material-ui/icons/Link';
 import clsx from "clsx";
 import useTags from "../../hooks/useTags";
@@ -15,9 +15,9 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
 import PropTypes from "prop-types";
 import getTextFromChildren from "../../utils/getTextFromChildren";
-import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocTagable";
 
 const TagableF = React.forwardRef(function TagableF(props, ref) {
     const {
@@ -30,7 +30,14 @@ const TagableF = React.forwardRef(function TagableF(props, ref) {
         noDivider = false,
         ...other
     } = props;
-    const typographyClasses = {h1: classes.h1, h2: classes.h2, h3: classes.h3, h4: classes.h4, h5: classes.h5, h6: classes.h6}
+    const typographyClasses = {
+        h1: classes.h1,
+        h2: classes.h2,
+        h3: classes.h3,
+        h4: classes.h4,
+        h5: classes.h5,
+        h6: classes.h6
+    }
     const commonClasses = useCommonStyles();
     const {setTag, removeTag} = useTags();
     const [topOffset, setTopOffset] = React.useState(0);
@@ -65,7 +72,7 @@ const TagableF = React.forwardRef(function TagableF(props, ref) {
                 <div className={classes.container}>
                     <Typography variant={variant} classes={typographyClasses} className={classes.typography}>
                         <div className={classes.textBlock}>
-                        {children}
+                            {children}
                         </div>
                         {!noDivider && <Divider className={classes.divider}/>}
                     </Typography>
@@ -80,7 +87,7 @@ const TagableF = React.forwardRef(function TagableF(props, ref) {
     );
 });
 
-TagableF.displayName = "Tagable";
+TagableF.displayName = displayName;
 
 TagableF.defaultProps = {
     noTag: false,
@@ -96,12 +103,11 @@ TagableF.propTypes = {
     children: PropTypes.node,
 }
 
-export const Tagable = withStyles(styles, {name: "MatDocTagable"})(TagableF);
+export const Tagable = withStyles(styles, {name: displayName})(TagableF);
 
 
 function H1F(props, ref) {
-    const theme = useTheme();
-    const {children, ...other} = {...theme.props.MDH1, ...props};
+    const {children, ...other} = props;
     return <Tagable variant={"h1"} {...other} ref={ref}>{children}</Tagable>
 }
 
@@ -109,8 +115,7 @@ export const H1 = React.forwardRef(H1F);
 
 
 function H2F(props, ref) {
-    const theme = useTheme();
-    const {children, ...other} = {...theme.props.MDH2, ...props};
+    const {children, ...other} = props;
     return <Tagable variant={"h2"} {...other} ref={ref}>{children}</Tagable>
 }
 
@@ -118,8 +123,7 @@ export const H2 = React.forwardRef(H2F);
 
 
 function H3F(props, ref) {
-    const theme = useTheme();
-    const {children, ...other} = {...theme.props.MDH3, ...props};
+    const {children, ...other} = props;
     return <Tagable variant={"h3"} {...other} ref={ref}>{children}</Tagable>
 }
 
@@ -127,8 +131,7 @@ export const H3 = React.forwardRef(H3F);
 
 
 function H4F(props, ref) {
-    const theme = useTheme();
-    const {children, noDivider = true, noTag = true, ...other} = {...theme.props.MDH6, ...props};
+    const {children, noDivider = true, noTag = true, ...other} = props;
     return <Tagable variant={"h4"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
 }
 
@@ -136,8 +139,7 @@ export const H4 = React.forwardRef(H4F);
 
 
 function H5F(props, ref) {
-    const theme = useTheme();
-    const {children, noDivider = true, noTag = true, ...other} = {...theme.props.MDH6, ...props};
+    const {children, noDivider = true, noTag = true, ...other} = props;
     return <Tagable variant={"h5"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
 }
 
@@ -145,8 +147,7 @@ export const H5 = React.forwardRef(H5F);
 
 
 function H6F(props, ref) {
-    const theme = useTheme();
-    const {children, noDivider = true, noTag = true, ...other} = {...theme.props.MDH6, ...props};
+    const {children, noDivider = true, noTag = true, ...other} = props;
     return <Tagable variant={"h6"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
 }
 
@@ -154,8 +155,7 @@ export const H6 = React.forwardRef(H6F);
 
 
 const HeaderF = React.forwardRef(function HeaderF(props, ref) {
-    const theme = useTheme();
-    const {children, heading = 1, ...other} = {...theme.props.MDHeader, ...props};
+    const {children, heading = 1, ...other} = props;
     switch (heading) {
         case 1:
             return <H1 {...other} ref={ref}>{children}</H1>;

@@ -5,18 +5,17 @@
 
 import React from "react";
 import DocsMenuItem from "../DocsMenuItem";
-import PropTypes from 'prop-types';
 import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
 import {useChangeRoute} from "routing-manager";
 import {createRouteFromName} from "../../utils";
 import * as _ from "lodash";
-import useTheme from "@material-ui/core/styles/useTheme";
+
+export const displayName = "MatDocAutoDocsMenu";
 
 const AutoDocsMenu = React.forwardRef(function AutoDocsMenu(props, ref) {
-    const theme = useTheme();
     const {
         layoutData,
-    } = {...theme.props.MDAutoDocsMenu, ...props};
+    } = props;
 
     const {getRouteParams} = useChangeRoute();
     const {page} = getRouteParams();
@@ -61,7 +60,7 @@ const AutoDocsMenu = React.forwardRef(function AutoDocsMenu(props, ref) {
     return recursiveGenerateMenu(layoutData, pagePath);
 });
 
-AutoDocsMenu.displayName = "AutoDocsMenu";
+AutoDocsMenu.displayName = displayName;
 
 AutoDocsMenu.propTypes = {
     layoutData: PagesGroupDataValidator,

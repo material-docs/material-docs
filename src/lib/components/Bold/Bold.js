@@ -9,14 +9,16 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import {withStyles} from "@material-ui/core";
 
-const Bold =  React.forwardRef(function Bold(props, ref) {
+export const displayName = "MatDocBold";
+
+const Bold = React.forwardRef(function Bold(props, ref) {
     const {
         children,
         className,
         style,
         classes,
         ...other
-    } = {...props}
+    } = props;
     return (
         <span className={clsx(classes.root, classes.bold, className)} ref={ref} style={style}>
             {children}
@@ -25,7 +27,7 @@ const Bold =  React.forwardRef(function Bold(props, ref) {
 
 });
 
-Bold.displayName = "Bold";
+Bold.displayName = displayName;
 
 Bold.propTypes = {
     // Stylable
@@ -36,4 +38,4 @@ Bold.propTypes = {
     children: PropTypes.node,
 }
 
-export default withStyles(styles, {name: "MatDocBold"})(Bold);
+export default withStyles(styles, {name: displayName})(Bold);

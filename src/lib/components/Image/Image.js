@@ -10,11 +10,11 @@ import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import PropTypes from "prop-types";
-import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocImage";
+
 const Image = React.forwardRef(function Image(props, ref) {
-    const theme = useTheme();
     const {
         src = "",
         alt = "",
@@ -24,7 +24,7 @@ const Image = React.forwardRef(function Image(props, ref) {
         fullWidth = false,
         classes,
         ...other
-    } = {...theme.props.MDImage, ...props};
+    } = props;
     return (
         <React.Fragment>
             <div style={style} className={clsx(fullWidth && classes.fullWidth, className)} ref={ref}>
@@ -40,7 +40,7 @@ const Image = React.forwardRef(function Image(props, ref) {
     );
 });
 
-Image.displayName = "Image";
+Image.displayName = displayName;
 
 Image.defaultProps = {
     src: "",
@@ -61,4 +61,4 @@ Image.propTypes = {
     children: PropTypes.node,
 }
 
-export default withStyles(styles, {name: "MatDocImage"})(Image);
+export default withStyles(styles, {name: displayName})(Image);

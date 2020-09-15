@@ -12,8 +12,9 @@ import PropTypes from "prop-types";
 import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocMarkdown";
+
 const Markdown = React.forwardRef(function Markdown(props, ref) {
-    const theme = useTheme();
     const {
         children,
         className,
@@ -22,7 +23,7 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
         data = {},
         classes,
         ...other
-    } = {...theme.props.MDMarkdown, ...props};
+    } = props;
     const commonClasses = useCommonStyles();
     const [content, setContent] = React.useState([]);
 
@@ -51,7 +52,7 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
     );
 });
 
-Markdown.displayName = "Markdown";
+Markdown.displayName = displayName;
 
 Markdown.defaultProps = {
     inline: false,
@@ -69,4 +70,4 @@ Markdown.propTypes = {
     // Containerable
 }
 
-export default withStyles(styles, {name: "MatDocMarkdown"})(Markdown);
+export default withStyles(styles, {name: displayName})(Markdown);
