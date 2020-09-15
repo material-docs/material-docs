@@ -16,6 +16,13 @@ const DefaultTheme = createMuiTheme({
             main: red[600],
         },
     },
+    components: {
+        MatDocBlock: {
+            defaultProps: {
+                color: "light",
+            }
+        }
+    }
 });
 
 export default DefaultTheme;

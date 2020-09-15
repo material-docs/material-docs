@@ -21,10 +21,8 @@ const Block = React.forwardRef(function Block(props, ref) {
         color = "light",
         classes,
         ...other
-    } = {...theme.props.MDBlock, ...props}
+    } = props;
     const commonClasses = useCommonStyles();
-
-    console.log(classes);
 
     return (
         <Paper
@@ -46,10 +44,6 @@ const Block = React.forwardRef(function Block(props, ref) {
 });
 
 Block.displayName = "MdBlock";
-
-Block.defaultProps = {
-    color: "light",
-}
 
 Block.propTypes = {
     // BlockProps
