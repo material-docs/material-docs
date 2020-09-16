@@ -3,8 +3,8 @@
  * Copyright (C) 2020.
  */
 
-import React from 'react';
-import {useStyles} from './styles' // TODO: change to withStyles
+import React from "react";
+import {styles} from "./styles"
 
 // Components
 import {Helmet, HelmetProvider} from "react-helmet-async";
@@ -82,9 +82,9 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         name,
         version,
         logo,
+        classes,
         ...other
     } = props;
-    const classes = useStyles();
     const theme = useTheme();
     const {getQueryParams, getRouteParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
@@ -335,7 +335,7 @@ DocsLayoutF.propTypes = {
     logo: PropTypes.string,
 }
 
-const DocsLayout = withWidth()(DocsLayoutF);
+const DocsLayout = withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF));
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'MaterialDocs',
