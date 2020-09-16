@@ -25,6 +25,7 @@ import List from "../lib/components/List/List";
 import ListItem from "../lib/components/ListItem/ListItem";
 import ListItemContained from "../lib/components/ListItemContained/ListItemContained";
 import Link from "../lib/components/Link/Link";
+import Markdown from "../lib/components/Markdown/Markdown";
 
 
 export default function ExampleDocumentation() {
@@ -78,6 +79,7 @@ export default function ExampleDocumentation() {
                                 </ListItemContained>
                             </ListItem>
                             <Link page={["Components", "DocsPages"]}>Hello</Link>
+                            <Markdown>{`[{"text": "Hello darkness my old friend", "page": "components/docs-pages"}](https://google.com)`}</Markdown>
                         </List>
                     </DocsPage>
                 </PagesGroup>

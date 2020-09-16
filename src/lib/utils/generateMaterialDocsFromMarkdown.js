@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import List from "../components/List/List";
 import ListItem from "../components/ListItem/ListItem";
 import Code from "../components/Code/Code";
-import {Link} from "@material-ui/core";
+import Link from "../components/Link";
 import Bold from "../components/Bold/Bold";
 import Italic from "../components/Italic/Italic";
 import Image from "../components/Image/Image";
@@ -170,12 +170,23 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                         );
                     case "codespan":
                         return <CodeSpan key={`codespan-token-${tokenId}`}>{token.text}</CodeSpan>
-                    case "link":
+                    case "link": {
+                        const {href, text, tokens} = token;
+                        let settings = {};
+                        try {
+                            settings = JSON.parse(text);
+                            if (typeof settings.text === "string") settings.tokens = marked.lexer(settings.text);
+                        } catch (e) {
+                            settings = {tokens};
+                        } finally {
+                            settings.href = href;
+                        }
                         return (
-                            <Link href={token.href} key={`link-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
+                            <Link href={settings.href} page={settings.page} key={`link-token-${tokenId}`}>
+                                {settings.tokens && generateMaterialDocsFromMarkdown(settings.tokens, storage, tokenId + key)}
                             </Link>
                         );
+                    }
                     case "br":
                         return <br key={`br-token-${tokenId}`}/>
                     case "hr":
