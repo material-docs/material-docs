@@ -20,4 +20,14 @@ export interface LinkProps
     href: string;
 }
 
+/**
+ * Link - React component, designed to make links.
+ * @param props
+ * @function
+ * @constructor
+ * @example
+ * <Link page={["apis", "docs"]}>
+ *     I am a link
+ * </Link>
+ */
 export default function Link(props: LinkProps): JSX.Element;

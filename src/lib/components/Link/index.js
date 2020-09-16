@@ -3,3 +3,4 @@
  * Copyright (C) 2020.
  */
 
+export {default} from "./Link";

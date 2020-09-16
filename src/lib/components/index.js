@@ -36,3 +36,4 @@ export {default as TableRow} from "./TableRow";
 export {default as DocsMenu} from "./DocsMenu";
 export {default as DocsPages} from "./DocsPages";
 export {default as ListItemContained} from "./ListItemContained";
+export {default as Link} from "./Link";

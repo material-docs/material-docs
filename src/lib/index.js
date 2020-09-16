@@ -56,5 +56,6 @@ export {
     Markdown,
     SearchField,
     TableCell,
-    Tagable
+    Tagable,
+    Link,
 } from "./components";
