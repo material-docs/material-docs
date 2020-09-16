@@ -386,6 +386,15 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props,
 
 DocsLayoutProviders.displayName = displayName;
 
+DocsLayoutProviders.defaultProps = {
+    noGenerateAutoSearch: false,
+    noSearchField: false,
+    noLanguageSelector: false,
+    actions: [],
+    router: "browser-router",
+    mask: "/(*page)",
+}
+
 DocsLayoutProviders.propTypes = {
     // DocsLayoutProps
     mask: PropTypes.string,
