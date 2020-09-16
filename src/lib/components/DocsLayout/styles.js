@@ -3,11 +3,10 @@
  * Copyright (C) 2020.
  */
 
-import {makeStyles} from "@material-ui/core/styles";
-import {blue} from "@material-ui/core/colors";
+import {createStyles} from "@material-ui/styles";
 const drawerWidth = 300;
 
-export const useStyles = makeStyles((theme) => ({
+export const styles = theme => createStyles({
     root: {
         display: 'flex',
         letterSpacing: "0.01em",
@@ -80,4 +79,4 @@ export const useStyles = makeStyles((theme) => ({
     version: {
         flexGrow: 1,
     }
-}));
+});

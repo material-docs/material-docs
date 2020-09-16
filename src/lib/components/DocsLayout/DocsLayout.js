@@ -3,8 +3,8 @@
  * Copyright (C) 2020.
  */
 
-import React from 'react';
-import {useStyles} from './styles' // TODO: change to withStyles
+import React from "react";
+import {styles} from "./styles"
 
 // Components
 import {Helmet, HelmetProvider} from "react-helmet-async";
@@ -82,9 +82,9 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         name,
         version,
         logo,
+        classes,
         ...other
     } = props;
-    const classes = useStyles();
     const theme = useTheme();
     const {getQueryParams, getRouteParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
@@ -107,7 +107,8 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     // Effect for language setup on startup and changing lang on url hash changing.
     React.useEffect(() => {
         if (!langName) {
-            changeRoute({page: null}, {l: defaultLang.name});
+            debugger;
+            changeRoute(null, {l: defaultLang.name});
         }
         const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
         switchLang(newLang).then();
@@ -123,7 +124,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
             throw new TypeError(`MaterialDocs: incorrect type of lang, expected Lang, got ${typeof inputLang}`);
         if (typeof inputLang.name !== "string")
             throw new TypeError(`MaterialDocs: incorrect type of lang.name, expected string, got ${typeof inputLang.name}`);
-        changeRoute({}, {l: inputLang.name});
+        changeRoute(null, {l: inputLang.name});
     }
 
     async function switchLang(inputLang) {
@@ -335,7 +336,7 @@ DocsLayoutF.propTypes = {
     logo: PropTypes.string,
 }
 
-const DocsLayout = withWidth()(DocsLayoutF);
+const DocsLayout = withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF));
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'MaterialDocs',
