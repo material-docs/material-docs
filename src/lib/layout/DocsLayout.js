@@ -19,7 +19,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from './styles'
 import {BrowserRouter, HashRouter, Route, Switch} from "react-router-dom";
 import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
-import {displayName as DocsMenuDisplayName} from "../components/DocsMenu";
 import {SnackbarProvider} from "notistack";
 import SearchField from "../components/SearchField";
 import LanguageSelector from "../components/LanguageSelector";
@@ -48,7 +47,6 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import {displayName as DocsPagesDisplayName} from "./../components/DocsPages";
 import {displayName as LandingDisplayName} from "../components/Landing";
 import {displayName as DocsMenuDisplayName} from "../components/DocsMenu";
-import {displayName as PagesGroupDisplayName} from "../components/PagesGroup";
 
 const DocsLayoutF = React.forwardRef((props, ref) => {
     const {
