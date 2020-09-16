@@ -8,6 +8,8 @@ import DemoCodeAction from "../../interfaces/DemoCodeAction";
 import {CodeProps} from "../Code/Code";
 import AspectRatio from "../../utils/AspectRatio";
 
+export const displayName: string;
+
 export interface DemoWithCodeProps
     extends CodeProps {
     /**

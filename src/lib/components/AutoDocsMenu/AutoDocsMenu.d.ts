@@ -6,6 +6,8 @@
 /// <reference types="react" />
 import PagesGroupData from "../../interfaces/PagesGroupData";
 
+export const displayName: string;
+
 export interface AutoDocsMenuProps {
     /**
      * layoutData - pages and groups hierarchy data.

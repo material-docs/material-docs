@@ -17,10 +17,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from './styles'
-import {BrowserRouter, HashRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Switch} from "react-router-dom";
 import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
-import DocsMenu from "../components/DocsMenu";
-import DocsPages from "../components/DocsPages";
+import {displayName as DocsMenuDisplayName} from "../components/DocsMenu";
 import {SnackbarProvider} from "notistack";
 import SearchField from "../components/SearchField";
 import LanguageSelector from "../components/LanguageSelector";
@@ -28,7 +27,7 @@ import PagesGroup from "../components/PagesGroup";
 import {LangContext} from "../hooks/useLang/useLang"
 import {SearchContext} from "../hooks/useSearch/useSearch";
 import * as _ from "lodash";
-import {isWidthDown, isWidthUp, List, withWidth} from "@material-ui/core";
+import {isWidthDown, isWidthUp, withWidth} from "@material-ui/core";
 import PropTypes from "prop-types";
 import SearchDataItemValidator from "../validators/SearchDataItemValidator";
 import LangValidator from "../validators/LangValidator";
@@ -44,6 +43,10 @@ import generateHeaderIcon from "./generateHeaderIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+
+
+import {displayName as DocsPagesDisplayName} from "./../components/DocsPages";
+import {displayName as LandingDisplayName} from "../components/Landing";
 
 const DocsLayoutF = React.forwardRef((props, ref) => {
     const {
@@ -153,15 +156,15 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const getSearchData = () => [...searchData];
 
     const getMenuFromChildren = () => {
-        const menu = getContainerByType(children, "DocsMenu");
+        const menu = getContainerByType(children, DocsMenuDisplayName);
         if (menu && React.isValidElement(menu))
             return React.cloneElement(menu, {layoutData: autoMenuData});
         return null;
     };
 
-    const getPagesFromChildren = () => getChildrenFromContainer(children, "DocsPages") || [];
+    const getPagesFromChildren = () => getChildrenFromContainer(children, DocsPagesDisplayName) || [];
 
-    const getLanding = () => getChildrenFromContainer(children, "Landing");
+    const getLanding = () => getChildrenFromContainer(children, LandingDisplayName);
 
     // Effect, designed to get pages, menu and landing components from containers.
     React.useEffect(() => {

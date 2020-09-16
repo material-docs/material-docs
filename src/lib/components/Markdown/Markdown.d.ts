@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface MarkdownProps
     extends Stylable, Containerable {
     /**

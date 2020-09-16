@@ -21,6 +21,9 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import logo from "./../logo.svg";
 import Block from "../lib/components/Block/Block";
+import List from "../lib/components/List/List";
+import ListItem from "../lib/components/ListItem/ListItem";
+import ListItemContained from "../lib/components/ListItemContained/ListItemContained";
 
 
 export default function ExampleDocumentation() {
@@ -66,6 +69,14 @@ export default function ExampleDocumentation() {
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
                         asfasf2324
                         <Block>asdfasfas</Block>
+                        <List>
+                            <ListItem>
+                                asfsdf
+                                <ListItemContained>
+                                    <ListItem>adsfsa</ListItem>
+                                </ListItemContained>
+                            </ListItem>
+                        </List>
                     </DocsPage>
                 </PagesGroup>
             </DocsPages>

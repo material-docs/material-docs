@@ -11,7 +11,6 @@ import useTheme from "@material-ui/core/styles/useTheme";
 export const displayName = "MatDocPagesGroup";
 
 const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
-    const theme = useTheme();
     const {
         name,
         children,

@@ -6,7 +6,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const displayName = "DocsPages";
+export const displayName = "MatDocDocsPages";
 
 function DocsPages(children) {
     return children;

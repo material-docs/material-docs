@@ -7,6 +7,8 @@
 import {CodeProps} from "../Code/Code";
 import DemoCodeAction from "../../interfaces/DemoCodeAction";
 
+export const displayName: string;
+
 export interface ExpansionCodeProps
     extends CodeProps {
     /**

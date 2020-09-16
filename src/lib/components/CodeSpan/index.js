@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default} from "./CodeSpan";
+export {default, displayName} from "./CodeSpan";
