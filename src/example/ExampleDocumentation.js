@@ -24,6 +24,7 @@ import Block from "../lib/components/Block/Block";
 import List from "../lib/components/List/List";
 import ListItem from "../lib/components/ListItem/ListItem";
 import ListItemContained from "../lib/components/ListItemContained/ListItemContained";
+import Link from "../lib/components/Link/Link";
 
 
 export default function ExampleDocumentation() {
@@ -76,6 +77,7 @@ export default function ExampleDocumentation() {
                                     <ListItem>adsfsa</ListItem>
                                 </ListItemContained>
                             </ListItem>
+                            <Link page={["Components", "DocsPages"]}>Hello</Link>
                         </List>
                     </DocsPage>
                 </PagesGroup>
