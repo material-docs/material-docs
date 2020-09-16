@@ -12,7 +12,7 @@ import {DocsLayout, DocsPages, PagesGroup, DocsPage} from "../lib";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
-import {H1, H2} from "../lib/components/Headers";
+import {H1, H2, H3, H4, H5, H6} from "../lib/components";
 import Landing from "../lib/components/Landing/Landing";
 import AutoDocsMenu from "../lib/components/AutoDocsMenu/AutoDocsMenu";
 import DocsMenu from "../lib/components/DocsMenu/DocsMenu";
@@ -20,7 +20,10 @@ import DocsMenuItem from "../lib/components/DocsMenuItem/DocsMenuItem";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import logo from "./../logo.svg";
-
+import Block from "../lib/components/Block/Block";
+import List from "../lib/components/List/List";
+import ListItem from "../lib/components/ListItem/ListItem";
+import ListItemContained from "../lib/components/ListItemContained/ListItemContained";
 
 
 export default function ExampleDocumentation() {
@@ -54,6 +57,10 @@ export default function ExampleDocumentation() {
                     <DocsPage name={"TestPage1"} searchDescription={"sdfsfsd"}>
                         <H1>Hello Darkness my old friend</H1>
                         <H2>Darkness</H2>
+                        <H3>Darkness</H3>
+                        <H4>Darkness</H4>
+                        <H5>Darkness</H5>
+                        <H6>Darkness</H6>
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
                         <H1>HelloDarknessmyoldfriend</H1>
@@ -61,6 +68,15 @@ export default function ExampleDocumentation() {
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
                         asfasf2324
+                        <Block>asdfasfas</Block>
+                        <List>
+                            <ListItem>
+                                asfsdf
+                                <ListItemContained>
+                                    <ListItem>adsfsa</ListItem>
+                                </ListItemContained>
+                            </ListItem>
+                        </List>
                     </DocsPage>
                 </PagesGroup>
             </DocsPages>

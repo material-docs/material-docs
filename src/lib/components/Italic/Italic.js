@@ -4,23 +4,34 @@
  */
 
 import React from "react";
-import {useStyles} from "./styles";
-import clsx from "clsx";
+import {styles} from "./styles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-const Italic = React.forwardRef(function Italic({children, className, style, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+// Utils
+import {withStyles} from "@material-ui/styles";
+import clsx from "clsx";
+
+
+export const displayName = "MatDocItalic";
+
+const Italic = React.forwardRef(function Italic(props, ref) {
+    const {
+        children,
+        className,
+        style,
+        classes,
+        ...other
+    } = props;
     return (
-        <span className={clsx(classes.root, classes.italic, className)} ref={ref} style={style}>
+        <span className={clsx(classes.root, classes.italic, className)} ref={ref} style={style} {...other}>
             {children}
         </span>
     )
 });
 
-Italic.displayName = "Italic";
-
-Italic.defaultProps = {
-}
+Italic.displayName = displayName;
 
 Italic.propTypes = {
     // Stylable
@@ -31,4 +42,4 @@ Italic.propTypes = {
     children: PropTypes.node,
 }
 
-export default Italic;
+export default withStyles(styles, {name: displayName})(Italic);

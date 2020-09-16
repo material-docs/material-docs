@@ -4,44 +4,57 @@
  */
 
 import React from "react";
-import ListItem from "@material-ui/core/ListItem";
-import Collapse from "@material-ui/core/Collapse";
+import {styles} from "./styles";
+
+// MaterialUI components
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import Collapse from "@material-ui/core/Collapse";
+import ListItem from "@material-ui/core/ListItem";
+
+// MaterialUI icons
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
+import withWidth from "@material-ui/core/withWidth";
+import {withStyles} from "@material-ui/styles";
+import useNesting, {NestingContext} from "../../hooks/useNesting";
+import useMenu from "../../hooks/useMenu/useMenu";
 import {useChangeRoute} from "routing-manager";
-import {useStyles} from "./styles";
 import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {isWidthUp, useTheme} from "@material-ui/core";
-import useNesting, {NestingContext} from "../../hooks/useNesting";
-import PropTypes from "prop-types";
-import useMenu from "../../hooks/useMenu/useMenu";
-import withWidth from "@material-ui/core/withWidth";
 
-const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem({
-                                                                            children,
-                                                                            defaultExpanded = false,
-                                                                            textPrimary = "",
-                                                                            textSecondary = "",
-                                                                            icon,
-                                                                            onClick,
-                                                                            link,
-                                                                            page,
-                                                                            isCurrent = false,
-                                                                            className,
-                                                                            style,
-                                                                            dense = false,
-                                                                            width,
-                                                                            ...props
-                                                                        }, ref) {
-    const classes = {...useStyles(), ...props.classes};
-    const {changeRoute, getRouteParams} = useChangeRoute();
+
+export const displayName = "MatDocDocsMenuItem";
+
+const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, ref) {
+    const {
+        children,
+        defaultExpanded = false,
+        textPrimary = "",
+        textSecondary = "",
+        icon,
+        onClick,
+        link,
+        page,
+        isCurrent = false,
+        className,
+        style,
+        dense = false,
+        width,
+        classes,
+        ...other
+    } = props;
     const theme = useTheme();
+    const {changeRoute, getRouteParams} = useChangeRoute();
     const pageRoute = typeof page === "string" && createRouteFromName(page);
     const [expanded, setExpanded] = React.useState(defaultExpanded);
     const context_nesting = useNesting();
-    const nesting = props.nesting || context_nesting;
+    const nesting = other.nesting || context_nesting;
     const {closeMenu} = useMenu();
 
     let highlight = false;
@@ -82,7 +95,7 @@ const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem({
             <ListItem
                 button
                 onClick={children ? handleOpen : (onClick || handleButtonClick)}
-                {...props}
+                {...other}
                 className={clsx(classes.root, highlight && classes.highlighted, className)}
                 style={{paddingLeft: theme.spacing(paddingShift), ...style}}
                 ref={ref}
@@ -117,15 +130,7 @@ const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem({
     );
 }));
 
-DocsMenuItem.displayName = "DocsMenuItem";
-
-DocsMenuItem.defaultProps = {
-    defaultExpanded: false,
-    textPrimary: "",
-    textSecondary: "",
-    isCurrent: false,
-    dense: false,
-}
+DocsMenuItem.displayName = displayName;
 
 DocsMenuItem.propTypes = {
     // DocsMenuItemProps
@@ -146,4 +151,4 @@ DocsMenuItem.propTypes = {
     children: PropTypes.node,
 }
 
-export default DocsMenuItem;
+export default withStyles(styles, {name: displayName})(DocsMenuItem);

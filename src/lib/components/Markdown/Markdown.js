@@ -4,12 +4,19 @@
  */
 
 import React from "react";
-import marked from "marked";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
+import {styles} from "./styles";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
+import {withStyles} from "@material-ui/styles";
 import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";
 import clsx from "clsx";
-import {useStyles} from "./styles";
-import PropTypes from "prop-types";
+
+
+export const displayName = "MatDocMarkdown";
 
 const Markdown = React.forwardRef(function Markdown(props, ref) {
     const {
@@ -18,10 +25,10 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
         style,
         inline = false,
         data = {},
+        classes,
         ...other
     } = props;
     const commonClasses = useCommonStyles();
-    const classes = useStyles();
     const [content, setContent] = React.useState([]);
 
     React.useEffect(() => {
@@ -49,12 +56,7 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
     );
 });
 
-Markdown.displayName = "Markdown";
-
-Markdown.defaultProps = {
-    inline: false,
-    data: {},
-}
+Markdown.displayName = displayName;
 
 Markdown.propTypes = {
     // MarkdownProps
@@ -67,4 +69,4 @@ Markdown.propTypes = {
     // Containerable
 }
 
-export default Markdown;
+export default withStyles(styles, {name: displayName})(Markdown);

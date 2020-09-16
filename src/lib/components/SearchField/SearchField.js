@@ -4,27 +4,47 @@
  */
 
 import React from "react";
-import Paper from "@material-ui/core/Paper";
-import CloseIcon from '@material-ui/icons/Close';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from "@material-ui/core/InputBase";
-import {useStyles} from "./styles";
-import clsx from "clsx";
+import {styles} from "./styles";
+
+// Components
 import SearchMenuItem from "./SearchMenuItem";
-import Popper from "@material-ui/core/Popper";
-import List from "@material-ui/core/List";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import ListItem from "@material-ui/core/ListItem";
+
+// MaterialUI components
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import ListItem from "@material-ui/core/ListItem";
+import Popper from "@material-ui/core/Popper";
+import List from "@material-ui/core/List";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+
+// MaterialUI icons
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
-import {useChangeRoute} from "routing-manager";
+import CloseIcon from '@material-ui/icons/Close';
+import SearchIcon from '@material-ui/icons/Search';
+
+// PropTypes validators
 import PropTypes from "prop-types";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 
+// Utils
+import {withStyles} from "@material-ui/styles";
+import {useChangeRoute} from "routing-manager";
+import clsx from "clsx";
 
-const SearchField = React.forwardRef(function SearchField({className, style, searchData = [], doSearch, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+
+export const displayName = "MatDocSearchField";
+
+const SearchField = React.forwardRef(function SearchField(props, ref) {
+    const {
+        className,
+        style,
+        searchData = [],
+        doSearch,
+        classes,
+        ...other
+    } = props;
     const {changeRoute} = useChangeRoute();
     const [text, setText] = React.useState("");
     const [focused, setFocused] = React.useState(false);
@@ -198,7 +218,7 @@ const SearchField = React.forwardRef(function SearchField({className, style, sea
     );
 });
 
-SearchField.displayName = "SearchField";
+SearchField.displayName = displayName;
 
 SearchField.propTypes = {
     // SearchFieldProps
@@ -210,8 +230,4 @@ SearchField.propTypes = {
     classes: PropTypes.object,
 }
 
-SearchField.defaultProps = {
-    searchData: [],
-}
-
-export default SearchField;
+export default withStyles(styles, {name: displayName})(SearchField);

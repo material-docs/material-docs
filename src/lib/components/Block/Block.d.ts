@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface BlockProps
     extends Stylable, Containerable {
     /**
@@ -21,6 +23,7 @@ export interface BlockProps
  * Block - react component, designed to create blocks of data. Looks like markdown blockquote element.
  * @param {BlockProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/block
  * @example
  * <Block>
  *     I am a blocked text

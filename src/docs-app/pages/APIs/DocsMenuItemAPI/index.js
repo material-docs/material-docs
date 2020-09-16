@@ -26,7 +26,7 @@ export default function DocsMenuItemAPI() {
             lang={lang}
             localeName={"DocsMenuItemAPI"}
             searchTags={["docs", "menu", "item", "api", "layout"]}
-            name={"DocsMenuItemAPI"}
+            name={"DocsMenuItem"}
             importCode={importCode}
         >
             <H2>Demos</H2>

@@ -6,6 +6,8 @@
 import * as React from "react";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface ListItemContainedProps
     extends Containerable {
     /**
@@ -15,6 +17,10 @@ export interface ListItemContainedProps
     children?: any;
 }
 
+/**
+ * @class
+ * @see http://material-docs.com/component-apis/listitemcontained
+ */
 export default class ListItemContained extends React.Component<ListItemContainedProps, any> {
     render(): JSX.Element;
 }

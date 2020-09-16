@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import SearchDataItem from "../../interfaces/SearchDataItem";
 
+export const displayName: string;
+
 export interface SearchFieldProps
     extends Stylable {
     /**
@@ -29,6 +31,7 @@ export interface SearchFieldProps
  * SearchField - react component, designed to provide search mechanism.
  * @param {SearchFieldProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/system-components/searchfield
  * @example
  * <SearchField searchData={...data...} />
  */

@@ -7,6 +7,8 @@
 import {CodeProps} from "../Code/Code";
 import DemoCodeAction from "../../interfaces/DemoCodeAction";
 
+export const displayName: string;
+
 export interface ExpansionCodeProps
     extends CodeProps {
     /**
@@ -22,6 +24,7 @@ export interface ExpansionCodeProps
     noTag?: boolean;
     /**
      * collapsedHeight - height of the component when it is collapsed.
+     * @default 100
      * @type number | string
      */
     collapsedHeight?: number | string;
@@ -36,6 +39,7 @@ export interface ExpansionCodeProps
  * ExpansionCode - component, designed to provide smart code displaying.
  * @param {ExpansionCodeProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/expansioncode
  * @example
  * <ExpansionCode theme="darcula" name={"My code name"} demoCode={...your demo  code...}>
  *     ...your full code...

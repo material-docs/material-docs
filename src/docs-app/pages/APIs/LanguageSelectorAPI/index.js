@@ -41,7 +41,7 @@ export default function LanguageSelectorAPI() {
             lang={lang}
             localeName={"LanguageSelectorAPI"}
             searchTags={["language", "locale", "select", "api"]}
-            name={"LanguageSelectorAPI"}
+            name={"LanguageSelector"}
             importCode={importCode}
         >
             <H2>Demos</H2>

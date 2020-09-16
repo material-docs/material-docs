@@ -3,11 +3,11 @@
  * Copyright (C) 2020.
  */
 
-import {makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme) => ({
+export const styles = theme => createStyles({
     root: {},
     italic: {
         fontStyle: "italic",
     },
-}));
+});

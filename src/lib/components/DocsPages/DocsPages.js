@@ -4,16 +4,18 @@
  */
 
 import React from "react";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-class DocsPages extends React.Component {
-    render() {
-        return this.props.children;
-    }
+
+export const displayName = "MatDocDocsPages";
+
+function DocsPages(children) {
+    return children;
 }
 
-DocsPages.displayName = "DocsPages";
-
+DocsPages.displayName = displayName;
 
 DocsPages.propTypes = {
     // Containerable

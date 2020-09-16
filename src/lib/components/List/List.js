@@ -4,26 +4,38 @@
  */
 
 import React from "react";
-import {useStyles} from "./styles";
-import clsx from "clsx";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
+import {styles} from "./styles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-const List = React.forwardRef(function List({children, className, style, image, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+// Utils
+import clsx from "clsx";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+import {withStyles} from "@material-ui/styles";
+
+
+export const displayName = "MatDocList";
+
+const List = React.forwardRef(function List(props, ref) {
+    const {
+        children,
+        className,
+        style,
+        image,
+        classes,
+        ...other
+    } = props;
     const commonClasses = useCommonStyles();
 
     return (
-        <ul {...props} ref={ref} className={clsx(commonClasses.pageBlock, classes.root, className)} style={style}>
+        <ul {...other} ref={ref} className={clsx(commonClasses.pageBlock, classes.root, className)} style={style}>
             {children}
         </ul>
     );
 });
 
-List.displayName = "List";
-
-List.defaultProps = {
-}
+List.displayName = displayName;
 
 List.propTypes = {
     // ListProps
@@ -37,4 +49,4 @@ List.propTypes = {
     children: PropTypes.node,
 }
 
-export default List;
+export default withStyles(styles, {name: displayName})(List);

@@ -3,9 +3,9 @@
  * Copyright (C) 2020.
  */
 
-import {makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme) => ({
+export const styles = theme => createStyles({
     root: {},
     collapse: {
         marginTop: 0,
@@ -27,4 +27,4 @@ export const useStyles = makeStyles((theme) => ({
     demo: {
         position: "relative",
     }
-}));
+});

@@ -26,7 +26,7 @@ export default function BlockAPI() {
             lang={lang}
             localeName={"BlockAPI"}
             searchTags={["block", "tip", "slided", "separated", "blockquote", "quote"]}
-            name={"BlockAPI"}
+            name={"Block"}
             importCode={importCode}
         >
             <H2>Demos</H2>

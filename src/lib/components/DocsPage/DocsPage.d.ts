@@ -6,6 +6,8 @@
 /// <reference types="react" />
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface DocsPageProps
     extends Containerable {
     /**
@@ -48,6 +50,7 @@ export interface DocsPageProps
  * DocsPage - component, used to create page in DocsPages.
  * @param {DocsPageProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/docspage
  * @example
  * <DocsPages>
  *     <DocsPage name="My first page">

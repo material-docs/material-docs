@@ -3,11 +3,118 @@
   "label": "Русский",
   "locale": {
     "pages": {
+      "ImagesDemo": {
+        "pageAbout": "Картинки нужны для того, чтоб визуально продемонстрировать какую-то информацию",
+        "infoBlock": "Вы можете не переживать за скорость загрузки страницы из-за больших изображений. Компонент __Image__ поддерживает технологию __ленивой загрузки__."
+      },
+      "TextDecoratorsDemo": {
+        "pageAbout": "Вы можете настроить свой текст с помощью компонентов стиля текста Material Docs.",
+        "infoBlock1": "Компоненты декорации текста служат для того, чтоб сделать __информацию__ на вашей странице __более восприимчивой__.\n> Выделяйте более важную информацию в разные __специализированные блоки__.",
+        "overview": "Обзор",
+        "nesting": "Вложенность",
+        "nestedComponents": "Вложенные компоненты",
+        "nestingInfo": "Некоторые копоненты декорации поддерживают __вложенность__:"
+      },
+      "HeadersDemo": {
+        "pageAbout": "Заголовки могут быть использованы для того, чтоб разделять информацию по смыслу.",
+        "infoBlock1": "Вы можете использовать 6 видов заголовков: ```H1```, ```H2```, ```H3```, ```H4```, ```H5```. Они отличаются друг от друга размером и тем, что в заголовках размером ниже H3 по умолчанию не рисуется разделительная линия и они не добавляются в автоматически сгенерированный блок содержания страницы. Чем больше цифра в заголовке - тем меньше ег размер. Таким образом, ```H1``` - самый большой заголовок, а ```H6``` - самый маленький.",
+        "headersExample": "Пример заголовков",
+        "contentAutoGeneration": "Автоматическая генерация содержания страницы",
+        "tagsInfo": "Для того, чтобы заголовок не создавал пункты в автоматическом содержании страницы - передайте ему __параметр__ ```noTag```. Если заголовок создаёт присутствует в содержании - при наведении на него мышью - слева будет отображаться кнопка смены якоря для удобного указания места на странице при копировании __url__.",
+        "noTagInfo": "> По умолчанию, у заголовков ```H1```, ```H2```, ```H3``` __параметр__ ```noTag = false```",
+        "divider": "Разделитель",
+        "dividerInfo": "Для того, чтобы заголовок не имел разделительую черту - передайте ему __параметр__ ```noDivider```.",
+        "noDividerInfo": "> По умолчанию, у заголовков ```H1```, ```H2```, ```H3``` __параметр__ ```noDivider = false```",
+        "customAnchors": "Пользовательские якоря",
+        "anchorInfo": "Вы можете задавать якорь для заголовка вручную с помощью параметра ```id```. Если он не указан - заголовок автоматически сгенерирует якорь из своего содержимого."
+      },
+      "MarkdownDemo": {
+        "pageAbout": "Markdown - компонент, предназначенный для преобразования текста в нотации markdown в Material Docs.",
+        "infoBlock1": "Markdown - это упрощенный язык разметки, которы удобно использовать для создания статей, заметок и тому подобного.",
+        "overviewExample": "Обзорный пример",
+        "moreInfo": "Больше информации",
+        "moreInfoDetails": "Если вы хотите получить дополнительную информацию о синтаксисе markdown - смотрите [этот гайд](https://www.markdownguide.org/basic-syntax/)",
+        "deepIntegration": "Глубокая интеграция",
+        "infoBlock2": "Классически, __markdown__ поддреживает два вида блоков кода: строчный и блочный. В Material Docs существует три способа продемонстрировать код - с помощью компонентов: ```Code```, ```ExpansionCode```, ```DemoWithCode```. Вы можете выбирать один из этих компонентов прямо в markdown коде.",
+        "codeComponents": [
+          {
+            "name": "Code",
+            "key": "code",
+            "params": [
+              {
+                "name": "type",
+                "description": "Тип блока с кодом. Для Code - \"code\""
+              },
+              {
+                "name": "theme",
+                "description": "Параметр theme для компонента Code."
+              },
+              {
+                "name": "language",
+                "description": "Названия языкового паккета для компонента Code."
+              }
+            ]
+          },
+          {
+            "name": "Expansion code",
+            "key": "expansion-code",
+            "params": [
+              {
+                "name": "type",
+                "description": "Тип блока с кодом. Для ExpansionCode - \"expansion-code\""
+              },
+              {
+                "name": "theme",
+                "description": "Параметр theme для компонента Code."
+              },
+              {
+                "name": "name",
+                "description": "Параметр name для элемента ExpansionCode. Будет показан в заголовке H3."
+              },
+              {
+                "name": "language",
+                "description": "Названия языкового паккета для компонента Code."
+              },
+              {
+                "name": "collapsedHeight",
+                "description": "Параметр collapsedHeight для компонента Code. Высота блока с кодом когда он закрыт."
+              }
+            ]
+          },
+          {
+            "name": "Demo with code",
+            "key": "demo-with-code",
+            "description": "If you want to provide ```DemoWithCode``` element with demo component, you should pass to ```Markdown``` component prop data with object. Then pass key to demo param in markdown code block and ```Markdown``` will get demo component from data.",
+            "params": [
+              {
+                "name": "type",
+                "description": "Тип блока с кодом. Для DemoWithCode - \"demo-with-code\""
+              },
+              {
+                "name": "theme",
+                "description": "Параметр theme для компонента Code."
+              },
+              {
+                "name": "name",
+                "description": "Параметр name для элемента DemoWithCode. Будет показан в заголовке H3."
+              },
+              {
+                "name": "language",
+                "description": "Названия языкового паккета для компонента Code."
+              },
+              {
+                "name": "demo",
+                "description": "Ключ переменной в объекте data."
+              }
+            ]
+          }
+        ]
+      },
       "DocsPageAPI": {
-        "pageAbout": "The API documentation of the DocsPage React component. Learn more about the props and the CSS customization points.",
-        "pageSearchDescription": "DocsPage - react component, designed to provide user with page functional",
-        "ComponentNameHeader": "Component name",
-        "ComponentNameText": "The DocsPage name can be used for providing default props or style overriders at the theme level.",
+        "pageAbout": "API документация компонента React DocsPage. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "DocsPage - react компонент, созданный для обеспечения страничного функционала.",
+        "ComponentNameHeader": "Название компонента",
+        "ComponentNameText": "Название DocsPage может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
         "enableProps": true,
         "props": [
           {
@@ -20,40 +127,1027 @@
             "name": "searchTags",
             "type": "string[]",
             "default": "",
-            "description": "Ключевые слова для поиска страницы."
+            "description": "Ключевые слова для поиска."
           },
           {
             "name": "searchLabel",
             "type": "string",
             "default": "",
-            "description": "Label text, displayed in search result if page match search requirements."
+            "description": "Текст, который будет отображен в списке результатов поиска, если страница соответствует критериям поиска."
           },
           {
             "name": "searchDescription",
             "type": "string",
             "default": "",
-            "description": "Description text, displayed in search result if page match search requirements."
+            "description": "Описание страницы, которое будет отображено в списке результатов поиска под лейблом, если страница соответствует критериям поиска."
           },
           {
             "name": "noGenerateAutoSearch",
             "type": "boolean",
             "default": "false",
-            "description": "If true, page will not generate search items from pages automatically."
+            "description": "Если true, страница не будет генерировать информацию для поиска автоматичечки."
           },
           {
             "name": "noAutoMenu",
             "type": "boolean",
             "default": "false",
-            "description": "If true, page will not participate in auto menu generation."
+            "description": "Если true, страница не будет учавствовать в генерации автоматического меню."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "contentItem": "Стили, примененные к item элементу панели содержания.",
+          "contentItemActive": "Стили, примененные к item элементу панели содержания когда он активен.",
+          "contentLink": "Стили, примененные к элементу link элемента item панели содержания.",
+          "copyright": "Стили, примененные к панели copyright если она показана."
+        }
+      },
+      "DemoWithCodeAPI": {
+        "pageAbout": "API документация компонента React DemoWithCode. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "DemoWithCode - react компонент для создания блоков кодв с интерактивной демонстрацией.",
+        "ComponentNameText": "Название DemoWithCode может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Название блока. Если определено - будет показано в заголовке H3."
+          },
+          {
+            "name": "code",
+            "type": "string",
+            "default": "",
+            "description": "Код, который будет показан во внутреннем блоке кода."
+          },
+          {
+            "name": "ratio",
+            "type": "AspectRatio",
+            "default": "",
+            "description": "Если определен - демонстрационный блок будет удерживать соотноошение сторонон, указанное в параметре."
+          },
+          {
+            "name": "defaultExpanded",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true - блок кода будет развернут при загрузке."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true и проп name определен - заголовок с именем не будет генерировать информацию для автоматического содержания."
+          },
+          {
+            "name": "paperContainer",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true - демонстрационный блок будет обёрнут в компонент Paper."
+          },
+          {
+            "name": "actions",
+            "type": "DemoCodeAction[]",
+            "default": "",
+            "description": "Массив дополнительных действий. Действия будут отображены в выпадающем меню при нажатии на кнопку с иконкой ExpandMore."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента. Будут помещены в демонстрационный блок."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "collapse": "Стили, примененные к компоненту Collapse, который содержит код.",
+          "toolbar": "Стили, примененные к компоненту Toolbar с иконками и названием.",
+          "paperContainer": "Стили, примененные к контейнеру Paper если проп paperContainer равен true.",
+          "menuButtonLink": "Стили, примененные к компоненту link в меню дополнительных действий.",
+          "demo": "Стили, примененные к дкмонстрационному блоку."
+        }
+      },
+      "CodeAPI": {
+        "pageAbout": "API документация компонента React Code. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "Code - компонент react, созданный для того, чтоб демонстрировать код.",
+        "ComponentNameText": "Название Code может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "language",
+            "type": "string",
+            "default": "\"javascript\"",
+            "description": "Название языка для выделения синтаксиса кода."
+          },
+          {
+            "name": "theme",
+            "type": "\"light\"",
+            "default": "\"light\" | \"dark\" | \"darcula\"",
+            "description": "Тип стиля выделения кода и заднего офна."
+          },
+          {
+            "name": "children",
+            "type": "string",
+            "default": "",
+            "description": "Код, который будет отображен в компоненте."
           }
         ],
         "enableCss": true,
         "css": {
-          "root": "Styles applied to the root element.",
-          "contentItem": "Styles applied to the item element of content panel.",
-          "contentItemActive": "Styles applied to the item element of content panel if it is active.",
-          "contentLink": "Styles applied to the link of item element of content panel.",
-          "copyright": "Styles applied to copyright panel if it shown."
+          "root": "Стили, примененные к корневому элементу.",
+          "highlighterContainer": "Стили, примененные к контейнеру выделителю кода."
+        }
+      },
+      "PagesGroupAPI": {
+        "pageAbout": "API документация компонента React PagesGroup. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "PagesGroup - компонент react, созданный для объединения страниц в смысловые группы.",
+        "ComponentNameText": "Название PagesGroup может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Название группы. Будет отображено на кнопке в меню."
+          },
+          {
+            "name": "getData",
+            "type": "(data: PagesGroupData): void",
+            "default": "",
+            "description": "Функция обратного вызова, обеспечивающая получение данных групы без использования контекстов."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента."
+          }
+        ],
+        "enableCss": false,
+        "noCssText": "Это служебный компонент, который не создает html элементы."
+      },
+      "ImageAPI": {
+        "pageAbout": "API документация компонента React Image. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "Image - react component, designed to show images. Image component uses lazy load technology.",
+        "ComponentNameText": "Название Image может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "src",
+            "type": "string",
+            "default": "",
+            "description": "Ссылка на ресурс. Использовано для указание пути к изображению."
+          },
+          {
+            "name": "alt",
+            "type": "string",
+            "default": "",
+            "description": "Альтернативный текст. Будет отображено в том случае, если изображение не может быть загружено."
+          },
+          {
+            "name": "fullWidth",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true - изображение будет занимать 100% ширины."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Элементы, которые будут отображены в комментарии к изображению."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "fullWidth": "Стили, примененные к корневому элементу если проп fullWidth равен true."
+        }
+      },
+      "ListItemAPI": {
+        "pageAbout": "API документация компонента React ListItem. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "ListItem - react component, designed to generate list. Component simulates list item component.",
+        "ComponentNameText": "Название ListItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "type",
+            "type": "\"circle\" | \"square\" | \"upper-roman\" | \"lower-alpha\" | \"none\"",
+            "default": "\"circle\"",
+            "description": "Тип декорации списка."
+          },
+          {
+            "name": "dense",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true - вертикальная дистанция между элементами списка будет меньше."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "typeCircle": "Стили, примененные к корневому элементу если проп type равен circle.",
+          "typeSquare": "Стили, примененные к корневому элементу если проп type равен square.",
+          "typeRoman": "Стили, примененные к корневому элементу если проп type равен upper-roman.",
+          "typeAlpha": "Стили, примененные к корневому элементу если проп type равен lower-alpha.",
+          "typeNone": "Стили, примененные к корневому элементу если проп type равен none.",
+          "list": "Стили, примененные к внутреннему элементу ul.",
+          "dense": "Стили, примененные к корневому элементу если проп dense равен true."
+        }
+      },
+      "ExpansionCodeAPI": {
+        "pageAbout": "API документация компонента React ExpansionCode. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "ExpansionCode - react component, designed to show code in collapsable blocks. User can view full code or part of code.",
+        "ComponentNameText": "Название ExpansionCode может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Название блока кода. Если определено - будет отоюражено в заголовке H3 в компоненте ExpansionCode toolbar."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true и проп name равен true - заголовок не будет генерировать информацию для автоматического содержания."
+          },
+          {
+            "name": "collapsedHeight",
+            "type": "number | string",
+            "default": "100px",
+            "description": "Выстота блока кода когда он свернут."
+          },
+          {
+            "name": "actions",
+            "type": "DemoCodeAction[]",
+            "default": "",
+            "description": "Массив дополнительных действий. Действия будут отображены в выпадающем списке при нажатии на кнопку с иконкой ExpandMore."
+          },
+          {
+            "name": "theme",
+            "type": "\"light\" | \"dark\" | \"darcula\"",
+            "default": "\"light\"",
+            "description": "Тип стиля выделения кода и заднего офна."
+          },
+          {
+            "name": "language",
+            "type": "string",
+            "default": "\"javascript\"",
+            "description": "Название языка для выделения синтаксиса кода."
+          },
+          {
+            "name": "children",
+            "type": "string",
+            "default": "\"light\"",
+            "description": "Код, который будет отображен в блоке кода."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "collapsedCode": "Стили, примененные к элементу div внутри компонента Collapse когда код свернут.",
+          "collapse": "Стили, примененные к компоненту Collapse, который содержит компонент Code.",
+          "toolbar": "Стили, примененные к компоненту Toolbar.",
+          "codeName": "Стили, примененные к заголовку H3с текстом из пропа name.",
+          "menuButtonLink": "Стили, примененные к элементу link в списке дополнительных действий."
+        }
+      },
+      "BlockAPI": {
+        "pageAbout": "API документация компонента React Block. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "Block - react component, designed to show slided information blocks, such as tips, notes, etc.",
+        "ComponentNameText": "Название Block может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "color",
+            "type": "\"dark\" | \"light\"",
+            "default": "\"light\"",
+            "description": "Стилизация цвета, которая будет применена к блоку."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "colorLight": "Стили, примененные к корневому элементу если проп color равен \"light\"",
+          "colorDark": "Стили, примененные к корневому элементу если проп color равен \"dark\""
+        }
+      },
+      "CodeSpanAPI": {
+        "pageAbout": "API документация компонента React CodeSpan. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "CodeSpan - react component, designed to show code in monospace font inside inline code block.",
+        "ComponentNameText": "Название CodeSpan может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "color",
+            "type": "\"default\" | \"primary\" | \"secondary\" | \"grey\"",
+            "default": "\"default\"",
+            "description": "Цвет заднего фона строчного блока кода."
+          },
+          {
+            "name": "text",
+            "type": "\"white\" | \"black\" | \"inherit\"",
+            "default": "\"inherit\"",
+            "description": "Цвет текста кода."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "colorDefault": "Стили, примененные к корневому элементу когда проп color равен \"default\"",
+          "colorPrimary": "Стили, примененные к корневому элементу когда проп color равен \"primary\"",
+          "colorSecondary": "Стили, примененные к корневому элементу когда проп color равен \"secondary\"",
+          "colorGrey": "Стили, примененные к корневому элементу когда проп color равен \"grey\"",
+          "font": "Стили, примененные к корневому элементу, определяющие настройки шрифта",
+          "textInherit": "Стили, примененные к корневому элементу когда проп text равен \"inherit\"",
+          "textWhite": "Стили, примененные к корневому элементу когда проп text равен \"white\"",
+          "textBlack": "Стили, примененные к корневому элементу когда проп text равен \"black\""
+        }
+      },
+      "ItalicAPI": {
+        "pageAbout": "API документация компонента React Italic. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "Italic - react component, designed to make text italic.",
+        "ComponentNameText": "Название Italic может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "italic": "Стили, примененные к корневому элементу, обеспечивающие italic стиль текста."
+        }
+      },
+      "ListAPI": {
+        "pageAbout": "API документация компонента React List. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "List - react component, designed to show code in monospace font inside inline code block.",
+        "ComponentNameText": "Название List может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "image",
+            "type": "string",
+            "default": "",
+            "description": "Изображение для декорации списка. Если определено - будет применено к list-style-image стилю."
+          },
+          {
+            "name": "styling",
+            "type": "\"inside\" | \"outside\" | \"inherit\" | \"revert\" | \"unset\"",
+            "default": "\"inside\"",
+            "description": "Тип стилизации списка."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "stylePositionInside": "Стили, примененные к корневому элементу когда проп styling равен \"inside\"",
+          "stylePositionOutside": "Стили, примененные к корневому элементу когда проп styling равен \"outside\"",
+          "stylePositionInherit": "Стили, примененные к корневому элементу когда проп styling равен \"inherit\"",
+          "stylePositionRevert": "Стили, примененные к корневому элементу когда проп styling равен \"revert\"",
+          "stylePositionUnset": "Стили, примененные к корневому элементу когда проп styling равен \"unset\""
+        }
+      },
+      "DocsMenuItemAPI": {
+        "pageAbout": "API документация компонента React DocsMenuItem. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "DocsMenuItem - react component, designed create menu items for <DocsMenu/>.",
+        "ComponentNameText": "Название DocsMenuItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "defaultExpanded",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, панель будет раскрыта при загрузке."
+          },
+          {
+            "name": "textPrimary",
+            "type": "string",
+            "default": "",
+            "description": "Основной текст для элемента списка."
+          },
+          {
+            "name": "textSecondary",
+            "type": "string",
+            "default": "",
+            "description": "Второстепенный текст для элемента списка. Будет отображён снизу."
+          },
+          {
+            "name": "icon",
+            "type": "string",
+            "default": "node",
+            "description": "Иконка, которая будет показана в левом углу. Используется для кастомизации элемента меню."
+          },
+          {
+            "name": "onClick",
+            "type": "function(event: any): void",
+            "default": "",
+            "description": "Функция обратного вызова, будет вызваа при обработке события onclick."
+          },
+          {
+            "name": "page",
+            "type": "string | any",
+            "default": "",
+            "description": "Название страницы для переадресации или обьект для routing-manager changeRoute."
+          },
+          {
+            "name": "link",
+            "type": "string",
+            "default": "",
+            "description": "Ссылка на страницу, которая включает групы. Если определена - будет использоваться с наивысшим приоритетом."
+          },
+          {
+            "name": "isCurrent",
+            "type": "(function(routeParams, pageRoute, page): boolean) | boolean",
+            "default": "false",
+            "description": "Если true или функция вернула true, кнопка будет активной. Используется когда показана страница, относящаяся к это кнопке."
+          },
+          {
+            "name": "dense",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, для списка и элементов списка будет использоваться компактное вертикальное заполнение, предназначенное для ввода с клавиатуры и мыши. Prop доступен для компонентов-потомков как dense контекст."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "highlighted": "Стили, примененные к корневому элементу когда проп isCurrent равен или вернул true",
+          "collapse": "Стили, примененные к элементу Collapse для вложенных элементов меню."
+        }
+      },
+      "MarkdownAPI": {
+        "pageAbout": "API документация компонента React DocsMenuItem. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "DocsMenuItem - react component, designed create menu items for <DocsMenu/>.",
+        "ComponentNameText": "Название DocsMenuItem может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "inline",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, контейнер markdown будет строчным."
+          },
+          {
+            "name": "data",
+            "type": "object",
+            "default": "{}",
+            "description": "Структура данных, использующаяся для хранения компонентов или других данныъ, которые нельзя описать с помощью синтаксиса markdown."
+          },
+          {
+            "name": "children",
+            "type": "string | string[]",
+            "default": "",
+            "description": "Текст в нотации markdown. Используется для генерации визуальных элементов."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу."
+        }
+      },
+      "TableAPI": {
+        "pageAbout": "API документация компонента React Table. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "Table - react component, designed to create tables.",
+        "ComponentNameText": "Название Table может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "\"table\"",
+            "description": "Компонент, который будет использоваться для корневого узла. Или же строка для того, чтоб использовать HTML элемент или компонент."
+          },
+          {
+            "name": "padding",
+            "type": "\"default\" | \"checkbox\" | \"none\"",
+            "default": "\"default\"",
+            "description": "Позволяет TableCells наследовать padding у Table."
+          },
+          {
+            "name": "size",
+            "type": "\"small\" | \"medium\"",
+            "default": "\"medium\"",
+            "description": "Позволяет TableCells наследовать size у Table."
+          },
+          {
+            "name": "stickyHeader",
+            "type": "boolean",
+            "default": "false",
+            "description": "Делает header липким."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Содержание таблицы, штатно - TableHead и TableBody."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "stickyHeader": "Стили, примененные к корневому элементу если stickyHeader={true}."
+        }
+      },
+      "TableRowAPI": {
+        "pageAbout": "API документация компонента React TableRow. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "TableRow - react component, designed to create tables.",
+        "ComponentNameText": "Название TableRow может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "\"tr\"",
+            "description": "Компонент, который будет использоваться для корневого узла. Или же строка для того, чтоб использовать HTML элемент или компонент."
+          },
+          {
+            "name": "hover",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, строка таблицы будет затеняться при hover."
+          },
+          {
+            "name": "selected",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, строка таблицы будет иметь selected затенение."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Должнаы быть правильныя <tr> дети, такие как TableCell."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "selected": "Псевдо-класс, примененный к порневому элементу, если selected={true}.",
+          "hover": "Псевдо-класс, примененный к порневому элементу, если hover={true}.",
+          "head": "Стили, примененные к корневому элементу если table variant=\"head\".",
+          "footer": "Стили, примененные к корневому элементу если table variant=\"footer\"."
+        }
+      },
+      "TableCellAPI": {
+        "pageAbout": "API документация компонента React TableCell. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "TableCell - react component, designed to create tables.",
+        "ComponentNameText": "Название TableCell может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "align",
+            "type": "\"center\" | \"inherit\" | \"justify\" | \"left\" | \"right\"",
+            "default": "\"inherit\"",
+            "description": "Установите выравнивание текста для содержимого ячейки таблицы.\nДенежные или числовые поля должны быть выровнены по правому краю, так как это позволяет вам быстро складывать их в уме, не беспокоясь о десятичных дробях."
+          },
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "false",
+            "description": "Компонент, используемый для корневого узла. Либо строка для использования элемента HTML, либо компонента."
+          },
+          {
+            "name": "padding",
+            "type": "\"checkbox\" | \"default\" | \"none\"",
+            "default": "\"default\"",
+            "description": "Устанавливает padding, применяемый к ячейке. По умолчанию родительский компонент Table устанавливает значение (по умолчанию)."
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "default": "",
+            "description": "Устанавливает атрибут scope."
+          },
+          {
+            "name": "size",
+            "type": "\"medium\" | \"small\"",
+            "default": "\"medium\"",
+            "description": "Укажите размер ячейки. По умолчанию родительский компонент Таблица устанавливает значение (среднее)."
+          },
+          {
+            "name": "sortDirection",
+            "type": "\"asc\" | \"desc\" | \"false\"",
+            "default": "\"false\"",
+            "description": "Установите направление aria-sort."
+          },
+          {
+            "name": "variant",
+            "type": "\"body\" | \"footer\" | \"head\"",
+            "default": "\"body\"",
+            "description": "Укажите тип ячейки. По умолчанию родительский компонент TableHead, TableBody или TableFooter устанавливает значение."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Содержимое ячейки таблицы."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "head": "Стили, примененные к корневому элементу если variant=\"head\" или context.table.head.",
+          "body": "Стили, примененные к корневому элементу если variant=\"body\" или context.table.body.",
+          "footer": "Стили, примененные к корневому элементу если variant=\"footer\" или context.table.footer.",
+          "sizeSmall": "Стили, примененные к корневому элементу если size=\"small\".",
+          "paddingCheckbox": "Стили, примененные к корневому элементу если padding=\"checkbox\".",
+          "paddingNone": "Стили, примененные к корневому элементу если padding=\"none\".",
+          "alignLeft": "Стили, примененные к корневому элементу если align=\"left\".",
+          "alignCenter": "Стили, примененные к корневому элементу если align=\"center\".",
+          "alignRight": "Стили, примененные к корневому элементу если align=\"right\".",
+          "alignJustify": "Стили, примененные к корневому элементу если align=\"justify\".",
+          "stickyHeader": "Стили, примененные к корневому элементу если context.table.stickyHeader={true}."
+        }
+      },
+      "TableBodyAPI": {
+        "pageAbout": "API документация компонента React TableBody. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "TableBody - react component, designed to create tables.",
+        "ComponentNameText": "Название TableBody может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "\"tbody\"",
+            "description": "91/5000\nКомпонент, используемый для корневого узла. Либо строка для использования элемента HTML, либо компонента."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Содержимое компонента, штатно - TableRow."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу."
+        }
+      },
+      "TableHeadAPI": {
+        "pageAbout": "API документация компонента React TableHead. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "TableHead - react component, designed to create tables.",
+        "ComponentNameText": "Название TableHead может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "component",
+            "type": "elementType",
+            "default": "\"thead\"",
+            "description": "Компонент, используемый для корневого узла. Либо строка для использования элемента HTML, либо компонента."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Содержисое компонента, штатно - TableRow."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу."
+        }
+      },
+      "BoldAPI": {
+        "pageAbout": "API документация компонента React Bold. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "Bold - react component, designed to create tables.",
+        "ComponentNameText": "Название Bold может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Содержимое компонента."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "bold": "Стили, примененные к корневому элементу со стилизацией текста bold."
+        }
+      },
+      "AutoDocsMenuAPI": {
+        "pageAbout": "API документация компонента React AutoDocsMenu. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "AutoDocsMenu - react component, designed create tables.",
+        "ComponentNameText": "Название AutoDocsMenu может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "layoutData",
+            "type": "PagesGroupData",
+            "default": "",
+            "description": "Иерархическая информация о группах и страницах."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "Этот компонент служебный и не имеет стилей."
+      },
+      "LanguageSelectorAPI": {
+        "pageAbout": "API документация компонента React LanguageSelector. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "LanguageSelector - react component, designed to add language selection mechanism and locale management.",
+        "ComponentNameText": "Название LanguageSelector может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "size",
+            "type": "\"small\" | \"large\"",
+            "default": "\"large\"",
+            "description": "Размер элемента. Если маленький - будет отображаться только значок локали, если большой - значок локали с названием текущего языка."
+          }
+        ],
+        "noPropsText": "Этот компонент не имеет пропов и получает информацию с помощью хука useLang. Он должен быть размещен внутри LangContext.Provider.",
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу."
+        }
+      },
+      "SearchFieldAPI": {
+        "pageAbout": "API документация компонента React SearchField. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "SearchField - react component, designed to add search mechanism.",
+        "ComponentNameText": "Название SearchField может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "searchData",
+            "type": "SearchDataItem[]",
+            "default": "",
+            "description": "Массив обьектов SearchDataItem, из числа которых осуществляется поиск."
+          },
+          {
+            "name": "doSearch",
+            "type": "function(query, searchData): Promise<SearchDataItem[]>",
+            "default": "",
+            "description": "Функция обратного вызова, вызывается при поиске. Если определено, функция поиска по умолчанию не будет вызываться. Должен возвращать массив SearchDataItem."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "rootFocused": "Стили, примененные к корневому элементу когда результат поиска в фокусе.",
+          "input": "Стили, примененные к компоненту Input.",
+          "iconButton": "Стили, примененные к компоненту IconButton.",
+          "icon": "Стили, примененные к иконкам.",
+          "iconClickable": "Стили, примененные к icons with button functional.",
+          "popper": "Стили, примененные к компоненту Popper.",
+          "listPaper": "Стили, примененные к компоненту Paper, который содержит список результатов."
+        }
+      },
+      "DocsMenuAPI": {
+        "pageAbout": "API документация компонента React DocsMenu. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "DocsMenu - react component, designed to create menu.",
+        "ComponentNameText": "Название DocsMenu может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "dense",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, то в меню будет меньший интервал между элементами."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Потомки элемента. Штатно - DocsMenuItem."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "Это служебный компонент, который не имеет стилей."
+      },
+      "DocsPagesAPI": {
+        "pageAbout": "API документация компонента React DocsPages. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "DocsPages - react component, designed to create pages.",
+        "ComponentNameText": "Название DocsPages может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Потомки элемента. Штатно - DocsPage."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "Это служебный компонент, который не имеет стилей."
+      },
+      "ListItemContainedAPI": {
+        "pageAbout": "API документация компонента React ListItemContained. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "ListItemContained - react component, designed to add list items nesting mechanism.",
+        "ComponentNameText": "Название ListItemContained может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Потомки элемента. Штатно - ListItem."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": false,
+        "css": {},
+        "noCssText": "Это служебный компонент, который не имеет стилей."
+      },
+      "DocsLayoutAPI": {
+        "pageAbout": "API документация компонента React DocsLayout. Узнайте больше о props и CSS кастомизации.",
+        "pageSearchDescription": "DocsLayout - react компонент для создания разметки Material Docs.",
+        "ComponentNameText": "Название DocsLayout может быть использовано для обеспечения стандартных пропов и переопределения стилей на уровне темы.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "searchData",
+            "type": "SearchDataItem[]",
+            "default": "",
+            "description": "Массив объектов SearchDataItem, из числа которых осуществляется поиск."
+          },
+          {
+            "name": "noGenerateAutoSearch",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, Material Docs не будет генерировать информацию для поискового движка автоматически."
+          },
+          {
+            "name": "defaultLang",
+            "type": "Lang",
+            "default": "",
+            "description": "Языковые настройки по умолчанию."
+          },
+          {
+            "name": "langs",
+            "type": "Lang[]",
+            "default": "",
+            "description": "Список всех доступных языков."
+          },
+          {
+            "name": "onHelpToTranslate",
+            "type": "function(lang: Lang): void",
+            "default": "",
+            "description": "Функция, которая будет вызвана при нажатии на кнопку \"help to translate\". Если не определено - кнопка не будет отображаться."
+          },
+          {
+            "name": "router",
+            "type": "\"hash-router\" | \"browser-router\"",
+            "default": "\"browser-router\"",
+            "description": "Тип компонента react-router-dom Router."
+          },
+          {
+            "name": "basename",
+            "type": "string",
+            "default": "",
+            "description": "Basename параметр для for react-router-dom Router."
+          },
+          {
+            "name": "mask",
+            "type": "string",
+            "default": "\"/*page\"",
+            "description": "Маска для routing-manager ChangeRouteProvider routeMask параметр."
+          },
+          {
+            "name": "noSearchField",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, поисковая строка не будет отображена."
+          },
+          {
+            "name": "noLanguageSelector",
+            "type": "boolean",
+            "default": "false",
+            "description": "Если true, панель выбора языка не будет отображена."
+          },
+          {
+            "name": "actions",
+            "type": "AppBarAction[]",
+            "default": "[]",
+            "description": "Массив действий. Будет отображаться в компоненте Material-ui IconButton в компоненте Toolbar внутри AppBar."
+          },
+          {
+            "name": "keywords",
+            "type": "string[]",
+            "default": "",
+            "description": "Массив ключевіх слов о документации для поисковых движков, таких как Google search. Необходимо для метаданных."
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "default": "",
+            "description": "Автор документации. Необходимо для метаданных."
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "default": "",
+            "description": "описание документации. Необходимо для метаданных."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "default": "",
+            "description": "Название документации. Необходимо для метаданных. Будет отображаться в заголовке приложения. Также вы можете найти это имя рядом с этикеткой версии в боковом меню."
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "default": "",
+            "description": "Версия документации. Необходимо для метаданных."
+          },
+          {
+            "name": "logo",
+            "type": "string",
+            "default": "",
+            "description": "Путь к картинке логотипу, будет показана в боковом меню, рядом с название и версией документации."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Дети компонента. Штатно -  DocsMenu и DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Стили, примененные к корневому элементу.",
+          "appBar": "Стили, примененные к компоненту AppBar.",
+          "appBarShift": "Стили, примененные к элементу, сделанные для компенсации меню.",
+          "menuButton": "Стили, примененные к кнопке меню.",
+          "hide": "Стили, примененные к кнопке меню когда меню открыто.",
+          "drawer": "Стили, примененные к компоненту Drawer.",
+          "drawerPaper": "Стили, примененные к компоненту Paper в боковом меню.",
+          "drawerHeader": "Стили, примененные к эдементу head в боковом меню.",
+          "content": "Стили, примененные к the content block.",
+          "contentShift": "Стили, примененные к элементу content, чтоб компенсировать меню.",
+          "headerText": "Стили, примененные к компоненту Typography в компоненте AppBar.",
+          "toolbar": "Стили, примененные к компоненту ToolBar.",
+          "headerIcon": "Стили, примененные к иконкам в компоненте Toolbar.",
+          "version": "Стили, примененные к этикетке версии в боковом меню."
         }
       }
     },
@@ -63,23 +1157,16 @@
         "Import": "Импорт"
       },
       "ComponentAPI": {
-        "importDifferenceText": {
-          "text1": "Вы можете узнать больше о разнице, ",
-          "link1": "прочитав этот гайд",
-          "text2": "."
-        },
-        "customizationText": "Вы можете переопределить стиль компонента следующими способами:",
-        "customizationRule": "С помощью имени правила в ",
-        "customizationClass": "С помощью",
-        "customizationTheme": "С помощью темы и",
-        "customizationFooterText": "Если этого недостаточно, Вы можете посмотреть реализацию кода для большей инфрмации.",
+        "importDifferenceText": "Вы можете узнать больше о разнице, [прочитав этот гайд](https://material-ui.com/guides/minimizing-bundle-size/).",
+        "customization": "Вы можете переопределить стиль компонента благодаря одной из этих точек настройки: \n* С помощью названия правила  [```classes``` в прорпах объекта](https://material-ui.com/customization/components/#overriding-styles-with-classes). \n* С помощью [глобального имени класса](https://material-ui.com/customization/components/#overriding-styles-with-global-class-names). \n* С помощь темы и  [```overrides``` property](https://material-ui.com/customization/globals/#css). \n\n\n Если этого недостаточно, вы можете посмотреть реализацию компонента для получения более подробной информации.",
         "ruleName": "Название правила",
         "ruleDescription": "Описание",
         "propName": "Название",
         "propType": "Тип",
         "propDefault": "По умолчанию",
         "propDescription": "Описание",
-        "ComponentNameHeader": "Имя компонента"
+        "ComponentNameHeader": "Имя компонента",
+        "ref": "Объект ```ref``` передан в корневой элемент."
       }
     }
   }

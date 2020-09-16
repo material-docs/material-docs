@@ -7,8 +7,9 @@ import React from "react";
 
 /**
  * getTextFromChildren - returns deep text from children.
- * @param {any} children
- * @param {number} depth
+ * @function
+ * @param {any} children React components.
+ * @param {number} depth Step into depth for analyzer.
  * @return {string}
  */
 export default function getTextFromChildren(children, depth = 1) {

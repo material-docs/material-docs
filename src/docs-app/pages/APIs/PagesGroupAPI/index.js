@@ -26,7 +26,7 @@ export default function PagesGroupAPI() {
             lang={lang}
             localeName={"PagesGroupAPI"}
             searchTags={["page", "group", "gather", "container"]}
-            name={"PagesGroupAPI"}
+            name={"PagesGroup"}
             importCode={importCode}
         >
             <H2>Demos</H2>

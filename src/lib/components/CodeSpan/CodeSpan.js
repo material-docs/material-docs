@@ -4,12 +4,28 @@
  */
 
 import React from "react";
-import clsx from "clsx";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-const CodeSpan = React.forwardRef(function CodeSpan({className, style, children, color = "default", text = "inherit", ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+// Utils
+import {withStyles} from "@material-ui/styles";
+import clsx from "clsx";
+
+
+export const displayName = "MatDocCodeSpan";
+
+const CodeSpan = React.forwardRef(function CodeSpan(props, ref) {
+    const {
+        className,
+        style,
+        children,
+        color = "default",
+        text = "inherit",
+        classes,
+        ...other
+    } = props;
     return (
         <span
             ref={ref}
@@ -32,12 +48,7 @@ const CodeSpan = React.forwardRef(function CodeSpan({className, style, children,
     );
 });
 
-CodeSpan.displayName = "CodeSpan";
-
-CodeSpan.defaultProps = {
-    color: "default",
-    text: "inherit",
-}
+CodeSpan.displayName = displayName;
 
 CodeSpan.propTypes = {
     // CodeSpanProps
@@ -51,4 +62,4 @@ CodeSpan.propTypes = {
     children: PropTypes.node,
 }
 
-export default CodeSpan;
+export default withStyles(styles, {name: displayName})(CodeSpan);

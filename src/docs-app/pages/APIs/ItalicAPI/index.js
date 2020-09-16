@@ -26,7 +26,7 @@ export default function ItalicAPI() {
             lang={lang}
             localeName={"ItalicAPI"}
             searchTags={["italic", "font", "text", "styling", "api"]}
-            name={"ItalicAPI"}
+            name={"Italic"}
             importCode={importCode}
         >
             <H2>Demos</H2>

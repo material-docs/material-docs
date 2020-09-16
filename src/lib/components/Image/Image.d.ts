@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface ImageProps
     extends Stylable, Containerable {
     /**
@@ -36,6 +38,7 @@ export interface ImageProps
  * Image - an image component with lazy load mechanism.
  * @param {ImageProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/image
  * @example
  * <Image src={image1} alt="This text will be displayed if the image is not loaded." fullWidth>
  *     Caption of image

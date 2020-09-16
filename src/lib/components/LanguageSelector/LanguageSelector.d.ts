@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface LanguageSelectorProps
     extends Stylable {
     /**
@@ -21,5 +23,6 @@ export interface LanguageSelectorProps
  * LanguageSelector - react component, designed to provide language selection and manipulation.
  * @param {LanguageSelectorProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/system-components/languageselector
  */
 export default function LanguageSelector(props: LanguageSelectorProps): JSX.Element;

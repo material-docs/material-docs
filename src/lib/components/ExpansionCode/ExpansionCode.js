@@ -4,26 +4,38 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
+
+// Components
+import H3 from "../H3";
+import Code from "../Code";
+
+// MaterialUI components
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import Collapse from "@material-ui/core/Collapse";
 import Box from "@material-ui/core/Box";
-import Code from "../Code";
-import clsx from "clsx";
-import {useStyles} from "./styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import copyToClipboard from "../../utils/copyToClipboard";
-// Material UI Icons
+
+// MaterialUI icons
 import CodeIcon from '@material-ui/icons/Code';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {useSnackbar} from "notistack";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import {H3} from "../Headers";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 
+// Utils
+import {withStyles} from "@material-ui/styles";
+import {useSnackbar} from "notistack";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+import clsx from "clsx";
+import copyToClipboard from "../../utils/copyToClipboard";
+
+
+export const displayName = "MatDocExpansionCode";
 
 const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
     const {
@@ -36,9 +48,9 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
         className,
         collapsedHeight = 100,
         actions,
+        classes,
         ...other
     } = props;
-    const classes = {...useStyles(), ...other.classes};
     const commonClasses = useCommonStyles();
     const {enqueueSnackbar} = useSnackbar();
     const [expand, setExpand] = React.useState(false);
@@ -109,12 +121,7 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
     );
 });
 
-ExpansionCode.displayName = "ExpansionCode";
-
-ExpansionCode.defaultProps = {
-    demoCode: "",
-    collapsedHeight: 100,
-}
+ExpansionCode.displayName = displayName;
 
 ExpansionCode.propTypes = {
     // ExpansionCodeProps
@@ -151,4 +158,4 @@ ExpansionCode.propTypes = {
     classes: PropTypes.object,
 }
 
-export default ExpansionCode;
+export default withStyles(styles, {name: displayName})(ExpansionCode);

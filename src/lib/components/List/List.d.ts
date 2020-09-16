@@ -7,6 +7,8 @@
 import Containerable from "../../interfaces/Containerable";
 import Stylable from "../../interfaces/Stylable";
 
+export const displayName: string;
+
 export interface ListProps
     extends Containerable, Stylable {
     /**
@@ -16,6 +18,7 @@ export interface ListProps
     image?: string;
     /**
      * styling - list styling type.
+     * @default "inside"
      * @type string
      */
     styling?: "inside" | "outside" | "inherit" | "revert" | "unset";
@@ -25,6 +28,7 @@ export interface ListProps
  * List - list container for <ListItem /> components.
  * @param {ListProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/list
  * @example
  * <List>
  *     ...

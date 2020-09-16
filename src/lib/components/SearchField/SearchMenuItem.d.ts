@@ -7,6 +7,8 @@
 import SearchDataItem from "../../interfaces/SearchDataItem";
 import Stylable from "../../interfaces/Stylable";
 
+export const displayName: string;
+
 export interface SearchMenuItemProps
     extends Stylable {
     /**

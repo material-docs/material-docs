@@ -4,18 +4,35 @@
  */
 
 import React from "react";
-import ListItemContained from "../ListItemContained";
-import {useStyles} from "./styles";
-import clsx from "clsx";
+import {styles} from "./styles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-const ListItem = React.forwardRef(function ListItem({children, type = "circle", dense = false, style, className, ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
-    const containers = React.Children.map(children, child => child.type === ListItemContained ? child : null);
-    if (containers.length > 1) console.error("MaterialDocs: List item can contain only one ListItemContained element");
+// Utils
+import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
+import clsx from "clsx";
+import {withStyles} from "@material-ui/styles";
 
-    const containedItems = containers[0] && containers[0].props && containers[0].props.children;
-    const content = React.Children.map(children, child => child.type === ListItemContained ? null : child);
+// The displayNames of the components
+import {displayName as ListItemContainedDisplayName} from "../ListItemContained";
+
+
+export const displayName = "MatDocListItem";
+
+const ListItem = React.forwardRef(function ListItem(props, ref) {
+    const {
+        children,
+        type = "circle",
+        dense = false,
+        style,
+        className,
+        classes,
+        ...other
+    } = props;
+
+    const containedItems = getChildrenFromContainer(children, ListItemContainedDisplayName);
+    const content = React.Children.map(children, child => child.type && child.type.displayName === ListItemContainedDisplayName ? null : child);
 
     let listTypeClass = classes.typeCircle;
     switch (type) {
@@ -36,7 +53,7 @@ const ListItem = React.forwardRef(function ListItem({children, type = "circle", 
     return (
         <li
             className={clsx(classes.root, dense && classes.dense, listTypeClass, className)}
-            {...props}
+            {...other}
             ref={ref}
             style={style}
         >
@@ -54,12 +71,7 @@ const ListItem = React.forwardRef(function ListItem({children, type = "circle", 
     );
 });
 
-ListItem.displayName = "ListItem";
-
-ListItem.defaultProps = {
-    type: "circle",
-    dense: false,
-}
+ListItem.displayName = displayName;
 
 ListItem.propTypes = {
     // ListItemProps
@@ -73,4 +85,4 @@ ListItem.propTypes = {
     children: PropTypes.node,
 }
 
-export default ListItem;
+export default withStyles(styles, {name: displayName})(ListItem);

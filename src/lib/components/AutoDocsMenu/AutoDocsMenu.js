@@ -4,14 +4,26 @@
  */
 
 import React from "react";
+
+// Components
 import DocsMenuItem from "../DocsMenuItem";
-import PropTypes from 'prop-types';
+
+// PropTypes validators
 import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
+
+// Utils
 import {useChangeRoute} from "routing-manager";
 import {createRouteFromName} from "../../utils";
 import * as _ from "lodash";
 
-const AutoDocsMenu = React.forwardRef(function AutoDocsMenu({layoutData, ...props}, ref) {
+
+export const displayName = "MatDocAutoDocsMenu";
+
+const AutoDocsMenu = React.forwardRef(function AutoDocsMenu(props, ref) {
+    const {
+        layoutData,
+    } = props;
+
     const {getRouteParams} = useChangeRoute();
     const {page} = getRouteParams();
     const pagePath = typeof page === "string" && page.split("/") || [];
@@ -55,7 +67,7 @@ const AutoDocsMenu = React.forwardRef(function AutoDocsMenu({layoutData, ...prop
     return recursiveGenerateMenu(layoutData, pagePath);
 });
 
-AutoDocsMenu.displayName = "AutoDocsMenu";
+AutoDocsMenu.displayName = displayName;
 
 AutoDocsMenu.propTypes = {
     layoutData: PagesGroupDataValidator,

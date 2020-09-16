@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface CodeSpanProps
     extends Stylable, Containerable {
     /**
@@ -27,6 +29,7 @@ export interface CodeSpanProps
  * CodeSpan - react component, designed to create inline code spans.
  * @param {CodeSpanProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/codespan
  * @example
  * I am <CodeSpan>code span</CodeSpan> in the text.
  */

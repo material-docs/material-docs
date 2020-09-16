@@ -4,18 +4,37 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
 import {darcula, dark, docco} from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import Paper from "@material-ui/core/Paper";
-import SyntaxHighlighter from "react-syntax-highlighter";
 import {blueGrey, grey} from "@material-ui/core/colors";
-import clsx from "clsx";
-import {useStyles} from "./styles";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
+
+// MaterialUI componnets
+import Paper from "@material-ui/core/Paper";
+
+// Components
+import SyntaxHighlighter from "react-syntax-highlighter";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
+// Utils
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+import {withStyles} from "@material-ui/core";
+import clsx from "clsx";
 
-const Code = React.forwardRef(function Code({children, language = "javascript", theme = "light", style, className}, ref) {
-    const classes = useStyles();
+
+export const displayName = "MatDocCode";
+
+const Code = React.forwardRef(function Code(props, ref) {
+    const {
+        children,
+        language = "javascript",
+        theme = "light",
+        style,
+        className,
+        classes,
+        ...other
+    } = props;
     const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
     const codeRef = React.useRef(null);
@@ -67,13 +86,15 @@ const Code = React.forwardRef(function Code({children, language = "javascript", 
             codeStyle = codeStyles.light;
     }
 
-//    console.log(SyntaxHighlighter.supportedLanguages.map(item => `"${item}"`).join(" | "));
     return (
         <Paper
             style={{backgroundColor: codeStyle.background, height, ...style}}
             className={clsx(commonClasses.pageBlock, classes.root, className)}
             elevation={0}
-            ref={element => {rootRef.current = element; if (ref) ref.current = element}}
+            ref={element => {
+                rootRef.current = element;
+                if (ref) ref.current = element
+            }}
         >
             <div className={classes.highlighterContainer} ref={codeRef}>
                 <SyntaxHighlighter language={language} style={codeStyle.highlight}>
@@ -84,12 +105,7 @@ const Code = React.forwardRef(function Code({children, language = "javascript", 
     );
 });
 
-Code.displayName = "Code";
-
-Code.defaultProps = {
-    language: "javascript",
-    theme: "light",
-}
+Code.displayName = displayName;
 
 Code.propTypes = {
     // CodeProps
@@ -121,4 +137,4 @@ Code.propTypes = {
     classes: PropTypes.object,
 }
 
-export default Code;
+export default withStyles(styles, {name: displayName})(Code);

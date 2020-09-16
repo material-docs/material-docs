@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface DocsMenuItemProps
     extends Stylable, Containerable {
     /**
@@ -43,7 +45,7 @@ export interface DocsMenuItemProps
      */
     page?: string | any;
     /**
-     * link - link to page, which includes groups. If defined - will be used with highest priority.
+     * link - link to the page, which includes groups. If defined - will be used with highest priority.
      * @type string
      */
     link?: string;
@@ -72,6 +74,7 @@ export interface DocsMenuItemProps
  * DocsMenuItem - component, used in DocsMenu component to create menu items.
  * @param {DocsMenuItemProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/docsmenuitem
  * @example
  * <DocsMenu>
  *     <DocsMenuItem textPrimary={"drop down"}>

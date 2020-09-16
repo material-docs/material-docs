@@ -6,6 +6,8 @@
 import * as React from "react";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface DocsPagesProps
     extends Containerable {
     /**
@@ -15,6 +17,17 @@ export interface DocsPagesProps
     children?: any;
 }
 
-export default class DocsPages extends React.Component<DocsPagesProps, any> {
-    render(): JSX.Element;
-}
+/**
+ * DocsPages - react component, designed to provide MaterialDocs with pages mechanism.
+ * @param {DocsPagesProps} props
+ * @constructor
+ * @see http://material-docs.com/component-apis/docspages
+ * @example
+ * <DocsLayout>
+ *     <DocsPages>
+ *         ...
+ *     </DocsPages>
+ *     ...
+ * </DocsLayout>
+ */
+export default function DocsPages(props: DocsPagesProps): JSX.Element;

@@ -41,7 +41,7 @@ export default function DocsLayoutAPI() {
             lang={lang}
             localeName={"DocsLayoutAPI"}
             searchTags={["docs", "layout", "main", "component", "api"]}
-            name={"DocsLayoutAPI"}
+            name={"DocsLayout"}
             importCode={importCode}
         >
             <H2>Demos</H2>

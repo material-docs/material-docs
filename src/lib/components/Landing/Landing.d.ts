@@ -6,6 +6,8 @@
 import * as React from "react";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface LandingProps
     extends Containerable {
 }

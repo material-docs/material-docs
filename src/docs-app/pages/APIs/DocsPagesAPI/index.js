@@ -41,7 +41,7 @@ export default function DocsPagesAPI() {
             lang={lang}
             localeName={"DocsPagesAPI"}
             searchTags={["docs", "pages", "container", "api"]}
-            name={"DocsPagesAPI"}
+            name={"DocsPages"}
             importCode={importCode}
         >
             <H2>Demos</H2>

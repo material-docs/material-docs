@@ -41,7 +41,7 @@ export default function SearchFieldAPI() {
             lang={lang}
             localeName={"SearchFieldAPI"}
             searchTags={["search", "engine", "selector", "results", "api"]}
-            name={"SearchFieldAPI"}
+            name={"SearchField"}
             importCode={importCode}
         >
             <H2>Demos</H2>

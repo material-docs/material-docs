@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface ItalicProps
     extends Stylable, Containerable {
 
@@ -16,6 +18,7 @@ export interface ItalicProps
  * Italic - react component, designed to make text italic.
  * @param {ItalicProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/italic
  * @example
  * <Italic> I am italic </Italic>
  */

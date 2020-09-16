@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface MarkdownProps
     extends Stylable, Containerable {
     /**
@@ -17,6 +19,7 @@ export interface MarkdownProps
     inline?: boolean;
     /**
      * data - data structure, used as storage to store components or other data, which can not describe via markdown.
+     * @default {}
      * @type object
      * @example
      * You can use data prop to provide your markdown with DemoWithCode demo element.
@@ -33,6 +36,7 @@ export interface MarkdownProps
  * Markdown - react component, designed to provide markdown based layout generation.
  * @param {MarkdownProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/markdown
  * @example
  * <Markdown>
  *     # I am header 1

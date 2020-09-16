@@ -4,15 +4,36 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
+
+// Components
 import {LazyLoadImage} from 'react-lazy-load-image-component';
-import {useStyles} from "./styles";
-import clsx from "clsx";
+
+// MaterialUI components
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-const Image = React.forwardRef(function Image({src = "", alt = "", style, className, children, fullWidth = false, ...props}, ref) {
-    const classes = useStyles();
+// Utils
+import clsx from "clsx";
+import {withStyles} from "@material-ui/styles";
+
+
+export const displayName = "MatDocImage";
+
+const Image = React.forwardRef(function Image(props, ref) {
+    const {
+        src = "",
+        alt = "",
+        style,
+        className,
+        children,
+        fullWidth = false,
+        classes,
+        ...other
+    } = props;
     return (
         <React.Fragment>
             <div style={style} className={clsx(fullWidth && classes.fullWidth, className)} ref={ref}>
@@ -28,13 +49,7 @@ const Image = React.forwardRef(function Image({src = "", alt = "", style, classN
     );
 });
 
-Image.displayName = "Image";
-
-Image.defaultProps = {
-    src: "",
-    alt: "",
-    fullWidth: false
-}
+Image.displayName = displayName;
 
 Image.propTypes = {
     // ImageProps
@@ -49,4 +64,4 @@ Image.propTypes = {
     children: PropTypes.node,
 }
 
-export default Image;
+export default withStyles(styles, {name: displayName})(Image);

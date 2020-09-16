@@ -4,15 +4,31 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
+
+// MaterialUI components
 import {Table as MUITable} from "@material-ui/core";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
-import clsx from "clsx";
-import {useStyles} from "./styles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-const Table = React.forwardRef(function Table({children, className, style, ...props}, ref) {
+// Utils
+import {withStyles} from "@material-ui/styles";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+import clsx from "clsx";
+
+
+export const displayName = "MatDocTable";
+
+const Table = React.forwardRef(function Table(props, ref) {
+    const {
+        children,
+        className,
+        style,
+        classes,
+        ...other
+    } = props;
     const commonClasses = useCommonStyles();
-    const classes = {...useStyles(), ...props.classes};
     const [height, setHeight] = React.useState(0);
     const containerRef = React.useRef(null);
     const tableRef = React.useRef(null);
@@ -39,7 +55,7 @@ const Table = React.forwardRef(function Table({children, className, style, ...pr
             ref={containerRef}
         >
             <MUITable
-                {...props}
+                {...other}
                 className={classes.table}
                 ref={element => {tableRef.current = element; if (ref) ref.current = element}}
             >
@@ -49,10 +65,7 @@ const Table = React.forwardRef(function Table({children, className, style, ...pr
     );
 });
 
-Table.displayName = "Table";
-
-Table.defaultProps = {
-}
+Table.displayName = displayName;
 
 Table.propTypes = {
     style: PropTypes.object,
@@ -61,4 +74,4 @@ Table.propTypes = {
     children: PropTypes.node,
 }
 
-export default Table;
+export default withStyles(styles, {name: displayName})(Table);

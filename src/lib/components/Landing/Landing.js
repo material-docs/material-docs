@@ -4,7 +4,11 @@
  */
 
 import React from "react";
+
+// PropTypes validators
 import PropTypes from "prop-types";
+
+export const displayName = "MatDocLanding";
 
 class Landing extends React.Component {
     render() {
@@ -12,7 +16,7 @@ class Landing extends React.Component {
     }
 }
 
-Landing.displayName = "Landing";
+Landing.displayName = displayName;
 
 Landing.propTypes = {
     children: PropTypes.node,

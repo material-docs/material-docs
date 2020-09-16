@@ -41,7 +41,7 @@ export default function TableRowAPI() {
             lang={lang}
             localeName={"TableRowAPI"}
             searchTags={["table", "cell", "row", "header", "api"]}
-            name={"TableRowAPI"}
+            name={"TableRow"}
             importCode={importCode}
         >
             <H2>Demos</H2>

@@ -5,25 +5,21 @@
 
 import React from "react";
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
-import {H1, H2, H3, H4, H5, H6} from "@danilandreev/material-docs/components/Headers";
-import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
-import SimpleList from "../../../examples/Lists/SimpleList";
-import Box from "@material-ui/core/Box";
-import ListWithNestedItems from "../../../examples/Lists/ListWithNestedItems";
-import DecoratedList from "../../../examples/Lists/DecoratedList";
-import List from "@danilandreev/material-docs/components/List/List";
-import ListItem from "@danilandreev/material-docs/components/ListItem/ListItem";
-import Link from "@material-ui/core/Link";
+import {H1, H3} from "@danilandreev/material-docs/components/Headers";
 import Markdown from "@danilandreev/material-docs/components/Markdown/Markdown";
 import Code from "@danilandreev/material-docs/components/Code/Code";
+import List from "@danilandreev/material-docs/components/List/List";
+import ListItemContained from "@danilandreev/material-docs/components/ListItemContained/ListItemContained";
+import ListItem from "@danilandreev/material-docs/components/ListItem/ListItem";
+import Link from "@material-ui/core/Link";
 
-const SimpleLayout = `
+const SimpleLayoutCode = `
 import React from "react";
 import {DocsLayout, DocsPages, DocsPage, DocsMenu, DocsMenuItem} from "@danilandreev/material-docs";
 
 export default function Documentation() {
     return (
-        <DocsLayout>
+        <DocsLayout name="Simple docs">
             <DocsMenu>
                 <DocsMenuItem textPrimary="First Page" name="My first page"/>
                 <DocsMenuItem textPrimary="Second Page" name="This page is cooler than first."/>
@@ -39,11 +35,14 @@ export default function Documentation() {
 
 const LayoutWithAutoMenu = `
 import React from "react";
-import {DocsLayout, DocsPages, DocsPage, DocsMenu, DocsMenuItem, PagesGroup} from "@danilandreev/material-docs";
+import {DocsLayout, DocsPages, DocsPage, DocsMenu, DocsMenuItem, PagesGroup, AutoDocsMenu} from "@danilandreev/material-docs";
 
 export default function Documentation() {
     return (
-        <DocsLayout autoMenu>
+        <DocsLayout name="Docs with auto menu">
+            <DocsMenu>
+                <AutoDocsMenu/>
+            </DocsMenu>
             <DocsPages>
                 <PagesGroup name="My page group">
                     <DocsPage name="My first page">Page content...</DocsPage>
@@ -74,7 +73,9 @@ export default function LayoutDemo() {
                 ```DocsLayout``` component contains _locale_ information, _search_ context and lot of technical data. __Material Docs__ starts here.
             </Markdown>
             <H3 noDivider>Simple layout</H3>
-            <Code theme={"darcula"}>{SimpleLayout}</Code>
+            <Code theme={"darcula"}>
+                {SimpleLayoutCode}
+            </Code>
             <Markdown>
                 This code shows how to create simple layout. __Page names__ will be automatically converted to __routes__, so give normal name for pages.
                 ```DocsMenuItem``` prop ___name___ is a page identifier.
@@ -85,9 +86,19 @@ export default function LayoutDemo() {
                 Here is ```DocsLayout``` with automated menu. You can add __pages__ and __groups__ in other __groups__ to create
                 hierarchical menu structure.
             </Markdown>
-
-
-
+            <H3 noDivider>More info</H3>
+            <Markdown>
+                You can learn more about creating material docs in [this guide]().
+            </Markdown>
+            <H3>APIs</H3>
+            <List>
+                <ListItem><Link>DocsLayout API</Link></ListItem>
+                <ListItem><Link>DocsPage API</Link></ListItem>
+                <ListItem><Link>DocsPages API</Link></ListItem>
+                <ListItem><Link>DocsMenu API</Link></ListItem>
+                <ListItem><Link>DocsMenuItem API</Link></ListItem>
+                <ListItem><Link>AutoDocsMenu API</Link></ListItem>
+            </List>
         </DocsPage>
     );
 }

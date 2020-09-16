@@ -4,22 +4,38 @@
  */
 
 import React from "react";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
+
+// MaterialUI components
+import Tooltip from "@material-ui/core/Tooltip";
+import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import Button from "@material-ui/core/Button";
 
-import TranslateIcon from '@material-ui/icons/Translate';
+// MaterialUI icons
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import Divider from "@material-ui/core/Divider";
+import TranslateIcon from '@material-ui/icons/Translate';
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
 import useLang from "../../hooks/useLang";
 import clsx from "clsx";
-import PropTypes from "prop-types";
-import Tooltip from "@material-ui/core/Tooltip";
+import {withStyles} from "@material-ui/styles";
 
 
-const LanguageSelector = React.forwardRef(function LanguageSelector({className, style, size = "large", ...props}, ref) {
-    const classes = {...useStyles(), ...props.classes};
+export const displayName = "MatDocLanguageSelector";
+
+const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) {
+    const {
+        className,
+        style,
+        size = "large",
+        classes,
+        ...other
+    } = props;
     const {langs, lang, switchLang, onHelpToTranslate} = useLang();
     const [opened, setOpened] = React.useState(false);
     const buttonRef = React.useRef(null);
@@ -83,11 +99,7 @@ const LanguageSelector = React.forwardRef(function LanguageSelector({className, 
     );
 });
 
-LanguageSelector.displayName = "LanguageSelector";
-
-LanguageSelector.defaultProps = {
-    size: "large"
-}
+LanguageSelector.displayName = displayName;
 
 LanguageSelector.propTypes = {
     size: PropTypes.oneOf(["small", "large"]),
@@ -97,4 +109,4 @@ LanguageSelector.propTypes = {
     classes: PropTypes.object,
 }
 
-export default LanguageSelector;
+export default withStyles(styles, {name: displayName})(LanguageSelector);

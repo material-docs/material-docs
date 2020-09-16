@@ -4,6 +4,9 @@
  */
 
 /// <reference types="react" />
+
+export const displayName: string;
+
 export interface NavigationListProps {
     /**
      * keys - list with information about tags and labels in page.

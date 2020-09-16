@@ -41,7 +41,7 @@ export default function TableBodyAPI() {
             lang={lang}
             localeName={"TableBodyAPI"}
             searchTags={["table", "cell", "row", "header", "api", "body"]}
-            name={"TableBodyAPI"}
+            name={"TableBody"}
             importCode={importCode}
         >
             <H2>Demos</H2>

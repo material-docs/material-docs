@@ -10,7 +10,7 @@ export {
     getElementOffsetSum,
     usePageScroll
 } from "./utils";
-export {default as DocsLayout} from "./layout";
+export {default as DocsLayout} from "./components/DocsLayout";
 export {
     useGroups,
     GroupsContext,

@@ -26,7 +26,7 @@ export default function CodeSpanAPI() {
             lang={lang}
             localeName={"CodeSpanAPI"}
             searchTags={["code", "span", "inline", "component", "block"]}
-            name={"CodeSpanAPI"}
+            name={"CodeSpan"}
             importCode={importCode}
         >
             <H2>Demos</H2>

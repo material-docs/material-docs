@@ -3,13 +3,13 @@
  * Copyright (C) 2020.
  */
 
-import {makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {grey} from "@material-ui/core/colors";
 
 const width = 250;
 const focusWidth = 300;
 
-export const useStyles = makeStyles((theme) => ({
+export const styles = theme => createStyles({
     root: {
         transition: "width 0.2s",
         padding: '2px 4px',
@@ -60,4 +60,4 @@ export const useStyles = makeStyles((theme) => ({
         overflowY: "auto",
         width: 420,
     },
-}));
+});

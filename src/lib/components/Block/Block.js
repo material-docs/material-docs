@@ -4,15 +4,33 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
+
+// MaterialUI components
 import Paper from "@material-ui/core/Paper";
-import {useStyles} from "./styles";
-import clsx from "clsx";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-const Block = React.forwardRef(function Block({className, style, children, color = "light", ...props}, ref) {
+// Utils
+import clsx from "clsx";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+import {withStyles} from "@material-ui/core/styles";
+
+
+export const displayName = "MdBlock";
+
+const Block = React.forwardRef(function Block(props, ref) {
+    const {
+        className,
+        style,
+        children,
+        color = "light",
+        classes,
+        ...other
+    } = props;
     const commonClasses = useCommonStyles();
-    const classes = {...useStyles(), ...props.classes};
+
     return (
         <Paper
             ref={ref}
@@ -32,11 +50,7 @@ const Block = React.forwardRef(function Block({className, style, children, color
     );
 });
 
-Block.displayName = "Block";
-
-Block.defaultProps = {
-    color: "light",
-}
+Block.displayName = displayName;
 
 Block.propTypes = {
     // BlockProps
@@ -49,4 +63,4 @@ Block.propTypes = {
     children: PropTypes.node,
 }
 
-export default Block;
+export default withStyles(styles, {name: displayName})(Block);

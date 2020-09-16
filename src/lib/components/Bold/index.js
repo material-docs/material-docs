@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default} from "./Bold";
+export {default, displayName} from "./Bold";

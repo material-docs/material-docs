@@ -5,7 +5,7 @@
 
 import marked from "marked";
 import React from "react";
-import {Header} from "../components/Headers";
+import Header from "../components/Header";
 import Typography from "@material-ui/core/Typography";
 import List from "../components/List/List";
 import ListItem from "../components/ListItem/ListItem";
@@ -25,6 +25,12 @@ import CodeSpan from "../components/CodeSpan/CodeSpan";
 import ExpansionCode from "../components/ExpansionCode/ExpansionCode";
 import DemoWithCode from "../components/DemoWithCode/DemoWithCode";
 
+/**
+ * fixShieldedText - fixes bug with shielded symbols in text after using lexer.
+ * @function
+ * @param {string} text
+ * @return {string}
+ */
 function fixShieldedText(text) {
     if (typeof text !== "string") return "";
     return text.replace(/&#39;+/g, "'")
@@ -33,6 +39,14 @@ function fixShieldedText(text) {
         .replace(/&gt;/g, ">");
 }
 
+/**
+ * generateMaterialDocsFromMarkdown - function, designed to generate Material Docs based layout from markdown text.
+ * @function
+ * @param {string} input Markdown based text. Will be parsed and interpreted.
+ * @param {object} storage Object with additional information. Will be used in components with additional setup.
+ * @param {string} key Component key
+ * @return JSX.Element
+ */
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1) {
     if (!(typeof input === "string" || typeof input === "object"))
         throw new TypeError(`MaterialDocs: incorrect type of input param, expected "object | string", got "${typeof input}"`);
@@ -75,10 +89,10 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                     case "code":
                         try {
                             let setting = JSON.parse(token.lang);
-                            const {type, language} = setting;
+                            const {type = "code", language = "javascript"} = setting;
                             if (type !== "expansion-code" && type !== "code" && type !== "demo-with-code")
                                 console.error(`MaterialDocs: incorrect type of code block setting field "type", expected "expansion-code | code | demo-with-code" got ${type}`);
-                            if (typeof language !== "string")
+                            if (language && typeof language !== "string")
                                 console.error(`MaterialDocs: incorrect type of code block setting field "language", expected "string" got ${typeof language}`);
                             switch (setting.type) {
                                 case "expansion-code": {

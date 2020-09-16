@@ -4,33 +4,46 @@
  */
 
 import React from "react";
-import {Route} from "react-router-dom"
-import createRouteFromName from "../../utils/createRouteFromName";
-import Grid from "@material-ui/core/Grid";
+import {styles} from "./styles";
+
+// Components
+import {Helmet} from "react-helmet-async";
 import NavigationList from "./NavigationList";
+import {Route} from "react-router-dom"
+
+// MaterialUI components
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {useStyles} from "./styles";
+import Grid from "@material-ui/core/Grid";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
+import {isWidthUp} from "@material-ui/core";
 import useSearch from "../../hooks/useSearch";
 import useGroups from "../../hooks/useGroups";
-import {TaggingContext} from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
-import {isWidthUp} from "@material-ui/core";
-import PropTypes from "prop-types";
-import {Helmet} from "react-helmet-async";
+import {withStyles} from "@material-ui/styles";
+import {TaggingContext} from "../../hooks/useTags";
+import createRouteFromName from "../../utils/createRouteFromName";
 
 
-const DocsPage = React.forwardRef(function DocsPage({
-                                                        name = "home",
-                                                        searchTags = [],
-                                                        searchLabel,
-                                                        searchDescription,
-                                                        noGenerateAutoSearch = false,
-                                                        noAutoMenu = false,
-                                                        width,
-                                                        children
-                                                    }, ref) {
-    const classes = useStyles();
+export const displayName = "MatDocDocsPage";
+
+const DocsPage = React.forwardRef(function DocsPage(props, ref) {
+    const {
+        name = "home",
+        searchTags = [],
+        searchLabel,
+        searchDescription,
+        noGenerateAutoSearch = false,
+        noAutoMenu = false,
+        width,
+        children,
+        classes,
+        ...other
+    } = props;
     const commonClasses = useCommonStyles();
     const [tags, setTags] = React.useState({});
     const [content, setContent] = React.useState(null);
@@ -149,14 +162,7 @@ const DocsPage = React.forwardRef(function DocsPage({
     );
 });
 
-DocsPage.displayName = "DocsPage";
-
-DocsPage.defaultProps = {
-    name: "home",
-    noGenerateAutoSearch: false,
-    noAutoMenu: false,
-    searchTags: [],
-}
+DocsPage.displayName = displayName;
 
 DocsPage.propTypes = {
     // DocsPageProps
@@ -174,4 +180,4 @@ DocsPage.propTypes = {
     children: PropTypes.node,
 }
 
-export default DocsPage;
+export default withStyles(styles, {name: displayName})(DocsPage);

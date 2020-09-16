@@ -7,6 +7,8 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface BoldProps
     extends Stylable, Containerable {
 
@@ -16,6 +18,7 @@ export interface BoldProps
  * Bold - react component, designed to make text bold.
  * @param {BoldProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/bold
  * @example
  * <Bold> I am bold </Bold>
  */

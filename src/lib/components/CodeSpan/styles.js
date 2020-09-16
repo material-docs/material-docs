@@ -3,10 +3,10 @@
  * Copyright (C) 2020.
  */
 
-import {makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {grey, yellow} from "@material-ui/core/colors";
 
-export const useStyles = makeStyles(theme => ({
+export const styles = theme => createStyles({
     root: {
         padding: theme.spacing(0.4),
         borderRadius: theme.spacing(0.4),
@@ -37,4 +37,4 @@ export const useStyles = makeStyles(theme => ({
     textBlack: {
         color: theme.palette.common.black,
     },
-}));
+});

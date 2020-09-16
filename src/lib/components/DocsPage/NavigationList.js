@@ -8,17 +8,23 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
 import ListItemText from "@material-ui/core/ListItemText";
-import {useStyles} from "./styles";
+import {styles, useStyles} from "./styles";
 import clsx from "clsx";
 import {isWidthUp, Link} from "@material-ui/core";
 import usePageScroll from "../../utils/usePageScroll";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
 import PropTypes from "prop-types";
 import withWidth from "@material-ui/core/withWidth";
+import {withStyles} from "@material-ui/styles";
 
+export const displayName = "MatDocNavigationList";
 
-const NavigationList = withWidth()(React.forwardRef(function NavigationList({keys, width}, ref) {
-    const classes = useStyles();
+const NavigationList = React.forwardRef(function NavigationList(props, ref) {
+    const {
+        keys,
+        width,
+        classes
+    } = props;
     const {scrollY} = usePageScroll();
     const [selected, setSelected] = React.useState({id: keys[0] && keys[0].id || null, clicked: false});
 
@@ -104,14 +110,12 @@ const NavigationList = withWidth()(React.forwardRef(function NavigationList({key
             })}
         </List>
     );
-}));
+});
 
-NavigationList.displayName = "NavigationList";
-
-NavigationList.defaultProps = {}
+NavigationList.displayName = displayName;
 
 NavigationList.propTypes = {
     keys: PropTypes.array,
 }
 
-export default NavigationList;
+export default withStyles(styles, {name: displayName})(withWidth()(NavigationList));

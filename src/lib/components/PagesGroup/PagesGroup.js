@@ -4,10 +4,23 @@
  */
 
 import React from "react";
-import useGroups, {GroupsContext} from "../../hooks/useGroups";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 
-const PagesGroup = React.forwardRef(function PagesGroup({name, children, getData, ...props}, ref) {
+// Utils
+import useGroups, {GroupsContext} from "../../hooks/useGroups";
+
+
+export const displayName = "MatDocPagesGroup";
+
+const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
+    const {
+        name,
+        children,
+        getData,
+        ...other
+    } = props;
     if (getData && typeof getData !== "function")
         throw new TypeError(`MaterialDocs: incorrect type of getData, expected function, got ${typeof getData}`);
     if (typeof name !== "string")
@@ -94,10 +107,7 @@ const PagesGroup = React.forwardRef(function PagesGroup({name, children, getData
     );
 });
 
-PagesGroup.displayName = "PagesGroup";
-
-PagesGroup.defaultProps = {
-}
+PagesGroup.displayName = displayName;
 
 PagesGroup.propTypes = {
     // PagesGroupProps

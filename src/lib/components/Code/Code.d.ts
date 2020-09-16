@@ -7,10 +7,13 @@
 import Stylable from "../../interfaces/Stylable";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface CodeProps
     extends Stylable, Containerable {
     /**
      * theme - highlighting and background styling type.
+     * @default "light"
      * @type string
      */
     theme?: "light" | "dark" | "darcula";
@@ -48,6 +51,7 @@ export interface CodeProps
  * Code - react component, designed to display and highlight code.
  * @param {CodeProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/code
  * @example
  * <Code language="code language" theme="darcula">
  *     ...your code...

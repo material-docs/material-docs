@@ -6,10 +6,13 @@
 /// <reference types="react" />
 import {TableProps} from "@material-ui/core";
 
+export const displayName: string;
+
 /**
  * Table - react component, designed to provide table functional.
  * @param {TableProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/table
  * @example
  * <Table>
  *     ...

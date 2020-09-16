@@ -4,27 +4,40 @@
  */
 
 import React, {Suspense} from "react";
-import {useStyles} from "./styles";
+import {styles} from "./styles";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+
+// Components
+import H3 from "../H3";
+
+// MaterialUI components
 import Box from '@material-ui/core/Box';
 import Code from "../Code/Code";
 import Collapse from "@material-ui/core/Collapse";
-import copyToClipboard from "../../utils/copyToClipboard";
-import {H3} from "../Headers";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-// Material UI Icons
-import CodeIcon from '@material-ui/icons/Code';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {useSnackbar} from "notistack";
-import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+
+// MaterialUI icons
+import FileCopyIcon from '@material-ui/icons/FileCopy';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import CodeIcon from '@material-ui/icons/Code';
+import CircularProgress from "@material-ui/core/CircularProgress";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
+
+// Utils
+import {withStyles} from "@material-ui/styles";
 import AspectRatio from "../../utils/AspectRatio";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import copyToClipboard from "../../utils/copyToClipboard";
+import {useSnackbar} from "notistack";
+
+
+export const displayName = "MatDocDemoWithCode";
 
 const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
     const {
@@ -37,9 +50,9 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
         paperContainer = false,
         actions,
         ratio,
+        classes,
         ...other
     } = props;
-    const classes = useStyles();
     const commonClasses = useCommonStyles();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);
@@ -69,7 +82,7 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
             <H3 noDivider noTag={noTag}>{name}</H3>
             }
             <Box style={{height: height || undefined}} ref={demoRef} className={classes.demo}>
-                <Suspense fallback={<CircularProgress />}>
+                <Suspense fallback={<CircularProgress/>}>
                     {!paperContainer && children}
                     {paperContainer &&
                     <Paper elevation={0} variant={"outlined"} className={classes.paperContainer}>
@@ -132,12 +145,7 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
     );
 });
 
-DemoWithCode.displayName = "DemoWithCode";
-
-DemoWithCode.defaultProps = {
-    noTag: false,
-    paperContainer: false,
-}
+DemoWithCode.displayName = displayName;
 
 DemoWithCode.propTypes = {
     // DemoWithCodeProps
@@ -176,4 +184,4 @@ DemoWithCode.propTypes = {
     classes: PropTypes.object,
 }
 
-export default DemoWithCode;
+export default withStyles(styles, {name: displayName})(DemoWithCode);

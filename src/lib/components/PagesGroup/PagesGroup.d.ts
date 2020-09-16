@@ -7,6 +7,8 @@
 import PagesGroupData from "../../interfaces/PagesGroupData";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface PagesGroupProps
     extends Containerable {
     /**
@@ -27,6 +29,7 @@ export interface PagesGroupProps
  * PagesGroup - function, used to group pages by sense. Used with AutoDocsMenu.
  * @param {PagesGroupProps} props
  * @constructor
+ * @see http://material-docs.com/component-apis/pagesgroup
  * @example
  * <PagesGroup name="Cool group">
  *     <DocsPage name="Cool page"> ... </DocsPage>

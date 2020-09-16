@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default} from "./DocsPage";
+export {default, displayName} from "./DocsPage";

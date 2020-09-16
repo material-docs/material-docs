@@ -4,7 +4,11 @@
  */
 
 import React from "react";
+
+// PropTypes validators
 import PropTypes from "prop-types";
+
+export const displayName = "MatDocListItemContained";
 
 class ListItemContained extends React.Component {
     render() {
@@ -12,10 +16,7 @@ class ListItemContained extends React.Component {
     }
 }
 
-ListItemContained.displayName = "ListItemContained";
-
-ListItemContained.defaultProps = {
-}
+ListItemContained.displayName = displayName;
 
 ListItemContained.propTypes = {
     // Containerable

@@ -5,7 +5,9 @@
 
 /**
  * createRouteFromName - generates route without extra symbols from string name
+ * @function
  * @param {string} name
+ * @return string
  * @example "Hello it's me" -> "hello-its-me"
  */
 export default function createRouteFromName(name) {
