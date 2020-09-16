@@ -3,11 +3,6 @@
  * Copyright (C) 2020.
  */
 
-/*
- * Author: Andrieiev Danil |  danssg08@gmail.com | https://github.com/DanilAndreev
- * Copyright (C) 2020.
- */
-
 import React from "react";
 import {
     Code,
@@ -19,12 +14,12 @@ import {
     TableBody,
     TableCell,
     TableHead,
-    TableRow
+    TableRow,
+    Markdown
 } from "@danilandreev/material-docs";
 import {makeStyles} from "@material-ui/core/styles";
 import {grey, purple} from "@material-ui/core/colors";
 import clsx from "clsx";
-import Markdown from "../../lib/components/Markdown/Markdown";
 
 
 const useStyles = makeStyles(theme => ({

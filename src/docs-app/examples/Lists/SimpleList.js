@@ -6,7 +6,7 @@
 import React from "react";
 import List from "@danilandreev/material-docs/components/List";
 import ListItem from "@danilandreev/material-docs/components/ListItem";
-import {H4} from "@danilandreev/material-docs/components/Headers";
+import {H4} from "@danilandreev/material-docs/components";
 
 export default function SimpleList() {
     return (

@@ -5,7 +5,7 @@
 
 import React from "react";
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
-import {H1, H2, H3} from "@danilandreev/material-docs/components/Headers";
+import {H1, H2, H3} from "@danilandreev/material-docs/components";
 import Markdown from "@danilandreev/material-docs/components/Markdown/Markdown";
 import List from "@danilandreev/material-docs/components/List/List";
 import ListItem from "@danilandreev/material-docs/components/ListItem/ListItem";

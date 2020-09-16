@@ -6,7 +6,7 @@
 import React from "react";
 import {useLang} from "@danilandreev/material-docs/hooks";
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
-import {H1, H3} from "@danilandreev/material-docs/components/Headers";
+import {H1, H3} from "@danilandreev/material-docs/components";
 import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
 import Markdown from "@danilandreev/material-docs/components/Markdown/Markdown";
 import ImagesOverview from "../../../examples/Images/ImagesOverview";

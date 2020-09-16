@@ -5,7 +5,7 @@
 
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
 import React from "react";
-import {H1, H2, H3, H4, H5} from "@danilandreev/material-docs/components/Headers";
+import {H1, H2, H3, H4, H5} from "@danilandreev/material-docs/components";
 import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
 import MarkdownOverview from "../../../examples/Markdown/MarkdownOverview";
 import {TaggingContext} from "@danilandreev/material-docs/hooks/useTags";

@@ -5,7 +5,7 @@
 
 import React from "react";
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
-import {H1, H2, H3, H4, H5, H6} from "@danilandreev/material-docs/components/Headers";
+import {H1, H2, H3, H4, H5, H6} from "@danilandreev/material-docs/components";
 import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
 import SimpleList from "../../../examples/Lists/SimpleList";
 import Box from "@material-ui/core/Box";
@@ -20,7 +20,7 @@ const SimpleListCode = `
 import React from "react";
 import List from "@danilandreev/material-docs/components/List";
 import ListItem from "@danilandreev/material-docs/components/ListItem";
-import {H4} from "@danilandreev/material-docs/components/Headers";
+import {H4} from "@danilandreev/material-docs/components";
 
 export default function SimpleList() {
     return (
