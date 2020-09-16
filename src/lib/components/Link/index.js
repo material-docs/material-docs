@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default, displayName} from "./PagesGroup";
+export {default} from "./Link";

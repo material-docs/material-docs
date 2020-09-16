@@ -6,7 +6,7 @@
 import React from "react";
 import {useLang} from "@danilandreev/material-docs/hooks";
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
-import {H1, H2, H3} from "@danilandreev/material-docs/components/Headers";
+import {H1, H2, H3} from "@danilandreev/material-docs/components";
 import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
 import Box from "@material-ui/core/Box";
 import TextStylingOverview from "../../../examples/TextStyling/TextStylingOverview";

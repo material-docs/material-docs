@@ -3,14 +3,14 @@
  * Copyright (C) 2020.
  */
 
-import marked from "marked";
 import React from "react";
+
+// Components
 import Header from "../components/Header";
-import Typography from "@material-ui/core/Typography";
 import List from "../components/List/List";
 import ListItem from "../components/ListItem/ListItem";
 import Code from "../components/Code/Code";
-import {Link} from "@material-ui/core";
+import Link from "../components/Link";
 import Bold from "../components/Bold/Bold";
 import Italic from "../components/Italic/Italic";
 import Image from "../components/Image/Image";
@@ -19,11 +19,18 @@ import TableHead from "../components/TableHead";
 import TableBody from "../components/TableBody";
 import TableRow from "../components/TableRow";
 import TableCell from "../components/TableCell";
-import Divider from "@material-ui/core/Divider";
 import Block from "../components/Block/Block";
 import CodeSpan from "../components/CodeSpan/CodeSpan";
 import ExpansionCode from "../components/ExpansionCode/ExpansionCode";
 import DemoWithCode from "../components/DemoWithCode/DemoWithCode";
+
+// MaterialUI components
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+
+// Utils
+import marked from "marked";
+
 
 /**
  * fixShieldedText - fixes bug with shielded symbols in text after using lexer.
@@ -170,12 +177,23 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                         );
                     case "codespan":
                         return <CodeSpan key={`codespan-token-${tokenId}`}>{token.text}</CodeSpan>
-                    case "link":
+                    case "link": {
+                        const {href, text, tokens} = token;
+                        let settings = {};
+                        try {
+                            settings = JSON.parse(text);
+                            if (typeof settings.text === "string") settings.tokens = marked.lexer(settings.text);
+                        } catch (e) {
+                            settings = {tokens};
+                        } finally {
+                            settings.href = href;
+                        }
                         return (
-                            <Link href={token.href} key={`link-token-${tokenId}`}>
-                                {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
+                            <Link href={settings.href} page={settings.page} key={`link-token-${tokenId}`}>
+                                {settings.tokens && generateMaterialDocsFromMarkdown(settings.tokens, storage, tokenId + key)}
                             </Link>
                         );
+                    }
                     case "br":
                         return <br key={`br-token-${tokenId}`}/>
                     case "hr":

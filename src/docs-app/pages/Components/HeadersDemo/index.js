@@ -5,7 +5,7 @@
 
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
 import React from "react";
-import {H1, H2, H3} from "@danilandreev/material-docs/components/Headers";
+import {H1, H2, H3} from "@danilandreev/material-docs/components";
 import Markdown from "@danilandreev/material-docs/components/Markdown/Markdown";
 import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
 import {TaggingContext} from "@danilandreev/material-docs/hooks/useTags";
@@ -24,7 +24,7 @@ import {
     H4,
     H5,
     H6
-} from "@danilandreev/material-docs/components/Headers";
+} from "@danilandreev/material-docs/components";
 
 export default function AllHeaders() {
     return (
