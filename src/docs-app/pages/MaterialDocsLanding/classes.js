@@ -27,13 +27,21 @@ export const useStyles = makeStyles(theme => ({
         height: "100%",
     },
     card: {
-        height: "100%",
+        height: `calc(100% - ${theme.spacing(4)}px)`,
         background: grey[100],
     },
     filled: {
-        background: theme.palette.common.white,
+        background: "rgba(255, 255, 255, 1)",
     },
     textRegular: {
         fontSize: 20,
+    },
+    footer: {
+        background: grey[900],
+        borderTop:`${theme.spacing(1)}px solid ${grey[800]}`,
+        color: grey[500],
+        "& a": {
+            color: theme.palette.common.white,
+        }
     }
 }));

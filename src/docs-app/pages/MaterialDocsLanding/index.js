@@ -19,6 +19,11 @@ import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
 import {Parallax} from "react-parallax";
 import background from "./images/background.png";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Link from "@danilandreev/material-docs/components/Link/Link";
+import Bold from "@danilandreev/material-docs/components/Bold/Bold";
+import clsx from "clsx";
 
 export default function MaterialDocsLanding() {
     const classes = useStyles();
@@ -48,7 +53,7 @@ export default function MaterialDocsLanding() {
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} style={{height: 200}} />
+                    <Grid item xs={12} style={{height: 200}}/>
                     <Grid item xs={12} className={classes.filled}>
                         <Box p={2}>
                             <Typography variant={"h4"} align={"center"}>
@@ -106,8 +111,107 @@ export default function MaterialDocsLanding() {
                             </Card>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} className={classes.filled}>
-                        Usage
+                    {/*<Grid item xs={12} className={classes.filled}>*/}
+                    {/*    Usage*/}
+                    {/*</Grid>*/}
+                    <Grid item xs={12} style={{height: 200}}/>
+                    <Grid item xs={12} className={clsx(classes.filled, classes.footer)}>
+                        <Box p={2}>
+                            <Grid container>
+                                <Grid item xs={12} sm={6} md={3}>
+                                    <List>
+                                        <ListItem>
+                                            <Bold>DOCUMENTATION</Bold>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link>Installation</Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link>Overview</Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link>Components</Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link>Tutorials</Link>
+                                        </ListItem>
+                                    </List>
+                                </Grid>
+                                <Grid item xs={12} sm={6} md={3}>
+                                    <List>
+                                        <ListItem>
+                                            <Bold>asdfs</Bold>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://github.com/DanilAndreev/material-docs"}>GitHub
+                                                repository</Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://www.npmjs.com/package/@danilandreev/material-docs"}>
+                                                npm package
+                                            </Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://github.com/DanilAndreev/material-docs/projects/2"}>
+                                                Project board
+                                            </Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link
+                                                href={"https://github.com/DanilAndreev/material-docs/blob/master/README.md"}>Readme</Link>
+                                        </ListItem>
+                                    </List>
+                                </Grid>
+                                <Grid item xs={12} sm={6} md={3}>
+                                    <List>
+                                        <ListItem>
+                                            <Bold>SOURCES</Bold>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://github.com/DanilAndreev/material-docs"}>GitHub
+                                                repository</Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://www.npmjs.com/package/@danilandreev/material-docs"}>npm
+                                                package</Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://github.com/DanilAndreev/material-docs/projects/2"}>Project
+                                                board</Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link
+                                                href={"https://github.com/DanilAndreev/material-docs/blob/master/README.md"}>Readme</Link>
+                                        </ListItem>
+                                    </List>
+                                </Grid>
+                                <Grid item xs={12} sm={6} md={3}>
+                                    <List>
+                                        <ListItem>
+                                            <Bold>FEEDBACK</Bold>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"mailto: help.materialdocs@gmail.com"}>
+                                                help.materialdocs@gmail.com
+                                            </Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://github.com/DanilAndreev"}>My GitHub</Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://github.com/DanilAndreev/material-docs/issues"}>
+                                                Issues and bugs
+                                            </Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link href={"https://github.com/DanilAndreev/material-docs/pulls"}>
+                                                If you want to help
+                                            </Link>
+                                        </ListItem>
+                                    </List>
+                                </Grid>
+                            </Grid>
+                        </Box>
                     </Grid>
                 </Grid>
             </Parallax>
