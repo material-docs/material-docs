@@ -14,7 +14,7 @@ import {displayName as BoldDn} from "./../components/Bold";
 import {displayName as CodeDn} from "./../components/Code";
 import {displayName as CodeSpanDn} from "./../components/CodeSpan";
 import {displayName as DemoWithCodeDn} from "./../components/DemoWithCode";
-import {displayName as DocsLayoutDn} from "./../components/DocsLayout";
+// import {displayName as DocsLayoutDn} from "./../components/DocsLayout";
 import {displayName as DocsMenuDn} from "./../components/DocsMenu";
 import {displayName as DocsMenuItemDn} from "./../components/DocsMenuItem";
 import {displayName as DocsPageDn} from "./../components/DocsPage";
@@ -81,16 +81,16 @@ const DefaultTheme = createMuiTheme({
                 paperContainer: false,
             }
         },
-        [DocsLayoutDn]: {
-            defaultProps: {
-                noGenerateAutoSearch: false,
-                noSearchField: false,
-                noLanguageSelector: false,
-                actions: [],
-                router: "browser-router",
-                mask: "/(*page)",
-            }
-        },
+        // [DocsLayoutDn]: {
+        //     defaultProps: {
+        //         noGenerateAutoSearch: false,
+        //         noSearchField: false,
+        //         noLanguageSelector: false,
+        //         actions: [],
+        //         router: "browser-router",
+        //         mask: "/(*page)",
+        //     }
+        // },
         [DocsMenuDn]: {
             defaultProps: {
                 dense: false,
