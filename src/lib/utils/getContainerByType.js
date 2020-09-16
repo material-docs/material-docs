@@ -10,10 +10,11 @@ import React from "react";
  * @function
  * @param {JSX.Element} children
  * @param {string | string[]} types
+ * @param {boolean} invert
  * @param {boolean} multiple
  * @return {JSX.Element | JSX.Element[] | null}
  */
-export default function getContainerByType(children, types, multiple = false) {
+export default function getContainerByType(children, types, invert, multiple = false) {
     /**
      * checkType - function, designed to check if candidate match type in types.
      * @function
@@ -31,10 +32,8 @@ export default function getContainerByType(children, types, multiple = false) {
         function typeMatch(candidate, type) {
             if (typeof type !== "string")
                 console.error(`MaterialDocs: getChildrenFromContainer: incorrect type of variable 'type', expected "string | object", got ${typeof type}!`);
-            // if (candidate.type && candidate.type.name === type) return true;
-            // if (candidate.type && candidate.type.render && candidate.type.render.name === type) return true;
-            if (candidate.type && candidate.type.displayName === type) return true;
-//            if (candidate.type === type) return true;
+            if (!invert && candidate.type && candidate.type.displayName === type) return true;
+            if (invert && candidate.type && candidate.type.displayName !== type) return true;
             return false;
         }
         if (Array.isArray(types)) {

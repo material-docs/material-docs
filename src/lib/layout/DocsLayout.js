@@ -45,6 +45,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
+
+import {displayName as DocsPagesDisplayName} from "./../components/DocsPages";
+import {displayName as LandingDisplayName} from "../components/Landing";
+import {displayName as DocsMenuDisplayName} from "../components/DocsMenu";
+import {displayName as PagesGroupDisplayName} from "../components/PagesGroup";
+
 const DocsLayoutF = React.forwardRef((props, ref) => {
     const {
         children,
@@ -74,6 +80,8 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const {l: langName} = getQueryParams();
     const {page: routePage} = getRouteParams();
+
+    console.log(children, content);
 
     // Effect for drawer auto open/close on resize
     React.useEffect(() => {
@@ -153,15 +161,15 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const getSearchData = () => [...searchData];
 
     const getMenuFromChildren = () => {
-        const menu = getContainerByType(children, "DocsMenu");
+        const menu = getContainerByType(children, DocsMenuDisplayName);
         if (menu && React.isValidElement(menu))
             return React.cloneElement(menu, {layoutData: autoMenuData});
         return null;
     };
 
-    const getPagesFromChildren = () => getChildrenFromContainer(children, "DocsPages") || [];
+    const getPagesFromChildren = () => getChildrenFromContainer(children, DocsPagesDisplayName) || [];
 
-    const getLanding = () => getChildrenFromContainer(children, "Landing");
+    const getLanding = () => getChildrenFromContainer(children, LandingDisplayName);
 
     // Effect, designed to get pages, menu and landing components from containers.
     React.useEffect(() => {

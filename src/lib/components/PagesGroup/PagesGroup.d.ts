@@ -7,6 +7,8 @@
 import PagesGroupData from "../../interfaces/PagesGroupData";
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface PagesGroupProps
     extends Containerable {
     /**

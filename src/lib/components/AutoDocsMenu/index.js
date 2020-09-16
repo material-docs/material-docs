@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default} from "./AutoDocsMenu";
+export {default, displayName} from "./AutoDocsMenu";

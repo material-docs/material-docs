@@ -6,6 +6,8 @@
 /// <reference types="react" />
 import Containerable from "../../interfaces/Containerable";
 
+export const displayName: string;
+
 export interface DocsPageProps
     extends Containerable {
     /**

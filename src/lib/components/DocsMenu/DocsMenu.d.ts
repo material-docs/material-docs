@@ -6,6 +6,8 @@
 import Containerable from "../../interfaces/Containerable";
 import PagesGroupData from "@danilandreev/material-docs/interfaces/PagesGroupData";
 
+export const displayName: string;
+
 export interface DocsMenuProps
     extends Containerable {
     /**

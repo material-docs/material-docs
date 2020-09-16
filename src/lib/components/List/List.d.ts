@@ -7,6 +7,8 @@
 import Containerable from "../../interfaces/Containerable";
 import Stylable from "../../interfaces/Stylable";
 
+export const displayName: string;
+
 export interface ListProps
     extends Containerable, Stylable {
     /**
