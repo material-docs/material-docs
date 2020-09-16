@@ -25,6 +25,12 @@ import CodeSpan from "../components/CodeSpan/CodeSpan";
 import ExpansionCode from "../components/ExpansionCode/ExpansionCode";
 import DemoWithCode from "../components/DemoWithCode/DemoWithCode";
 
+/**
+ * fixShieldedText - fixes bug with shielded symbols in text after using lexer.
+ * @function
+ * @param {string} text
+ * @return {string}
+ */
 function fixShieldedText(text) {
     if (typeof text !== "string") return "";
     return text.replace(/&#39;+/g, "'")
@@ -33,6 +39,14 @@ function fixShieldedText(text) {
         .replace(/&gt;/g, ">");
 }
 
+/**
+ * generateMaterialDocsFromMarkdown - function, designed to generate Material Docs based layout from markdown text.
+ * @function
+ * @param {string} input Markdown based text. Will be parsed and interpreted.
+ * @param {object} storage Object with additional information. Will be used in components with additional setup.
+ * @param {string} key Component key
+ * @return JSX.Element
+ */
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1) {
     if (!(typeof input === "string" || typeof input === "object"))
         throw new TypeError(`MaterialDocs: incorrect type of input param, expected "object | string", got "${typeof input}"`);

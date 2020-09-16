@@ -6,11 +6,17 @@
 
 const ANONYMOUS = "";
 
+/**
+ * createChainableTypeChecker - function, designed to create chainable PropTypes validators.
+ * @function
+ * @param {function} validate
+ * @return {object}
+ */
 export default function createChainableTypeChecker(validate) {
     function checkType(isRequired, props, propName, componentName, location) {
         componentName = componentName || ANONYMOUS;
         if (props[propName] == null) {
-//            let locationName = ReactPropTypeLocationNames[location];
+           // let locationName = ReactPropTypeLocationNames[location];
             if (isRequired) {
                 return new Error(`Required ${location} "${propName}" was not specified in "${componentName}".`);
             }

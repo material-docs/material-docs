@@ -5,10 +5,11 @@
 
 /**
  * copyToClipboard - function copies str value to client clipboard.
+ * @function
+ * @async
  * @param {any} str
- * {Promise<*>}
  * @example
- * copyToClipboard();
+ * copyToClipboard("My string value is copied to user clipboard!");
  */
 export default async function copyToClipboard(str) {
     const el = document.createElement('textarea');
