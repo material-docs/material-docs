@@ -5,9 +5,14 @@
 
 import React from "react";
 import {styles} from "./styles";
-import clsx from "clsx";
+
+// PropTypes validators
 import PropTypes from "prop-types";
+
+// Utils
+import clsx from "clsx";
 import {withStyles} from "@material-ui/core";
+
 
 export const displayName = "MatDocBold";
 

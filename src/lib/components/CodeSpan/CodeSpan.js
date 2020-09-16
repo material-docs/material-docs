@@ -4,10 +4,15 @@
  */
 
 import React from "react";
-import clsx from "clsx";
 import {styles} from "./styles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
+
+// Utils
 import {withStyles} from "@material-ui/styles";
+import clsx from "clsx";
+
 
 export const displayName = "MatDocCodeSpan";
 

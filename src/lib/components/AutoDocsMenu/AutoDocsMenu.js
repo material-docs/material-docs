@@ -4,11 +4,18 @@
  */
 
 import React from "react";
+
+// Components
 import DocsMenuItem from "../DocsMenuItem";
+
+// PropTypes validators
 import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
+
+// Utils
 import {useChangeRoute} from "routing-manager";
 import {createRouteFromName} from "../../utils";
 import * as _ from "lodash";
+
 
 export const displayName = "MatDocAutoDocsMenu";
 

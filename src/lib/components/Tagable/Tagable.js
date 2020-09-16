@@ -4,18 +4,27 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+
+// MaterialUI components
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import createRouteFromName from "../../utils/createRouteFromName";
-import {styles} from "./styles";
+
+// MaterialUI icons
 import LinkIcon from '@material-ui/icons/Link';
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
 import clsx from "clsx";
 import useTags from "../../hooks/useTags";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
-import getElementOffsetSum from "../../utils/getElementOffsetSum";
-import PropTypes from "prop-types";
 import getTextFromChildren from "../../utils/getTextFromChildren";
 import {withStyles} from "@material-ui/styles";
+import getElementOffsetSum from "../../utils/getElementOffsetSum";
+import createRouteFromName from "../../utils/createRouteFromName";
+
 
 export const displayName = "MatDocTagable";
 

@@ -5,18 +5,26 @@
 
 import React from "react";
 import {styles} from "./styles";
+
+// MaterialUI components
+import Tooltip from "@material-ui/core/Tooltip";
+import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import Button from "@material-ui/core/Button";
 
-import TranslateIcon from '@material-ui/icons/Translate';
+// MaterialUI icons
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import Divider from "@material-ui/core/Divider";
+import TranslateIcon from '@material-ui/icons/Translate';
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
 import useLang from "../../hooks/useLang";
 import clsx from "clsx";
-import PropTypes from "prop-types";
-import Tooltip from "@material-ui/core/Tooltip";
 import {withStyles} from "@material-ui/styles";
+
 
 export const displayName = "MatDocLanguageSelector";
 

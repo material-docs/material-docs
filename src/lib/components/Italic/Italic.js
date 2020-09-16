@@ -5,9 +5,14 @@
 
 import React from "react";
 import {styles} from "./styles";
-import clsx from "clsx";
+
+// PropTypes validators
 import PropTypes from "prop-types";
+
+// Utils
 import {withStyles} from "@material-ui/styles";
+import clsx from "clsx";
+
 
 export const displayName = "MatDocItalic";
 

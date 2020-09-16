@@ -4,13 +4,19 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
+
+// MaterialUI components
 import {Table as MUITable} from "@material-ui/core";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
+import {withStyles} from "@material-ui/styles";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import clsx from "clsx";
-import {styles} from "./styles";
-import PropTypes from "prop-types";
-import useTheme from "@material-ui/core/styles/useTheme";
-import {withStyles} from "@material-ui/styles";
+
 
 export const displayName = "MatDocTable";
 

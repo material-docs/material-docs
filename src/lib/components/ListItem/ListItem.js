@@ -5,11 +5,18 @@
 
 import React from "react";
 import {styles} from "./styles";
-import clsx from "clsx";
+
+// PropTypes validators
 import PropTypes from "prop-types";
-import {withStyles} from "@material-ui/styles";
+
+// Utils
 import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
+import clsx from "clsx";
+import {withStyles} from "@material-ui/styles";
+
+// The displayNames of the components
 import {displayName as ListItemContainedDisplayName} from "../ListItemContained";
+
 
 export const displayName = "MatDocListItem";
 

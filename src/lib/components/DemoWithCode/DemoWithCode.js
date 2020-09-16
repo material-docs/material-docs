@@ -5,27 +5,37 @@
 
 import React, {Suspense} from "react";
 import {styles} from "./styles";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+
+// Components
+import H3 from "../H3";
+
+// MaterialUI components
 import Box from '@material-ui/core/Box';
 import Code from "../Code/Code";
 import Collapse from "@material-ui/core/Collapse";
-import copyToClipboard from "../../utils/copyToClipboard";
-import H3 from "../H3";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-// Material UI Icons
-import CodeIcon from '@material-ui/icons/Code';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {useSnackbar} from "notistack";
-import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+
+// MaterialUI icons
+import FileCopyIcon from '@material-ui/icons/FileCopy';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import CodeIcon from '@material-ui/icons/Code';
+import CircularProgress from "@material-ui/core/CircularProgress";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
-import AspectRatio from "../../utils/AspectRatio";
-import CircularProgress from "@material-ui/core/CircularProgress";
+
+// Utils
 import {withStyles} from "@material-ui/styles";
+import AspectRatio from "../../utils/AspectRatio";
+import copyToClipboard from "../../utils/copyToClipboard";
+import {useSnackbar} from "notistack";
+
 
 export const displayName = "MatDocDemoWithCode";
 

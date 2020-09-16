@@ -5,12 +5,16 @@
 
 import React from "react";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
+import {styles} from "./styles";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
+import {withStyles} from "@material-ui/styles";
 import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";
 import clsx from "clsx";
-import {styles} from "./styles";
-import PropTypes from "prop-types";
-import useTheme from "@material-ui/core/styles/useTheme";
-import {withStyles} from "@material-ui/styles";
+
 
 export const displayName = "MatDocMarkdown";
 

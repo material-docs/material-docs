@@ -4,49 +4,64 @@
  */
 
 import React from 'react';
-import clsx from 'clsx';
-import {ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
+import {useStyles} from './styles' // TODO: change to withStyles
+
+// Components
+import {Helmet, HelmetProvider} from "react-helmet-async";
+import SearchField from "../SearchField";
+import LanguageSelector from "../LanguageSelector";
+import {BrowserRouter, HashRouter, Route, Switch} from "react-router-dom";
+import {SnackbarProvider} from "notistack";
+import PagesGroup from "../PagesGroup";
+
+// Themes
+import DefaultTheme from "../../theme/DefaultTheme";
+
+// MaterialUI components
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import {useStyles} from './styles'
-import {BrowserRouter, HashRouter, Route, Switch} from "react-router-dom";
-import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
-import {SnackbarProvider} from "notistack";
-import SearchField from "../SearchField";
-import LanguageSelector from "../LanguageSelector";
-import PagesGroup from "../PagesGroup";
-import {LangContext} from "../../hooks/useLang/useLang"
-import {SearchContext} from "../../hooks/useSearch/useSearch";
-import * as _ from "lodash";
-import {isWidthDown, isWidthUp, withWidth} from "@material-ui/core";
-import PropTypes from "prop-types";
-import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
-import LangValidator from "../../validators/LangValidator";
-import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
-import Box from "@material-ui/core/Box";
-import {Helmet, HelmetProvider} from "react-helmet-async";
-import DefaultTheme from "../../theme/DefaultTheme";
-import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
-import getContainerByType from "../../utils/getContainerByType";
-import {MenuContext} from "../../hooks/useMenu/useMenu";
-import AppBarActionValidator from "../../validators/AppBarActionValidator";
-import generateHeaderIcon from "./generateHeaderIcon";
+import clsx from 'clsx';
+import {ThemeProvider as MuiThemeProvider} from '@material-ui/core/styles';
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Drawer from '@material-ui/core/Drawer';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Box from "@material-ui/core/Box";
 
 
+// MaterialUI icons
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
+/// PropTypes validators
+import PropTypes from "prop-types";
+import AppBarActionValidator from "../../validators/AppBarActionValidator";
+import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
+import LangValidator from "../../validators/LangValidator";
+
+// Utils
+import {useTheme} from '@material-ui/core/styles';
+import {LangContext} from "../../hooks/useLang/useLang"
+import {SearchContext} from "../../hooks/useSearch/useSearch";
+import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
+import getContainerByType from "../../utils/getContainerByType";
+import generateHeaderIcon from "./generateHeaderIcon";
+import {isWidthDown, isWidthUp, withWidth} from "@material-ui/core";
+import {MenuContext} from "../../hooks/useMenu/useMenu";
+import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
+import * as _ from "lodash";
+import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
+
+// The displayNames of the components
 import {displayName as DocsPagesDisplayName} from "../DocsPages";
 import {displayName as LandingDisplayName} from "../Landing";
 import {displayName as DocsMenuDisplayName} from "../DocsMenu";
+
 
 export const displayName = "MatDocDocsLayout";
 

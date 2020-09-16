@@ -4,13 +4,22 @@
  */
 
 import React from "react";
-import {LazyLoadImage} from 'react-lazy-load-image-component';
 import {styles} from "./styles";
-import clsx from "clsx";
+
+// Components
+import {LazyLoadImage} from 'react-lazy-load-image-component';
+
+// MaterialUI components
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
+
+// PropTypes validators
 import PropTypes from "prop-types";
+
+// Utils
+import clsx from "clsx";
 import {withStyles} from "@material-ui/styles";
+
 
 export const displayName = "MatDocImage";
 

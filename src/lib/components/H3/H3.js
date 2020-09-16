@@ -4,8 +4,11 @@
  */
 
 import React from "react";
+
+// Utils
 import Tagable from "../Tagable/Tagable";
 import {withStyles} from "@material-ui/styles";
+
 
 export const displayName = "MatDocsH3";
 

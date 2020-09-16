@@ -5,10 +5,15 @@
 
 import React from "react";
 import {styles} from "./styles";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
-import PropTypes from "prop-types";
 import {withStyles} from "@material-ui/styles";
+
 
 export const displayName = "MatDocList";
 

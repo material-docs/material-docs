@@ -4,21 +4,30 @@
  */
 
 import React from "react";
-import ListItem from "@material-ui/core/ListItem";
-import Collapse from "@material-ui/core/Collapse";
+import {styles} from "./styles";
+
+// MaterialUI components
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import Collapse from "@material-ui/core/Collapse";
+import ListItem from "@material-ui/core/ListItem";
+
+// MaterialUI icons
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
+import withWidth from "@material-ui/core/withWidth";
+import {withStyles} from "@material-ui/styles";
+import useNesting, {NestingContext} from "../../hooks/useNesting";
+import useMenu from "../../hooks/useMenu/useMenu";
 import {useChangeRoute} from "routing-manager";
-import {styles} from "./styles";
 import clsx from "clsx";
 import createRouteFromName from "../../utils/createRouteFromName";
 import {isWidthUp, useTheme} from "@material-ui/core";
-import useNesting, {NestingContext} from "../../hooks/useNesting";
-import PropTypes from "prop-types";
-import useMenu from "../../hooks/useMenu/useMenu";
-import withWidth from "@material-ui/core/withWidth";
-import {withStyles} from "@material-ui/styles";
+
 
 export const displayName = "MatDocDocsMenuItem";
 

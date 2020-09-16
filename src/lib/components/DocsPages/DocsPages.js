@@ -4,7 +4,10 @@
  */
 
 import React from "react";
+
+// PropTypes validators
 import PropTypes from "prop-types";
+
 
 export const displayName = "MatDocDocsPages";
 

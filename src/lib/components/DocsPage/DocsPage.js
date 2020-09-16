@@ -4,21 +4,30 @@
  */
 
 import React from "react";
-import {Route} from "react-router-dom"
-import createRouteFromName from "../../utils/createRouteFromName";
-import Grid from "@material-ui/core/Grid";
+import {styles} from "./styles";
+
+// Components
+import {Helmet} from "react-helmet-async";
 import NavigationList from "./NavigationList";
+import {Route} from "react-router-dom"
+
+// MaterialUI components
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {styles} from "./styles";
+import Grid from "@material-ui/core/Grid";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
+import {isWidthUp} from "@material-ui/core";
 import useSearch from "../../hooks/useSearch";
 import useGroups from "../../hooks/useGroups";
-import {TaggingContext} from "../../hooks/useTags";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
-import {isWidthUp} from "@material-ui/core";
-import PropTypes from "prop-types";
-import {Helmet} from "react-helmet-async";
 import {withStyles} from "@material-ui/styles";
+import {TaggingContext} from "../../hooks/useTags";
+import createRouteFromName from "../../utils/createRouteFromName";
+
 
 export const displayName = "MatDocDocsPage";
 

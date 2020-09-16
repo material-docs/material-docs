@@ -4,9 +4,13 @@
  */
 
 import React from "react";
-import useGroups, {GroupsContext} from "../../hooks/useGroups";
+
+// PropTypes validators
 import PropTypes from "prop-types";
-import useTheme from "@material-ui/core/styles/useTheme";
+
+// Utils
+import useGroups, {GroupsContext} from "../../hooks/useGroups";
+
 
 export const displayName = "MatDocPagesGroup";
 

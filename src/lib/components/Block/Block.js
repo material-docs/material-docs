@@ -4,13 +4,19 @@
  */
 
 import React from "react";
-import Paper from "@material-ui/core/Paper";
 import {styles} from "./styles";
+
+// MaterialUI components
+import Paper from "@material-ui/core/Paper";
+
+// PropTypes validators
+import PropTypes from "prop-types";
+
+// Utils
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
-import PropTypes from "prop-types";
-import useTheme from "@material-ui/core/styles/useTheme";
 import {withStyles} from "@material-ui/core/styles";
+
 
 export const displayName = "MdBlock";
 

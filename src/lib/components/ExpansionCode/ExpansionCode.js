@@ -4,32 +4,40 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
+
+// Components
+import H3 from "../H3";
+import Code from "../Code";
+
+// MaterialUI components
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import Collapse from "@material-ui/core/Collapse";
 import Box from "@material-ui/core/Box";
-import Code from "../Code";
-import clsx from "clsx";
-import {styles} from "./styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import copyToClipboard from "../../utils/copyToClipboard";
-// Material UI Icons
+
+// MaterialUI icons
 import CodeIcon from '@material-ui/icons/Code';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {useSnackbar} from "notistack";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import H3 from "../H3";
-import {useCommonStyles} from "../../stylesheets/commonStyles";
+
+// PropTypes validators
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
-import useTheme from "@material-ui/core/styles/useTheme";
+
+// Utils
 import {withStyles} from "@material-ui/styles";
+import {useSnackbar} from "notistack";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
+import clsx from "clsx";
+import copyToClipboard from "../../utils/copyToClipboard";
+
 
 export const displayName = "MatDocExpansionCode";
 
 const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
-    const mtheme = useTheme();
     const {
         theme,
         language,

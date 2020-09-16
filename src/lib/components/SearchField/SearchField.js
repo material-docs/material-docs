@@ -4,25 +4,35 @@
  */
 
 import React from "react";
-import Paper from "@material-ui/core/Paper";
-import CloseIcon from '@material-ui/icons/Close';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from "@material-ui/core/InputBase";
 import {styles} from "./styles";
-import clsx from "clsx";
+
+// Components
 import SearchMenuItem from "./SearchMenuItem";
-import Popper from "@material-ui/core/Popper";
-import List from "@material-ui/core/List";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import ListItem from "@material-ui/core/ListItem";
+
+// MaterialUI components
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import ListItem from "@material-ui/core/ListItem";
+import Popper from "@material-ui/core/Popper";
+import List from "@material-ui/core/List";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+
+// MaterialUI icons
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
-import {useChangeRoute} from "routing-manager";
+import CloseIcon from '@material-ui/icons/Close';
+import SearchIcon from '@material-ui/icons/Search';
+
+// PropTypes validators
 import PropTypes from "prop-types";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
-import useTheme from "@material-ui/core/styles/useTheme";
+
+// Utils
 import {withStyles} from "@material-ui/styles";
+import {useChangeRoute} from "routing-manager";
+import clsx from "clsx";
+
 
 export const displayName = "MatDocSearchField";
 

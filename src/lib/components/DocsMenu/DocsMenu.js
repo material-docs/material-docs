@@ -4,11 +4,20 @@
  */
 
 import React from "react";
-import PropTypes from "prop-types";
+
+// MaterialUI components
 import List from "@material-ui/core/List";
-import getContainerByType from "../../utils/getContainerByType";
+
+// PropTypes validators
+import PropTypes from "prop-types";
 import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
+
+// Utils
+import getContainerByType from "../../utils/getContainerByType";
+
+// The displayNames of the components
 import {displayName as AutoDocsMenuDisplayName} from "./../AutoDocsMenu";
+
 
 export const displayName = "MatDocDocsMenu";
 
