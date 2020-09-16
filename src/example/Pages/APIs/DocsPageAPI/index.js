@@ -8,19 +8,19 @@ import {Link} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 import {
-    DocsPage,
     Code,
-    Table,
-    TableRow,
-    TableHead,
-    TableCell,
-    TableBody,
-    List,
-    ListItem,
-    useLang,
+    DocsPage,
     H1,
     H2,
-    H3
+    H3,
+    List,
+    ListItem,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+    useLang
 } from "../../../../lib";
 
 const importCode = `

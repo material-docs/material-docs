@@ -4,7 +4,6 @@
  */
 
 import React from "react";
-import {useLang} from "../hooks";
 import useNesting from "@danilandreev/material-docs/hooks/useNesting/useNesting";
 
 /**

@@ -18,7 +18,7 @@ export default function getChildrenFromContainer(children, types, invert = false
     const containers = getContainerByType(children, types, invert, multiple);
     if (Array.isArray(containers)) {
         return containers.map(container => container.props.children).flat(1);
-    } else if(containers) {
+    } else if (containers) {
         return containers.props.children;
     }
     return null;

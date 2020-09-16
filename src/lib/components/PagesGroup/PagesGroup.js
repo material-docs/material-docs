@@ -4,10 +4,8 @@
  */
 
 import React from "react";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import useGroups, {GroupsContext} from "../../hooks/useGroups";
 

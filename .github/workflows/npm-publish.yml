@@ -1,10 +1,10 @@
 name: material-docs-publish-npm
 
 on:
-#   release:
-#     types: [created]
- push:
-   branches: [ master ]
+  #   release:
+  #     types: [created]
+  push:
+    branches: [ master ]
 # pull_request:
 #   branches: [ master ]
 

@@ -1149,6 +1149,320 @@
           "headerIcon": "Styles applied to icons in Toolbar.",
           "version": "Styles applied to version badge in side drawer menu."
         }
+      },
+      "H1API": {
+        "pageAbout": "The API documentation of the H1 React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "H1 - react component, designed to create H1 header.",
+        "ComponentNameText": "The MatDocH1 name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "noDivider",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, bottom divider line will not be displayed."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, component will not provide tagging mechanism."
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "default": "",
+            "description": "HTML id for the element to provide tagging mechanism."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "h1": "Styles applied to the h1 element."
+        }
+      },
+      "H2API": {
+        "pageAbout": "The API documentation of the H2 React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "H2 - react component, designed to create H2 header.",
+        "ComponentNameText": "The MatDocH2 name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "noDivider",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, bottom divider line will not be displayed."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, component will not provide tagging mechanism."
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "default": "",
+            "description": "HTML id for the element to provide tagging mechanism."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "h2": "Styles applied to the h2 element."
+        }
+      },
+      "H3API": {
+        "pageAbout": "The API documentation of the H3 React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "H3 - react component, designed to create H3 header.",
+        "ComponentNameText": "The MatDocH3 name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "noDivider",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, bottom divider line will not be displayed."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, component will not provide tagging mechanism."
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "default": "",
+            "description": "HTML id for the element to provide tagging mechanism."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "h3": "Styles applied to the h3 element."
+        }
+      },
+      "H4API": {
+        "pageAbout": "The API documentation of the H4 React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "H4 - react component, designed to create H4 header.",
+        "ComponentNameText": "The MatDocH4 name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "noDivider",
+            "type": "boolean",
+            "default": "true",
+            "description": "If true, bottom divider line will not be displayed."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "true",
+            "description": "If true, component will not provide tagging mechanism."
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "default": "",
+            "description": "HTML id for the element to provide tagging mechanism."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "h4": "Styles applied to the h4 element."
+        }
+      },
+      "H5API": {
+        "pageAbout": "The API documentation of the H5 React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "H5 - react component, designed to create H5 header.",
+        "ComponentNameText": "The MatDocH5 name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "noDivider",
+            "type": "boolean",
+            "default": "true",
+            "description": "If true, bottom divider line will not be displayed."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "true",
+            "description": "If true, component will not provide tagging mechanism."
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "default": "",
+            "description": "HTML id for the element to provide tagging mechanism."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "h5": "Styles applied to the h5 element."
+        }
+      },
+      "H6API": {
+        "pageAbout": "The API documentation of the H6 React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "H6 - react component, designed to create H6 header.",
+        "ComponentNameText": "The MatDocH6 name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "noDivider",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, bottom divider line will not be displayed."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, component will not provide tagging mechanism."
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "default": "",
+            "description": "HTML id for the element to provide tagging mechanism."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "h6": "Styles applied to the h6 element."
+        }
+      },
+      "HeaderAPI": {
+        "pageAbout": "The API documentation of the Header React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "Header - react component, designed to create headers.",
+        "ComponentNameText": "The MatDocHeader name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "heading",
+            "type": "1 | 2 | 3 | 4 | 5 | 6",
+            "default": "1",
+            "description": "Heading size."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "h1": "Styles applied to the header when heading = 1.",
+          "h2": "Styles applied to the header when heading = 2.",
+          "h3": "Styles applied to the header when heading = 3.",
+          "h4": "Styles applied to the header when heading = 4.",
+          "h5": "Styles applied to the header when heading = 5.",
+          "h6": "Styles applied to the header when heading = 6."
+        }
+      },
+      "TagableAPI": {
+        "pageAbout": "The API documentation of the Header React component. Learn more about the props and the CSS customization points.",
+        "pageSearchDescription": "Header - react component, designed to create headers.",
+        "ComponentNameText": "The MatDocHeader name can be used for providing default props or style overriders at the theme level.",
+        "enableProps": true,
+        "props": [
+          {
+            "name": "variant",
+            "type": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\"",
+            "default": "\"h1\"",
+            "description": "Variant of header. h1 h2 h3 h4 h5."
+          },
+          {
+            "name": "noDivider",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, bottom divider line will not be displayed."
+          },
+          {
+            "name": "noTag",
+            "type": "boolean",
+            "default": "false",
+            "description": "If true, component will not provide tagging mechanism."
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "default": "",
+            "description": "HTML id for the element to provide tagging mechanism."
+          },
+          {
+            "name": "children",
+            "type": "node",
+            "default": "",
+            "description": "Children of an element. Normally DocsMenu and DocsPages."
+          }
+        ],
+        "forwardRef": true,
+        "enableCss": true,
+        "css": {
+          "root": "Styles applied to the root element.",
+          "container": "Styles applied to container element.",
+          "h1": "Styles applied to the header when variant = \"h1\".",
+          "h2": "Styles applied to the header when variant = \"h2\".",
+          "h3": "Styles applied to the header when variant = \"h3\".",
+          "h4": "Styles applied to the header when variant = \"h4\".",
+          "h5": "Styles applied to the header when variant = \"h5\".",
+          "h6": "Styles applied to the header when variant = \"h6\".",
+          "anchor": "Styles applied to anchor button.",
+          "divider": "Styles applied to bottom divider.",
+          "typography": "Styles applied to inner Typography component.",
+          "textBlock": "Styles applied to text block.",
+          "anchorIcon": "Styles applied to icon in anchor button."
+        }
       }
     },
     "common": {

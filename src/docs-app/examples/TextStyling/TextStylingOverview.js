@@ -10,7 +10,7 @@ import Block from "@danilandreev/material-docs/components/Block";
 import CodeSpan from "@danilandreev/material-docs/components/CodeSpan";
 
 export default function TextStylingOverview() {
-    return(
+    return (
         <React.Fragment>
             This is a <Bold>bold text</Bold> near <Italic>italic text</Italic> inside my line. <br/>
             And me is <Italic><Bold>bold italic text</Bold></Italic>

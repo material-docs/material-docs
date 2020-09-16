@@ -13,12 +13,14 @@ export interface SearchContext {
      * @param {SearchDataItem} item
      */
     addSearchItem(item: SearchDataItem): void;
+
     /**
      * removeSearchItem - removes SearchDataItem to storage.
      * @function
      * @param {SearchDataItem} item
      */
     removeSearchItem(item: SearchDataItem): void;
+
     /**
      * getSearchData - returns search data list.
      * @type SearchDataItem[]

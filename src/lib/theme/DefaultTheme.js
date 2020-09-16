@@ -3,10 +3,9 @@
  * Copyright (C) 2020.
  */
 
-import { createMuiTheme } from '@material-ui/core/styles';
+import {createMuiTheme} from '@material-ui/core/styles';
 import blue from "@material-ui/core/colors/blue";
 import red from "@material-ui/core/colors/red";
-
 //Components display names
 import {displayName as AutoDocsMenuDn} from "./../components/AutoDocsMenu";
 import {displayName as BlockDn} from "./../components/Block";
@@ -212,10 +211,6 @@ const DefaultTheme = createMuiTheme({
                 noDivider: false,
             }
         },
-
-
-
-
 
 
     }

@@ -5,11 +5,9 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // Components
 import H3 from "../H3";
 import Code from "../Code";
-
 // MaterialUI components
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -17,16 +15,13 @@ import Collapse from "@material-ui/core/Collapse";
 import Box from "@material-ui/core/Box";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-
 // MaterialUI icons
 import CodeIcon from '@material-ui/icons/Code';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
 // PropTypes validators
 import PropTypes from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
-
 // Utils
 import {withStyles} from "@material-ui/styles";
 import {useSnackbar} from "notistack";

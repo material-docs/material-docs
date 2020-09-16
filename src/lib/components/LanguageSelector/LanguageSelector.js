@@ -5,21 +5,17 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // MaterialUI components
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-
 // MaterialUI icons
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import TranslateIcon from '@material-ui/icons/Translate';
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import useLang from "../../hooks/useLang";
 import clsx from "clsx";
@@ -49,7 +45,7 @@ const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) 
         <React.Fragment>
             <Tooltip title={"Select language"}>
                 <Button
-                    className={clsx(classes.root. className)}
+                    className={clsx(classes.root.className)}
                     color={"inherit"}
                     ref={reference => {
                         buttonRef.current = reference;

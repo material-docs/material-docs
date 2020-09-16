@@ -6,7 +6,7 @@
 /// <reference types="react" />
 import Lang from "../../interfaces/Lang";
 
-export interface LangContext{
+export interface LangContext {
     /**
      * switchLang - function, designed to change language settings.
      * @function
@@ -14,6 +14,7 @@ export interface LangContext{
      * @async
      */
     switchLang(lang: Lang): Promise<void>;
+
     /**
      * lang - currently selected language.
      * @type Lang
@@ -24,6 +25,7 @@ export interface LangContext{
      * @type Lang[]
      */
     langs: Lang[];
+
     /**
      * onHelpToTranslate - function, called on help to translate button click. If not defined - button will not be rendered.
      * @function

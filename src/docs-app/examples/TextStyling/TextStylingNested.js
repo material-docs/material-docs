@@ -13,7 +13,8 @@ export default function TextStylingNested() {
     return (
         <React.Fragment>
             I <Bold> am an <Italic>italic text inside</Italic> bold component.</Bold><br/><br/>
-            <Block>I am a <CodeSpan>Block</CodeSpan> with <Italic><Bold>an italic bold text</Bold> inside!</Italic></Block>
+            <Block>I am a <CodeSpan>Block</CodeSpan> with <Italic><Bold>an italic bold
+                text</Bold> inside!</Italic></Block>
         </React.Fragment>
     );
 }

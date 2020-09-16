@@ -16,6 +16,7 @@ export interface SearchFieldProps
      * @type SearchDataItem[]
      */
     searchData?: SearchDataItem[];
+
     /**
      * doSearch - callback, called on search. If defined, default search function will not be called. Must return array of SearchDataItem.
      * @function

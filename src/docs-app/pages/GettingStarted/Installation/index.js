@@ -5,12 +5,7 @@
 
 import React from "react";
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
-import {H1, H2, H3, H4, H5, H6} from "@danilandreev/material-docs/components";
-import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
-import SimpleList from "../../../examples/Lists/SimpleList";
-import Box from "@material-ui/core/Box";
-import ListWithNestedItems from "../../../examples/Lists/ListWithNestedItems";
-import DecoratedList from "../../../examples/Lists/DecoratedList";
+import {H1, H2, H3, H4} from "@danilandreev/material-docs/components";
 import List from "@danilandreev/material-docs/components/List/List";
 import ListItem from "@danilandreev/material-docs/components/ListItem/ListItem";
 import Link from "@material-ui/core/Link";
@@ -57,17 +52,21 @@ export default function Installation() {
             <Markdown>To install and save in your ```package.json``` dependencies, run:</Markdown>
             <Code theme={"darcula"}>{installCode}</Code>
             <H2>Material-UI</H2>
-            <Markdown>Note, that __MaterialDocs__ based on [__Material-UI__]() framework. If you want to deeply customize UI, install:</Markdown>
+            <Markdown>Note, that __MaterialDocs__ based on [__Material-UI__]() framework. If you want to deeply
+                customize UI, install:</Markdown>
             <Code theme={"darcula"}>{MUIInstallationCode}</Code>
             <H3>Material-UI Icons</H3>
-            <Markdown>You can access [__Material-UI__]() svg icons by adding to your ```package.json``` next ___package___:</Markdown>
+            <Markdown>You can access [__Material-UI__]() svg icons by adding to your ```package.json``` next
+                ___package___:</Markdown>
             <Code theme={"darcula"}>{MUIIconsInstallationCode}</Code>
             <H2>Info</H2>
-            <Markdown>You can start using MaterialDocs with minimal front-end infrastructure. Package providing a lot of components to create great documentation site.</Markdown>
+            <Markdown>You can start using MaterialDocs with minimal front-end infrastructure. Package providing a lot of
+                components to create great documentation site.</Markdown>
             <H4>Some steps tu get started</H4>
             <List>
                 <ListItem>Read <Bold>Components</Bold> tab and get access to demonstration source code.</ListItem>
-                <ListItem>Read <Bold>Component APIs</Bold> tab and get to know how to manipulate with components.</ListItem>
+                <ListItem>Read <Bold>Component APIs</Bold> tab and get to know how to manipulate with
+                    components.</ListItem>
                 <ListItem>Read <Bold>Tutorials</Bold> tab to get instructions on different topics.</ListItem>
                 <ListItem>Check <Link><Bold>source code on GitHub</Bold></Link> for best code understanding.</ListItem>
             </List>

@@ -8,7 +8,7 @@ import DocsPageDemo from "./Pages/Components/DocsPageDemo/index";
 import DocsPageAPI from "./Pages/APIs/DocsPageAPI";
 import DemoWithCodeAPI from "./Pages/APIs/DemoWithCode";
 
-import {DocsLayout, DocsPages, PagesGroup, DocsPage} from "../lib";
+import {DocsLayout, DocsPage, DocsPages, PagesGroup} from "../lib";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
@@ -16,7 +16,6 @@ import {H1, H2, H3, H4, H5, H6} from "../lib/components";
 import Landing from "../lib/components/Landing/Landing";
 import AutoDocsMenu from "../lib/components/AutoDocsMenu/AutoDocsMenu";
 import DocsMenu from "../lib/components/DocsMenu/DocsMenu";
-import DocsMenuItem from "../lib/components/DocsMenuItem/DocsMenuItem";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import logo from "./../logo.svg";
@@ -36,7 +35,7 @@ export default function ExampleDocumentation() {
             langs={[EN, RU]}
             basename={process.env.PUBLIC_URL}
             actions={[
-                {icon: <GitHubIcon />, tooltip: "asdfasdfsf", onClick: () => alert("kuku")},
+                {icon: <GitHubIcon/>, tooltip: "asdfasdfsf", onClick: () => alert("kuku")},
                 {icon: <Brightness4Icon/>, tooltip: "Hello darkness my old friend.", link: "http://google.com"}
             ]}
             name={"Material Docs testing"}

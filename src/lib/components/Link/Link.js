@@ -5,13 +5,10 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // MaterialUI components
 import {Link as MDLink} from "@material-ui/core";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import {useChangeRoute} from "routing-manager";
 import withStyles from "@material-ui/styles/withStyles";

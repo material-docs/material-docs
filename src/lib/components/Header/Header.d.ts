@@ -11,7 +11,7 @@ export const displayName: string;
 export interface HeaderProps
     extends TagableProps {
     /**
-     * haeding - heading depth.
+     * haeding - heading size.
      * @type number
      * @default 1
      */

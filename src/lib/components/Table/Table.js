@@ -5,13 +5,10 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // MaterialUI components
 import {Table as MUITable} from "@material-ui/core";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import {withStyles} from "@material-ui/styles";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
@@ -57,7 +54,10 @@ const Table = React.forwardRef(function Table(props, ref) {
             <MUITable
                 {...other}
                 className={classes.table}
-                ref={element => {tableRef.current = element; if (ref) ref.current = element}}
+                ref={element => {
+                    tableRef.current = element;
+                    if (ref) ref.current = element
+                }}
             >
                 {children}
             </MUITable>

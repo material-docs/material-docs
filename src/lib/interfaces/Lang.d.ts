@@ -18,6 +18,7 @@ export default interface Lang {
      * @type object
      */
     locale?: object;
+
     /**
      * loadLang - function for data load when locale is not defined.
      * @function

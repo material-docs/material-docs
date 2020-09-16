@@ -5,19 +5,15 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // MaterialUI components
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
 import ListItem from "@material-ui/core/ListItem";
-
 // MaterialUI icons
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import withWidth from "@material-ui/core/withWidth";
 import {withStyles} from "@material-ui/styles";

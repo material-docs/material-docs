@@ -5,23 +5,8 @@
 
 import React from "react";
 import {Link} from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
 
-import {
-    DocsPage,
-    Code,
-    Table,
-    TableRow,
-    TableHead,
-    TableCell,
-    TableBody,
-    List,
-    ListItem,
-    useLang,
-    H1,
-    H2,
-    H3
-} from "@danilandreev/material-docs";
+import {H2, List, ListItem, useLang} from "@danilandreev/material-docs";
 import ApiPage from "../../../components/ApiPage";
 
 const importCode = `

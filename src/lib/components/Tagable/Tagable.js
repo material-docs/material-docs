@@ -6,17 +6,13 @@
 import React from "react";
 import {styles} from "./styles";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
-
 // MaterialUI components
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-
 // MaterialUI icons
 import LinkIcon from '@material-ui/icons/Link';
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import clsx from "clsx";
 import useTags from "../../hooks/useTags";
@@ -32,7 +28,7 @@ const Tagable = React.forwardRef(function Tagable(props, ref) {
     const {
         children,
         noTag = false,
-        variant,
+        variant = "h1",
         style,
         className,
         classes,

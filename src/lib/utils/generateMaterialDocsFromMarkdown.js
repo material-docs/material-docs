@@ -4,7 +4,6 @@
  */
 
 import React from "react";
-
 // Components
 import Header from "../components/Header";
 import List from "../components/List/List";
@@ -23,11 +22,9 @@ import Block from "../components/Block/Block";
 import CodeSpan from "../components/CodeSpan/CodeSpan";
 import ExpansionCode from "../components/ExpansionCode/ExpansionCode";
 import DemoWithCode from "../components/DemoWithCode/DemoWithCode";
-
 // MaterialUI components
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-
 // Utils
 import marked from "marked";
 

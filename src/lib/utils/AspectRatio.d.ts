@@ -16,12 +16,14 @@
 export default interface AspectRatio {
     height: number;
     width: number;
+
     /**
      * @constructor
      * @param {number} height
      * @param {number} width
      */
     constructor(height: number, width: number);
+
     /**
      * getHeight - method, designed to calculate height using input ratio relation.
      * @method

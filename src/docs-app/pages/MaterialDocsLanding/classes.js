@@ -4,14 +4,12 @@
  */
 
 import {makeStyles} from "@material-ui/core/styles";
+import grey from "@material-ui/core/colors/grey";
 
 export const useStyles = makeStyles(theme => ({
     banner: {
         height: "100vh",
         position: "relative",
-        backgroundImage: "url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRmPgtMdJOCvILdhJ48Be05sstKtFElZbX27w&usqp=CAU)",
-        backgroundRepeat: "no-repeat, no-repeat",
-        backgroundSize: "cover",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -30,5 +28,12 @@ export const useStyles = makeStyles(theme => ({
     },
     card: {
         height: "100%",
+        background: grey[100],
+    },
+    filled: {
+        background: theme.palette.common.white,
+    },
+    textRegular: {
+        fontSize: 20,
     }
 }));

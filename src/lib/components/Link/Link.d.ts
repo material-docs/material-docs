@@ -7,7 +7,7 @@ import Containerable from "../../interfaces/Containerable";
 import Stylable from "../../interfaces/Stylable";
 
 export interface LinkProps
-    extends Containerable, Stylable{
+    extends Containerable, Stylable {
     /**
      * page - page route. Can be passed as string or as array of routes.
      * @type string | string[]

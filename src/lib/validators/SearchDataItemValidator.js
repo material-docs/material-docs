@@ -3,7 +3,6 @@
  * Copyright (C) 2020.
  */
 
-import {pagesDataValidate} from "./PagesDataValidator";
 import createChainableTypeChecker from "../utils/createChainableTypeChecker";
 
 /**

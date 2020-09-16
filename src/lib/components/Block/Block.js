@@ -5,13 +5,10 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // MaterialUI components
 import Paper from "@material-ui/core/Paper";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";

@@ -34,12 +34,14 @@ export interface DocsLayoutProps
      * @type Lang[]
      */
     langs?: Lang[];
+
     /**
      * onHelpToTranslate - function, called on help to translate button click. If not defined - button will not be rendered.
      * @function
      * @param {Lang} lang
      */
     onHelpToTranslate?(lang: Lang): void;
+
     /**
      * router - react-router-dom Router type.
      * @type string

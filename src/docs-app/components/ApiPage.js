@@ -10,12 +10,12 @@ import {
     H1,
     H2,
     H3,
+    Markdown,
     Table,
     TableBody,
     TableCell,
     TableHead,
-    TableRow,
-    Markdown
+    TableRow
 } from "@danilandreev/material-docs";
 import {makeStyles} from "@material-ui/core/styles";
 import {grey, purple} from "@material-ui/core/colors";
