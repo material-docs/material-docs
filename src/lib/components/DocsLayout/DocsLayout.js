@@ -107,7 +107,6 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     // Effect for language setup on startup and changing lang on url hash changing.
     React.useEffect(() => {
         if (!langName) {
-            debugger;
             changeRoute(null, {l: defaultLang.name});
         }
         const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
