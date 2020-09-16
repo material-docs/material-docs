@@ -1219,17 +1219,14 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@danilandreev/material-docs@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@danilandreev/material-docs/-/material-docs-0.3.0.tgz#2b30ed4837898932f48b43df9b17953f890ee39b"
-  integrity sha512-suovVrJLufjt94Vz84mHvjaY2o56kgw4vLt2BAaTcf2X9uQQIlNP0ooDCchwMgaFGma/vM81OFFE4jtwD3/N4Q==
+"@danilandreev/material-docs@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@danilandreev/material-docs/-/material-docs-0.3.2.tgz#d8df33b1c6f618281036abe848e4ddaeacc591e6"
+  integrity sha512-iZpYJhc5/qzWXuPH1dG4PsGtEmUgr8ofZm4LEz9aMf/sX0wVyYEZUs7zVb94Tv1l1njVZtfS1yAg1SzNd1KV3w==
   dependencies:
     "@material-ui/core" "^4.11.0"
     "@material-ui/icons" "^4.9.1"
     "@material-ui/styles" "^4.10.0"
-    "@testing-library/jest-dom" "^4.2.4"
-    "@testing-library/react" "^9.3.2"
-    "@testing-library/user-event" "^7.1.2"
     clsx "^1.1.1"
     helmet "^4.1.0"
     lodash "^4.17.20"
@@ -1244,7 +1241,7 @@
     react-router-dom "^5.2.0"
     react-scripts "3.4.1"
     react-syntax-highlighter "^13.0.0"
-    routing-manager "^2.0.2"
+    routing-manager "^2.0.3"
 
 "@emotion/hash@^0.8.0":
   version "0.8.0"
@@ -9767,7 +9764,7 @@ route-parser@0.0.5:
   resolved "https://registry.yarnpkg.com/route-parser/-/route-parser-0.0.5.tgz#7d1d09d335e49094031ea16991a4a79b01bbe1f4"
   integrity sha1-fR0J0zXkkJQDHqFpkaSnmwG74fQ=
 
-routing-manager@^2.0.2, routing-manager@^2.0.3:
+routing-manager@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/routing-manager/-/routing-manager-2.0.3.tgz#bd0439d3c4492d6dc392d4a4a783dbe459eb25ee"
   integrity sha512-jo51wZX/sVhuspDrOwa79nU9c9ARO2FyXtAPj19jmw9336/7Q+R8gmT2NShKNaozNLGIQWEYiLj/MweCNQnIFA==
