@@ -3,10 +3,10 @@
  * Copyright (C) 2020.
  */
 
-import marked from "marked";
 import React from "react";
+
+// Components
 import Header from "../components/Header";
-import Typography from "@material-ui/core/Typography";
 import List from "../components/List/List";
 import ListItem from "../components/ListItem/ListItem";
 import Code from "../components/Code/Code";
@@ -19,11 +19,18 @@ import TableHead from "../components/TableHead";
 import TableBody from "../components/TableBody";
 import TableRow from "../components/TableRow";
 import TableCell from "../components/TableCell";
-import Divider from "@material-ui/core/Divider";
 import Block from "../components/Block/Block";
 import CodeSpan from "../components/CodeSpan/CodeSpan";
 import ExpansionCode from "../components/ExpansionCode/ExpansionCode";
 import DemoWithCode from "../components/DemoWithCode/DemoWithCode";
+
+// MaterialUI components
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+
+// Utils
+import marked from "marked";
+
 
 /**
  * fixShieldedText - fixes bug with shielded symbols in text after using lexer.
