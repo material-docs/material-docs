@@ -19,7 +19,7 @@ import {withStyles} from "@material-ui/styles";
 
 export const displayName = "MatDocTagable";
 
-const TagableF = React.forwardRef(function TagableF(props, ref) {
+const Tagable = React.forwardRef(function Tagable(props, ref) {
     const {
         children,
         noTag = false,
@@ -87,14 +87,14 @@ const TagableF = React.forwardRef(function TagableF(props, ref) {
     );
 });
 
-TagableF.displayName = displayName;
+Tagable.displayName = displayName;
 
-TagableF.defaultProps = {
+Tagable.defaultProps = {
     noTag: false,
     noDivider: false,
 }
 
-TagableF.propTypes = {
+Tagable.propTypes = {
     // Stylable
     style: PropTypes.object,
     className: PropTypes.string,
@@ -103,83 +103,4 @@ TagableF.propTypes = {
     children: PropTypes.node,
 }
 
-export const Tagable = withStyles(styles, {name: displayName})(TagableF);
-
-
-function H1F(props, ref) {
-    const {children, ...other} = props;
-    return <Tagable variant={"h1"} {...other} ref={ref}>{children}</Tagable>
-}
-
-export const H1 = React.forwardRef(H1F);
-
-
-function H2F(props, ref) {
-    const {children, ...other} = props;
-    return <Tagable variant={"h2"} {...other} ref={ref}>{children}</Tagable>
-}
-
-export const H2 = React.forwardRef(H2F);
-
-
-function H3F(props, ref) {
-    const {children, ...other} = props;
-    return <Tagable variant={"h3"} {...other} ref={ref}>{children}</Tagable>
-}
-
-export const H3 = React.forwardRef(H3F);
-
-
-function H4F(props, ref) {
-    const {children, noDivider = true, noTag = true, ...other} = props;
-    return <Tagable variant={"h4"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
-}
-
-export const H4 = React.forwardRef(H4F);
-
-
-function H5F(props, ref) {
-    const {children, noDivider = true, noTag = true, ...other} = props;
-    return <Tagable variant={"h5"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
-}
-
-export const H5 = React.forwardRef(H5F);
-
-
-function H6F(props, ref) {
-    const {children, noDivider = true, noTag = true, ...other} = props;
-    return <Tagable variant={"h6"} {...other} noTag={noTag} noDivider={noDivider} ref={ref}>{children}</Tagable>
-}
-
-export const H6 = React.forwardRef(H6F);
-
-
-const HeaderF = React.forwardRef(function HeaderF(props, ref) {
-    const {children, heading = 1, ...other} = props;
-    switch (heading) {
-        case 1:
-            return <H1 {...other} ref={ref}>{children}</H1>;
-        case 2:
-            return <H2 {...other} ref={ref}>{children}</H2>;
-        case 3:
-            return <H3 {...other} ref={ref}>{children}</H3>;
-        case 4:
-            return <H4 {...other} ref={ref}>{children}</H4>;
-        case 5:
-            return <H5 {...other} ref={ref}>{children}</H5>;
-        default:
-            return <H6 {...other} ref={ref}>{children}</H6>;
-    }
-});
-
-HeaderF.displayName = "Header";
-
-HeaderF.defaultProps = {
-    heading: 1,
-}
-
-HeaderF.propTypes = {
-    heading: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
-}
-
-export const Header = HeaderF;
+export default withStyles(styles, {name: displayName})(Tagable);

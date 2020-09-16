@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Code from "../Code/Code";
 import Collapse from "@material-ui/core/Collapse";
 import copyToClipboard from "../../utils/copyToClipboard";
-import {H3} from "../Headers";
+import H3 from "../H3";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 // Material UI Icons

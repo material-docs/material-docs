@@ -4,10 +4,12 @@
  */
 
 /// <reference types="react" />
-import Containerable from "../interfaces/Containerable";
-import SearchDataItem from "../interfaces/SearchDataItem";
-import Lang from "../interfaces/Lang";
-import AppBarAction from "../interfaces/AppBarAction";
+import Containerable from "../../interfaces/Containerable";
+import SearchDataItem from "../../interfaces/SearchDataItem";
+import Lang from "../../interfaces/Lang";
+import AppBarAction from "../../interfaces/AppBarAction";
+
+export const displayName: string;
 
 export interface DocsLayoutProps
     extends Containerable {

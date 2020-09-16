@@ -49,7 +49,7 @@ const Table = React.forwardRef(function Table(props, ref) {
             ref={containerRef}
         >
             <MUITable
-                {...props}
+                {...other}
                 className={classes.table}
                 ref={element => {tableRef.current = element; if (ref) ref.current = element}}
             >

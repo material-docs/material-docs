@@ -5,7 +5,7 @@
 
 import marked from "marked";
 import React from "react";
-import {Header} from "../components/Headers";
+import Header from "../components/Header";
 import Typography from "@material-ui/core/Typography";
 import List from "../components/List/List";
 import ListItem from "../components/ListItem/ListItem";

@@ -12,7 +12,7 @@ import {DocsLayout, DocsPages, PagesGroup, DocsPage} from "../lib";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
-import {H1, H2, H3, H4, H5, H6} from "../lib/components/Headers";
+import {H1, H2, H3, H4, H5, H6} from "../lib/components";
 import Landing from "../lib/components/Landing/Landing";
 import AutoDocsMenu from "../lib/components/AutoDocsMenu/AutoDocsMenu";
 import DocsMenu from "../lib/components/DocsMenu/DocsMenu";

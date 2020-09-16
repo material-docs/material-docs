@@ -20,33 +20,35 @@ import {useStyles} from './styles'
 import {BrowserRouter, HashRouter, Route, Switch} from "react-router-dom";
 import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 import {SnackbarProvider} from "notistack";
-import SearchField from "../components/SearchField";
-import LanguageSelector from "../components/LanguageSelector";
-import PagesGroup from "../components/PagesGroup";
-import {LangContext} from "../hooks/useLang/useLang"
-import {SearchContext} from "../hooks/useSearch/useSearch";
+import SearchField from "../SearchField";
+import LanguageSelector from "../LanguageSelector";
+import PagesGroup from "../PagesGroup";
+import {LangContext} from "../../hooks/useLang/useLang"
+import {SearchContext} from "../../hooks/useSearch/useSearch";
 import * as _ from "lodash";
 import {isWidthDown, isWidthUp, withWidth} from "@material-ui/core";
 import PropTypes from "prop-types";
-import SearchDataItemValidator from "../validators/SearchDataItemValidator";
-import LangValidator from "../validators/LangValidator";
-import getChildrenFromContainer from "../utils/getChildrenFromContainer";
+import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
+import LangValidator from "../../validators/LangValidator";
+import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
 import Box from "@material-ui/core/Box";
 import {Helmet, HelmetProvider} from "react-helmet-async";
-import DefaultTheme from "../theme/DefaultTheme";
-import {createGenerateClassName, StylesProvider} from "@material-ui/styles";
-import getContainerByType from "../utils/getContainerByType";
-import {MenuContext} from "../hooks/useMenu/useMenu";
-import AppBarActionValidator from "../validators/AppBarActionValidator";
+import DefaultTheme from "../../theme/DefaultTheme";
+import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
+import getContainerByType from "../../utils/getContainerByType";
+import {MenuContext} from "../../hooks/useMenu/useMenu";
+import AppBarActionValidator from "../../validators/AppBarActionValidator";
 import generateHeaderIcon from "./generateHeaderIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
 
-import {displayName as DocsPagesDisplayName} from "./../components/DocsPages";
-import {displayName as LandingDisplayName} from "../components/Landing";
-import {displayName as DocsMenuDisplayName} from "../components/DocsMenu";
+import {displayName as DocsPagesDisplayName} from "../DocsPages";
+import {displayName as LandingDisplayName} from "../Landing";
+import {displayName as DocsMenuDisplayName} from "../DocsMenu";
+
+export const displayName = "MatDocDocsLayout";
 
 const DocsLayoutF = React.forwardRef((props, ref) => {
     const {
@@ -374,7 +376,7 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props,
     );
 });
 
-DocsLayoutProviders.displayName = "DocsLayout";
+DocsLayoutProviders.displayName = displayName;
 
 DocsLayoutProviders.defaultProps = {
     router: "browser-router",
@@ -388,4 +390,4 @@ DocsLayoutProviders.propTypes = {
     basename: PropTypes.string,
 }
 
-export default DocsLayoutProviders;
+export default withStyles({}, {name: displayName})(DocsLayoutProviders);

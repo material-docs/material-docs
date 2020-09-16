@@ -12,7 +12,14 @@ export {default as DemoWithCode} from "./DemoWithCode";
 export {default as DocsMenuItem} from "./DocsMenuItem";
 export {default as DocsPage} from "./DocsPage";
 export {default as ExpansionCode} from "./ExpansionCode"
-export {H1, H2, H3, H4, H5, H6, Header, Tagable} from "./Headers";
+export {default as Tagable} from "./Tagable";
+export {default as H1} from "./H1";
+export {default as H2} from "./H2";
+export {default as H3} from "./H3";
+export {default as H4} from "./H4";
+export {default as H5} from "./H5";
+export {default as H6} from "./H6";
+export {default as Header} from "./Header";
 export {default as Image} from "./Image"
 export {default as Italic} from "./Italic";
 export {default as LanguageSelector} from "./LanguageSelector"
