@@ -11,7 +11,7 @@ import {
     H4,
     H5,
     H6
-} from "@danilandreev/material-docs/components/Headers";
+} from "@danilandreev/material-docs/components";
 
 export default function AllHeaders() {
     return (

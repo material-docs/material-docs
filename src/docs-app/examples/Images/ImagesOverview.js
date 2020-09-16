@@ -4,8 +4,8 @@
  */
 
 import React from "react";
-import Image from "@danilandreev/material-docs/components/Image/Image";
-import image from "./images/GithubBannerWide.png"
+import Image from "@danilandreev/material-docs/components/Image";
+import image from "./images/GithubBannerWide.png";
 
 export default function ImagesOverview() {
     return (
