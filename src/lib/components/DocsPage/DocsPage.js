@@ -155,13 +155,6 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
 
 DocsPage.displayName = displayName;
 
-DocsPage.defaultProps = {
-    name: "home",
-    noGenerateAutoSearch: false,
-    noAutoMenu: false,
-    searchTags: [],
-}
-
 DocsPage.propTypes = {
     // DocsPageProps
     name: PropTypes.string,

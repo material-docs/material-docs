@@ -69,8 +69,6 @@ const SearchMenuItem = React.forwardRef(function SearchMenuItem(props, ref) {
 
 SearchMenuItem.displayName = displayName;
 
-SearchMenuItem.defaultProps = {}
-
 SearchMenuItem.propTypes = {
     // SearchMenuItemProps
     data: SearchDataItemValidator,

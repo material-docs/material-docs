@@ -66,11 +66,6 @@ const ListItem = React.forwardRef(function ListItem(props, ref) {
 
 ListItem.displayName = displayName;
 
-ListItem.defaultProps = {
-    type: "circle",
-    dense: false,
-}
-
 ListItem.propTypes = {
     // ListItemProps
     type: PropTypes.oneOf(["circle", "square", "upper-roman", "lower-alpha", "none"]),

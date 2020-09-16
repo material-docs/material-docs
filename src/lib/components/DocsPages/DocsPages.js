@@ -14,7 +14,6 @@ function DocsPages(children) {
 
 DocsPages.displayName = displayName;
 
-
 DocsPages.propTypes = {
     // Containerable
     children: PropTypes.node,

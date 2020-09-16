@@ -98,11 +98,6 @@ const Code = React.forwardRef(function Code(props, ref) {
 
 Code.displayName = displayName;
 
-Code.defaultProps = {
-    language: "javascript",
-    theme: "light",
-}
-
 Code.propTypes = {
     // CodeProps
     theme: PropTypes.oneOf(["light", "dark", "darcula"]),

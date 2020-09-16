@@ -32,9 +32,6 @@ const List = React.forwardRef(function List(props, ref) {
 
 List.displayName = displayName;
 
-List.defaultProps = {
-}
-
 List.propTypes = {
     // ListProps
     image: PropTypes.string,

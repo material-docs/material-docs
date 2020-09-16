@@ -89,11 +89,6 @@ const Tagable = React.forwardRef(function Tagable(props, ref) {
 
 Tagable.displayName = displayName;
 
-Tagable.defaultProps = {
-    noTag: false,
-    noDivider: false,
-}
-
 Tagable.propTypes = {
     // Stylable
     style: PropTypes.object,

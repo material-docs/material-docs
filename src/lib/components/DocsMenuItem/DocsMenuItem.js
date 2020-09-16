@@ -123,14 +123,6 @@ const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, r
 
 DocsMenuItem.displayName = displayName;
 
-DocsMenuItem.defaultProps = {
-    defaultExpanded: false,
-    textPrimary: "",
-    textSecondary: "",
-    isCurrent: false,
-    dense: false,
-}
-
 DocsMenuItem.propTypes = {
     // DocsMenuItemProps
     defaultExpanded: PropTypes.bool,

@@ -300,13 +300,6 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     );
 });
 
-DocsLayoutF.defaultProps = {
-    noGenerateAutoSearch: false,
-    noSearchField: false,
-    noLanguageSelector: false,
-    actions: [],
-}
-
 DocsLayoutF.propTypes = {
     // DocsLayoutProps
     searchData: PropTypes.arrayOf(SearchDataItemValidator),
@@ -377,11 +370,6 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props,
 });
 
 DocsLayoutProviders.displayName = displayName;
-
-DocsLayoutProviders.defaultProps = {
-    router: "browser-router",
-    mask: "/(*page)",
-}
 
 DocsLayoutProviders.propTypes = {
     // DocsLayoutProps

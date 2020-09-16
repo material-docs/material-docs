@@ -220,8 +220,4 @@ SearchField.propTypes = {
     classes: PropTypes.object,
 }
 
-SearchField.defaultProps = {
-    searchData: [],
-}
-
 export default withStyles(styles, {name: displayName})(SearchField);

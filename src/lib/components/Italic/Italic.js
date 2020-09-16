@@ -28,8 +28,6 @@ const Italic = React.forwardRef(function Italic(props, ref) {
 
 Italic.displayName = displayName;
 
-Italic.defaultProps = {}
-
 Italic.propTypes = {
     // Stylable
     style: PropTypes.object,

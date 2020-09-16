@@ -61,9 +61,6 @@ const Table = React.forwardRef(function Table(props, ref) {
 
 Table.displayName = displayName;
 
-Table.defaultProps = {
-}
-
 Table.propTypes = {
     style: PropTypes.object,
     className: PropTypes.string,

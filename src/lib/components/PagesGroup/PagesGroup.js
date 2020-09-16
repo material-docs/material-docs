@@ -105,9 +105,6 @@ const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
 
 PagesGroup.displayName = displayName;
 
-PagesGroup.defaultProps = {
-}
-
 PagesGroup.propTypes = {
     // PagesGroupProps
     name: PropTypes.string,

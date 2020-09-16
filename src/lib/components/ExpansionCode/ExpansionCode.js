@@ -115,11 +115,6 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
 
 ExpansionCode.displayName = displayName;
 
-ExpansionCode.defaultProps = {
-    demoCode: "",
-    collapsedHeight: 100,
-}
-
 ExpansionCode.propTypes = {
     // ExpansionCodeProps
     name: PropTypes.string,

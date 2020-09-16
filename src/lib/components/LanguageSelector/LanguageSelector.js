@@ -93,10 +93,6 @@ const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) 
 
 LanguageSelector.displayName = displayName;
 
-LanguageSelector.defaultProps = {
-    size: "large"
-}
-
 LanguageSelector.propTypes = {
     size: PropTypes.oneOf(["small", "large"]),
     // Stylable

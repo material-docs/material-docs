@@ -45,11 +45,6 @@ const CodeSpan = React.forwardRef(function CodeSpan(props, ref) {
 
 CodeSpan.displayName = displayName;
 
-CodeSpan.defaultProps = {
-    color: "default",
-    text: "inherit",
-}
-
 CodeSpan.propTypes = {
     // CodeSpanProps
     color: PropTypes.oneOf(["default", "primary", "secondary", "grey"]),

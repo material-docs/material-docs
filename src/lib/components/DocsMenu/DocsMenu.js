@@ -51,10 +51,6 @@ const DocsMenu = React.forwardRef(function DocsMenu(props, ref) {
 
 DocsMenu.displayName = displayName;
 
-DocsMenu.defaultProps = {
-    dense: false,
-}
-
 DocsMenu.propTypes = {
     // Containerable
     dense: PropTypes.bool,
