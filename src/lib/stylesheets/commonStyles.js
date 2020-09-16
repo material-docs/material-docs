@@ -5,9 +5,14 @@
 
 import {makeStyles} from "@material-ui/core/styles";
 
-export const useCommonStyles = makeStyles(theme => ({
-    pageBlock: {
-        marginBottom: theme.spacing(1),
-        paddingTop: theme.spacing(1),
+export const useCommonStyles = makeStyles(
+    theme => ({
+        pageBlock: {
+            marginBottom: theme.spacing(1),
+            paddingTop: theme.spacing(1),
+        }
+    }),
+    {
+        name: "Md-System"
     }
-}));
+);
