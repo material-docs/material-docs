@@ -9784,10 +9784,10 @@ routing-manager@^2.0.1:
     react-scripts "3.4.1"
     route-parser "0.0.5"
 
-routing-manager@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/routing-manager/-/routing-manager-2.0.2.tgz#be21d29c53523903d7c58ceb35457f658e84926d"
-  integrity sha512-LNJWy5EBQoKcPtQtYwPHrJpEE3XdfdFg+llhQU84c5BGRfF7GsaJrL5bkWUn7fEO6n4AE1g2+hMYxTR0Q3cYnw==
+routing-manager@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/routing-manager/-/routing-manager-2.0.3.tgz#bd0439d3c4492d6dc392d4a4a783dbe459eb25ee"
+  integrity sha512-jo51wZX/sVhuspDrOwa79nU9c9ARO2FyXtAPj19jmw9336/7Q+R8gmT2NShKNaozNLGIQWEYiLj/MweCNQnIFA==
   dependencies:
     "@testing-library/jest-dom" "^4.2.4"
     "@testing-library/react" "^9.5.0"
