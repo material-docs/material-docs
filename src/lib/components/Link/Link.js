@@ -7,6 +7,7 @@ import React from "react";
 import {Link as MDLink} from "@material-ui/core";
 import PropTypes from "prop-types";
 import {useChangeRoute} from "routing-manager";
+import withStyles from "@material-ui/styles/withStyles";
 
 export const displayName = "MatDocLink";
 
@@ -15,15 +16,22 @@ const Link = React.forwardRef(function Link(props, ref) {
         children,
         page,
         href,
+        ...other
     } = props;
     const {changeRoute} = useChangeRoute();
 
+    function handleClick(event) {
+        let link = page;
+        if (Array.isArray(page)) link = page.join("/");
+        typeof link === "string" && changeRoute({link});
+    }
 
     return (
         <MDLink
             href={page ? "" : href}
             ref={ref}
-            onClick={event => typeof page === "string" && changeRoute({page})}
+            onClick={handleClick}
+            {...other}
         >
             {children}
         </MDLink>
@@ -38,4 +46,4 @@ Link.propTypes = {
     children: PropTypes.node,
 }
 
-export default withStyles({}, displayName)(Link);
+export default withStyles({}, {name: displayName})(Link);

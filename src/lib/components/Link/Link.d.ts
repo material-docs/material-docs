@@ -3,3 +3,21 @@
  * Copyright (C) 2020.
  */
 
+import Containerable from "../../interfaces/Containerable";
+import Stylable from "../../interfaces/Stylable";
+
+export interface LinkProps
+    extends Containerable, Stylable{
+    /**
+     * page - page route. Can be passed as string or as array of routes.
+     * @type string | string[]
+     */
+    page: string | string[];
+    /**
+     * href - link to external resource.
+     * @type string
+     */
+    href: string;
+}
+
+export default function Link(props: LinkProps): JSX.Element;
