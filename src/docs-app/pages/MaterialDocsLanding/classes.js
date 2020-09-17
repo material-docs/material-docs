@@ -43,6 +43,7 @@ export const useStyles = makeStyles(theme => ({
     footer: {
         background: grey[900],
         borderTop: `${theme.spacing(1)}px solid ${grey[800]}`,
+        borderBottom: 0,
         color: grey[500],
         "& a": {
             color: theme.palette.common.white,
