@@ -8,9 +8,14 @@ export {
     createRouteFromName,
     generateMaterialDocsFromMarkdown,
     getElementOffsetSum,
-    usePageScroll
+    usePageScroll,
+    AspectRatio,
+    getContainerByType,
+    getChildrenFromContainer,
+    getTextFromChildren,
+    createChainableTypeChecker,
+    goToPage,
 } from "./utils";
-export {default as DocsLayout} from "./components/DocsLayout";
 export {
     useGroups,
     GroupsContext,
@@ -58,4 +63,5 @@ export {
     TableCell,
     Tagable,
     Link,
+    DocsLayout,
 } from "./components";

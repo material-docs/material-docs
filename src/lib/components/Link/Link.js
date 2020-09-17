@@ -13,6 +13,7 @@ import PropTypes from "prop-types";
 import {useChangeRoute} from "routing-manager";
 import withStyles from "@material-ui/styles/withStyles";
 import createRouteFromName from "../../utils/createRouteFromName";
+import goToPage from "../../utils/goToPage";
 
 
 export const displayName = "MatDocLink";
@@ -27,9 +28,7 @@ const Link = React.forwardRef(function Link(props, ref) {
     const {changeRoute} = useChangeRoute();
 
     function handleClick(event) {
-        let link = page;
-        if (Array.isArray(page)) link = page.map(item => typeof item === "string" && createRouteFromName(item)).join("/");
-        typeof link === "string" && changeRoute({page: link});
+        goToPage(page, changeRoute);
     }
 
     return (

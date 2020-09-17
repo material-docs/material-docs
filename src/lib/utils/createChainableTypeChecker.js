@@ -11,6 +11,7 @@ const ANONYMOUS = "";
  * @function
  * @param {function} validate
  * @return {object}
+ * @throws Error
  */
 export default function createChainableTypeChecker(validate) {
     function checkType(isRequired, props, propName, componentName, location) {

@@ -8,6 +8,7 @@
  * @function
  * @param {string} name
  * @return string
+ * @throws TypeError
  * @example "Hello it's me" -> "hello-its-me"
  */
 export default function createRouteFromName(name) {

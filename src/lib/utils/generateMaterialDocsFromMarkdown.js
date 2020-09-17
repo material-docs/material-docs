@@ -50,6 +50,7 @@ function fixShieldedText(text) {
  * @param {object} storage Object with additional information. Will be used in components with additional setup.
  * @param {string} key Component key
  * @return JSX.Element
+ * @throws TypeError
  */
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1) {
     if (!(typeof input === "string" || typeof input === "object"))
