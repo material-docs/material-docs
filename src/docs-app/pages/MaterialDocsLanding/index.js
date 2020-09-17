@@ -24,15 +24,15 @@ import ListItem from "@material-ui/core/ListItem";
 import Link from "@danilandreev/material-docs/components/Link/Link";
 import Bold from "@danilandreev/material-docs/components/Bold/Bold";
 import clsx from "clsx";
-import Image from "@danilandreev/material-docs/components/Image/Image";
-
 import demoScreenshotMobile from "./images/demo-screenshot-mobile.png";
 import demoScreenshotDesktop1 from "./images/demo-screenshot-desktop-1.png";
 import demoScreenshotDesktop2 from "./images/demo-screenshot-desktop-2.png";
 import Divider from "@material-ui/core/Divider";
+import useSwitchPage from "@danilandreev/material-docs/hooks/useSwitchPage";
 
 export default function MaterialDocsLanding() {
     const classes = useStyles();
+    const {switchPage} = useSwitchPage();
     return (
         <React.Fragment>
             <Parallax
@@ -44,7 +44,13 @@ export default function MaterialDocsLanding() {
                         className={classes.bannerBlock}
                     >
                         <img src={LogoWide} className={classes.bannerImage}/>
-                        <Button size={"large"} className={classes.getStartedButton}>Get started</Button>
+                        <Button
+                            size={"large"}
+                            className={classes.getStartedButton}
+                            onClick={event => {debugger; switchPage(["Getting started", "Installation"])}}
+                        >
+                            Get started
+                        </Button>
                     </Box>
                 </Box>
                 <Grid container>
@@ -105,7 +111,9 @@ export default function MaterialDocsLanding() {
                                             <Code
                                                 theme={"darcula"}>{"$ npm install @material-ui/core\n$ npm install @material-ui/icons"}</Code>
                                             <CardActions>
-                                                <Button>Read installation docs</Button>
+                                                <Button onClick={() => switchPage(["Getting started", "Installation"])}>
+                                                    Read installation docs
+                                                </Button>
                                             </CardActions>
                                         </CardContent>
                                     </Card>
@@ -126,7 +134,9 @@ export default function MaterialDocsLanding() {
                                                 the global scope.</Typography>
                                             <Code theme={"darcula"}>$ npm install @danilandreev/material-docs</Code>
                                             <CardActions>
-                                                <Button>Explore the docs</Button>
+                                                <Button onClick={event => switchPage(["Tutorials", "Creating Material Docs"])}>
+                                                    Explore the docs
+                                                </Button>
                                             </CardActions>
                                         </CardContent>
                                     </Card>
@@ -144,16 +154,16 @@ export default function MaterialDocsLanding() {
                                             <Bold>DOCUMENTATION</Bold>
                                         </ListItem>
                                         <ListItem>
-                                            <Link>Installation</Link>
+                                            <Link page={["Getting started", "Installation"]}>Installation</Link>
                                         </ListItem>
                                         <ListItem>
-                                            <Link>Overview</Link>
+                                            <Link page={["Getting started", "Installation"]}>Overview</Link>
                                         </ListItem>
                                         <ListItem>
-                                            <Link>Components</Link>
+                                            <Link page={["Components", "Layout"]}>Components</Link>
                                         </ListItem>
                                         <ListItem>
-                                            <Link>Tutorials</Link>
+                                            <Link page={["Tutorials", "Creating Material Docs"]}>Tutorials</Link>
                                         </ListItem>
                                     </List>
                                 </Grid>
