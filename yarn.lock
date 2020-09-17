@@ -1219,10 +1219,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@danilandreev/material-docs@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@danilandreev/material-docs/-/material-docs-0.3.3.tgz#3945c5aebd60cc29a9f99d6b83e1821e193b0dc6"
-  integrity sha512-swxKeoh0H8Xf6znmvlH0DbrvJWgjCy7wu5poY1HNKi5m1qq9ygxqaYqFssik4f/ULKIXl8aY+H1S3yo5oJExiQ==
+"@danilandreev/material-docs@^0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@danilandreev/material-docs/-/material-docs-0.3.4.tgz#195c024f567874400bb9b0d4b5a997a338d483dc"
+  integrity sha512-NSTaPVKpE6NcwzvUYjKbmFmcGqFJl9KoqJ1M/B7LvKUAICoz0JDATDQo49WUcPxvelfxi7MVZ8ay7Xl0SO4tkA==
   dependencies:
     "@material-ui/core" "^4.11.0"
     "@material-ui/icons" "^4.9.1"
@@ -1237,11 +1237,10 @@
     react-dom "^16.13.1"
     react-helmet-async "^1.0.6"
     react-lazy-load-image-component "^1.5.0"
-    react-parallax "^3.0.3"
     react-router-dom "^5.2.0"
     react-scripts "3.4.1"
     react-syntax-highlighter "^13.0.0"
-    routing-manager "^2.0.3"
+    routing-manager "^2.0.4"
 
 "@emotion/hash@^0.8.0":
   version "0.8.0"
@@ -9763,24 +9762,6 @@ route-parser@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/route-parser/-/route-parser-0.0.5.tgz#7d1d09d335e49094031ea16991a4a79b01bbe1f4"
   integrity sha1-fR0J0zXkkJQDHqFpkaSnmwG74fQ=
-
-routing-manager@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/routing-manager/-/routing-manager-2.0.3.tgz#bd0439d3c4492d6dc392d4a4a783dbe459eb25ee"
-  integrity sha512-jo51wZX/sVhuspDrOwa79nU9c9ARO2FyXtAPj19jmw9336/7Q+R8gmT2NShKNaozNLGIQWEYiLj/MweCNQnIFA==
-  dependencies:
-    "@testing-library/jest-dom" "^4.2.4"
-    "@testing-library/react" "^9.5.0"
-    "@testing-library/user-event" "^7.2.1"
-    lodash "^4.17.15"
-    prop-types "^15.7.2"
-    qs "^6.9.4"
-    react "^16.13.1"
-    react-dom "^16.13.1"
-    react-router "^5.2.0"
-    react-router-dom "^5.2.0"
-    react-scripts "3.4.1"
-    route-parser "0.0.5"
 
 routing-manager@^2.0.4:
   version "2.0.4"
