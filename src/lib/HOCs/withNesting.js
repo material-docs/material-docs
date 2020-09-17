@@ -19,6 +19,6 @@ export default function withNesting(Component) {
             <Component {...props} nesting={nesting}/>
         );
     });
-    Wrapper.displayName = "withNesting";
+    Wrapper.displayName = "MatDoc-withNesting";
     return Wrapper;
 }

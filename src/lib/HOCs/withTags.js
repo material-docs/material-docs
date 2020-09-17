@@ -19,6 +19,6 @@ export default function withTags(Component) {
             <Component {...props} tags={tags}/>
         );
     });
-    Wrapper.displayName = "withTags";
+    Wrapper.displayName = "MatDoc-withTags";
     return Wrapper;
 }

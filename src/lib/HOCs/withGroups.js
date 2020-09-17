@@ -19,6 +19,6 @@ export default function withGroups(Component) {
             <Component {...props} groups={groups}/>
         );
     });
-    Wrapper.displayName = "withGroups";
+    Wrapper.displayName = "MatDoc-withGroups";
     return Wrapper;
 }

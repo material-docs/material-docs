@@ -19,6 +19,6 @@ export default function withMenu(Component) {
             <Component {...props} menu={menu}/>
         );
     });
-    Wrapper.displayName = "withMenu";
+    Wrapper.displayName = "MatDoc-withMenu";
     return Wrapper;
 }
