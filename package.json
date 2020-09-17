@@ -43,13 +43,13 @@
     "react-dom": "^16.13.1",
     "react-helmet-async": "^1.0.6",
     "react-lazy-load-image-component": "^1.5.0",
-    "react-parallax": "^3.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-syntax-highlighter": "^13.0.0",
     "routing-manager": "^2.0.3"
   },
   "devDependencies": {
+    "react-parallax": "^3.0.3",
     "@babel/cli": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
     "@danilandreev/material-docs": "^0.3.3",
