@@ -5,17 +5,13 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // MaterialUI components
 import {Link as MDLink} from "@material-ui/core";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
-import {useChangeRoute} from "routing-manager";
 import withStyles from "@material-ui/styles/withStyles";
-import createRouteFromName from "../../utils/createRouteFromName";
+import {useSwitchPage} from "../../hooks";
 
 
 export const displayName = "MatDocLink";
@@ -27,12 +23,10 @@ const Link = React.forwardRef(function Link(props, ref) {
         href,
         ...other
     } = props;
-    const {changeRoute} = useChangeRoute();
+    const {switchPage} = useSwitchPage();
 
     function handleClick(event) {
-        let link = page;
-        if (Array.isArray(page)) link = page.map(item => typeof item === "string" && createRouteFromName(item)).join("/");
-        typeof link === "string" && changeRoute({page: link});
+        switchPage(page);
     }
 
     return (

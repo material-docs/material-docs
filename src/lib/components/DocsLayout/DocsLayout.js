@@ -5,7 +5,6 @@
 
 import React from "react";
 import {styles} from "./styles"
-
 // Components
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import SearchField from "../SearchField";
@@ -13,17 +12,16 @@ import LanguageSelector from "../LanguageSelector";
 import {BrowserRouter, HashRouter, Route, Switch} from "react-router-dom";
 import {SnackbarProvider} from "notistack";
 import PagesGroup from "../PagesGroup";
-
 // Themes
 import DefaultTheme from "../../theme/DefaultTheme";
-
 // MaterialUI components
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import clsx from 'clsx';
-import {ThemeProvider as MuiThemeProvider} from '@material-ui/core/styles';
+// Utils
+import {ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
@@ -31,21 +29,15 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Box from "@material-ui/core/Box";
-
-
 // MaterialUI icons
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-
 /// PropTypes validators
 import PropTypes from "prop-types";
 import AppBarActionValidator from "../../validators/AppBarActionValidator";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 import LangValidator from "../../validators/LangValidator";
-
-// Utils
-import {useTheme} from '@material-ui/core/styles';
 import {LangContext} from "../../hooks/useLang/useLang"
 import {SearchContext} from "../../hooks/useSearch/useSearch";
 import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
@@ -56,11 +48,12 @@ import {MenuContext} from "../../hooks/useMenu/useMenu";
 import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
 import * as _ from "lodash";
 import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
-
 // The displayNames of the components
 import {displayName as DocsPagesDisplayName} from "../DocsPages";
 import {displayName as LandingDisplayName} from "../Landing";
 import {displayName as DocsMenuDisplayName} from "../DocsMenu";
+import goToPage from "../../utils/goToPage";
+import {SwitchPageContext} from "../../hooks/useSwitchPage/useSwitchPage";
 
 
 export const displayName = "MatDocDocsLayout";
@@ -99,7 +92,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     React.useEffect(() => {
         if (isWidthUp("md", width) && isWidthDown("lg", width)) {
             setOpen(true);
-        } else if(isWidthUp("sm", width) && isWidthDown("md", width)) {
+        } else if (isWidthUp("sm", width) && isWidthDown("md", width)) {
             setOpen(false);
         }
     }, [width]);
@@ -155,7 +148,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                 _.merge(newLang.locale, inputLang.locale);
             }
         }
-       setLang(newLang);
+        setLang(newLang);
     }
 
     const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
@@ -183,6 +176,8 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
 
     const getLanding = () => getChildrenFromContainer(children, LandingDisplayName);
 
+    const switchPage = (page) => goToPage(page, changeRoute);
+
     // Effect, designed to get pages, menu and landing components from containers.
     React.useEffect(() => {
         setContent({
@@ -203,113 +198,116 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     return (
         <LangContext.Provider value={{lang, switchLang: switchLangRoute, langs, onHelpToTranslate}}>
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
-                <HelmetProvider>
-                    <Helmet>
-                        <title>{name || "MaterialDocs"}</title>
-                        {typeof description === "string" && <meta name="description" content={description}/>}
-                        {typeof author === "string" && <meta name="author" content={author}/>}
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                        {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
-                    </Helmet>
-                    <Switch>
-                        {content.landing &&
-                        <Route path={"/"} exact>
-                            <Box>
-                                {content.landing}
-                            </Box>
-                        </Route>
-                        }
-                        <Route path={"/"}>
-                            <MenuContext.Provider
-                                value={{
-                                    openMenu: handleDrawerOpen,
-                                    closeMenu: handleDrawerClose,
-                                    menuOpened: open,
-                                }}
-                            >
-                                <div className={classes.root} ref={ref}>
-                                    <CssBaseline/>
-                                    <AppBar
-                                        position="fixed"
-                                        className={clsx(classes.appBar, !isWidthDown("md", width) && {
-                                            [classes.appBarShift]: open,
-                                        })}
-                                    >
-                                        <Toolbar className={classes.toolbar}>
-                                            <IconButton
-                                                color="inherit"
-                                                aria-label="open drawer"
-                                                onClick={handleDrawerOpen}
-                                                edge="start"
-                                                className={clsx(classes.menuButton, open && classes.hide)}
-                                            >
-                                                <MenuIcon/>
-                                            </IconButton>
-                                            <Typography variant="h6" noWrap className={classes.headerText}>
-                                                {name  || "Material Docs"}
-                                            </Typography>
-                                            {!noSearchField && isWidthUp("md", width) &&
-                                            <SearchField searchData={getSearchData()}/>
-                                            }
-                                            {!noLanguageSelector &&
-                                            <LanguageSelector
-                                                size={isWidthDown("xs", width) ? "small" : "large"}
-                                            />
-                                            }
-                                            {Array.isArray(actions) && actions.map((action, index) =>
-                                                generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
-                                            )
+                <SwitchPageContext.Provider value={{switchPage, currentPage: null}}>
+                    <HelmetProvider>
+                        <Helmet>
+                            <title>{name || "MaterialDocs"}</title>
+                            {typeof description === "string" && <meta name="description" content={description}/>}
+                            {typeof author === "string" && <meta name="author" content={author}/>}
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                            {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
+                        </Helmet>
+                        <Switch>
+                            {content.landing &&
+                            <Route path={"/"} exact>
+                                <Box>
+                                    {content.landing}
+                                </Box>
+                            </Route>
+                            }
+                            <Route path={"/"}>
+                                <MenuContext.Provider
+                                    value={{
+                                        openMenu: handleDrawerOpen,
+                                        closeMenu: handleDrawerClose,
+                                        menuOpened: open,
+                                    }}
+                                >
+                                    <div className={classes.root} ref={ref}>
+                                        <CssBaseline/>
+                                        <AppBar
+                                            position="fixed"
+                                            className={clsx(classes.appBar, !isWidthDown("md", width) && {
+                                                [classes.appBarShift]: open,
+                                            })}
+                                        >
+                                            <Toolbar className={classes.toolbar}>
+                                                <IconButton
+                                                    color="inherit"
+                                                    aria-label="open drawer"
+                                                    onClick={handleDrawerOpen}
+                                                    edge="start"
+                                                    className={clsx(classes.menuButton, open && classes.hide)}
+                                                >
+                                                    <MenuIcon/>
+                                                </IconButton>
+                                                <Typography variant="h6" noWrap className={classes.headerText}>
+                                                    {name || "Material Docs"}
+                                                </Typography>
+                                                {!noSearchField && isWidthUp("md", width) &&
+                                                <SearchField searchData={getSearchData()}/>
+                                                }
+                                                {!noLanguageSelector &&
+                                                <LanguageSelector
+                                                    size={isWidthDown("xs", width) ? "small" : "large"}
+                                                />
+                                                }
+                                                {Array.isArray(actions) && actions.map((action, index) =>
+                                                    generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
+                                                )
 
-                                            }
-                                        </Toolbar>
-                                    </AppBar>
-                                    <Drawer
-                                        className={classes.drawer}
-                                        variant={isWidthUp("md", width) ? "persistent" : "temporary"}
-                                        anchor="left"
-                                        open={open}
-                                        classes={{
-                                            paper: classes.drawerPaper,
-                                        }}
-                                        onClose={event => setOpen(false)}
-                                    >
-                                        <div className={classes.drawerHeader}>
-                                            {logo &&
-                                            <ListItemAvatar>
-                                                <Avatar src={logo} variant={"rounded"}/>
-                                            </ListItemAvatar>
-                                            }
-                                            <ListItemText
-                                                primary={name}
-                                                secondary={version}
-                                                primaryTypographyProps={{variant: "h6", noWrap: true}}
-                                                secondaryTypographyProps={{noWrap: true}}
-                                                className={classes.version}
-                                            />
-                                            <IconButton onClick={handleDrawerClose}>
-                                                {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
-                                            </IconButton>
-                                        </div>
-                                        <Divider/>
-                                        {content.menu}
-                                    </Drawer>
-                                    <main
-                                        className={clsx(classes.content, {
-                                            [classes.contentShift]: isWidthUp("md", width) ? open : true,
-                                        })}
-                                    >
-                                        <div className={classes.drawerHeader}/>
-                                        <PagesGroup name={"root"} getData={(group) => {
-                                            setAutoMenuData(group)
-                                        }}>
-                                            {content.pages}
-                                        </PagesGroup>
-                                    </main>
-                                </div>
-                            </MenuContext.Provider>
-                        </Route>
-                    </Switch>
-                </HelmetProvider>
+                                                }
+                                            </Toolbar>
+                                        </AppBar>
+                                        <Drawer
+                                            className={classes.drawer}
+                                            variant={isWidthUp("md", width) ? "persistent" : "temporary"}
+                                            anchor="left"
+                                            open={open}
+                                            classes={{
+                                                paper: classes.drawerPaper,
+                                            }}
+                                            onClose={event => setOpen(false)}
+                                        >
+                                            <div className={classes.drawerHeader}>
+                                                {logo &&
+                                                <ListItemAvatar>
+                                                    <Avatar src={logo} variant={"rounded"}/>
+                                                </ListItemAvatar>
+                                                }
+                                                <ListItemText
+                                                    primary={name}
+                                                    secondary={version}
+                                                    primaryTypographyProps={{variant: "h6", noWrap: true}}
+                                                    secondaryTypographyProps={{noWrap: true}}
+                                                    className={classes.version}
+                                                />
+                                                <IconButton onClick={handleDrawerClose}>
+                                                    {theme.direction === 'ltr' ? <ChevronLeftIcon/> :
+                                                        <ChevronRightIcon/>}
+                                                </IconButton>
+                                            </div>
+                                            <Divider/>
+                                            {content.menu}
+                                        </Drawer>
+                                        <main
+                                            className={clsx(classes.content, {
+                                                [classes.contentShift]: isWidthUp("md", width) ? open : true,
+                                            })}
+                                        >
+                                            <div className={classes.drawerHeader}/>
+                                            <PagesGroup name={"root"} getData={(group) => {
+                                                setAutoMenuData(group)
+                                            }}>
+                                                {content.pages}
+                                            </PagesGroup>
+                                        </main>
+                                    </div>
+                                </MenuContext.Provider>
+                            </Route>
+                        </Switch>
+                    </HelmetProvider>
+                </SwitchPageContext.Provider>
             </SearchContext.Provider>
         </LangContext.Provider>
     );

@@ -19,6 +19,6 @@ export default function withSearch(Component) {
             <Component {...props} search={search}/>
         );
     });
-    Wrapper.displayName = "withSearch";
+    Wrapper.displayName = "MatDoc-withSearch";
     return Wrapper;
 }

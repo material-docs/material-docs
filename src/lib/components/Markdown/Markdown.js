@@ -6,10 +6,8 @@
 import React from "react";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import {styles} from "./styles";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import {withStyles} from "@material-ui/styles";
 import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";

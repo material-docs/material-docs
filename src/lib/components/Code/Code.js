@@ -7,16 +7,12 @@ import React from "react";
 import {styles} from "./styles";
 import {darcula, dark, docco} from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import {blueGrey, grey} from "@material-ui/core/colors";
-
 // MaterialUI componnets
 import Paper from "@material-ui/core/Paper";
-
 // Components
 import SyntaxHighlighter from "react-syntax-highlighter";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import {withStyles} from "@material-ui/core";

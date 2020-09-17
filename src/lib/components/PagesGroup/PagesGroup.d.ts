@@ -16,6 +16,7 @@ export interface PagesGroupProps
      * @type string
      */
     name: string;
+
     /**
      * getData - callback, used to get group data.
      * @function

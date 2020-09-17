@@ -6,7 +6,6 @@
 import React from "react";
 import logo from "./logo.svg";
 import GitHubIcon from '@material-ui/icons/GitHub';
-
 // API pages
 import DocsPageAPI from "./pages/APIs/DocsPageAPI";
 import DemoWithCodeAPI from "./pages/APIs/DemoWithCodeAPI";
@@ -53,6 +52,14 @@ import HeadersDemo from "./pages/Components/HeadersDemo";
 import MarkdownDemo from "./pages/Components/MarkdownDemo";
 import TextStylingDemo from "./pages/Components/TextStylingDemo";
 import ImagesDemo from "./pages/Components/ImagesDemo";
+import TagableAPI from "./pages/APIs/TagableAPI";
+import H1API from "./pages/APIs/H1API";
+import H2API from "./pages/APIs/H2API";
+import H3API from "./pages/APIs/H3API";
+import H4API from "./pages/APIs/H4API";
+import H5API from "./pages/APIs/H5API";
+import H6API from "./pages/APIs/H6API";
+import HeaderAPI from "./pages/APIs/HeaderAPI";
 
 
 export default function Documentation() {
@@ -76,7 +83,11 @@ export default function Documentation() {
             ]}
             version={"1.0.0"}
             actions={[
-                {icon: <GitHubIcon />, link: "https://github.com/DanilAndreev/material-docs", tooltip: "Github source code"}
+                {
+                    icon: <GitHubIcon/>,
+                    link: "https://github.com/DanilAndreev/material-docs",
+                    tooltip: "Github source code"
+                }
             ]}
         >
             <DocsMenu dense>
@@ -121,10 +132,18 @@ export default function Documentation() {
                     <ListItemContainedAPI/>
                     <DocsPagesAPI/>
                     <DocsMenuAPI/>
+                    <H1API/>
+                    <H2API/>
+                    <H3API/>
+                    <H4API/>
+                    <H5API/>
+                    <H6API/>
+                    <HeaderAPI/>
                     <AutoDocsMenuAPI/>
                     <PagesGroup name={"System components"}>
                         <LanguageSelectorAPI/>
                         <SearchFieldAPI/>
+                        <TagableAPI/>
                     </PagesGroup>
                 </PagesGroup>
                 <PagesGroup name={"Tutorials"}>

@@ -14,6 +14,7 @@ export interface MenuContext {
      * openMenu();
      */
     openMenu(): void;
+
     /**
      * closeMenu -  function, designed to close menu panel.
      * @example
@@ -21,6 +22,7 @@ export interface MenuContext {
      * closeMenu();
      */
     closeMenu(): void;
+
     /**
      * menuOpened - if true - menu panel is opened.
      * @type boolean

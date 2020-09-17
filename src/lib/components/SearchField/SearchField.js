@@ -5,10 +5,8 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // Components
 import SearchMenuItem from "./SearchMenuItem";
-
 // MaterialUI components
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -18,16 +16,13 @@ import Popper from "@material-ui/core/Popper";
 import List from "@material-ui/core/List";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
-
 // MaterialUI icons
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
-
 // PropTypes validators
 import PropTypes from "prop-types";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
-
 // Utils
 import {withStyles} from "@material-ui/styles";
 import {useChangeRoute} from "routing-manager";
@@ -98,7 +93,7 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
                 event.stopPropagation();
                 break;
             case "Enter":
-                found[selected] &&  handleItemAction(found[selected]);
+                found[selected] && handleItemAction(found[selected]);
                 found[selected] && setText("");
                 inputRef.current.blur();
                 setFocused(false);
@@ -151,7 +146,10 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
 
     return (
         <ClickAwayListener
-           onClickAway={event => {setFocused(false); inputRef.current && inputRef.current.blur()}}
+            onClickAway={event => {
+                setFocused(false);
+                inputRef.current && inputRef.current.blur()
+            }}
         >
             <Paper
                 elevation={0}

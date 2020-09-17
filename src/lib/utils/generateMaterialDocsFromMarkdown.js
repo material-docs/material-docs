@@ -4,7 +4,6 @@
  */
 
 import React from "react";
-
 // Components
 import Header from "../components/Header";
 import List from "../components/List/List";
@@ -23,11 +22,9 @@ import Block from "../components/Block/Block";
 import CodeSpan from "../components/CodeSpan/CodeSpan";
 import ExpansionCode from "../components/ExpansionCode/ExpansionCode";
 import DemoWithCode from "../components/DemoWithCode/DemoWithCode";
-
 // MaterialUI components
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-
 // Utils
 import marked from "marked";
 
@@ -53,6 +50,7 @@ function fixShieldedText(text) {
  * @param {object} storage Object with additional information. Will be used in components with additional setup.
  * @param {string} key Component key
  * @return JSX.Element
+ * @throws TypeError
  */
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1) {
     if (!(typeof input === "string" || typeof input === "object"))

@@ -5,10 +5,8 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import clsx from "clsx";
 import {useCommonStyles} from "../../stylesheets/commonStyles";

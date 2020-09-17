@@ -5,7 +5,7 @@
 
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
 import React from "react";
-import {H1, H2, H3, H4, H5} from "@danilandreev/material-docs/components";
+import {H1, H2, H3} from "@danilandreev/material-docs/components";
 import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
 import MarkdownOverview from "../../../examples/Markdown/MarkdownOverview";
 import {TaggingContext} from "@danilandreev/material-docs/hooks/useTags";
@@ -13,8 +13,7 @@ import Box from "@material-ui/core/Box";
 import Markdown from "@danilandreev/material-docs/components/Markdown/Markdown";
 import useLang from "@danilandreev/material-docs/hooks/useLang/useLang";
 import Table from "@danilandreev/material-docs/components/Table/Table";
-import {TableCell, TableBody, TableHead, TableRow} from "@danilandreev/material-docs";
-import Code from "@danilandreev/material-docs/components/Code/Code";
+import {TableBody, TableCell, TableHead, TableRow} from "@danilandreev/material-docs";
 import CodeSpan from "@danilandreev/material-docs/components/CodeSpan/CodeSpan";
 import Block from "@danilandreev/material-docs/components/Block/Block";
 import Bold from "@danilandreev/material-docs/components/Bold/Bold";
@@ -196,7 +195,11 @@ export default function MarkdownDemo() {
                             paperContainer
                         >
                             <Box p={2}>
-                                <TaggingContext.Provider value={{setTag: () => {}, removeTag: () => {}, tags: {}}}>
+                                <TaggingContext.Provider value={{
+                                    setTag: () => {
+                                    }, removeTag: () => {
+                                    }, tags: {}
+                                }}>
                                     {demo.demo}
                                 </TaggingContext.Provider>
                             </Box>

@@ -8,7 +8,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
 import ListItemText from "@material-ui/core/ListItemText";
-import {styles, useStyles} from "./styles";
+import {styles} from "./styles";
 import clsx from "clsx";
 import {isWidthUp, Link} from "@material-ui/core";
 import usePageScroll from "../../utils/usePageScroll";

@@ -5,7 +5,7 @@
 
 import React from "react";
 import DocsPage from "@danilandreev/material-docs/components/DocsPage/DocsPage";
-import {H1, H2, H3, H4, H5, H6} from "@danilandreev/material-docs/components";
+import {H1, H2, H3} from "@danilandreev/material-docs/components";
 import DemoWithCode from "@danilandreev/material-docs/components/DemoWithCode/DemoWithCode";
 import SimpleList from "../../../examples/Lists/SimpleList";
 import Box from "@material-ui/core/Box";
@@ -100,7 +100,8 @@ export default function ListsDemo() {
             <H1>Lists</H1>
             <H3 noTag noDivider>Lists can be used to show structured information with list items.</H3>
             <Markdown>
-                For example, you want to show people your TO DO list or list of programs you use. Each ```ListItem``` can contain
+                For example, you want to show people your TO DO list or list of programs you use. Each ```ListItem```
+                can contain
                 its content and nested list items inside ```ListItemContained``` component.
             </Markdown>
             <DemoWithCode code={SimpleListCode} paperContainer theme={"darcula"} name={"Simple list"} defaultExpanded>
@@ -110,9 +111,11 @@ export default function ListsDemo() {
             </DemoWithCode>
 
             <Markdown>
-                You can create __nested lists__ inside ```ListItem``` component. Just place __nested items__ inside ```ListItemContained``` component in ```ListItem```.
+                You can create __nested lists__ inside ```ListItem``` component. Just place __nested items__ inside
+                ```ListItemContained``` component in ```ListItem```.
             </Markdown>
-            <DemoWithCode code={ListWithNestedItemsCode} paperContainer theme={"darcula"} name={"List with nested items"}>
+            <DemoWithCode code={ListWithNestedItemsCode} paperContainer theme={"darcula"}
+                          name={"List with nested items"}>
                 <Box p={2}>
                     <ListWithNestedItems/>
                 </Box>

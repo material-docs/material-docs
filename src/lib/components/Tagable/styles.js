@@ -3,12 +3,11 @@
  * Copyright (C) 2020.
  */
 
-import {createStyles, makeStyles} from "@material-ui/core/styles";
+import {createStyles} from "@material-ui/core/styles";
 import {grey} from "@material-ui/core/colors";
 
 export const styles = theme => createStyles({
-    root: {
-    },
+    root: {},
     container: {
         position: "relative",
     },

@@ -4,17 +4,13 @@
  */
 
 import React from "react";
-
 // MaterialUI components
 import List from "@material-ui/core/List";
-
 // PropTypes validators
 import PropTypes from "prop-types";
 import PagesGroupDataValidator from "../../validators/PagesGroupDataValidator";
-
 // Utils
 import getContainerByType from "../../utils/getContainerByType";
-
 // The displayNames of the components
 import {displayName as AutoDocsMenuDisplayName} from "./../AutoDocsMenu";
 

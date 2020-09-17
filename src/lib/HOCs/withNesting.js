@@ -4,7 +4,6 @@
  */
 
 import React from "react";
-import {useLang} from "../hooks";
 import useNesting from "@danilandreev/material-docs/hooks/useNesting/useNesting";
 
 /**
@@ -20,6 +19,6 @@ export default function withNesting(Component) {
             <Component {...props} nesting={nesting}/>
         );
     });
-    Wrapper.displayName = "withNesting";
+    Wrapper.displayName = "MatDoc-withNesting";
     return Wrapper;
 }

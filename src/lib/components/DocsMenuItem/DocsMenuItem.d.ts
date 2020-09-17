@@ -32,12 +32,14 @@ export interface DocsMenuItemProps
      * @type JSX.Element
      */
     icon?: JSX.Element;
+
     /**
      * onClick - callback, will be triggered on onclick event handling.
      * @function
      * @param event
      */
     onClick?(event: any): void;
+
     /**
      * page - page name for redirecting or object structure for routing-manager changeRoute.
      * @see https://github.com/DanilAndreev/routing-manager/wiki/changeRoute

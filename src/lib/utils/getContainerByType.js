@@ -36,6 +36,7 @@ export default function getContainerByType(children, types, invert, multiple = f
             if (invert && candidate.type && candidate.type.displayName !== type) return true;
             return false;
         }
+
         if (Array.isArray(types)) {
             for (const type of types) {
                 if (typeMatch(candidate, type)) return true;

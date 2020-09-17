@@ -11,31 +11,31 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-        ref: docs
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 12  
-    # local changes
-    - run: yarn --frozen-lockfile
-    - run: yarn install
-    - run: yarn run build:docs
-      env:
-        CI: false
-    - run: rm -r -f docs
-    - run: mkdir docs
-    - run: cp -R build/* docs
-    - run: touch docs/.nojekyll
-    - run: git add --all
-    # setting up git
-    - run: git config --local user.email "action@github.com"
-    - run: git config --local user.name "GitHub Action"
-    - run: git commit -a -m "docs-deploy-gh-pages deployed docs."
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: docs
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+          ref: docs
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      # local changes
+      - run: yarn --frozen-lockfile
+      - run: yarn install
+      - run: yarn run build:docs
+        env:
+          CI: false
+      - run: rm -r -f docs
+      - run: mkdir docs
+      - run: cp -R build/* docs
+      - run: touch docs/.nojekyll
+      - run: git add --all
+      # setting up git
+      - run: git config --local user.email "action@github.com"
+      - run: git config --local user.name "GitHub Action"
+      - run: git commit -a -m "docs-deploy-gh-pages deployed docs."
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: docs

@@ -5,17 +5,13 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // Components
 import {LazyLoadImage} from 'react-lazy-load-image-component';
-
 // MaterialUI components
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import clsx from "clsx";
 import {withStyles} from "@material-ui/styles";

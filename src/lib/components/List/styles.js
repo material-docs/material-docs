@@ -3,11 +3,10 @@
  * Copyright (C) 2020.
  */
 
-import {createStyles, makeStyles} from "@material-ui/core/styles";
+import {createStyles} from "@material-ui/core/styles";
 
 export const styles = theme => createStyles({
-    root: {
-    },
+    root: {},
     stylePositionInside: {
         listStylePosition: "inside",
     },

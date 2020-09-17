@@ -3,7 +3,7 @@
  * Copyright (C) 2020.
  */
 
-import {createStyles, makeStyles} from "@material-ui/core/styles";
+import {createStyles} from "@material-ui/core/styles";
 import {grey} from "@material-ui/core/colors";
 
 const width = 250;

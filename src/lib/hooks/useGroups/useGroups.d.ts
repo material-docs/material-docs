@@ -28,24 +28,28 @@ export interface GroupsContext {
      * @type string[]
      */
     path: string[],
+
     /**
      * deletePage - add page to group.
      * @function
      * @param {object} page
      */
     addPage(page: PageData): void,
+
     /**
      * deletePage - delete page from group.
      * @function
      * @param {string | object} page
      */
     deletePage(page: PageData | string): void,
+
     /**
      * addGroup - add nested group.
      * @function
      * @param {object} group
      */
     addGroup(group: PagesGroupData): void,
+
     /**
      * addGroup - delete nested group.
      * @function
@@ -60,4 +64,4 @@ export interface GroupsContext {
  * @return GroupsContext
  */
 declare const useGroup: () => GroupsContext;
-export default  useGroup;
+export default useGroup;

@@ -16,6 +16,7 @@ export default interface AppBarAction {
      * @see https://github.com/DanilAndreev/routing-manager/wiki/changeRoute
      */
     link?: string | object;
+
     /**
      * onClick - if defined, will be called on click event of material-ui IconButton component.
      * If not defined - link must be defined!
@@ -23,6 +24,7 @@ export default interface AppBarAction {
      * @param {any} event
      */
     onClick?(event: any): void;
+
     /**
      * tooltip - if defined will be displayed in material-ui Tooltip component when mouse hovers button.
      * @type string

@@ -3,7 +3,6 @@
  * Copyright (C) 2020.
  */
 
-import * as React from "react";
 import Containerable from "../../interfaces/Containerable";
 
 export const displayName: string;

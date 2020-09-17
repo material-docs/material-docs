@@ -13,16 +13,19 @@ export interface TagableProps
     extends Stylable, Containerable {
     /**
      * variant - variant of header. h1 h2 h3 h4 h5.
+     * @default "h1"
      * @type string
      */
     variant?: "h1" | "h2" | "h3" | "h4" | "h5";
     /**
      * noDivider - if true, bottom divider line will not be displayed.
+     * @default false
      * @type boolean
      */
     noDivider?: boolean;
     /**
      * noTag - if true, component will not provide tagging mechanism.
+     * @default false
      * @type boolean
      */
     noTag?: boolean;

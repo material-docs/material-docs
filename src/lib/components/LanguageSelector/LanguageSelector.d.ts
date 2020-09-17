@@ -5,7 +5,6 @@
 
 /// <reference types="react" />
 import Stylable from "../../interfaces/Stylable";
-import Containerable from "../../interfaces/Containerable";
 
 export const displayName: string;
 

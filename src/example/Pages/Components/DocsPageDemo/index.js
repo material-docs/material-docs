@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import {DocsPage, ExpansionCode, H1, H2, H3, Markdown} from "../../../../lib";
+import {DocsPage, ExpansionCode, H1, H3, Markdown} from "../../../../lib";
 import DemoWithCode from "../../../../lib/components/DemoWithCode/DemoWithCode";
 import AspectRatio from "../../../../lib/utils/AspectRatio";
 import Demo from "../../../demos/Demo";
@@ -114,11 +114,11 @@ d
 `;
 
 export default function DocsPageDemo() {
-    return(
+    return (
         <DocsPage name={"DocsPages"} searchDescription={"Docs pages sdfsfs"}>
             <H1 noDivider>DocsPages</H1>
             <H3>DocsPages description</H3>
-            <Markdown data={{demo: <Demo />}}>
+            <Markdown data={{demo: <Demo/>}}>
                 {pageMarkdown2}
             </Markdown>
             <ExpansionCode

@@ -18,6 +18,7 @@ export interface TaggingContext {
      * setTag("my-object-key", {label: "my label", ref: ObjectRef});
      */
     setTag(key: string, value: Tag): void;
+
     /**
      * removeTag - function, designed to remove tagable element from page.
      * @param {string} key
@@ -26,6 +27,7 @@ export interface TaggingContext {
      * removeTag("my-object-key");
      */
     removeTag(key: string): void;
+
     /**
      * tags - all registered tags in page.
      * @type any

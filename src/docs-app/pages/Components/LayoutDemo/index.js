@@ -9,7 +9,6 @@ import {H1, H3} from "@danilandreev/material-docs/components";
 import Markdown from "@danilandreev/material-docs/components/Markdown/Markdown";
 import Code from "@danilandreev/material-docs/components/Code/Code";
 import List from "@danilandreev/material-docs/components/List/List";
-import ListItemContained from "@danilandreev/material-docs/components/ListItemContained/ListItemContained";
 import ListItem from "@danilandreev/material-docs/components/ListItem/ListItem";
 import Link from "@material-ui/core/Link";
 
@@ -70,20 +69,23 @@ export default function LayoutDemo() {
             <H1>Layout</H1>
             <H3 noTag noDivider>Layout - is a core of MaterialDocs.</H3>
             <Markdown>
-                ```DocsLayout``` component contains _locale_ information, _search_ context and lot of technical data. __Material Docs__ starts here.
+                ```DocsLayout``` component contains _locale_ information, _search_ context and lot of technical data.
+                __Material Docs__ starts here.
             </Markdown>
             <H3 noDivider>Simple layout</H3>
             <Code theme={"darcula"}>
                 {SimpleLayoutCode}
             </Code>
             <Markdown>
-                This code shows how to create simple layout. __Page names__ will be automatically converted to __routes__, so give normal name for pages.
+                This code shows how to create simple layout. __Page names__ will be automatically converted to
+                __routes__, so give normal name for pages.
                 ```DocsMenuItem``` prop ___name___ is a page identifier.
             </Markdown>
             <H3 noDivider>Layout with auto menu</H3>
             <Code theme={"darcula"}>{LayoutWithAutoMenu}</Code>
             <Markdown>
-                Here is ```DocsLayout``` with automated menu. You can add __pages__ and __groups__ in other __groups__ to create
+                Here is ```DocsLayout``` with automated menu. You can add __pages__ and __groups__ in other __groups__
+                to create
                 hierarchical menu structure.
             </Markdown>
             <H3 noDivider>More info</H3>

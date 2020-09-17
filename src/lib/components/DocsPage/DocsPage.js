@@ -5,20 +5,16 @@
 
 import React from "react";
 import {styles} from "./styles";
-
 // Components
 import {Helmet} from "react-helmet-async";
 import NavigationList from "./NavigationList";
 import {Route} from "react-router-dom"
-
 // MaterialUI components
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-
 // PropTypes validators
 import PropTypes from "prop-types";
-
 // Utils
 import {isWidthUp} from "@material-ui/core";
 import useSearch from "../../hooks/useSearch";

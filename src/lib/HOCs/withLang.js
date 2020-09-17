@@ -19,6 +19,6 @@ export default function withLang(Component) {
             <Component {...props} lang={lang}/>
         );
     });
-    Wrapper.displayName = "withLang";
+    Wrapper.displayName = "MatDoc-withLang";
     return Wrapper;
 }
