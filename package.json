@@ -51,12 +51,10 @@
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
-    "@danilandreev/material-docs": "^0.3.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "copyfiles": "^2.3.0",
-    "react-parallax": "^3.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
