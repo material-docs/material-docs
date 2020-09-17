@@ -112,12 +112,27 @@ export interface DocsLayoutProps
      * @type string
      */
     logo?: string;
+    /**
+     * onNameClick - callback, designed to handle click on docs name in drawer badge.
+     * @function
+     * @param {Event} event
+     * @return void
+     */
+    onNameClick?(event: any): void;
+    /**
+     * onVersionClick - callback, designed to handle click on docs version in drawer badge.
+     * @function
+     * @param {Event} event
+     * @return void
+     */
+    onVersionClick?(event: any): void;
 }
 
 /**
  * DocsLayout - main component of MaterialDocs.
  * @param {DocsLayoutProps} props
  * @constructor
+ * @see https://material-docs.com/component-apis/docslayout
  * @example
  * <DocsLayout>
  *     <DocsMenu>

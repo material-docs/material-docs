@@ -12,6 +12,7 @@ import LanguageSelector from "../LanguageSelector";
 import {BrowserRouter, HashRouter, Route, Switch} from "react-router-dom";
 import {SnackbarProvider} from "notistack";
 import PagesGroup from "../PagesGroup";
+import Link from "../Link/Link";
 // Themes
 import DefaultTheme from "../../theme/DefaultTheme";
 // MaterialUI components
@@ -54,7 +55,7 @@ import {displayName as LandingDisplayName} from "../Landing";
 import {displayName as DocsMenuDisplayName} from "../DocsMenu";
 import goToPage from "../../utils/goToPage";
 import {SwitchPageContext} from "../../hooks/useSwitchPage/useSwitchPage";
-
+import {useHistory} from "react-router-dom";
 
 export const displayName = "MatDocDocsLayout";
 
@@ -76,6 +77,8 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         version,
         logo,
         classes,
+        onNameClick,
+        onVersionClick,
         ...other
     } = props;
     const theme = useTheme();
@@ -87,6 +90,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const {l: langName} = getQueryParams();
     const {page: routePage} = getRouteParams();
+    const history = useHistory();
 
     // Effect for drawer auto open/close on resize
     React.useEffect(() => {
@@ -195,6 +199,10 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         setOpen(false);
     };
 
+    function defaultHandleVersionClick() {
+        history.push("");
+    }
+
     return (
         <LangContext.Provider value={{lang, switchLang: switchLangRoute, langs, onHelpToTranslate}}>
             <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
@@ -272,12 +280,30 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                             <div className={classes.drawerHeader}>
                                                 {logo &&
                                                 <ListItemAvatar>
-                                                    <Avatar src={logo} variant={"rounded"}/>
+                                                    <Avatar
+                                                        src={logo}
+                                                        variant={"rounded"}
+                                                        onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleVersionClick}
+                                                    />
                                                 </ListItemAvatar>
                                                 }
                                                 <ListItemText
-                                                    primary={name}
-                                                    secondary={version}
+                                                    primary={
+                                                        <Link
+                                                            style={{color: "inherit"}}
+                                                            onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleVersionClick}
+                                                        >
+                                                            {name}
+                                                        </Link>
+                                                    }
+                                                    secondary={
+                                                        <Link
+                                                            style={{color: "inherit"}}
+                                                            onClick={typeof onVersionClick === "function" && onVersionClick}
+                                                        >
+                                                            {version}
+                                                        </Link>
+                                                    }
                                                     primaryTypographyProps={{variant: "h6", noWrap: true}}
                                                     secondaryTypographyProps={{noWrap: true}}
                                                     className={classes.version}
@@ -331,6 +357,8 @@ DocsLayoutF.propTypes = {
     name: PropTypes.string,
     version: PropTypes.string,
     logo: PropTypes.string,
+    onNameClick: PropTypes.func,
+    onVersionClick: PropTypes.func,
 }
 
 const DocsLayout = withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF));

@@ -12,6 +12,7 @@ export const displayName: string;
  * H3 - react component, designed to create h2 header.
  * @param {TagableProps} props
  * @constructor
+ * @see https://material-docs.com/component-apis/h3
  * @example
  * <H3>I am h3 header with tag</H3>
  */

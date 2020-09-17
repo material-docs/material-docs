@@ -22,6 +22,7 @@ export interface HeaderProps
  * Header - react component, designed to create any header component.
  * @param {HeaderProps} props
  * @constructor
+ * @see https://material-docs.com/component-apis/header
  * @example
  * <Header heading={2}>I am h1 header without tag</Header>
  */

@@ -12,6 +12,7 @@ export const displayName: string;
  * H1 - react component, designed to create h1 header.
  * @param {TagableProps} props
  * @constructor
+ * @see https://material-docs.com/component-apis/h1
  * @example
  * <H1>I am h1 header with tag</H1>
  */

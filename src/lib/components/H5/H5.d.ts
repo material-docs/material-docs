@@ -12,6 +12,7 @@ export const displayName: string;
  * H5 - react component, designed to create h4 header.
  * @param {TagableProps} props
  * @constructor
+ * @see https://material-docs.com/component-apis/h5
  * @example
  * <H5>I am h5 header without tag</H5>
  */
