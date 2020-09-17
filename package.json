@@ -1,6 +1,6 @@
 {
   "name": "@material-docs/core",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "private": false,
   "description": "material-docs - react framework for easy creating documentation site in material design style.",
   "homepage": "http://material-docs.com/",
@@ -20,11 +20,11 @@
     "url": "https://github.com/DanilAndreev"
   },
   "repository": {
-    "url": "https://github.com/DanilAndreev/material-docs.git",
+    "url": "https://github.com/material-docs/material-docs.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/DanilAndreev/material-docs/issues",
+    "url": "https://github.com/material-docs/material-docs/issues",
     "email": "help.materialdocs@gmail.com"
   },
   "license": "CC0-1.0",
