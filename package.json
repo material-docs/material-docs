@@ -1,5 +1,5 @@
 {
-  "name": "@danilandreev/material-docs",
+  "name": "@material-docs/core",
   "version": "0.3.5",
   "private": false,
   "description": "material-docs - react framework for easy creating documentation site in material design style.",
@@ -20,7 +20,7 @@
     "url": "https://github.com/DanilAndreev"
   },
   "repository": {
-    "url": "https://github.com/DanilAndreev/material-docs",
+    "url": "https://github.com/DanilAndreev/material-docs.git",
     "type": "git"
   },
   "bugs": {
@@ -51,16 +51,13 @@
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
-    "@danilandreev/material-docs": "^0.3.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "copyfiles": "^2.3.0",
-    "react-parallax": "^3.0.3"
+    "copyfiles": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:docs": "react-scripts build",
     "build:test:declarations": "copyfiles --up 2 \"src/lib/**/*.d.ts\" dist --verbose",
     "build:test:library": "npx babel src/lib --out-dir dist",
     "build:test": "yarn run build:test:library && yarn run build:test:declarations",
