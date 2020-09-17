@@ -44,6 +44,7 @@ export interface TagableProps
 /**
  * Tagable - react component, basic tagable header.
  * @param {TagableProps} props
+ * @see https://material-docs.com/component-apis/system-components/tagable
  * @constructor
  */
 export default function Tagable(props: TagableProps): JSX.Element;
