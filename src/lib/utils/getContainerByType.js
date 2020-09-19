@@ -12,20 +12,20 @@ import React from "react";
  * @param {string | string[]} types
  * @param {boolean} invert
  * @param {boolean} multiple
- * @return {JSX.Element | JSX.Element[] | null}
+ * @return {object | object[] | null}
  */
 export default function getContainerByType(children, types, invert, multiple = false) {
     /**
      * checkType - function, designed to check if candidate match type in types.
      * @function
-     * @param {JSX.Element} candidate
+     * @param {object} candidate
      * @return {boolean}
      */
     function checkType(candidate) {
         /**
          * typeMatch - returns true is candidate component match input type.
          * @function
-         * @param {JSX.Element} candidate
+         * @param {object} candidate
          * @param {string} type
          * @return boolean
          */

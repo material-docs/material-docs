@@ -9,11 +9,11 @@ import {useGroups} from "../hooks";
 /**
  * withGroups - react HOC, designed to provide components with groups data.
  * @function
- * @param {node} Component
- * @return node
+ * @param {object} Component
+ * @return object
  */
 export default function withGroups(Component) {
-    const Wrapper = React.forwardRef(function Wrapper(props) {
+    const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const groups = useGroups();
         return (
             <Component {...props} groups={groups}/>

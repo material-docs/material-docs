@@ -25,6 +25,7 @@ import ListItem from "../lib/components/ListItem/ListItem";
 import ListItemContained from "../lib/components/ListItemContained/ListItemContained";
 import Link from "../lib/components/Link/Link";
 import Markdown from "../lib/components/Markdown/Markdown";
+import LocalLocaleTestPage from "./Pages/Test/LocalLocaleTestPage";
 
 
 export default function ExampleDocumentation() {
@@ -82,6 +83,7 @@ export default function ExampleDocumentation() {
                             <Markdown>{`[{"text": "Hello darkness my old friend", "page": "components/docs-pages"}](https://google.com)`}</Markdown>
                         </List>
                     </DocsPage>
+                    <LocalLocaleTestPage/>
                 </PagesGroup>
             </DocsPages>
             <Landing>
