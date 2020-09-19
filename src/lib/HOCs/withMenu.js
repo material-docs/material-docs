@@ -9,11 +9,11 @@ import {useMenu} from "../hooks";
 /**
  * withMenu - react HOC, designed to provide components with search data.
  * @function
- * @param {node} Component
- * @return node
+ * @param {object} Component
+ * @return object
  */
 export default function withMenu(Component) {
-    const Wrapper = React.forwardRef(function Wrapper(props) {
+    const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const menu = useMenu();
         return (
             <Component {...props} menu={menu}/>

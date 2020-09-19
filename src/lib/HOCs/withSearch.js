@@ -9,11 +9,11 @@ import {useSearch} from "../hooks";
 /**
  * withSearch - react HOC, designed to provide components with search data.
  * @function
- * @param {node} Component
- * @return node
+ * @param {object} Component
+ * @return object
  */
 export default function withSearch(Component) {
-    const Wrapper = React.forwardRef(function Wrapper(props) {
+    const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const search = useSearch();
         return (
             <Component {...props} search={search}/>

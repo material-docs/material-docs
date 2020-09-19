@@ -49,7 +49,7 @@ function fixShieldedText(text) {
  * @param {string} input Markdown based text. Will be parsed and interpreted.
  * @param {object} storage Object with additional information. Will be used in components with additional setup.
  * @param {string} key Component key
- * @return JSX.Element
+ * @return object
  * @throws TypeError
  */
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1) {

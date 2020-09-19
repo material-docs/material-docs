@@ -9,11 +9,11 @@ import {useTags} from "../hooks";
 /**
  * withTags - react HOC, designed to provide components with tags information.
  * @function
- * @param {node} Component
- * @return node
+ * @param {object} Component
+ * @return object
  */
 export default function withTags(Component) {
-    const Wrapper = React.forwardRef(function Wrapper(props) {
+    const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const tags = useTags();
         return (
             <Component {...props} tags={tags}/>

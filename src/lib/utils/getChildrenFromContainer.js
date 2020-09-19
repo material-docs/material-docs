@@ -8,11 +8,11 @@ import getContainerByType from "./getContainerByType";
 /**
  * getChildrenFromContainer - function, designed to get children elements from containers with input types.
  * @function
- * @param {JSX.Element} children
+ * @param {object} children
  * @param {string | string[]} types
  * @param {boolean} invert
  * @param {boolean} multiple
- * @return {JSX.Element | JSX.Element[] | null}
+ * @return {object | object[] | null}
  */
 export default function getChildrenFromContainer(children, types, invert = false, multiple = false) {
     const containers = getContainerByType(children, types, invert, multiple);

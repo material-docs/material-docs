@@ -9,11 +9,11 @@ import useNesting from "@danilandreev/material-docs/hooks/useNesting/useNesting"
 /**
  * withNesting - react HOC, designed to provide components with nesting information.
  * @function
- * @param {node} Component
- * @return node
+ * @param {object} Component
+ * @return object
  */
 export default function withNesting(Component) {
-    const Wrapper = React.forwardRef(function Wrapper(props) {
+    const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const nesting = useNesting();
         return (
             <Component {...props} nesting={nesting}/>

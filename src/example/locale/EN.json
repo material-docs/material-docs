@@ -48,6 +48,10 @@
         "propDefault": "Default",
         "propDescription": "Description"
       }
+    },
+    "test": {
+      "hello": "Hello lol",
+      "darkness": "Darkness"
     }
   }
 }

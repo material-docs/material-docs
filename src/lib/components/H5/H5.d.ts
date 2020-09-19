@@ -16,4 +16,4 @@ export const displayName: string;
  * @example
  * <H5>I am h5 header without tag</H5>
  */
-export function H5(props: TagableProps): JSX.Element;
+export default function H5(props: TagableProps): JSX.Element;
