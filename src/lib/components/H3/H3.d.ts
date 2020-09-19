@@ -16,4 +16,4 @@ export const displayName: string;
  * @example
  * <H3>I am h3 header with tag</H3>
  */
-export function H3(props: TagableProps): JSX.Element;
+export default function H3(props: TagableProps): JSX.Element;
