@@ -299,7 +299,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                                     secondary={
                                                         <Link
                                                             style={{color: "inherit"}}
-                                                            onClick={typeof onVersionClick === "function" && onVersionClick}
+                                                            onClick={typeof onVersionClick === "function" ? onVersionClick : undefined}
                                                         >
                                                             {version}
                                                         </Link>

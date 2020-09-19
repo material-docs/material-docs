@@ -14,3 +14,4 @@ export {default as getChildrenFromContainer} from "./getChildrenFromContainer";
 export {default as getTextFromChildren} from "./getTextFromChildren";
 export {default as createChainableTypeChecker} from "./createChainableTypeChecker";
 export {default as goToPage} from "./goToPage";
+export {default as replaceMarkdownParams} from "./replaceMarkdownParams";
