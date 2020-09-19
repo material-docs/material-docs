@@ -15,6 +15,7 @@ export {
     getTextFromChildren,
     createChainableTypeChecker,
     goToPage,
+    replaceMarkdownParams,
 } from "./utils";
 export {
     useGroups,

@@ -12,6 +12,7 @@ import PropTypes from "prop-types";
 import {withStyles} from "@material-ui/styles";
 import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";
 import clsx from "clsx";
+import replaceMarkdownParams from "../../utils/replaceMarkdownParams";
 
 
 export const displayName = "MatDocMarkdown";
@@ -31,7 +32,10 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
 
     React.useEffect(() => {
         try {
-            const child = React.Children.map(children, String).join("");
+            let child = React.Children.map(children, String).join("");
+            console.log("before", child);
+            if (typeof data === "object") child = replaceMarkdownParams(child, data);
+            console.log("after", child);
             setContent(generateMaterialDocsFromMarkdown(child, data));
         } catch (error) {
             setContent(null);

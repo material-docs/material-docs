@@ -66,6 +66,7 @@ export default function ExampleDocumentation() {
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
                         <H1>HelloDarknessmyoldfriend</H1>
                         <H2>Darkness</H2>
+                        <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I am &&age years old!</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
                         asfasf2324
