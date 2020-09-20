@@ -34,6 +34,16 @@ export {
     SwitchPageContext,
 } from "./hooks";
 export {
+    withGroups,
+    withLang,
+    withLocalLang,
+    withMenu,
+    withNesting,
+    withSearch,
+    withSwitchPage,
+    withTags
+} from "./HOCs"
+export {
     TableRow,
     TableHead,
     TableBody,
@@ -70,3 +80,6 @@ export {
     Link,
     DocsLayout,
 } from "./components";
+export {
+    DefaultTheme
+} from "./theme";

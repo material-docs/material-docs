@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import useNesting from "@danilandreev/material-docs/hooks/useNesting/useNesting";
+import {useNesting} from "./../hooks";
 
 /**
  * withNesting - react HOC, designed to provide components with nesting information.

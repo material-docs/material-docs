@@ -26,4 +26,4 @@ export interface HeaderProps
  * @example
  * <Header heading={2}>I am h1 header without tag</Header>
  */
-export function Header(props: HeaderProps): JSX.Element;
+export default function Header(props: HeaderProps): JSX.Element;
