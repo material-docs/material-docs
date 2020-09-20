@@ -23,6 +23,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import {withStyles} from "@material-ui/styles";
 import {TaggingContext} from "../../hooks/useTags";
 import createRouteFromName from "../../utils/createRouteFromName";
+import * as _ from "lodash";
 
 
 export const displayName = "MatDocDocsPage";
@@ -124,8 +125,9 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
 
     const setTag = (key, value) => setTags(last => ({...last, [key]: value}));
     const removeTag = key => setTags(last => {
-        delete last[key];
-        return last;
+        const newTags = _.cloneDeep(last);
+        delete newTags[key];
+        return newTags;
     });
 
     return (

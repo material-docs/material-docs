@@ -8,6 +8,10 @@ import {TagableProps} from "../Tagable/Tagable";
 
 export const displayName: string;
 
+export interface H1Props
+    extends TagableProps {
+}
+
 /**
  * H1 - react component, designed to create h1 header.
  * @param {TagableProps} props
@@ -16,4 +20,4 @@ export const displayName: string;
  * @example
  * <H1>I am h1 header with tag</H1>
  */
-export default function H1(props: TagableProps): JSX.Element;
+export default function H1(props: H1Props): JSX.Element;

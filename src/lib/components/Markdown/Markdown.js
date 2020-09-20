@@ -32,7 +32,9 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
 
     React.useEffect(() => {
         try {
-            let child = React.Children.map(children, String).join("");
+            let child = "";
+            if (children)
+                child = React.Children.map(children, String).join("");
             if (typeof data === "object") child = replaceMarkdownParams(child, data);
             setContent(generateMaterialDocsFromMarkdown(child, data));
         } catch (error) {

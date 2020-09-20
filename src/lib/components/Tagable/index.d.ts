@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default, displayName} from "./Tagable";
+export {default, displayName, TagableProps} from "./Tagable";

@@ -26,9 +26,11 @@ import ListItemContained from "../lib/components/ListItemContained/ListItemConta
 import Link from "../lib/components/Link/Link";
 import Markdown from "../lib/components/Markdown/Markdown";
 import LocalLocaleTestPage from "./Pages/Test/LocalLocaleTestPage";
+import Button from "@material-ui/core/Button";
 
 
 export default function ExampleDocumentation() {
+    const [text, setText] = React.useState("");
     return (
         <DocsLayout
             autoMenu
@@ -66,7 +68,10 @@ export default function ExampleDocumentation() {
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
                         <H1>HelloDarknessmyoldfriend</H1>
-                        <H2>Darkness</H2>
+                        <H2>{text}</H2>
+                        {text}
+                        <Button onClick={() => setText(prev => prev ? "" : "Hello darkness")}>Set value</Button>
+                        <Markdown></Markdown>
                         <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I am &&age years old!</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>

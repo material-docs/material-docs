@@ -44,29 +44,34 @@ const Tagable = React.forwardRef(function Tagable(props, ref) {
         h6: classes.h6
     }
     const commonClasses = useCommonStyles();
-    const {setTag, removeTag} = useTags();
+    const {setTag, removeTag, tags} = useTags();
     const [topOffset, setTopOffset] = React.useState(0);
-    const id = React.useRef(props.id || createRouteFromName(getTextFromChildren(children, 6)));
+    const id = React.useRef(other.id || createRouteFromName(getTextFromChildren(children, 6)));
+    const prevId = React.useRef(id.current);
     const aref = React.useRef(null);
 
     React.useEffect(() => {
-        !noTag && setTag(id.current, {label: children, ref: aref, topOffset});
+        prevId.current = id.current;
+        id.current = other.id || createRouteFromName(getTextFromChildren(children, 6));
+        if (!noTag && id.current) setTag(id.current, {label: children, ref: aref, topOffset});
+        if (!noTag && !id.current) prevId.current && removeTag(prevId.current);
         return () => {
             if (!noTag) {
-                removeTag(id.current);
+                id.current && removeTag(id.current);
             }
         };
-    }, [children, aref, topOffset]);
+    }, [aref.current, topOffset, id.current, children]);
 
     React.useEffect(() => {
         const {top} = getElementOffsetSum(aref.current);
         setTopOffset(top);
-    }, [aref]);
+    }, [aref.current]);
+
+    if (!id.current) return null;
 
     return (
         <div
             className={clsx(commonClasses.pageBlock, classes.root, className)}
-
             style={style}
             ref={ref}
         >
