@@ -5,49 +5,6 @@
 
 import * as _ from "lodash";
 
-/**
- * mergeLangs - merges Langs. First param has higher priority than second. Used in Material Docs extensions.
- * @function
- * @param {Lang} general Parent locale, have higher priority than
- * @param {Lang} additional
- * @return {Lang}
- * @example
- * const parentLang = {
- *     name: "en-us"
- *     label: "English"
- *     locale: {
- *         words: {
- *             hello: "Hello",
- *             darkness: "Darkness"
- *         }
- *     }
- * };
- *
- * const localLang = {
- *     name: "en-us"
- *     label: "English"
- *     locale: {
- *         words: {
- *             hello: "Hi",
- *             my: "My"
- *         }
- *     }
- * };
- *
- * const resultLang = mergeLocales(parentLang, localLang);
- * // Result lang
- * // {
- * //     name: "en-us"
- * //     label: "English"
- * //     locale: {
- * //         words: {
- * //             hello: "Hello",
- * //             darkness: "Darkness"
- * //             my: "My"
- * //         }
- * //     }
- * // }
- */
 export default function mergeLangs(general, additional) {
     if (typeof general !== "object")
         throw new TypeError(`MaterialDocs: incorrect type of "general" locale, expected "Lang", got "${typeof general}"`);

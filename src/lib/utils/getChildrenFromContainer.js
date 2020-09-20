@@ -5,15 +5,6 @@
 
 import getContainerByType from "./getContainerByType";
 
-/**
- * getChildrenFromContainer - function, designed to get children elements from containers with input types.
- * @function
- * @param {object} children
- * @param {string | string[]} types
- * @param {boolean} invert
- * @param {boolean} multiple
- * @return {object | object[] | null}
- */
 export default function getChildrenFromContainer(children, types, invert = false, multiple = false) {
     const containers = getContainerByType(children, types, invert, multiple);
     if (Array.isArray(containers)) {

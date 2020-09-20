@@ -6,12 +6,6 @@
 import React from "react";
 import {useMenu} from "../hooks";
 
-/**
- * withMenu - react HOC, designed to provide components with search data.
- * @function
- * @param {object} Component
- * @return object
- */
 export default function withMenu(Component) {
     const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const menu = useMenu();
@@ -19,6 +13,6 @@ export default function withMenu(Component) {
             <Component {...props} menu={menu}/>
         );
     });
-    Wrapper.displayName = "MatDoc-withMenu";
+    Wrapper.displayName = Component.displayName;
     return Wrapper;
 }

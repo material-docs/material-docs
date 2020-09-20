@@ -6,13 +6,6 @@
 
 const ANONYMOUS = "";
 
-/**
- * createChainableTypeChecker - function, designed to create chainable PropTypes validators.
- * @function
- * @param {function} validate
- * @return {object}
- * @throws Error
- */
 export default function createChainableTypeChecker(validate) {
     function checkType(isRequired, props, propName, componentName, location) {
         componentName = componentName || ANONYMOUS;

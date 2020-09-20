@@ -6,12 +6,6 @@
 import React from "react";
 import {useNesting} from "./../hooks";
 
-/**
- * withNesting - react HOC, designed to provide components with nesting information.
- * @function
- * @param {object} Component
- * @return object
- */
 export default function withNesting(Component) {
     const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const nesting = useNesting();
@@ -19,6 +13,6 @@ export default function withNesting(Component) {
             <Component {...props} nesting={nesting}/>
         );
     });
-    Wrapper.displayName = "MatDoc-withNesting";
+    Wrapper.displayName = Component.displayName;
     return Wrapper;
 }

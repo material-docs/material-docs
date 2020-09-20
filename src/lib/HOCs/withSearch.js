@@ -6,12 +6,6 @@
 import React from "react";
 import {useSearch} from "../hooks";
 
-/**
- * withSearch - react HOC, designed to provide components with search data.
- * @function
- * @param {object} Component
- * @return object
- */
 export default function withSearch(Component) {
     const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const search = useSearch();
@@ -19,6 +13,6 @@ export default function withSearch(Component) {
             <Component {...props} search={search}/>
         );
     });
-    Wrapper.displayName = "MatDoc-withSearch";
+    Wrapper.displayName = Component.displayName;
     return Wrapper;
 }

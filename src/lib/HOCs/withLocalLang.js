@@ -6,12 +6,6 @@
 import React from "react";
 import LangProvider from "../components/LangProvider";
 
-/**
- * withLocalLang - react HOC, designed to provide element with local lang.
- * @function
- * @param {{locale: object}} lang local Lang object for merging.
- * @return function
- */
 export default function withLocalLang(lang) {
     /**
      * wrapper - wraps component in Wrapper.
@@ -27,7 +21,7 @@ export default function withLocalLang(lang) {
                 </LangProvider>
             );
         });
-        Wrapper.displayName = "MatDoc-withMenu";
+        Wrapper.displayName = Component.displayName;
 
         return Wrapper;
     }

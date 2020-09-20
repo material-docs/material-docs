@@ -5,18 +5,6 @@
 
 import React from "react";
 
-/**
- * replaceMarkdownParams - function, designed to replace variables with "&&varialbe" signature with values from storage.
- * Markdown variable has structure "&&keyInStorage"
- * @function
- * @param {string} markdown Markdown based text to parse.
- * @param {object} storage Storage object to get variables values.
- * @return {string}
- * @example
- * const storage = {name: "Danil Andreev"};
- * const text = "My name is __&&name__, I am glad to see _you_";
- * const replaced = replaceMarkdownParams(text, storage);
- */
 export default function replaceMarkdownParams(markdown, storage = {}) {
     /**
      * replaceNextParam - replaces next found variable with value from storage.
