@@ -71,6 +71,7 @@ export default function ExampleDocumentation() {
                         <H2>{text}</H2>
                         {text}
                         <Button onClick={() => setText(prev => prev ? "" : "Hello darkness")}>Set value</Button>
+                        <Markdown></Markdown>
                         <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I am &&age years old!</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
