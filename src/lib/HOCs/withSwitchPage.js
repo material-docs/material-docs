@@ -6,12 +6,6 @@
 import React from "react";
 import {useSwitchPage} from "../hooks";
 
-/**
- * withSwitchPage - react HOC, designed to provide components pages switch mechanism.
- * @function
- * @param {object} Component
- * @return object
- */
 export default function withSwitchPage(Component) {
     const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const switchPage = useSwitchPage();
@@ -19,6 +13,6 @@ export default function withSwitchPage(Component) {
             <Component {...props} search={switchPage}/>
         );
     });
-    Wrapper.displayName = "MatDoc-withSwitchPage";
+    Wrapper.displayName = Component.displayName;
     return Wrapper;
 }

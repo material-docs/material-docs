@@ -6,12 +6,6 @@
 import React from "react";
 import {useGroups} from "../hooks";
 
-/**
- * withGroups - react HOC, designed to provide components with groups data.
- * @function
- * @param {object} Component
- * @return object
- */
 export default function withGroups(Component) {
     const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const groups = useGroups();
@@ -19,6 +13,6 @@ export default function withGroups(Component) {
             <Component {...props} groups={groups}/>
         );
     });
-    Wrapper.displayName = "MatDoc-withGroups";
+    Wrapper.displayName = Component.displayName;
     return Wrapper;
 }

@@ -6,12 +6,6 @@
 import React from "react";
 import {useLang} from "../hooks";
 
-/**
- * withLang - react HOC, designed to provide components with language data.
- * @function
- * @param {object} Component
- * @return object
- */
 export default function withLang(Component) {
     const Wrapper = React.forwardRef(function Wrapper(props, ref) {
         const lang = useLang();
@@ -19,6 +13,6 @@ export default function withLang(Component) {
             <Component {...props} lang={lang}/>
         );
     });
-    Wrapper.displayName = "MatDoc-withLang";
+    Wrapper.displayName = Component.displayName;
     return Wrapper;
 }

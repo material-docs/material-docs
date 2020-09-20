@@ -3,14 +3,6 @@
  * Copyright (C) 2020.
  */
 
-/**
- * copyToClipboard - function copies str value to client clipboard.
- * @function
- * @async
- * @param {any} str
- * @example
- * copyToClipboard("My string value is copied to user clipboard!");
- */
 export default async function copyToClipboard(str) {
     const el = document.createElement('textarea');
     el.value = str;

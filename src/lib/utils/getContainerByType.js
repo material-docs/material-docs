@@ -5,15 +5,6 @@
 
 import React from "react";
 
-/**
- * getContainerByType - function designed to get containers from components list by types.
- * @function
- * @param {JSX.Element} children
- * @param {string | string[]} types
- * @param {boolean} invert
- * @param {boolean} multiple
- * @return {object | object[] | null}
- */
 export default function getContainerByType(children, types, invert, multiple = false) {
     /**
      * checkType - function, designed to check if candidate match type in types.
