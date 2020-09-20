@@ -20,10 +20,20 @@ const AutoDocsMenu = React.forwardRef(function AutoDocsMenu(props, ref) {
     const {
         layoutData,
     } = props;
-
     const {getRouteParams} = useChangeRoute();
     const {page} = getRouteParams();
-    const pagePath = typeof page === "string" && page.split("/") || [];
+    const [pagePath, setPagePath] = React.useState(typeof page === "string" && page.split("/") || []);
+    const [menu, setMenu] = React.useState(null);
+
+    React.useEffect(() => {
+        if (layoutData && layoutData.pages && layoutData.groups)
+            setMenu(recursiveGenerateMenu(layoutData, pagePath));
+    }, [layoutData, pagePath]);
+
+    React.useEffect(() => {
+        const path = typeof page === "string" && page.split("/") || [];
+        setPagePath(path);
+    }, [page]);
 
     if (layoutData && typeof layoutData !== "object")
         throw new ReferenceError(`MaterialDocs: incorrect type of prop layoutData, expected object, got ${typeof layoutData}`);
@@ -61,7 +71,7 @@ const AutoDocsMenu = React.forwardRef(function AutoDocsMenu(props, ref) {
 
     if (!layoutData || !layoutData.pages || !layoutData.groups) return null;
 
-    return recursiveGenerateMenu(layoutData, pagePath);
+    return menu;
 });
 
 AutoDocsMenu.displayName = displayName;

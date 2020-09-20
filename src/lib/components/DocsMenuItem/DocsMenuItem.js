@@ -53,6 +53,10 @@ const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, r
     const nesting = other.nesting || context_nesting;
     const {closeMenu} = useMenu();
 
+    React.useEffect(() => {
+        defaultExpanded && setExpanded(defaultExpanded);
+    }, [defaultExpanded]);
+
     let highlight = false;
     if (typeof isCurrent === "boolean") {
         highlight = isCurrent;
