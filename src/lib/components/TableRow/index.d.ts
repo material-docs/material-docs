@@ -3,4 +3,4 @@
  * Copyright (C) 2020.
  */
 
-export {default, displayName, TagableProps} from "./Tagable";
+export {TableRow as default, TableRowProps} from "@material-ui/core";

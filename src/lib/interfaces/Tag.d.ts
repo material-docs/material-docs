@@ -11,9 +11,9 @@ export default interface Tag {
     ref: any;
     /**
      * label - label, will be displayed in navigation list.
-     * @type string | any[]
+     * @type any
      */
-    label: string | any[];
+    label: any;
     /**
      * topOffset - offset from the top of page. needs to calculate tags order in navigation list.
      * @type number

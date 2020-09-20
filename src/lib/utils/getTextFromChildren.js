@@ -14,10 +14,12 @@ import React from "react";
  */
 export default function getTextFromChildren(children, depth = 1) {
     if (depth < 1) return "";
-    const text = React.Children.map(children, child => {
+    if (!children) return "";
+    let text = React.Children.map(children, child => {
         if (React.isValidElement(child)) return getTextFromChildren(child.props.children, depth - 1);
         if (typeof child === "string") return child;
         return "";
-    }).join(" ").trim();
+    });
+    text = text.join(" ").trim();
     return text || "";
 }
