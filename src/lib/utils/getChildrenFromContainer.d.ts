@@ -15,6 +15,6 @@
 export default function getChildrenFromContainer(
     children: any,
     types: string | string[],
-    invert: boolean,
-    multiple: boolean
+    invert?: boolean,
+    multiple?: boolean
 ): object | object[] | null;

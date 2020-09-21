@@ -44,7 +44,7 @@ const Link = React.forwardRef(function Link(props, ref) {
 Link.displayName = displayName;
 
 Link.propTypes = {
-    page: PropTypes.string,
+    page: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
     href: PropTypes.string,
     children: PropTypes.node,
 }

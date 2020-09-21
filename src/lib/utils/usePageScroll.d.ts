@@ -3,11 +3,24 @@
  * Copyright (C) 2020.
  */
 
+export interface PageScrollData {
+    /**
+     * scrollY - vertical scroll
+     * @type number
+     */
+    scrollY: number;
+    /**
+     * scrollX - horizontal scroll
+     * @type number
+     */
+    scrollX: number;
+}
+
 /**
  * usePageScroll - React hook, used to get page scroll position.
  * @function
- * @returns {{scrollY: number, scrollX: number}}
+ * @returns {PageScrollData}
  * @example
  * const {scrollY, scrollX} = usePageScroll();
  */
-export default function usePageScroll(): {scrollY: number, scrollX: number};
+export default function usePageScroll(): PageScrollData;

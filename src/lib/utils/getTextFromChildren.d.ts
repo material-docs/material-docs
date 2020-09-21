@@ -10,4 +10,4 @@
  * @param {number} depth Step into depth for analyzer.
  * @return {string}
  */
-export default function getTextFromChildren(children: any, depth: number): string;
+export default function getTextFromChildren(children: any, depth?: number): string;

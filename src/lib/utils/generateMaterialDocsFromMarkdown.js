@@ -43,9 +43,19 @@ function fixShieldedText(text) {
         .replace(/&gt;/g, ">");
 }
 
-export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1) {
+export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1, options) {
     if (!(typeof input === "string" || typeof input === "object"))
-        throw new TypeError(`MaterialDocs: incorrect type of input param, expected "object | string", got "${typeof input}"`);
+        throw new TypeError(`MaterialDocs: incorrect type of "input" param, expected "object | string", got "${typeof input}"`);
+    if (typeof storage !== "object")
+        throw new TypeError(`MaterialDocs: incorrect type of "storage" param, expected "object | string", got "${typeof storage}"`);
+    if (typeof key === "object" && !options) {
+        options = key;
+        key = 1;
+    }
+    if (options && typeof options !== "object")
+        throw new TypeError(`MaterialDocs: incorrect type of "options" param, expected "object", got "${typeof options}"`);
+    if (!options) options = {};
+
     let tokens = input;
     if (typeof input === "string") {
         tokens = marked.lexer(input);
@@ -66,7 +76,10 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                             <span key={`text-token-${tokenId}`}>{fixShieldedText(token.text)}</span>;
                     case "paragraph":
                         return (
-                            <Typography key={`paragraph-token-${tokenId}`}>
+                            <Typography
+                                key={`paragraph-token-${tokenId}`}
+                                variant={options.typographyInheritSize ? "inherit" : "body1"}
+                            >
                                 {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Typography>
                         );

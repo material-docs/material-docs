@@ -26,6 +26,11 @@ export interface MarkdownProps
      */
     data?: object;
     /**
+     * typographyInheritSize - paragraph Typography component will inherit font settings.
+     * @type boolean
+     */
+    typographyInheritSize?: boolean;
+    /**
      * children - children of an element. Should contain markdown text.
      * @type string | any
      */

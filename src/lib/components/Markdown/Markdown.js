@@ -25,10 +25,11 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
         inline = false,
         data = {},
         classes,
+        typographyInheritSize,
         ...other
     } = props;
     const commonClasses = useCommonStyles();
-    const [content, setContent] = React.useState([]);
+    const [content, setContent] = React.useState(null);
 
     React.useEffect(() => {
         try {
@@ -36,7 +37,7 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
             if (children)
                 child = React.Children.map(children, String).join("");
             if (typeof data === "object") child = replaceMarkdownParams(child, data);
-            setContent(generateMaterialDocsFromMarkdown(child, data));
+            setContent(generateMaterialDocsFromMarkdown(child, data, {typographyInheritSize}));
         } catch (error) {
             setContent(null);
             console.error(error);
