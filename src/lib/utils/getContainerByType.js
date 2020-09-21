@@ -39,6 +39,7 @@ export default function getContainerByType(children, types, invert, multiple = f
     }
 
     const candidates = React.Children.map(children, candidate => React.isValidElement(candidate) && checkType(candidate) ? candidate : undefined);
+    if (!Array.isArray(candidates)) return null;
     if (!multiple && candidates.length > 1) console.error(`DocsLayout: Component can contain only one child with type ${types}`);
     let result = null;
     if ((candidates.length === 1) || (candidates.length > 1 && !multiple)) {
