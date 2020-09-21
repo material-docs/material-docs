@@ -54,13 +54,13 @@ import {displayName as DocsMenuDisplayName} from "../DocsMenu";
 import goToPage from "../../utils/goToPage";
 import {SwitchPageContext} from "../../hooks/useSwitchPage/useSwitchPage";
 import withLangSetup from "./withLangSetup";
+import withSearchSetup from "./withSearchSetup";
 
 export const displayName = "MatDocDocsLayout";
 
 const DocsLayoutF = React.forwardRef((props, ref) => {
     const {
         children,
-        noGenerateAutoSearch = false,
         width,
         noSearchField = false,
         noLanguageSelector = false,
@@ -74,13 +74,13 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         classes,
         onNameClick,
         onVersionClick,
+        getSearchData,
         ...other
     } = props;
     const theme = useTheme();
     const {getRouteParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: null, landing: []});
-    const [searchData, setSearchData] = React.useState(other.searchData ? new Set(other.searchData) : new Set());
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const {page: routePage} = getRouteParams();
     const history = useHistory();
@@ -100,20 +100,6 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         window.scrollTo(0, 0);
     }, [routePage]);
 
-
-    const addSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
-        const newData = new Set(prev);
-        newData.add(item);
-        return newData;
-    });
-
-    const removeSearchItem = item => !noGenerateAutoSearch && setSearchData(prev => {
-        const newData = new Set(prev);
-        newData.delete(item);
-        return newData;
-    });
-
-    const getSearchData = () => [...searchData];
 
     const getMenuFromChildren = () => {
         const menu = getContainerByType(children, DocsMenuDisplayName);
@@ -150,136 +136,134 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     }
 
     return (
-        <SearchContext.Provider value={{addSearchItem, removeSearchItem, getSearchData}}>
-            <SwitchPageContext.Provider value={{switchPage, currentPage: null}}>
-                <HelmetProvider>
-                    <Helmet>
-                        <title>{name || "MaterialDocs"}</title>
-                        {typeof description === "string" && <meta name="description" content={description}/>}
-                        {typeof author === "string" && <meta name="author" content={author}/>}
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                        {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
-                    </Helmet>
-                    <Switch>
-                        {content.landing &&
-                        <Route path={"/"} exact>
-                            <Box>
-                                {content.landing}
-                            </Box>
-                        </Route>
-                        }
-                        <Route path={"/"}>
-                            <MenuContext.Provider
-                                value={{
-                                    openMenu: handleDrawerOpen,
-                                    closeMenu: handleDrawerClose,
-                                    menuOpened: open,
-                                }}
-                            >
-                                <div className={classes.root} ref={ref}>
-                                    <CssBaseline/>
-                                    <AppBar
-                                        position="fixed"
-                                        className={clsx(classes.appBar, !isWidthDown("md", width) && {
-                                            [classes.appBarShift]: open,
-                                        })}
-                                    >
-                                        <Toolbar className={classes.toolbar}>
-                                            <IconButton
-                                                color="inherit"
-                                                aria-label="open drawer"
-                                                onClick={handleDrawerOpen}
-                                                edge="start"
-                                                className={clsx(classes.menuButton, open && classes.hide)}
-                                            >
-                                                <MenuIcon/>
-                                            </IconButton>
-                                            <Typography variant="h6" noWrap className={classes.headerText}>
-                                                {name || "Material Docs"}
-                                            </Typography>
-                                            {!noSearchField && isWidthUp("md", width) &&
-                                            <SearchField searchData={getSearchData()}/>
-                                            }
-                                            {!noLanguageSelector &&
-                                            <LanguageSelector
-                                                size={isWidthDown("xs", width) ? "small" : "large"}
-                                            />
-                                            }
-                                            {Array.isArray(actions) && actions.map((action, index) =>
-                                                generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
-                                            )
+        <SwitchPageContext.Provider value={{switchPage, currentPage: null}}>
+            <HelmetProvider>
+                <Helmet>
+                    <title>{name || "MaterialDocs"}</title>
+                    {typeof description === "string" && <meta name="description" content={description}/>}
+                    {typeof author === "string" && <meta name="author" content={author}/>}
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
+                </Helmet>
+                <Switch>
+                    {content.landing &&
+                    <Route path={"/"} exact>
+                        <Box>
+                            {content.landing}
+                        </Box>
+                    </Route>
+                    }
+                    <Route path={"/"}>
+                        <MenuContext.Provider
+                            value={{
+                                openMenu: handleDrawerOpen,
+                                closeMenu: handleDrawerClose,
+                                menuOpened: open,
+                            }}
+                        >
+                            <div className={classes.root} ref={ref}>
+                                <CssBaseline/>
+                                <AppBar
+                                    position="fixed"
+                                    className={clsx(classes.appBar, !isWidthDown("md", width) && {
+                                        [classes.appBarShift]: open,
+                                    })}
+                                >
+                                    <Toolbar className={classes.toolbar}>
+                                        <IconButton
+                                            color="inherit"
+                                            aria-label="open drawer"
+                                            onClick={handleDrawerOpen}
+                                            edge="start"
+                                            className={clsx(classes.menuButton, open && classes.hide)}
+                                        >
+                                            <MenuIcon/>
+                                        </IconButton>
+                                        <Typography variant="h6" noWrap className={classes.headerText}>
+                                            {name || "Material Docs"}
+                                        </Typography>
+                                        {!noSearchField && isWidthUp("md", width) &&
+                                        <SearchField searchData={getSearchData()}/>
+                                        }
+                                        {!noLanguageSelector &&
+                                        <LanguageSelector
+                                            size={isWidthDown("xs", width) ? "small" : "large"}
+                                        />
+                                        }
+                                        {Array.isArray(actions) && actions.map((action, index) =>
+                                            generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
+                                        )
 
-                                            }
-                                        </Toolbar>
-                                    </AppBar>
-                                    <Drawer
-                                        className={classes.drawer}
-                                        variant={isWidthUp("md", width) ? "persistent" : "temporary"}
-                                        anchor="left"
-                                        open={open}
-                                        classes={{
-                                            paper: classes.drawerPaper,
-                                        }}
-                                        onClose={event => setOpen(false)}
-                                    >
-                                        <div className={classes.drawerHeader}>
-                                            {logo &&
-                                            <ListItemAvatar>
-                                                <Avatar
-                                                    src={logo}
-                                                    variant={"rounded"}
-                                                    onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleVersionClick}
-                                                />
-                                            </ListItemAvatar>
-                                            }
-                                            <ListItemText
-                                                primary={
-                                                    <Link
-                                                        style={{color: "inherit"}}
-                                                        onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleVersionClick}
-                                                    >
-                                                        {name}
-                                                    </Link>
-                                                }
-                                                secondary={
-                                                    <Link
-                                                        style={{color: "inherit"}}
-                                                        onClick={typeof onVersionClick === "function" ? onVersionClick : undefined}
-                                                    >
-                                                        {version}
-                                                    </Link>
-                                                }
-                                                primaryTypographyProps={{variant: "h6", noWrap: true}}
-                                                secondaryTypographyProps={{noWrap: true}}
-                                                className={classes.version}
+                                        }
+                                    </Toolbar>
+                                </AppBar>
+                                <Drawer
+                                    className={classes.drawer}
+                                    variant={isWidthUp("md", width) ? "persistent" : "temporary"}
+                                    anchor="left"
+                                    open={open}
+                                    classes={{
+                                        paper: classes.drawerPaper,
+                                    }}
+                                    onClose={event => setOpen(false)}
+                                >
+                                    <div className={classes.drawerHeader}>
+                                        {logo &&
+                                        <ListItemAvatar>
+                                            <Avatar
+                                                src={logo}
+                                                variant={"rounded"}
+                                                onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleVersionClick}
                                             />
-                                            <IconButton onClick={handleDrawerClose}>
-                                                {theme.direction === 'ltr' ? <ChevronLeftIcon/> :
-                                                    <ChevronRightIcon/>}
-                                            </IconButton>
-                                        </div>
-                                        <Divider/>
-                                        {content.menu}
-                                    </Drawer>
-                                    <main
-                                        className={clsx(classes.content, {
-                                            [classes.contentShift]: isWidthUp("md", width) ? open : true,
-                                        })}
-                                    >
-                                        <div className={classes.drawerHeader}/>
-                                        <PagesGroup name={"root"} getData={(group) => {
-                                            setAutoMenuData(group)
-                                        }}>
-                                            {content.pages}
-                                        </PagesGroup>
-                                    </main>
-                                </div>
-                            </MenuContext.Provider>
-                        </Route>
-                    </Switch>
-                </HelmetProvider>
-            </SwitchPageContext.Provider>
-        </SearchContext.Provider>
+                                        </ListItemAvatar>
+                                        }
+                                        <ListItemText
+                                            primary={
+                                                <Link
+                                                    style={{color: "inherit"}}
+                                                    onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleVersionClick}
+                                                >
+                                                    {name}
+                                                </Link>
+                                            }
+                                            secondary={
+                                                <Link
+                                                    style={{color: "inherit"}}
+                                                    onClick={typeof onVersionClick === "function" ? onVersionClick : undefined}
+                                                >
+                                                    {version}
+                                                </Link>
+                                            }
+                                            primaryTypographyProps={{variant: "h6", noWrap: true}}
+                                            secondaryTypographyProps={{noWrap: true}}
+                                            className={classes.version}
+                                        />
+                                        <IconButton onClick={handleDrawerClose}>
+                                            {theme.direction === 'ltr' ? <ChevronLeftIcon/> :
+                                                <ChevronRightIcon/>}
+                                        </IconButton>
+                                    </div>
+                                    <Divider/>
+                                    {content.menu}
+                                </Drawer>
+                                <main
+                                    className={clsx(classes.content, {
+                                        [classes.contentShift]: isWidthUp("md", width) ? open : true,
+                                    })}
+                                >
+                                    <div className={classes.drawerHeader}/>
+                                    <PagesGroup name={"root"} getData={(group) => {
+                                        setAutoMenuData(group)
+                                    }}>
+                                        {content.pages}
+                                    </PagesGroup>
+                                </main>
+                            </div>
+                        </MenuContext.Provider>
+                    </Route>
+                </Switch>
+            </HelmetProvider>
+        </SwitchPageContext.Provider>
     );
 });
 
@@ -305,7 +289,7 @@ DocsLayoutF.propTypes = {
     onVersionClick: PropTypes.func,
 }
 
-const DocsLayout = withLangSetup(withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF)));
+const DocsLayout = withSearchSetup(withLangSetup(withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF))));
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'MaterialDocs',
