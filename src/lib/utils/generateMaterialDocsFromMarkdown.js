@@ -72,7 +72,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                         );
                     case "text":
                         return token.tokens ?
-                            generateMaterialDocsFromMarkdown(token.tokens, tokenId + key) :
+                            generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key) :
                             <span key={`text-token-${tokenId}`}>{fixShieldedText(token.text)}</span>;
                     case "paragraph":
                         return (
