@@ -194,7 +194,8 @@ const DefaultTheme = createMuiTheme({
             }
         },
         [PagesGroupDn]: {
-            defaultProps: {}
+            defaultProps: {},
+            defaultExpanded :false,
         },
         [SearchFieldDn]: {
             defaultProps: {

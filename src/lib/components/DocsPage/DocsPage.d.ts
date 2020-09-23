@@ -44,6 +44,11 @@ export interface DocsPageProps
      * @default false
      */
     noAutoMenu?: boolean;
+    /**
+     * order - as lower order as higher will be displayed menu item.
+     * @type number
+     */
+    order?: number;
 }
 
 /**

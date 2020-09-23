@@ -50,13 +50,13 @@ export default function ExampleDocumentation() {
                 <AutoDocsMenu/>
             </DocsMenu>
             <DocsPages>
-                <PagesGroup name={"Getting started"}>
+                <PagesGroup name={"Getting started"} order={9}>
 
                 </PagesGroup>
-                <PagesGroup name={"Components"}>
+                <PagesGroup name={"Components"} order={100}>
                     <DocsPageDemo/>
                 </PagesGroup>
-                <PagesGroup name={"APIs"}>
+                <PagesGroup name={"APIs"} defaultExpanded>
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
                     <DocsPage name={"TestPage1"} searchDescription={"sdfsfsd"}>
@@ -67,7 +67,7 @@ export default function ExampleDocumentation() {
                         <H5>Darkness</H5>
                         <H6>Darkness</H6>
                     </DocsPage>
-                    <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
+                    <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"} order={10}>
                         <H1>HelloDarknessmyoldfriend</H1>
                         <H2>{text}</H2>
                         {text}
@@ -76,7 +76,7 @@ export default function ExampleDocumentation() {
                         <Locale path={"pages/DocsPageAPI/pageSearchDescription"}>__This text must not be shown 2!__</Locale>
                         <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I am &&age years old!</Markdown>
                     </DocsPage>
-                    <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
+                    <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"} order={11}>
                         asfasf2324
                         <Block>asdfasfas</Block>
                         <List>

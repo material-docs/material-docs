@@ -15,4 +15,16 @@ export default interface PageData {
      * @see https://github.com/DanilAndreev/routing-manager/wiki/changeRoute
      */
     link: string | object;
+    /**
+     * path - path to the page.
+     * @type string[]
+     * @example
+     * ["containers", "pages", "page1"]
+     */
+    path: string[];
+    /**
+     * order - as lower order as higher will be displayed menu item.
+     * @type number
+     */
+    order?: number;
 }

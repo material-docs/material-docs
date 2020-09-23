@@ -23,6 +23,16 @@ export interface PagesGroupProps
      * @return void
      */
     getData?(data: PagesGroupData): void;
+    /**
+     * defaultExpanded - if true, menu group will be expanded on startup.
+     * @type boolean
+     */
+    defaultExpanded?: boolean;
+    /**
+     * order - as lower order as higher will be displayed menu item.
+     * @type number
+     */
+    order?: number;
 }
 
 /**

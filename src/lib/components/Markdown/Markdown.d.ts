@@ -36,7 +36,7 @@ export interface MarkdownProps
      * @example
      * locale={"myComponent/field1/name"}
      */
-    locale: string;
+    locale?: string;
     /**
      * children - children of an element. Should contain markdown text.
      * @type string | any

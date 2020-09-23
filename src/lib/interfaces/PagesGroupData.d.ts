@@ -21,4 +21,21 @@ export default interface PagesGroupData {
      * @type PagesGroupData[]
      */
     groups: PagesGroupData[];
+    /**
+     * path - path to the group.
+     * @type string[]
+     * @example
+     * ["containers", "pages", "page1"]
+     */
+    path: string[];
+    /**
+     * order - as lower order as higher will be displayed menu item.
+     * @type number
+     */
+    order?: number;
+    /**
+     * defaultExpanded - if true, menu item will be expanded on startup.
+     * @type boolean
+     */
+    defaultExpanded?: boolean;
 }
