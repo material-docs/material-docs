@@ -172,6 +172,7 @@ DocsPage.propTypes = {
     searchDescription: PropTypes.string,
     noGenerateAutoSearch: PropTypes.bool,
     noAutoMenu: PropTypes.bool,
+    order: PropTypes.number,
     // Stylable
     style: PropTypes.object,
     className: PropTypes.string,

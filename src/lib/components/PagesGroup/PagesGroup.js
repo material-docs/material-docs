@@ -120,6 +120,8 @@ PagesGroup.propTypes = {
     // PagesGroupProps
     name: PropTypes.string,
     getData: PropTypes.func,
+    order: PropTypes.number,
+    defaultExpanded: PropTypes.bool,
     // Containerable
     children: PropTypes.node,
 }

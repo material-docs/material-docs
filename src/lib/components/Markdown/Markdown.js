@@ -73,6 +73,7 @@ Markdown.propTypes = {
     // MarkdownProps
     inline: PropTypes.bool,
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+    locale: PropTypes.string,
     // Stylable
     style: PropTypes.object,
     className: PropTypes.string,
