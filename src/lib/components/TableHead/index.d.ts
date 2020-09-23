@@ -3,4 +3,6 @@
  * Copyright (C) 2020.
  */
 
-export {TableHead as default, TableHeadProps} from "@material-ui/core";
+export {TableHeadProps} from "@material-ui/core";
+import {TableHeadProps} from "@material-ui/core";
+export default function TableHead(props: TableHeadProps): JSX.Element;

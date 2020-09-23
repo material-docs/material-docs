@@ -3,4 +3,6 @@
  * Copyright (C) 2020.
  */
 
-export {TableBody as default, TableBodyProps} from "@material-ui/core";
+export {TableBodyProps} from "@material-ui/core";
+import {TableBodyProps} from "@material-ui/core";
+export default function TableBody(props: TableBodyProps): JSX.Element;

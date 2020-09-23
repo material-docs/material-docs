@@ -8,7 +8,6 @@
     <node-interpreter value="project" />
     <envs />
     <method v="2">
-      <option name="LaunchBrowser.Before.Run" url="localhost:3000" />
       <option name="NpmBeforeRunTask" enabled="true">
         <package-json value="$PROJECT_DIR$/package.json" />
         <command value="install" />
