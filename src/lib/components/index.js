@@ -39,3 +39,4 @@ export {default as ListItemContained} from "./ListItemContained";
 export {default as Link} from "./Link";
 export {default as DocsLayout} from "./DocsLayout";
 export {default as LangProvider} from "./LangProvider";
+export {default as Locale} from "./Locale";

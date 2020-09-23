@@ -27,6 +27,7 @@ import Link from "../lib/components/Link/Link";
 import Markdown from "../lib/components/Markdown/Markdown";
 import LocalLocaleTestPage from "./Pages/Test/LocalLocaleTestPage";
 import Button from "@material-ui/core/Button";
+import Locale from "../lib/components/Locale";
 
 
 export default function ExampleDocumentation() {
@@ -71,7 +72,8 @@ export default function ExampleDocumentation() {
                         <H2>{text}</H2>
                         {text}
                         <Button onClick={() => setText(prev => prev ? "" : "Hello darkness")}>Set value</Button>
-                        <Markdown></Markdown>
+                        <Markdown locale={"pages/DocsPageAPI/pageAbout"}>__This text must not be shown!__</Markdown>
+                        <Locale path={"pages/DocsPageAPI/pageSearchDescription"}>__This text must not be shown 2!__</Locale>
                         <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I am &&age years old!</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>

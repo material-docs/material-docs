@@ -39,3 +39,4 @@ export {default as ListItemContained, ListItemContainedProps} from "./ListItemCo
 export {default as Link, LinkProps} from "./Link";
 export {default as DocsLayout, DocsLayoutProps} from "./DocsLayout";
 export {default as LangProvider, LangProviderProps} from "./LangProvider";
+export {default as Locale, LocaleProps} from "./Locale";

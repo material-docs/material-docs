@@ -16,6 +16,7 @@ export {
     createChainableTypeChecker,
     goToPage,
     replaceMarkdownParams,
+    getFieldFromLang,
 } from "./utils";
 export {
     useGroups,
@@ -80,6 +81,7 @@ export {
     Link, LinkProps,
     DocsLayout, DocsLayoutProps,
     LangProvider, LangProviderProps,
+    Locale, LocaleProps,
 } from "./components";
 export {
     AppBarAction,

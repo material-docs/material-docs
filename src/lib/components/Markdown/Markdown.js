@@ -13,6 +13,8 @@ import {withStyles} from "@material-ui/styles";
 import generateMaterialDocsFromMarkdown from "../../utils/generateMaterialDocsFromMarkdown";
 import clsx from "clsx";
 import replaceMarkdownParams from "../../utils/replaceMarkdownParams";
+import {getFieldFromLang} from "../../utils";
+import {useLang} from "../../hooks";
 
 
 export const displayName = "MatDocMarkdown";
@@ -26,23 +28,29 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
         data = {},
         classes,
         typographyInheritSize,
+        locale,
         ...other
     } = props;
+    const {lang} = useLang();
     const commonClasses = useCommonStyles();
     const [content, setContent] = React.useState(null);
 
     React.useEffect(() => {
-        try {
-            let child = "";
-            if (children)
-                child = React.Children.map(children, String).join("");
-            if (typeof data === "object") child = replaceMarkdownParams(child, data);
-            setContent(generateMaterialDocsFromMarkdown(child, data, {typographyInheritSize}));
-        } catch (error) {
-            setContent(null);
-            console.error(error);
+        if (lang && typeof locale === "string" && typeof getFieldFromLang(lang, locale) === "string") {
+            setContent(getFieldFromLang(lang, locale));
+        } else {
+            try {
+                let child = "";
+                if (children)
+                    child = React.Children.map(children, String).join("");
+                if (typeof data === "object") child = replaceMarkdownParams(child, data);
+                setContent(generateMaterialDocsFromMarkdown(child, data, {typographyInheritSize}));
+            } catch (error) {
+                setContent(null);
+                console.error(error);
+            }
         }
-    }, [children]);
+    }, [children, locale]);
 
     if (inline) {
         return (
