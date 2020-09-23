@@ -78,10 +78,12 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
             }
             <Box style={{height: height || undefined}} ref={demoRef} className={classes.demo}>
                 <Suspense fallback={<CircularProgress/>}>
-                    {!paperContainer && children}
+                    {!paperContainer && <Box p={other.p} m={other.m}>{children}</Box>}
                     {paperContainer &&
                     <Paper elevation={0} variant={"outlined"} className={classes.paperContainer}>
-                        {children}
+                        <Box p={other.p} m={other.m}>
+                            {children}
+                        </Box>
                     </Paper>
                     }
                 </Suspense>

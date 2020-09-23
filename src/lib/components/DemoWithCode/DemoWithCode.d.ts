@@ -48,6 +48,18 @@ export interface DemoWithCodeProps
      */
     ratio?: AspectRatio;
     /**
+     * p - padding of demo block in theme.spacing unit.
+     * @default 0
+     * @type number
+     */
+    p: number;
+    /**
+     * m - margin of demo block in theme.spacing unit.
+     * @default 0
+     * @type number
+     */
+    m: number;
+    /**
      * children - element, that will be displayed in demo block.
      * @type node
      */

@@ -78,6 +78,8 @@ const DefaultTheme = createMuiTheme({
             defaultProps: {
                 noTag: false,
                 paperContainer: false,
+                p: 0,
+                m: 0,
             }
         },
         // [DocsLayoutDn]: {
