@@ -166,6 +166,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                     {typeof description === "string" && <meta name="description" content={description}/>}
                     {typeof author === "string" && <meta name="author" content={author}/>}
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <meta name="theme-color" content={theme.palette.primary}/>
                     {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
                 </Helmet>
                 <Switch>
