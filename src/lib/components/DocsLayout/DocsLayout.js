@@ -48,6 +48,8 @@ import {isWidthDown, isWidthUp, withWidth} from "@material-ui/core";
 import {MenuContext} from "../../hooks/useMenu/useMenu";
 import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
 import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
+// Locale
+import DefaultLocale from "../../locale/DefaultLocale";
 // The displayNames of the components
 import {displayName as DocsPagesDisplayName} from "../DocsPages";
 import {displayName as LandingDisplayName} from "../Landing";
@@ -57,6 +59,11 @@ import {SwitchPageContext} from "../../hooks/useSwitchPage/useSwitchPage";
 import withLangSetup from "./withLangSetup";
 import withSearchSetup from "./withSearchSetup";
 import * as _ from "lodash";
+import withLocalLang from "../../HOCs/withLocalLang";
+import Tooltip from "@material-ui/core/Tooltip";
+import {useLang} from "../../hooks";
+import {getFieldFromLang} from "../../utils";
+
 
 
 export const displayName = "MatDocDocsLayout";
@@ -89,6 +96,9 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const [themeMode, setThemeMode] = React.useState(localStorage.MaterialDocsThemeMode || "light");
     const {page: routePage} = getRouteParams();
     const history = useHistory();
+    const {lang} = useLang();
+
+    console.log(lang, getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme"));
 
     // Effect for changing theme type
     React.useEffect(() => {
@@ -206,14 +216,16 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         {Array.isArray(actions) && actions.map((action, index) =>
                                             generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
                                         )}
-                                        <IconButton
-                                            onClick={event => setThemeMode(prev => prev === "light" ? "dark" : "light")}
-                                        >
-                                            {themeMode === "light" ?
-                                                <Brightness4Icon className={classes.headerIcon}/> :
-                                                <BrightnessHighIcon className={classes.headerIcon}/>
-                                            }
-                                        </IconButton>
+                                        <Tooltip title={getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme")}>
+                                            <IconButton
+                                                onClick={event => setThemeMode(prev => prev === "light" ? "dark" : "light")}
+                                            >
+                                                {themeMode === "light" ?
+                                                    <Brightness4Icon className={classes.headerIcon}/> :
+                                                    <BrightnessHighIcon className={classes.headerIcon}/>
+                                                }
+                                            </IconButton>
+                                        </Tooltip>
                                     </Toolbar>
                                 </AppBar>
                                 <Drawer
@@ -308,7 +320,13 @@ DocsLayoutF.propTypes = {
     onVersionClick: PropTypes.func,
 }
 
-const DocsLayout = withSearchSetup(withLangSetup(withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF))));
+const DocsLayout = withLocalLang(DefaultLocale)(
+    withSearchSetup(
+        withLangSetup(
+            withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF))
+        )
+    )
+);
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'MaterialDocs',
