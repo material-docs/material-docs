@@ -3,4 +3,6 @@
  * Copyright (C) 2020.
  */
 
-export {TableCell as default, TableCellProps} from "@material-ui/core";
+export {TableCellProps} from "@material-ui/core";
+import {TableCellProps} from "@material-ui/core";
+export default function TableCell(props: TableCellProps): JSX.Element;

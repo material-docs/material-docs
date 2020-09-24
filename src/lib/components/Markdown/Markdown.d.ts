@@ -31,6 +31,13 @@ export interface MarkdownProps
      */
     typographyInheritSize?: boolean;
     /**
+     * locale - locale path to get data from. Example: "where/is/my/data". Path starts from Lang.locale.
+     * @type string
+     * @example
+     * locale={"myComponent/field1/name"}
+     */
+    locale?: string;
+    /**
      * children - children of an element. Should contain markdown text.
      * @type string | any
      */

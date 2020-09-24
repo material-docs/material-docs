@@ -6,11 +6,13 @@
 import * as _ from "lodash";
 
 export default function mergeLangs(general, additional) {
+    debugger;
+    if (!general) general = {}
     if (typeof general !== "object")
         throw new TypeError(`MaterialDocs: incorrect type of "general" locale, expected "Lang", got "${typeof general}"`);
     if (typeof additional !== "object")
         throw new TypeError(`MaterialDocs: incorrect type of "additional" locale, expected "Lang", got "${typeof additional}"`);
-    if (typeof general.locale !== "object")
+    if (general.locale && typeof general.locale !== "object")
         throw new TypeError(`MaterialDocs: incorrect type of "general" locale field "locale", expected "object", got "${typeof general.locale}"`);
 
     if (!additional.locale) return general;
@@ -23,6 +25,6 @@ export default function mergeLangs(general, additional) {
     newLang.label = general.label;
     if (general.loadLang) newLang.loadLang = general.loadLang;
 
-    _.merge(newLang.locale, general.locale);
+    _.merge(newLang.locale, general.locale || {});
     return newLang;
 }

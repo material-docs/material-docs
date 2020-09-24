@@ -17,6 +17,8 @@ const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
         name,
         children,
         getData,
+        defaultExpanded,
+        order,
         ...other
     } = props;
     if (getData && typeof getData !== "function")
@@ -30,7 +32,14 @@ const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
     const groupPath = getData ? [] : [...(parentPath || []), name];
 
     React.useEffect(() => {
-        const group = {name, pages, groups, path: groupPath};
+        const group = {
+            name,
+            pages,
+            groups,
+            path: groupPath,
+            order: typeof order === "number" ? order : undefined,
+            defaultExpanded
+        };
         !getData && addGroup(group);
         getData && getData(group);
 //        return () => !getData && deleteGroup(group);
@@ -111,6 +120,8 @@ PagesGroup.propTypes = {
     // PagesGroupProps
     name: PropTypes.string,
     getData: PropTypes.func,
+    order: PropTypes.number,
+    defaultExpanded: PropTypes.bool,
     // Containerable
     children: PropTypes.node,
 }

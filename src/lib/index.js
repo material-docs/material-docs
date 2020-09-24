@@ -16,6 +16,7 @@ export {
     createChainableTypeChecker,
     goToPage,
     replaceMarkdownParams,
+    getFieldFromLang,
 } from "./utils";
 export {
     useGroups,
@@ -79,6 +80,7 @@ export {
     Tagable,
     Link,
     DocsLayout,
+    Locale,
 } from "./components";
 export {
     DefaultTheme

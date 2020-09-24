@@ -13,6 +13,7 @@ export const styles = theme => createStyles({
         letterSpacing: "0.01em",
     },
     appBar: {
+        backgroundColor: theme.palette.type === "light" ? theme.palette.primary : theme.palette.primary.dark,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,

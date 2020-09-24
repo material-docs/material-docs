@@ -30,6 +30,11 @@ import {withStyles} from "@material-ui/styles";
 import AspectRatio from "../../utils/AspectRatio";
 import copyToClipboard from "../../utils/copyToClipboard";
 import {useSnackbar} from "notistack";
+import {TaggingContext} from "../../hooks/useTags/useTags";
+import {SwitchPageContext} from "../../hooks/useSwitchPage/useSwitchPage";
+import {SearchContext} from "../../hooks/useSearch/useSearch";
+import {GroupsContext} from "../../hooks/useGroups/useGroups";
+import {NestingContext} from "../../hooks/useNesting/useNesting";
 
 
 export const displayName = "MatDocDemoWithCode";
@@ -71,6 +76,27 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
         }
     }
 
+    // Empty function for demo contexts.
+    const emptyF = () => {
+    };
+
+    // Component wrapped in empty contexts to dismiss demo influence on Material Docs system.
+    const demoBox = (
+        <TaggingContext.Provider value={{setTag: emptyF, removeTag: emptyF, tags: {}}}>
+            <SearchContext.Provider value={{addSearchItem: emptyF, removeSearchItem: emptyF, getSearchData: () => []}}>
+                <GroupsContext.Provider
+                    value={{addPage: emptyF, deletePage: emptyF, addGroup: emptyF, deleteGroup: emptyF, path: [], pages: [], groups: [], name: ""}}
+                >
+                    <NestingContext.Provider value={0}>
+                        <Box p={other.p} m={other.m}>
+                            {children}
+                        </Box>
+                    </NestingContext.Provider>
+                </GroupsContext.Provider>
+            </SearchContext.Provider>
+        </TaggingContext.Provider>
+    );
+
     return (
         <Box className={commonClasses.pageBlock}>
             {name &&
@@ -78,10 +104,10 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
             }
             <Box style={{height: height || undefined}} ref={demoRef} className={classes.demo}>
                 <Suspense fallback={<CircularProgress/>}>
-                    {!paperContainer && children}
+                    {!paperContainer && demoBox}
                     {paperContainer &&
                     <Paper elevation={0} variant={"outlined"} className={classes.paperContainer}>
-                        {children}
+                        {demoBox}
                     </Paper>
                     }
                 </Suspense>

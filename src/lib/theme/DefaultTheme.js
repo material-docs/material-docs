@@ -3,9 +3,7 @@
  * Copyright (C) 2020.
  */
 
-import {createMuiTheme} from '@material-ui/core/styles';
-import blue from "@material-ui/core/colors/blue";
-import red from "@material-ui/core/colors/red";
+import {blueGrey, yellow, grey, red, blue} from "@material-ui/core/colors";
 //Components display names
 import {displayName as AutoDocsMenuDn} from "./../components/AutoDocsMenu";
 import {displayName as BlockDn} from "./../components/Block";
@@ -41,14 +39,27 @@ import {displayName as SearchMenuItemDn} from "./../components/SearchField/Searc
 import {displayName as TableDn} from "./../components/Table";
 import {displayName as TagableDn} from "./../components/Tagable";
 
-const DefaultTheme = createMuiTheme({
+const DefaultTheme = {
     palette: {
         primary: {
             main: blue[700],
+            dark: blueGrey[900],
         },
         secondary: {
             main: red[600],
         },
+        whitesmoke: {
+            main: grey[200],
+            dark: grey[800],
+        },
+        lightgrey: {
+            main: grey[300],
+            dark: grey[700],
+        },
+        codeSpanBg: {
+            main: yellow[100],
+            dark: grey[700],
+        }
     },
     components: {
         [AutoDocsMenuDn]: {
@@ -78,6 +89,8 @@ const DefaultTheme = createMuiTheme({
             defaultProps: {
                 noTag: false,
                 paperContainer: false,
+                p: 0,
+                m: 0,
             }
         },
         // [DocsLayoutDn]: {
@@ -192,7 +205,8 @@ const DefaultTheme = createMuiTheme({
             }
         },
         [PagesGroupDn]: {
-            defaultProps: {}
+            defaultProps: {},
+            defaultExpanded :false,
         },
         [SearchFieldDn]: {
             defaultProps: {
@@ -214,6 +228,6 @@ const DefaultTheme = createMuiTheme({
 
 
     }
-});
+};
 
 export default DefaultTheme;

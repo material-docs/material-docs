@@ -12,7 +12,7 @@ export const styles = theme => createStyles({
         borderRadius: theme.spacing(0.4),
     },
     colorDefault: {
-        backgroundColor: yellow[100],
+        backgroundColor: theme.palette.type === "light" ? theme.palette.codeSpanBg.main : theme.palette.codeSpanBg.dark,
     },
     colorPrimary: {
         backgroundColor: theme.palette.primary.light,

@@ -41,7 +41,9 @@ const CodeSpan = React.forwardRef(function CodeSpan(props, ref) {
             )}
             style={style}
         >
-            {children}
+            <code>
+                {children}
+            </code>
         </span>
     );
 });

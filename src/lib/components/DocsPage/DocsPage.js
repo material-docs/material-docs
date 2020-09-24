@@ -39,6 +39,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
         width,
         children,
         classes,
+        order,
         ...other
     } = props;
     const commonClasses = useCommonStyles();
@@ -86,6 +87,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
             name,
             link: pagePath,
             path: [...(parentPath || []), name],
+            order: typeof order === "number" ? order : undefined
         };
         prevPage.current = page;
         !noAutoMenu && addPage(page);
@@ -170,6 +172,7 @@ DocsPage.propTypes = {
     searchDescription: PropTypes.string,
     noGenerateAutoSearch: PropTypes.bool,
     noAutoMenu: PropTypes.bool,
+    order: PropTypes.number,
     // Stylable
     style: PropTypes.object,
     className: PropTypes.string,

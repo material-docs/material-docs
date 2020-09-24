@@ -9,7 +9,10 @@ import {grey} from "@material-ui/core/colors";
 export const styles = theme => createStyles({
     root: {},
     highlighted: {
-        backgroundColor: grey[300],
+        backgroundColor: theme.palette.type === "dark" ? "rgba(224, 224, 224, 0.2)" : grey[300],
+        "&:hover": {
+            backgroundColor: theme.palette.type === "dark" ? "rgba(224, 224, 224, 0.2)" : grey[300],
+        }
     },
     collapse: {
 //        paddingLeft: theme.spacing(4),

@@ -1,6 +1,6 @@
 {
   "name": "@material-docs/core",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "private": false,
   "description": "material-docs - react framework for easy creating documentation site in material design style.",
   "homepage": "http://material-docs.com/",
@@ -66,7 +66,7 @@
     "build:prod:declarations": "copyfiles --up 2 \"src/lib/**/*.d.ts\" ./ --verbose",
     "build:prod:library": "npx babel src/lib --out-dir ./",
     "build:prod": "yarn run build:prod:library && yarn run build:prod:declarations",
-    "test": "npm --version",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

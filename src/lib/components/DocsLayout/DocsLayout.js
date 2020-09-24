@@ -22,7 +22,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import clsx from 'clsx';
 // Utils
-import {ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
+import {createMuiTheme, ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
@@ -34,12 +34,13 @@ import Box from "@material-ui/core/Box";
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 /// PropTypes validators
 import PropTypes from "prop-types";
 import AppBarActionValidator from "../../validators/AppBarActionValidator";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 import LangValidator from "../../validators/LangValidator";
-import {SearchContext} from "../../hooks/useSearch/useSearch";
 import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
 import getContainerByType from "../../utils/getContainerByType";
 import generateHeaderIcon from "./generateHeaderIcon";
@@ -47,6 +48,8 @@ import {isWidthDown, isWidthUp, withWidth} from "@material-ui/core";
 import {MenuContext} from "../../hooks/useMenu/useMenu";
 import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
 import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
+// Locale
+import DefaultLocale from "../../locale/DefaultLocale";
 // The displayNames of the components
 import {displayName as DocsPagesDisplayName} from "../DocsPages";
 import {displayName as LandingDisplayName} from "../Landing";
@@ -55,6 +58,13 @@ import goToPage from "../../utils/goToPage";
 import {SwitchPageContext} from "../../hooks/useSwitchPage/useSwitchPage";
 import withLangSetup from "./withLangSetup";
 import withSearchSetup from "./withSearchSetup";
+import * as _ from "lodash";
+import withLocalLang from "../../HOCs/withLocalLang";
+import Tooltip from "@material-ui/core/Tooltip";
+import {useLang} from "../../hooks";
+import {getFieldFromLang} from "../../utils";
+
+
 
 export const displayName = "MatDocDocsLayout";
 
@@ -75,6 +85,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         onNameClick,
         onVersionClick,
         getSearchData,
+        setTheme,
         ...other
     } = props;
     const theme = useTheme();
@@ -82,8 +93,20 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: null, landing: []});
     const [autoMenuData, setAutoMenuData] = React.useState(null);
+    const [themeMode, setThemeMode] = React.useState(localStorage.MaterialDocsThemeMode || "light");
     const {page: routePage} = getRouteParams();
     const history = useHistory();
+    const {lang} = useLang();
+
+    console.log(lang, getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme"));
+
+    // Effect for changing theme type
+    React.useEffect(() => {
+        localStorage.MaterialDocsThemeMode = themeMode;
+        const newTheme = _.cloneDeep(DefaultTheme);
+        newTheme.palette.type = themeMode;
+        setTheme(newTheme);
+    }, [themeMode]);
 
     // Effect for drawer auto open/close on resize
     React.useEffect(() => {
@@ -192,9 +215,17 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         }
                                         {Array.isArray(actions) && actions.map((action, index) =>
                                             generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
-                                        )
-
-                                        }
+                                        )}
+                                        <Tooltip title={getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme")}>
+                                            <IconButton
+                                                onClick={event => setThemeMode(prev => prev === "light" ? "dark" : "light")}
+                                            >
+                                                {themeMode === "light" ?
+                                                    <Brightness4Icon className={classes.headerIcon}/> :
+                                                    <BrightnessHighIcon className={classes.headerIcon}/>
+                                                }
+                                            </IconButton>
+                                        </Tooltip>
                                     </Toolbar>
                                 </AppBar>
                                 <Drawer
@@ -289,7 +320,13 @@ DocsLayoutF.propTypes = {
     onVersionClick: PropTypes.func,
 }
 
-const DocsLayout = withSearchSetup(withLangSetup(withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF))));
+const DocsLayout = withLocalLang(DefaultLocale)(
+    withSearchSetup(
+        withLangSetup(
+            withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF))
+        )
+    )
+);
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'MaterialDocs',
@@ -303,10 +340,11 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props,
         ...other
     } = props;
     const routeMask = typeof mask === "string" ? mask : "(/*page)";
+    const [theme, setTheme] = React.useState(_.cloneDeep(DefaultTheme));
 
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
-            <MuiThemeProvider theme={DefaultTheme}>
+            <MuiThemeProvider theme={createMuiTheme(theme)}>
                 <StylesProvider generateClassName={generateClassName}>
                     <SnackbarProvider
                         maxSnack={3}
@@ -315,7 +353,7 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props,
                             horizontal: "center",
                         }}
                     >
-                        <DocsLayout {...other} ref={ref}/>
+                        <DocsLayout {...other} ref={ref} setTheme={setTheme}/>
                     </SnackbarProvider>
                 </StylesProvider>
             </MuiThemeProvider>

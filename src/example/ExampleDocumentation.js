@@ -27,6 +27,7 @@ import Link from "../lib/components/Link/Link";
 import Markdown from "../lib/components/Markdown/Markdown";
 import LocalLocaleTestPage from "./Pages/Test/LocalLocaleTestPage";
 import Button from "@material-ui/core/Button";
+import Locale from "../lib/components/Locale";
 
 
 export default function ExampleDocumentation() {
@@ -39,7 +40,7 @@ export default function ExampleDocumentation() {
             basename={process.env.PUBLIC_URL}
             actions={[
                 {icon: <GitHubIcon/>, tooltip: "asdfasdfsf", onClick: () => alert("kuku")},
-                {icon: <Brightness4Icon/>, tooltip: "Hello darkness my old friend.", link: "http://google.com"}
+                // {icon: <Brightness4Icon/>, tooltip: "Hello darkness my old friend.", link: "http://google.com"}
             ]}
             name={"Material Docs testing"}
             version={"1.12.2-alpha"}
@@ -49,13 +50,13 @@ export default function ExampleDocumentation() {
                 <AutoDocsMenu/>
             </DocsMenu>
             <DocsPages>
-                <PagesGroup name={"Getting started"}>
+                <PagesGroup name={"Getting started"} order={9}>
 
                 </PagesGroup>
-                <PagesGroup name={"Components"}>
+                <PagesGroup name={"Components"} order={100}>
                     <DocsPageDemo/>
                 </PagesGroup>
-                <PagesGroup name={"APIs"}>
+                <PagesGroup name={"APIs"} defaultExpanded>
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
                     <DocsPage name={"TestPage1"} searchDescription={"sdfsfsd"}>
@@ -66,15 +67,17 @@ export default function ExampleDocumentation() {
                         <H5>Darkness</H5>
                         <H6>Darkness</H6>
                     </DocsPage>
-                    <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"}>
+                    <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"} order={10}>
                         <H1>HelloDarknessmyoldfriend</H1>
                         <H2>{text}</H2>
                         {text}
                         <Button onClick={() => setText(prev => prev ? "" : "Hello darkness")}>Set value</Button>
-                        <Markdown></Markdown>
+                        <Markdown locale={"pages/DocsPageAPI/pageAbout"}>__This text must not be shown!__</Markdown>
+                        <Locale path={"pages/DocsPageAPI/pageSearchDescription"}>__This text must not be shown 2!__</Locale>
                         <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I am &&age years old!</Markdown>
+                        <Markdown>```hello darkness``` my old __friend__. I`ve come ___to tall___ with you again.</Markdown>
                     </DocsPage>
-                    <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"}>
+                    <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"} order={11}>
                         asfasf2324
                         <Block>asdfasfas</Block>
                         <List>

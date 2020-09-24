@@ -10,6 +10,6 @@
  * @return function
  */
 
-function withLocalLangWrapper(Component: object): object;
+declare function withLocalLangWrapper(Component: object): object;
 
-export default function withLocalLang(lang: {locale: object}): withLocalLangWrapper;
+export default function withLocalLang(lang: {locale: object}): (Component: object) => object;
