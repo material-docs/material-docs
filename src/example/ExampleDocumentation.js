@@ -40,7 +40,7 @@ export default function ExampleDocumentation() {
             basename={process.env.PUBLIC_URL}
             actions={[
                 {icon: <GitHubIcon/>, tooltip: "asdfasdfsf", onClick: () => alert("kuku")},
-                {icon: <Brightness4Icon/>, tooltip: "Hello darkness my old friend.", link: "http://google.com"}
+                // {icon: <Brightness4Icon/>, tooltip: "Hello darkness my old friend.", link: "http://google.com"}
             ]}
             name={"Material Docs testing"}
             version={"1.12.2-alpha"}

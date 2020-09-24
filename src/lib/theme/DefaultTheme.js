@@ -41,7 +41,7 @@ import {displayName as SearchMenuItemDn} from "./../components/SearchField/Searc
 import {displayName as TableDn} from "./../components/Table";
 import {displayName as TagableDn} from "./../components/Tagable";
 
-const DefaultTheme = createMuiTheme({
+const DefaultTheme = {
     palette: {
         primary: {
             main: blue[700],
@@ -217,6 +217,6 @@ const DefaultTheme = createMuiTheme({
 
 
     }
-});
+};
 
 export default DefaultTheme;
