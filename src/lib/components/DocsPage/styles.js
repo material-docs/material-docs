@@ -22,8 +22,8 @@ export const styles = theme => createStyles({
         color: "inherit",
     },
     copyright: {
-        backgroundColor: grey[100],
-        color: grey[300],
+        backgroundColor: theme.palette.type === "light" ? theme.palette.whitesmoke : theme.palette.whitesmoke.dark,
+        color: theme.palette.type === "light" ? theme.palette.lightgrey.main : theme.palette.lightgrey.dark,
     },
     typography: {
         overflowWrap: "break-word",

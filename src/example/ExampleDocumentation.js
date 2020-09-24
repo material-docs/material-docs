@@ -75,6 +75,7 @@ export default function ExampleDocumentation() {
                         <Markdown locale={"pages/DocsPageAPI/pageAbout"}>__This text must not be shown!__</Markdown>
                         <Locale path={"pages/DocsPageAPI/pageSearchDescription"}>__This text must not be shown 2!__</Locale>
                         <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I am &&age years old!</Markdown>
+                        <Markdown>```hello darkness``` my old __friend__. I`ve come ___to tall___ with you again.</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"} order={11}>
                         asfasf2324
