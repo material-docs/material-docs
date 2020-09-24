@@ -11,11 +11,11 @@ export const styles = theme => createStyles({
     contentItem: {
         borderLeft: "5px solid rgba(0,0,0,0)",
         "&:hover": {
-            borderColor: grey[300],
+            borderColor: theme.palette.type === "light" ? theme.palette.lightgrey.main : theme.palette.lightgrey.dark,
         }
     },
     contentItemActive: {
-        borderColor: grey[200],
+        borderColor: theme.palette.type === "light" ? theme.palette.lightgrey.main : theme.palette.lightgrey.dark,
     },
     contentLink: {
         textDecoration: "none",
