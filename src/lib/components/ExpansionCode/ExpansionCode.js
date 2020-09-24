@@ -6,6 +6,7 @@
 import React from "react";
 import {styles} from "./styles";
 // Components
+import Tooltip from "@material-ui/core/Tooltip";
 import H3 from "../H3";
 import Code from "../Code";
 // MaterialUI components
@@ -28,6 +29,8 @@ import {useSnackbar} from "notistack";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 import clsx from "clsx";
 import copyToClipboard from "../../utils/copyToClipboard";
+import {getFieldFromLang} from "../../utils";
+import {useLang} from "../../hooks";
 
 
 export const displayName = "MatDocExpansionCode";
@@ -47,6 +50,7 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
         ...other
     } = props;
     const commonClasses = useCommonStyles();
+    const {lang} = useLang();
     const {enqueueSnackbar} = useSnackbar();
     const [expand, setExpand] = React.useState(false);
     const menuAnchor = React.useRef(null);
@@ -57,9 +61,11 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
             <Toolbar className={classes.toolbar}>
                 {actions &&
                 <React.Fragment>
-                    <IconButton ref={menuAnchor} onClick={event => setMenuOpen(true)}>
-                        <MoreVertIcon fontSize={"small"}/>
-                    </IconButton>
+                    <Tooltip title={getFieldFromLang(lang, "MaterialDocs/ExpansionCode/moreActions")}>
+                        <IconButton ref={menuAnchor} onClick={event => setMenuOpen(true)}>
+                            <MoreVertIcon fontSize={"small"}/>
+                        </IconButton>
+                    </Tooltip>
                     <Menu
                         anchorEl={menuAnchor.current}
                         getContentAnchorEl={null}
@@ -86,18 +92,22 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
                     </Menu>
                 </React.Fragment>
                 }
-                <IconButton
-                    onClick={() => {
-                        copyToClipboard(children)
-                            .then(res => enqueueSnackbar("Code copied to clipboard", {variant: "success"}))
-                            .catch(error => enqueueSnackbar("Failed to copy code to clipboard", {variant: "error"}));
-                    }}
-                >
-                    <FileCopyIcon fontSize={"small"}/>
-                </IconButton>
-                <IconButton onClick={event => setExpand(!expand)}>
-                    <CodeIcon fontSize={"small"}/>
-                </IconButton>
+                <Tooltip title={getFieldFromLang(lang, "MaterialDocs/ExpansionCode/copyToClipboard")}>
+                    <IconButton
+                        onClick={() => {
+                            copyToClipboard(children)
+                                .then(res => enqueueSnackbar(getFieldFromLang(lang, "MaterialDocs/notices/codeCopied"), {variant: "success"}))
+                                .catch(error => enqueueSnackbar(getFieldFromLang(lang, "MaterialDocs/notices/codeNotCopied"), {variant: "error"}));
+                        }}
+                    >
+                        <FileCopyIcon fontSize={"small"}/>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title={getFieldFromLang(lang, "MaterialDocs/ExpansionCode/expand")}>
+                    <IconButton onClick={event => setExpand(!expand)}>
+                        <CodeIcon fontSize={"small"}/>
+                    </IconButton>
+                </Tooltip>
                 {name &&
                 <H3 className={classes.codeName} noDivider>{name}</H3>
                 }

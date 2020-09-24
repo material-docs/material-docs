@@ -50,7 +50,11 @@ export default function generateHeaderIcon(changeRoute, key, icon, onClick, link
 
     if (typeof tooltip === "string")
         return (
-            <Tooltip title={tooltip} key={`header-action-item-${link}-${key}`}>
+            <Tooltip
+                title={tooltip}
+                key={`header-action-item-${link}-${key}`}
+                PopperProps={{popperOptions: {positionFixed: true}}}
+            >
                 <IconButton onClick={handleClick}>
                     {styledIcon}
                 </IconButton>

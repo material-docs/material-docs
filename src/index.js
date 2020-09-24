@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import ExampleDocumentation from "./example/ExampleDocumentation";
+import EmptyDocumentation from "./example/EmptyDocumentation";
 
 ReactDOM.render(
     <React.StrictMode>
-        <ExampleDocumentation/>
+        {/*<ExampleDocumentation/>*/}
+        <EmptyDocumentation/>
     </React.StrictMode>,
     document.getElementById('root')
 );

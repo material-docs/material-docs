@@ -7,6 +7,7 @@ import React, {Suspense} from "react";
 import {styles} from "./styles";
 import {useCommonStyles} from "../../stylesheets/commonStyles";
 // Components
+import Tooltip from "@material-ui/core/Tooltip";
 import H3 from "../H3";
 // MaterialUI components
 import Box from '@material-ui/core/Box';
@@ -35,6 +36,8 @@ import {SwitchPageContext} from "../../hooks/useSwitchPage/useSwitchPage";
 import {SearchContext} from "../../hooks/useSearch/useSearch";
 import {GroupsContext} from "../../hooks/useGroups/useGroups";
 import {NestingContext} from "../../hooks/useNesting/useNesting";
+import {getFieldFromLang} from "../../utils";
+import {useLang} from "../../hooks";
 
 
 export const displayName = "MatDocDemoWithCode";
@@ -54,6 +57,7 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
         ...other
     } = props;
     const commonClasses = useCommonStyles();
+    const {lang} = useLang();
     const [expanded, setExpanded] = React.useState(!!defaultExpanded);
     const menuAnchor = React.useRef(null);
     const [menuOpen, setMenuOpen] = React.useState(false);
@@ -115,9 +119,11 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
             <Toolbar className={classes.toolbar}>
                 {actions &&
                 <React.Fragment>
-                    <IconButton ref={menuAnchor} onClick={event => setMenuOpen(true)}>
-                        <MoreVertIcon fontSize={"small"}/>
-                    </IconButton>
+                    <Tooltip title={getFieldFromLang(lang, "MaterialDocs/DemoWithCode/moreActions")}>
+                        <IconButton ref={menuAnchor} onClick={event => setMenuOpen(true)}>
+                            <MoreVertIcon fontSize={"small"}/>
+                        </IconButton>
+                    </Tooltip>
                     <Menu
                         anchorEl={menuAnchor.current}
                         getContentAnchorEl={null}
@@ -144,18 +150,22 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
                     </Menu>
                 </React.Fragment>
                 }
-                <IconButton
-                    onClick={() => {
-                        copyToClipboard(code)
-                            .then(res => enqueueSnackbar("Code copied to clipboard", {variant: "success"}))
-                            .catch(error => enqueueSnackbar("Failed to copy code to clipboard", {variant: "error"}));
-                    }}
-                >
-                    <FileCopyIcon fontSize={"small"}/>
-                </IconButton>
-                <IconButton onClick={event => setExpanded(!expanded)}>
-                    <CodeIcon fontSize={"small"}/>
-                </IconButton>
+                <Tooltip title={getFieldFromLang(lang, "MaterialDocs/DemoWithCode/copyToClipboard")}>
+                    <IconButton
+                        onClick={() => {
+                            copyToClipboard(code)
+                                .then(res => enqueueSnackbar(getFieldFromLang(lang, "MaterialDocs/notices/codeCopied"), {variant: "success"}))
+                                .catch(error => enqueueSnackbar(getFieldFromLang(lang, "MaterialDocs/notices/codeNotCopied"), {variant: "error"}));
+                        }}
+                    >
+                        <FileCopyIcon fontSize={"small"}/>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title={getFieldFromLang(lang, "MaterialDocs/DemoWithCode/expand")}>
+                    <IconButton onClick={event => setExpanded(!expanded)}>
+                        <CodeIcon fontSize={"small"}/>
+                    </IconButton>
+                </Tooltip>
             </Toolbar>
             <Collapse in={expanded}>
                 <Code theme={theme}>

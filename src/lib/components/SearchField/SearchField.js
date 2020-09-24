@@ -27,6 +27,8 @@ import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 import {withStyles} from "@material-ui/styles";
 import {useChangeRoute} from "routing-manager";
 import clsx from "clsx";
+import {useLang} from "../../hooks";
+import {getFieldFromLang} from "../../utils";
 
 
 export const displayName = "MatDocSearchField";
@@ -41,6 +43,7 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
         ...other
     } = props;
     const {changeRoute} = useChangeRoute();
+    const {lang} = useLang()
     const [text, setText] = React.useState("");
     const [focused, setFocused] = React.useState(false);
     const [found, setFound] = React.useState([]);
@@ -166,7 +169,7 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
                     onChange={handleTextInput}
                     value={text}
                     className={classes.input}
-                    placeholder={"Search"}
+                    placeholder={getFieldFromLang(lang, "MaterialDocs/SearchField/label")}
                     onFocus={event => setFocused(true)}
                     // onFocus={event => console.log(event)}
                     // onBlur={event => console.log(("blur"))}

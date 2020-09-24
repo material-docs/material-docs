@@ -28,15 +28,25 @@ export default function withLangSetup(Component) {
 
         // Effect for language setup on startup and changing lang on url hash changing.
         React.useEffect(() => {
-            if (!langName) {
-                changeRoute(null, {l: defaultLang.name});
+            if (defaultLang) {
+                if (!langName) {
+                    changeRoute(null, {l: defaultLang.name});
+                }
+                if (Array.isArray(langs)) {
+                    const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
+                    switchLang(newLang).then();
+                } else {
+                    switchLang(defaultLang).then();
+                }
+            } else {
+                setLoading(false);
             }
-            const newLang = langs.find(candidate => candidate.name === langName) || defaultLang;
-            switchLang(newLang).then();
         }, [langName]);
 
+        // Effect for setting up loading screen state when locale not loaded.
         React.useEffect(() => {
-            lang ? setLoading(false) : setLoading(true);
+            if (defaultLang)
+                lang ? setLoading(false) : setLoading(true);
         }, [lang]);
 
         async function switchLangRoute(inputLang) {
@@ -48,34 +58,6 @@ export default function withLangSetup(Component) {
         }
 
         async function switchLang(inputLang) {
-            // let newLang = {...inputLang};
-            // if (typeof inputLang !== "object")
-            //     throw new TypeError(`MaterialDocs: incorrect type of lang, expected Lang, got ${typeof inputLang}`);
-            // if (typeof inputLang.name !== "string")
-            //     throw new TypeError(`MaterialDocs: incorrect type of lang.name, expected string, got ${typeof inputLang.name}`);
-            // if (inputLang.locale && typeof inputLang.locale !== "object") {
-            //     throw new TypeError(`MaterialDocs: incorrect type of lang.locale, expected object, got ${typeof inputLang.locale}`);
-            // } else if (!inputLang.locale) {
-            //     if (typeof inputLang.loadLang !== "function")
-            //         throw new TypeError(`MaterialDocs: incorrect type of lang.loadLang, expected function, got ${typeof inputLang.loadLang}`);
-            //     let locale = {};
-            //     try {
-            //         locale = await inputLang.loadLang();
-            //     } catch (error) {
-            //         throw new Promise.Error(`MaterialDocs: failed to load lang. loadLang error: ${error.message()}`);
-            //     }
-            //     if (lang) {
-            //         newLang.locale = _.cloneDeep(defaultLang.locale);
-            //         _.merge(newLang.locale, locale);
-            //     } else {
-            //         newLang.locale = locale;
-            //     }
-            // } else {
-            //     if (lang) {
-            //         newLang.locale = _.cloneDeep(defaultLang.locale);
-            //         _.merge(newLang.locale, inputLang.locale);
-            //     }
-            // }
             if (typeof inputLang !== "object")
                 throw new TypeError(`MaterialDocs: incorrect type of lang, expected Lang, got ${typeof inputLang}`);
             let newLang = _.cloneDeep(inputLang);
@@ -113,7 +95,7 @@ export default function withLangSetup(Component) {
 
         return (
             <LangContext.Provider value={{lang, switchLang: switchLangRoute, langs, onHelpToTranslate}}>
-                <Component {...other} ref={ref}/>
+                <Component {...other} ref={ref} noLanguageSelector={defaultLang ? other.noLanguageSelector : true}/>
             </LangContext.Provider>
         );
     });

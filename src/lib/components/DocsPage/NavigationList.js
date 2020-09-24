@@ -4,18 +4,25 @@
  */
 
 import React from "react";
+import {styles} from "./styles";
+// Components
+import Locale from "../Locale";
+// MaterialUI components
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
 import ListItemText from "@material-ui/core/ListItemText";
-import {styles} from "./styles";
-import clsx from "clsx";
-import {isWidthUp, Link} from "@material-ui/core";
+import Link from "@material-ui/core/Link";
+// PropTypes validators
+import PropTypes from "prop-types";
+// Utils
 import usePageScroll from "../../utils/usePageScroll";
 import getElementOffsetSum from "../../utils/getElementOffsetSum";
-import PropTypes from "prop-types";
 import withWidth from "@material-ui/core/withWidth";
 import {withStyles} from "@material-ui/styles";
+import {isWidthUp} from "@material-ui/core";
+import clsx from "clsx";
+
 
 export const displayName = "MatDocNavigationList";
 
@@ -78,7 +85,7 @@ const NavigationList = React.forwardRef(function NavigationList(props, ref) {
         <List dense style={{position: "fixed", width: "100%"}} ref={ref}>
             <ListItem>
                 <Typography variant={"h6"}>
-                    Content
+                    <Locale path={"MaterialDocs/navigationList/content"}/>
                 </Typography>
             </ListItem>
             {keys.map(key => {

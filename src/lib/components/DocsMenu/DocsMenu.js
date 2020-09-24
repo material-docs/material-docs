@@ -31,9 +31,10 @@ const DocsMenu = React.forwardRef(function DocsMenu(props, ref) {
     }, [children, layoutData]);
 
     function getMenusFromChildren() {
-        const basicMenu = React.Children.map(children, item => {
-            if (React.isValidElement(item) && item.type.displayName !== AutoDocsMenuDisplayName) return item;
-        }).filter(item => item) || [];
+        // const basicMenu = React.Children.map(children, item => {
+        //     if (React.isValidElement(item) && item.type.displayName !== AutoDocsMenuDisplayName) return item;
+        // }).filter(item => item) || [];
+        const basicMenu = getContainerByType(children, AutoDocsMenuDisplayName, true);
         let autoMenu = getContainerByType(children, AutoDocsMenuDisplayName);
         if (autoMenu) autoMenu = React.cloneElement(autoMenu, {layoutData});
         return {basic: basicMenu, auto: autoMenu};

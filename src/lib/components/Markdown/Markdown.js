@@ -37,7 +37,9 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
 
     React.useEffect(() => {
         if (lang && typeof locale === "string" && typeof getFieldFromLang(lang, locale) === "string") {
-            setContent(getFieldFromLang(lang, locale));
+            let text = getFieldFromLang(lang, locale);
+            text = replaceMarkdownParams(text, data);
+            setContent(generateMaterialDocsFromMarkdown(text, data, {typographyInheritSize}));
         } else {
             try {
                 let child = "";

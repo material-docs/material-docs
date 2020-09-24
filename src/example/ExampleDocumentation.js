@@ -8,7 +8,7 @@ import DocsPageDemo from "./Pages/Components/DocsPageDemo/index";
 import DocsPageAPI from "./Pages/APIs/DocsPageAPI";
 import DemoWithCodeAPI from "./Pages/APIs/DemoWithCode";
 
-import {DocsLayout, DocsPage, DocsPages, PagesGroup} from "../lib";
+import {DocsLayout, DocsMenuItem, DocsPage, DocsPages, PagesGroup} from "../lib";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
@@ -48,6 +48,7 @@ export default function ExampleDocumentation() {
         >
             <DocsMenu dense>
                 <AutoDocsMenu/>
+                <DocsMenuItem page={"Kekk"} />
             </DocsMenu>
             <DocsPages>
                 <PagesGroup name={"Getting started"} order={9}>

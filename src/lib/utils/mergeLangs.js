@@ -6,7 +6,6 @@
 import * as _ from "lodash";
 
 export default function mergeLangs(general, additional) {
-    debugger;
     if (!general) general = {}
     if (typeof general !== "object")
         throw new TypeError(`MaterialDocs: incorrect type of "general" locale, expected "Lang", got "${typeof general}"`);

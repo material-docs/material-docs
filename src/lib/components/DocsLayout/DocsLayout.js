@@ -20,16 +20,23 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import clsx from 'clsx';
-// Utils
-import {createMuiTheme, ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
-import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Box from "@material-ui/core/Box";
+import ListItemText from "@material-ui/core/ListItemText";
+// Utils
+import clsx from 'clsx';
+import {createMuiTheme, ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
+import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
+import getContainerByType from "../../utils/getContainerByType";
+import generateHeaderIcon from "./generateHeaderIcon";
+import {isWidthDown, isWidthUp, unstable_createMuiStrictModeTheme, withWidth} from "@material-ui/core";
+import {MenuContext} from "../../hooks/useMenu/useMenu";
+import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
+import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 // MaterialUI icons
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -41,13 +48,6 @@ import PropTypes from "prop-types";
 import AppBarActionValidator from "../../validators/AppBarActionValidator";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 import LangValidator from "../../validators/LangValidator";
-import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
-import getContainerByType from "../../utils/getContainerByType";
-import generateHeaderIcon from "./generateHeaderIcon";
-import {isWidthDown, isWidthUp, withWidth} from "@material-ui/core";
-import {MenuContext} from "../../hooks/useMenu/useMenu";
-import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
-import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 // Locale
 import DefaultLocale from "../../locale/DefaultLocale";
 // The displayNames of the components
@@ -63,7 +63,6 @@ import withLocalLang from "../../HOCs/withLocalLang";
 import Tooltip from "@material-ui/core/Tooltip";
 import {useLang} from "../../hooks";
 import {getFieldFromLang} from "../../utils";
-
 
 
 export const displayName = "MatDocDocsLayout";
@@ -97,8 +96,6 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const {page: routePage} = getRouteParams();
     const history = useHistory();
     const {lang} = useLang();
-
-    console.log(lang, getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme"));
 
     // Effect for changing theme type
     React.useEffect(() => {
@@ -166,6 +163,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                     {typeof description === "string" && <meta name="description" content={description}/>}
                     {typeof author === "string" && <meta name="author" content={author}/>}
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <meta name="theme-color" content={theme.palette.primary}/>
                     {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
                 </Helmet>
                 <Switch>
@@ -216,7 +214,10 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         {Array.isArray(actions) && actions.map((action, index) =>
                                             generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
                                         )}
-                                        <Tooltip title={getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme")}>
+                                        <Tooltip
+                                            title={getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme")}
+                                            PopperProps={{popperOptions: {positionFixed: true}}}
+                                        >
                                             <IconButton
                                                 onClick={event => setThemeMode(prev => prev === "light" ? "dark" : "light")}
                                             >
@@ -320,9 +321,9 @@ DocsLayoutF.propTypes = {
     onVersionClick: PropTypes.func,
 }
 
-const DocsLayout = withLocalLang(DefaultLocale)(
-    withSearchSetup(
-        withLangSetup(
+const DocsLayout = withSearchSetup(
+    withLangSetup(
+        withLocalLang(DefaultLocale)(
             withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF))
         )
     )
@@ -344,7 +345,7 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props,
 
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
-            <MuiThemeProvider theme={createMuiTheme(theme)}>
+            <MuiThemeProvider theme={unstable_createMuiStrictModeTheme(theme)}>
                 <StylesProvider generateClassName={generateClassName}>
                     <SnackbarProvider
                         maxSnack={3}
