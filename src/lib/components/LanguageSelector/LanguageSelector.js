@@ -74,7 +74,7 @@ const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) 
                 open={opened}
                 onClose={event => setOpened(false)}
             >
-                {langs.map(item =>
+                {Array.isArray(langs) && langs.map(item =>
                     <MenuItem
                         key={item.name}
                         onClick={event => {
