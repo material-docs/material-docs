@@ -91,7 +91,7 @@ export default function ExampleDocumentation() {
                             <Markdown>{`[{"text": "Hello darkness my old friend", "page": "components/docs-pages"}](https://google.com)`}</Markdown>
                         </List>
                     </DocsPage>
-                    {/*<LocalLocaleTestPage/>*/}
+                    <LocalLocaleTestPage/>
                 </PagesGroup>
             </DocsPages>
             <Landing>

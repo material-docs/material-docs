@@ -13,7 +13,7 @@ const localLang = {
     locale: {
         test: {
             hello: "Hello my friend",
-            my: "My old",
+            my: "My __&&lol__",
         }
     }
 }
@@ -22,9 +22,9 @@ function LocalLocaleTestPage(props) {
     const {lang} = props.lang;
     return (
         <DocsPage name={"LocalLocaleTestPage"} searchDescription={"asdfasf"}>
-            <Markdown>{lang.locale.test.hello}</Markdown>
+            <Markdown locale={"test/hello"} />
             <Markdown>{lang.locale.test.darkness}</Markdown>
-            <Markdown>{lang.locale.test.my}</Markdown>
+            <Markdown locale={"test/my"} data={{lol: "try my &&kek", kek: "keks"}}/>
         </DocsPage>
     );
 }
