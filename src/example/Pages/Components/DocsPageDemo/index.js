@@ -127,7 +127,7 @@ export default function DocsPageDemo() {
                 {pageMarkdown}
             </ExpansionCode>
 
-            <DemoWithCode ratio={new AspectRatio(2, 1)} paperContainer>
+            <DemoWithCode ratio={new AspectRatio(2, 1)} paperContainer p={2}>
                 adsfasfasfasfds
             </DemoWithCode>
         </DocsPage>
