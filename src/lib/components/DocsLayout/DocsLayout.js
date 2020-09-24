@@ -65,7 +65,6 @@ import {useLang} from "../../hooks";
 import {getFieldFromLang} from "../../utils";
 
 
-
 export const displayName = "MatDocDocsLayout";
 
 const DocsLayoutF = React.forwardRef((props, ref) => {
@@ -97,8 +96,6 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const {page: routePage} = getRouteParams();
     const history = useHistory();
     const {lang} = useLang();
-
-    console.log(lang, getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme"));
 
     // Effect for changing theme type
     React.useEffect(() => {
@@ -321,9 +318,9 @@ DocsLayoutF.propTypes = {
     onVersionClick: PropTypes.func,
 }
 
-const DocsLayout = withLocalLang(DefaultLocale)(
-    withSearchSetup(
-        withLangSetup(
+const DocsLayout = withSearchSetup(
+    withLangSetup(
+        withLocalLang(DefaultLocale)(
             withStyles(styles, {name: displayName})(withWidth()(DocsLayoutF))
         )
     )

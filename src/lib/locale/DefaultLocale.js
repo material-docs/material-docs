@@ -16,11 +16,22 @@ export default {
             copyright: {
                 text: "Powered by MaterialDocs. All rights reserved.",
             },
-            searchField: {
+            SearchField: {
                 label: "Search..."
             },
             notices: {
                 codeCopied: "Code copied to clipboard",
+                codeNotCopied: "Failed to copy code to clipboard",
+            },
+            ExpansionCode: {
+                copyToClipboard: "Copy code to clipboard",
+                expand: "Expand/collapse code",
+                moreActions: "More actions",
+            },
+            DemoWithCode: {
+                copyToClipboard: "Copy code to clipboard",
+                expand: "Expand/collapse code",
+                moreActions: "More actions",
             }
         }
     }

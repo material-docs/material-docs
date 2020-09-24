@@ -6,6 +6,7 @@
 import React from "react";
 import {styles} from "./styles";
 // Components
+import Locale from "../Locale";
 import {Helmet} from "react-helmet-async";
 import NavigationList from "./NavigationList";
 import {Route} from "react-router-dom"
@@ -153,7 +154,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
                     </Grid>
                     <Grid item xs={12}>
                         <Box className={classes.copyright} p={1}>
-                            <Typography> Powered by MaterialDocs. All rights reserved. </Typography>
+                            <Typography><Locale path={"MaterialDocs/copyright/text"}/></Typography>
                         </Box>
                     </Grid>
                 </Grid>

@@ -20,6 +20,7 @@ import PropTypes from "prop-types";
 import useLang from "../../hooks/useLang";
 import clsx from "clsx";
 import {withStyles} from "@material-ui/styles";
+import {getFieldFromLang} from "../../utils";
 
 
 export const displayName = "MatDocLanguageSelector";
@@ -43,7 +44,7 @@ const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) 
 
     return (
         <React.Fragment>
-            <Tooltip title={"Select language"}>
+            <Tooltip title={getFieldFromLang(lang, "MaterialDocs/tooltips/selectLanguage")}>
                 <Button
                     className={clsx(classes.root.className)}
                     color={"inherit"}
