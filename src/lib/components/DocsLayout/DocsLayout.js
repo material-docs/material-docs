@@ -20,16 +20,23 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import clsx from 'clsx';
-// Utils
-import {createMuiTheme, ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
-import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Box from "@material-ui/core/Box";
+import ListItemText from "@material-ui/core/ListItemText";
+// Utils
+import clsx from 'clsx';
+import {createMuiTheme, ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
+import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
+import getContainerByType from "../../utils/getContainerByType";
+import generateHeaderIcon from "./generateHeaderIcon";
+import {isWidthDown, isWidthUp, unstable_createMuiStrictModeTheme, withWidth} from "@material-ui/core";
+import {MenuContext} from "../../hooks/useMenu/useMenu";
+import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
+import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 // MaterialUI icons
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -41,13 +48,6 @@ import PropTypes from "prop-types";
 import AppBarActionValidator from "../../validators/AppBarActionValidator";
 import SearchDataItemValidator from "../../validators/SearchDataItemValidator";
 import LangValidator from "../../validators/LangValidator";
-import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
-import getContainerByType from "../../utils/getContainerByType";
-import generateHeaderIcon from "./generateHeaderIcon";
-import {isWidthDown, isWidthUp, withWidth} from "@material-ui/core";
-import {MenuContext} from "../../hooks/useMenu/useMenu";
-import {createGenerateClassName, StylesProvider, withStyles} from "@material-ui/styles";
-import {ChangeRouteProvider, useChangeRoute} from "routing-manager";
 // Locale
 import DefaultLocale from "../../locale/DefaultLocale";
 // The displayNames of the components
@@ -342,7 +342,7 @@ const DocsLayoutProviders = React.forwardRef(function DocsLayoutProviders(props,
 
     const providers = (
         <ChangeRouteProvider routeMask={routeMask}>
-            <MuiThemeProvider theme={createMuiTheme(theme)}>
+            <MuiThemeProvider theme={unstable_createMuiStrictModeTheme(theme)}>
                 <StylesProvider generateClassName={generateClassName}>
                     <SnackbarProvider
                         maxSnack={3}
