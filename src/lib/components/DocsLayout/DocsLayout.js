@@ -214,7 +214,10 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         {Array.isArray(actions) && actions.map((action, index) =>
                                             generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
                                         )}
-                                        <Tooltip title={getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme")}>
+                                        <Tooltip
+                                            title={getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme")}
+                                            PopperProps={{popperOptions: {positionFixed: true}}}
+                                        >
                                             <IconButton
                                                 onClick={event => setThemeMode(prev => prev === "light" ? "dark" : "light")}
                                             >

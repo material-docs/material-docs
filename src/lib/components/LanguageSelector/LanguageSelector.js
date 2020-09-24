@@ -44,7 +44,10 @@ const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) 
 
     return (
         <React.Fragment>
-            <Tooltip title={getFieldFromLang(lang, "MaterialDocs/tooltips/selectLanguage")}>
+            <Tooltip
+                title={getFieldFromLang(lang, "MaterialDocs/tooltips/selectLanguage")}
+                PopperProps={{popperOptions: {positionFixed: true}}}
+            >
                 <Button
                     className={clsx(classes.root.className)}
                     color={"inherit"}
