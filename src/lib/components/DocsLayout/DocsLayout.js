@@ -212,7 +212,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         />
                                         }
                                         {Array.isArray(actions) && actions.map((action, index) =>
-                                            generateHeaderIcon(changeRoute, `${index}`, action.icon, action.onClick, action.link, action.tooltip, classes.headerIcon)
+                                            generateHeaderIcon(changeRoute, `${index}`, classes.headerIcon)
                                         )}
                                         <Tooltip
                                             title={getFieldFromLang(lang, "MaterialDocs/tooltips/switchTheme")}
