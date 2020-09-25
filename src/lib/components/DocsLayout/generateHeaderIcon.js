@@ -19,7 +19,7 @@ import Tooltip from "@material-ui/core/Tooltip";
  * @param {string} className
  * @return {JSX.Element}
  */
-export default function generateHeaderIcon(changeRoute, {key, icon, onClick, link, tooltip, ref}, className) {
+export default function generateHeaderIcon(changeRoute, key, {icon, onClick, link, tooltip, ref}, className) {
     if (!React.isValidElement(icon))
         throw new TypeError(`MaterialDocs: Incorrect type of icon, expected "node", got "${typeof icon}"!`);
     if (className && typeof className !== "string")
