@@ -29,6 +29,16 @@ import Button from "@material-ui/core/Button";
 import Locale from "../lib/components/Locale";
 
 
+const md = `
+\`\`\`{"type": "expansion-code", "themeLight": "darcula"}
+    asdfasf
+    asd
+    fas
+    f
+    asdf
+\`\`\`
+`.trim();
+
 export default function ExampleDocumentation() {
     const [text, setText] = React.useState("");
     return (
@@ -66,9 +76,34 @@ export default function ExampleDocumentation() {
                         <H4>Darkness</H4>
                         <H5>Darkness</H5>
                         <H6>Darkness</H6>
+                        <Markdown>
+                            {md}
+                        </Markdown>
+                        <Markdown>{`![{"src": "https://cdnb.artstation.com/p/users/avatars/000/449/963/large/fc6a568b26ecfe1fe02f6dc60da732ae.jpg?1587936613", "alt": "kuku", "fullWidth": true}]()`}</Markdown>
+                        <Markdown>{`![{"src": "https://cdnb.artstation.com/p/users/avatars/000/449/963/large/fc6a568b26ecfe1fe02f6dc60da732ae.jpg?1587936613", "alt": "kuku", "align": "center"}]()`}</Markdown>
+                        <Markdown>{`![{"src": "https://cdnb.artstation.com/p/users/avatars/000/449/963/large/fc6a568b26ecfe1fe02f6dc60da732ae.jpg?1587936613", "alt": "kuku", "align": "right"}]()`}</Markdown>
+                        <Markdown>{`![{"src": "https://cdnb.artstation.com/p/users/avatars/000/449/963/large/fc6a568b26ecfe1fe02f6dc60da732ae.jpg?1587936613", "alt": "kuku", "align": "left"}]()`}</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"} order={10}>
-                        <H1>HelloDarknessmyoldfriend</H1>
+                        <H1>HelloDarknessmyoldfriend1</H1>
+                        <H1>HelloDarknessmyoldfriend2</H1>
+                        <H1>HelloDarknessmyoldfriend3</H1>
+                        <H1>HelloDarknessmyoldfriend4</H1>
+                        <H1>HelloDarknessmyoldfriend5</H1>
+                        <H1>HelloDarknessmyoldfriend6</H1>
+                        <H1>HelloDarknessmyoldfriend7</H1>
+                        <H1>HelloDarknessmyoldfriend8</H1>
+                        <H1>HelloDarknessmyoldfriend9</H1>
+                        <H1>HelloDarknessmyoldfriend10</H1>
+                        <H1>HelloDarknessmyoldfriend11</H1>
+                        <H1>HelloDarknessmyoldfriend12</H1>
+                        <H1>HelloDarknessmyoldfriend13</H1>
+                        <H1>HelloDarknessmyoldfriend14</H1>
+                        <H1>HelloDarknessmyoldfriend15</H1>
+                        <H1>HelloDarknessmyoldfriend16</H1>
+                        <H1>HelloDarknessmyoldfriend17</H1>
+                        <H1>HelloDarknessmyoldfriend18</H1>
+                        <H1>HelloDarknessmyoldfriend19</H1>
                         <H2>{text}</H2>
                         {text}
                         <Button onClick={() => setText(prev => prev ? "" : "Hello darkness")}>Set value</Button>
@@ -76,9 +111,8 @@ export default function ExampleDocumentation() {
                         <Locale path={"pages/DocsPageAPI/pageSearchDescription"}>__This text must not be shown
                             2!__</Locale>
                         <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I
-                            am &&age years old!</Markdown>
-                        <Markdown>```hello darkness``` my old __friend__. I`ve come ___to tall___ with you
-                            again.</Markdown>
+                            am &&age years old! </Markdown>
+                        <Markdown>{"Hello &{MaterialDocs/navigationList/content}& ```<Div/>```"}</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"} order={11}>
                         asfasf2324

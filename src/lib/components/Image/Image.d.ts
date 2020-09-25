@@ -38,6 +38,12 @@ export interface ImageProps
      */
     frame?: boolean;
     /**
+     * align - align of image.
+     * @default "left"
+     * @type string
+     */
+    align?: "left" | "center" | "right";
+    /**
      * children - elements, which will appear in image caption.
      * @type any
      */

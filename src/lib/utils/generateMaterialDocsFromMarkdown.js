@@ -73,12 +73,13 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                     case "text":
                         return token.tokens ?
                             generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key) :
-                            <span key={`text-token-${tokenId}`}>{fixShieldedText(token.text)}</span>;
+                            <span key={`text-token-${tokenId}`} dangerouslySetInnerHTML={{__html: token.text}}/>;
                     case "paragraph":
                         return (
                             <Typography
                                 key={`paragraph-token-${tokenId}`}
                                 variant={options.typographyInheritSize ? "inherit" : "body1"}
+                                variantMapping={{body1: "span", body2: "span"}}
                             >
                                 {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Typography>
@@ -105,7 +106,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                 console.error(`MaterialDocs: incorrect type of code block setting field "language", expected "string" got ${typeof language}`);
                             switch (setting.type) {
                                 case "expansion-code": {
-                                    const {name, collapsedHeight, theme} = setting;
+                                    const {name, collapsedHeight, theme, type, ...other} = setting;
                                     if (theme && typeof theme !== "string")
                                         console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     return (
@@ -115,6 +116,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                             collapsedHeight={collapsedHeight}
                                             key={`code-token-${tokenId}`}
                                             theme={theme}
+                                            {...other}
                                         >
                                             {token.text}
                                         </ExpansionCode>
@@ -122,7 +124,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                     break;
                                 }
                                 case "demo-with-code": {
-                                    const {defaultExpanded, text, name, theme} = setting;
+                                    const {defaultExpanded, text, name, theme, type, ...other} = setting;
                                     if (theme && typeof theme !== "string")
                                         console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     if (text && typeof text !== "string")
@@ -139,6 +141,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                             name={name}
                                             theme={theme}
                                             key={`code-token-${tokenId}`}
+                                            {...other}
                                         >
                                             {Demo || null}
                                         </DemoWithCode>
@@ -146,7 +149,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                     break;
                                 }
                                 default: {
-                                    const {theme} = setting;
+                                    const {theme, type, ...other} = setting;
                                     if (theme && typeof theme !== "string")
                                         console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     return (
@@ -154,6 +157,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                             language={language}
                                             key={`code-token-${tokenId}`}
                                             theme={theme}
+                                            {...other}
                                         >
                                             {token.text}
                                         </Code>
@@ -178,12 +182,16 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                             </Code>
                         );
                     case "codespan":
-                        return <CodeSpan key={`codespan-token-${tokenId}`}>{token.text}</CodeSpan>
+                        return (
+                            <CodeSpan key={`codespan-token-${tokenId}`}>
+                                <span dangerouslySetInnerHTML={{__html: token.text}}/>
+                            </CodeSpan>
+                        )
                     case "link": {
                         const {href, text, tokens} = token;
                         let settings = {};
                         try {
-                            settings = JSON.parse(text);
+                            settings = JSON.parse(fixShieldedText(text));
                             if (typeof settings.text === "string") settings.tokens = marked.lexer(settings.text);
                         } catch (e) {
                             settings = {tokens};
@@ -212,8 +220,14 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                 {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Italic>
                         );
-                    case "image":
-                        return <Image src={token.href} alt={token.text} key={`image-token-${tokenId}`}/>
+                    case "image": {
+                        const {href, text} = token;
+                        let settings = {src: href, alt: text};
+                        try {
+                            settings = JSON.parse(fixShieldedText(text));
+                        } catch (e) {}
+                        return <Image {...settings} src={settings.src} alt={settings.alt} key={`image-token-${tokenId}`}/>
+                    }
                     case "table":
                         const header = token.tokens.header;
                         const cells = token.tokens.cells;
