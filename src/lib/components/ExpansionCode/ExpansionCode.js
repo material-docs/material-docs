@@ -118,7 +118,7 @@ const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
                 className={classes.collapse}
                 disableStrictModeCompat
             >
-                <Code theme={theme} language={language}>
+                <Code {...other}>
                     {children}
                 </Code>
             </Collapse>

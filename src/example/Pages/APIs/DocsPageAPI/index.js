@@ -43,7 +43,7 @@ export default function DocsPageAPI() {
             <H1 noDivider>DocsPage API</H1>
             <H3 noDivider noTag>{locale.pageAbout}</H3>
             <H2>{localeSpells.Import}</H2>
-            <Code language={"javascript"} theme={"darcula"}>
+            <Code language={"javascript"} themeLight={"darcula"}>
                 {importCode}
             </Code>
             <Typography>
