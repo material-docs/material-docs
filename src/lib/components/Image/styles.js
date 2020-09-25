@@ -6,9 +6,28 @@
 import {createStyles} from "@material-ui/core/styles";
 
 export const styles = theme => createStyles({
-    root: {},
+    root: {
+        position: "relative",
+    },
     fullWidth: {
         width: "100%",
         flexGrow: 1,
-    }
+    },
+    frame: {
+        border: `3px solid ${theme.palette.type === "light" ? theme.palette.lightgrey.main : theme.palette.lightgrey.dark}`,
+    },
+    placeholder: {
+        position: "absolute",
+        top: 0,
+        bottom :0,
+        left: 0,
+        right: 0,
+        padding: theme.spacing(3),
+        backgroundColor: theme.palette.type === "light" ? theme.palette.whitesmoke.main : theme.palette.whitesmoke.dark,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    progress: {
+    },
 });
