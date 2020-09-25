@@ -28,10 +28,12 @@ const Code = React.forwardRef(function Code(props, ref) {
         style,
         className,
         classes,
+        themeDark = "dark",
+        themeLight = "light",
         ...other
     } = props;
     const muiTheme = useTheme();
-    const theme = props.theme || (muiTheme.palette.type === "dark" ? "dark" : "light");
+    const theme = props.theme || (muiTheme.palette.type === "dark" ? themeDark : themeLight);
     const commonClasses = useCommonStyles();
     const [height, setHeight] = React.useState(0);
     const codeRef = React.useRef(null);

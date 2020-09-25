@@ -168,7 +168,7 @@ const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
                 </Tooltip>
             </Toolbar>
             <Collapse in={expanded}>
-                <Code theme={theme}>
+                <Code {...{...other, p: undefined, m: undefined}}>
                     {code || ""}
                 </Code>
             </Collapse>
