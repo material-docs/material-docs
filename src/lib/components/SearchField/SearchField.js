@@ -51,11 +51,30 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
     const rootRef = React.useRef(null);
     const inputRef = React.useRef(null);
 
-    function handleSearchItemSelected() {
+    // Effect for setting selected first element when query is changed
+    React.useEffect(() => {
+        setSelected(0);
+    }, [text]);
+
+    /**
+     * handleSearchItemSelected - made search panel close on found item select.
+     * @function
+     * @param {Event} event
+     */
+    function handleSearchItemSelected(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        setText("");
         setFocused(false);
         inputRef.current && inputRef.current.blur();
     }
 
+    /**
+     * handleTextInput - handles user query text input and auto search.
+     * @function
+     * @throws TypeError
+     * @param {event} event
+     */
     function handleTextInput(event) {
         setText(event.target.value);
         if (doSearch && typeof doSearch !== "function")
@@ -67,6 +86,12 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
         }
     }
 
+    /**
+     * handleItemAction - handling found item action when it is selected.
+     * @function
+     * @param {SearchDataItem} data
+     * @throws TypeError
+     */
     function handleItemAction(data) {
         switch (typeof data.redirect) {
             case "string":
@@ -83,6 +108,11 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
         }
     }
 
+    /**
+     * handleKeyDown - function for handling keyboard events in found items list.
+     * @function
+     * @param {KeyboardEvent} event
+     */
     function handleKeyDown(event) {
         switch (event.key) {
             case "ArrowUp":
@@ -112,6 +142,7 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
      * search - function, designed to do search from searchData by query string input.
      * @function
      * @param {string} input
+     * @throws TypeError
      * @returns {SearchDataItem[]}
      */
     async function search(input) {
@@ -171,8 +202,6 @@ const SearchField = React.forwardRef(function SearchField(props, ref) {
                     className={classes.input}
                     placeholder={getFieldFromLang(lang, "MaterialDocs/SearchField/label")}
                     onFocus={event => setFocused(true)}
-                    // onFocus={event => console.log(event)}
-                    // onBlur={event => console.log(("blur"))}
                     onKeyDown={handleKeyDown}
                     inputRef={inputRef}
                 />

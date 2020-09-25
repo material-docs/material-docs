@@ -33,13 +33,13 @@ export interface SearchMenuItemProps
      * onAfterSelect - function, if defined - will be called after search item selection handler.
      * @function
      */
-    onAfterSelect?(): void;
+    onAfterSelect?(event: Event): void;
 
     /**
      * onBeforeSelected - function, if defined - will be called before search item selection handler.
      * @function
      */
-    onBeforeSelected?(): void;
+    onBeforeSelected?(event: Event): void;
 }
 
 /**
