@@ -79,6 +79,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                             <Typography
                                 key={`paragraph-token-${tokenId}`}
                                 variant={options.typographyInheritSize ? "inherit" : "body1"}
+                                variantMapping={{body1: "span", body2: "span"}}
                             >
                                 {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Typography>
