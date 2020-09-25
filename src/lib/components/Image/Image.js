@@ -30,6 +30,7 @@ const Image = React.forwardRef(function Image(props, ref) {
         children,
         fullWidth = false,
         frame = false,
+        align = "left",
         classes,
         ...other
     } = props;
@@ -39,7 +40,13 @@ const Image = React.forwardRef(function Image(props, ref) {
         <React.Fragment>
             <Box
                 style={{minHeight: loaded ? 0 : 200, ...style}}
-                className={clsx(classes.root, fullWidth && classes.fullWidth, frame && classes.frame, className)}
+                className={clsx(
+                    classes.root,
+                    fullWidth && classes.fullWidth,
+                    frame && classes.frame, className,
+                    align === "right" && classes.alignRight,
+                    align === "center" && classes.alignCenter,
+                )}
                 ref={ref}
             >
                 <LazyLoadImage
@@ -48,6 +55,7 @@ const Image = React.forwardRef(function Image(props, ref) {
                     src={src}
                     placeholderSrc={placeholderSrc || src}
                     effect={"blur"}
+                    wrapperClassName={clsx(fullWidth && classes.fullWidth)}
                     afterLoad={() => setLoaded(true)}
                 />
                 {!loaded &&
@@ -66,8 +74,11 @@ Image.displayName = displayName;
 Image.propTypes = {
     // ImageProps
     src: PropTypes.string,
+    placeholderSrc: PropTypes.string,
     alt: PropTypes.string,
     fullWidth: PropTypes.bool,
+    frame: PropTypes.bool,
+    align: PropTypes.oneOf(["left", "center", "right"]),
     // Stylable
     style: PropTypes.object,
     className: PropTypes.string,

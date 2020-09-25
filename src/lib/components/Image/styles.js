@@ -8,10 +8,18 @@ import {createStyles} from "@material-ui/core/styles";
 export const styles = theme => createStyles({
     root: {
         position: "relative",
+        display: "flex",
     },
     fullWidth: {
         width: "100%",
         flexGrow: 1,
+    },
+    alignLeft: {},
+    alignCenter: {
+        justifyContent: "center",
+    },
+    alignRight: {
+        justifyContent: "flex-end",
     },
     frame: {
         border: `3px solid ${theme.palette.type === "light" ? theme.palette.lightgrey.main : theme.palette.lightgrey.dark}`,

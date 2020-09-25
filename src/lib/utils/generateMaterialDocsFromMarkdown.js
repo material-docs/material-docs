@@ -29,6 +29,20 @@ import Divider from "@material-ui/core/Divider";
 import marked from "marked";
 
 
+/**
+ * fixShieldedText - fixes bug with shielded symbols in text after using lexer.
+ * @function
+ * @param {string} text
+ * @return {string}
+ */
+function fixShieldedText(text) {
+    if (typeof text !== "string") return "";
+    return text.replace(/&#39;+/g, "'")
+        .replace(/&quot;+/g, "\"")
+        .replace(/&lt;+/g, "<")
+        .replace(/&gt;/g, ">");
+}
+
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1, options) {
     if (!(typeof input === "string" || typeof input === "object"))
         throw new TypeError(`MaterialDocs: incorrect type of "input" param, expected "object | string", got "${typeof input}"`);
@@ -176,7 +190,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                         const {href, text, tokens} = token;
                         let settings = {};
                         try {
-                            settings = JSON.parse(text);
+                            settings = JSON.parse(fixShieldedText(text));
                             if (typeof settings.text === "string") settings.tokens = marked.lexer(settings.text);
                         } catch (e) {
                             settings = {tokens};
@@ -205,8 +219,14 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                 {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Italic>
                         );
-                    case "image":
-                        return <Image src={token.href} alt={token.text} key={`image-token-${tokenId}`}/>
+                    case "image": {
+                        const {href, text} = token;
+                        let settings = {src: href, alt: text};
+                        try {
+                            settings = JSON.parse(fixShieldedText(text));
+                        } catch (e) {}
+                        return <Image {...settings} src={settings.src} alt={settings.alt} key={`image-token-${tokenId}`}/>
+                    }
                     case "table":
                         const header = token.tokens.header;
                         const cells = token.tokens.cells;

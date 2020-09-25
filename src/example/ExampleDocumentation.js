@@ -79,6 +79,10 @@ export default function ExampleDocumentation() {
                         <Markdown>
                             {md}
                         </Markdown>
+                        <Markdown>{`![{"src": "https://cdnb.artstation.com/p/users/avatars/000/449/963/large/fc6a568b26ecfe1fe02f6dc60da732ae.jpg?1587936613", "alt": "kuku", "fullWidth": true}]()`}</Markdown>
+                        <Markdown>{`![{"src": "https://cdnb.artstation.com/p/users/avatars/000/449/963/large/fc6a568b26ecfe1fe02f6dc60da732ae.jpg?1587936613", "alt": "kuku", "align": "center"}]()`}</Markdown>
+                        <Markdown>{`![{"src": "https://cdnb.artstation.com/p/users/avatars/000/449/963/large/fc6a568b26ecfe1fe02f6dc60da732ae.jpg?1587936613", "alt": "kuku", "align": "right"}]()`}</Markdown>
+                        <Markdown>{`![{"src": "https://cdnb.artstation.com/p/users/avatars/000/449/963/large/fc6a568b26ecfe1fe02f6dc60da732ae.jpg?1587936613", "alt": "kuku", "align": "left"}]()`}</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"} order={10}>
                         <H1>HelloDarknessmyoldfriend1</H1>
