@@ -24,6 +24,7 @@ const Locale = React.forwardRef(function Locale(props, ref) {
     const {lang} = useLang();
 
     let text = "";
+    if (!lang) console.error(`MaterialDocs: you must pass defaultLang to DocsLayout component to use Locale!`)
     if (lang && typeof path === "string")
         text = getFieldFromLang(lang, path);
 

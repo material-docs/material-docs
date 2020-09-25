@@ -26,4 +26,24 @@ describe("Utils -> replaceMarkdownParams", () => {
         const expected = "Hello darkness my old friend";
         expect(replaceMarkdownParams(source, {text: "my &&nested", nested: "old"})).toEqual(expected);
     });
+    test("Replace nested variables and locale", () => {
+        const lang = {
+            name: "en-us",
+            label: "english",
+            locale: {
+                text1: "locale text1",
+                nested: {
+                    text2: "locale text2",
+                }
+            }
+        }
+        const source = "Hello &{text1}& darkness &&text friend &{nested/text2}&";
+        const expected = "Hello locale text1 darkness my old friend locale text2";
+        expect(replaceMarkdownParams(source, {text: "my &&nested", nested: "old"}, lang)).toEqual(expected);
+    });
+    test("Replace variable with no signature", () => {
+        const source = "Hello darkness && friend";
+        const expected = "Hello darkness ```incorrect variable``` friend";
+        expect(replaceMarkdownParams(source, {text: "my &&nested", nested: "old"})).toEqual(expected);
+    });
 });

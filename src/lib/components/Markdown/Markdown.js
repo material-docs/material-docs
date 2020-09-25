@@ -38,14 +38,14 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
     React.useEffect(() => {
         if (lang && typeof locale === "string" && typeof getFieldFromLang(lang, locale) === "string") {
             let text = getFieldFromLang(lang, locale);
-            text = replaceMarkdownParams(text, data);
+            text = replaceMarkdownParams(text, data, lang);
             setContent(generateMaterialDocsFromMarkdown(text, data, {typographyInheritSize}));
         } else {
             try {
                 let child = "";
                 if (children)
                     child = React.Children.map(children, String).join("");
-                if (typeof data === "object") child = replaceMarkdownParams(child, data);
+                if (typeof data === "object") child = replaceMarkdownParams(child, data, lang);
                 setContent(generateMaterialDocsFromMarkdown(child, data, {typographyInheritSize}));
             } catch (error) {
                 setContent(null);
