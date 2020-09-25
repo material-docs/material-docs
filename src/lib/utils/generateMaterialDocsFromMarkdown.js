@@ -91,7 +91,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                 console.error(`MaterialDocs: incorrect type of code block setting field "language", expected "string" got ${typeof language}`);
                             switch (setting.type) {
                                 case "expansion-code": {
-                                    const {name, collapsedHeight, theme} = setting;
+                                    const {name, collapsedHeight, theme, type, ...other} = setting;
                                     if (theme && typeof theme !== "string")
                                         console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     return (
@@ -101,6 +101,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                             collapsedHeight={collapsedHeight}
                                             key={`code-token-${tokenId}`}
                                             theme={theme}
+                                            {...other}
                                         >
                                             {token.text}
                                         </ExpansionCode>
@@ -108,7 +109,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                     break;
                                 }
                                 case "demo-with-code": {
-                                    const {defaultExpanded, text, name, theme} = setting;
+                                    const {defaultExpanded, text, name, theme, type, ...other} = setting;
                                     if (theme && typeof theme !== "string")
                                         console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     if (text && typeof text !== "string")
@@ -125,6 +126,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                             name={name}
                                             theme={theme}
                                             key={`code-token-${tokenId}`}
+                                            {...other}
                                         >
                                             {Demo || null}
                                         </DemoWithCode>
@@ -132,7 +134,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                     break;
                                 }
                                 default: {
-                                    const {theme} = setting;
+                                    const {theme, type, ...other} = setting;
                                     if (theme && typeof theme !== "string")
                                         console.error(`MaterialDocs: incorrect type of code block setting field "theme", expected "string" got ${typeof theme}`);
                                     return (
@@ -140,6 +142,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                             language={language}
                                             key={`code-token-${tokenId}`}
                                             theme={theme}
+                                            {...other}
                                         >
                                             {token.text}
                                         </Code>

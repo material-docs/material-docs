@@ -29,6 +29,16 @@ import Button from "@material-ui/core/Button";
 import Locale from "../lib/components/Locale";
 
 
+const md = `
+\`\`\`{"type": "expansion-code", "themeLight": "darcula"}
+    asdfasf
+    asd
+    fas
+    f
+    asdf
+\`\`\`
+`.trim();
+
 export default function ExampleDocumentation() {
     const [text, setText] = React.useState("");
     return (
@@ -66,6 +76,9 @@ export default function ExampleDocumentation() {
                         <H4>Darkness</H4>
                         <H5>Darkness</H5>
                         <H6>Darkness</H6>
+                        <Markdown>
+                            {md}
+                        </Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"} order={10}>
                         <H1>HelloDarknessmyoldfriend1</H1>

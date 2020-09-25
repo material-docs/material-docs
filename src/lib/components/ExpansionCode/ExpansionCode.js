@@ -37,7 +37,6 @@ export const displayName = "MaterialDocs-ExpansionCode";
 
 const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
     const {
-        theme,
         language,
         children,
         name,
