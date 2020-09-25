@@ -68,7 +68,25 @@ export default function ExampleDocumentation() {
                         <H6>Darkness</H6>
                     </DocsPage>
                     <DocsPage name={"TestPage2"} searchDescription={"sdfsfsd"} order={10}>
-                        <H1>HelloDarknessmyoldfriend</H1>
+                        <H1>HelloDarknessmyoldfriend1</H1>
+                        <H1>HelloDarknessmyoldfriend2</H1>
+                        <H1>HelloDarknessmyoldfriend3</H1>
+                        <H1>HelloDarknessmyoldfriend4</H1>
+                        <H1>HelloDarknessmyoldfriend5</H1>
+                        <H1>HelloDarknessmyoldfriend6</H1>
+                        <H1>HelloDarknessmyoldfriend7</H1>
+                        <H1>HelloDarknessmyoldfriend8</H1>
+                        <H1>HelloDarknessmyoldfriend9</H1>
+                        <H1>HelloDarknessmyoldfriend10</H1>
+                        <H1>HelloDarknessmyoldfriend11</H1>
+                        <H1>HelloDarknessmyoldfriend12</H1>
+                        <H1>HelloDarknessmyoldfriend13</H1>
+                        <H1>HelloDarknessmyoldfriend14</H1>
+                        <H1>HelloDarknessmyoldfriend15</H1>
+                        <H1>HelloDarknessmyoldfriend16</H1>
+                        <H1>HelloDarknessmyoldfriend17</H1>
+                        <H1>HelloDarknessmyoldfriend18</H1>
+                        <H1>HelloDarknessmyoldfriend19</H1>
                         <H2>{text}</H2>
                         {text}
                         <Button onClick={() => setText(prev => prev ? "" : "Hello darkness")}>Set value</Button>

@@ -4,7 +4,6 @@
  */
 
 import {createStyles} from "@material-ui/core/styles";
-import {grey} from "@material-ui/core/colors";
 
 export const styles = theme => createStyles({
     root: {},
@@ -28,5 +27,11 @@ export const styles = theme => createStyles({
     typography: {
         overflowWrap: "break-word",
         maxWidth: `calc(10vw - ${theme.spacing(2)}px)`,
+    },
+    navigationList: {
+        position: "fixed",
+        width: "100%",
+        maxHeight: `calc(100vh - ${theme.spacing(16)}px)`,
+        overflowY: "auto",
     }
 });
