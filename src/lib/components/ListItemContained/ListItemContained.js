@@ -7,7 +7,7 @@ import React from "react";
 // PropTypes validators
 import PropTypes from "prop-types";
 
-export const displayName = "MatDocListItemContained";
+export const displayName = "MaterialDocs-ListItemContained";
 
 class ListItemContained extends React.Component {
     render() {

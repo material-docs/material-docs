@@ -17,6 +17,11 @@ export interface ImageProps
      */
     src?: string;
     /**
+     * placeholderSrc - src low quality image, which will be displayed while main image is loading.
+     * @type string
+     */
+    placeholderSrc?: string,
+    /**
      * alt - alt param for inner <img /> component. Alternative text to be displayed if the image fails to load.
      * @type: string
      */
@@ -27,6 +32,11 @@ export interface ImageProps
      * @default false
      */
     fullWidth?: boolean;
+    /**
+     * frame - if true, image will be placed inside decorative border frame.
+     * @type boolean
+     */
+    frame?: boolean;
     /**
      * children - elements, which will appear in image caption.
      * @type any

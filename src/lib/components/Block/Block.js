@@ -15,7 +15,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import {withStyles} from "@material-ui/core/styles";
 
 
-export const displayName = "MdBlock";
+export const displayName = "MaterialDocs-Block";
 
 const Block = React.forwardRef(function Block(props, ref) {
     const {

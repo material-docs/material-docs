@@ -24,10 +24,14 @@ export default interface AppBarAction {
      * @param {any} event
      */
     onClick?(event: any): void;
-
     /**
      * tooltip - if defined will be displayed in material-ui Tooltip component when mouse hovers button.
      * @type string
      */
     tooltip?: string;
+    /**
+     * ref - react ref object. Will be passed to action root element.
+     * @type any
+     */
+    ref?: any;
 }

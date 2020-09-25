@@ -17,7 +17,7 @@ import {getFieldFromLang} from "../../utils";
 import {useLang} from "../../hooks";
 
 
-export const displayName = "MatDocMarkdown";
+export const displayName = "MaterialDocs-Markdown";
 
 const Markdown = React.forwardRef(function Markdown(props, ref) {
     const {

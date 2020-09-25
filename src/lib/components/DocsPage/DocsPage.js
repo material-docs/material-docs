@@ -27,7 +27,7 @@ import createRouteFromName from "../../utils/createRouteFromName";
 import * as _ from "lodash";
 
 
-export const displayName = "MatDocDocsPage";
+export const displayName = "MaterialDocs-DocsPage";
 
 const DocsPage = React.forwardRef(function DocsPage(props, ref) {
     const {

@@ -15,7 +15,7 @@ import {withStyles} from "@material-ui/styles";
 import {displayName as ListItemContainedDisplayName} from "../ListItemContained";
 
 
-export const displayName = "MatDocListItem";
+export const displayName = "MaterialDocs-ListItem";
 
 const ListItem = React.forwardRef(function ListItem(props, ref) {
     const {

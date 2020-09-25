@@ -15,7 +15,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import clsx from "clsx";
 
 
-export const displayName = "MatDocTable";
+export const displayName = "MaterialDocs-Table";
 
 const Table = React.forwardRef(function Table(props, ref) {
     const {

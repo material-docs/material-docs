@@ -15,7 +15,7 @@ import getContainerByType from "../../utils/getContainerByType";
 import {displayName as AutoDocsMenuDisplayName} from "./../AutoDocsMenu";
 
 
-export const displayName = "MatDocDocsMenu";
+export const displayName = "MaterialDocs-DocsMenu";
 
 const DocsMenu = React.forwardRef(function DocsMenu(props, ref) {
     const {

@@ -19,7 +19,7 @@ import {useTheme, withStyles} from "@material-ui/core";
 import clsx from "clsx";
 
 
-export const displayName = "MatDocCode";
+export const displayName = "MaterialDocs-Code";
 
 const Code = React.forwardRef(function Code(props, ref) {
     const {

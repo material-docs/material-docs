@@ -33,7 +33,7 @@ import {getFieldFromLang} from "../../utils";
 import {useLang} from "../../hooks";
 
 
-export const displayName = "MatDocExpansionCode";
+export const displayName = "MaterialDocs-ExpansionCode";
 
 const ExpansionCode = React.forwardRef(function ExpansionCode(props, ref) {
     const {

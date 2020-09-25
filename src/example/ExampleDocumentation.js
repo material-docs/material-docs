@@ -8,7 +8,7 @@ import DocsPageDemo from "./Pages/Components/DocsPageDemo/index";
 import DocsPageAPI from "./Pages/APIs/DocsPageAPI";
 import DemoWithCodeAPI from "./Pages/APIs/DemoWithCode";
 
-import {DocsLayout, DocsMenuItem, DocsPage, DocsPages, PagesGroup} from "../lib";
+import {DocsLayout, DocsMenuItem, DocsPage, DocsPages, Image, PagesGroup} from "../lib";
 
 import RU from "./locale/RU.json";
 import EN from "./locale/EN.json";
@@ -17,7 +17,6 @@ import Landing from "../lib/components/Landing/Landing";
 import AutoDocsMenu from "../lib/components/AutoDocsMenu/AutoDocsMenu";
 import DocsMenu from "../lib/components/DocsMenu/DocsMenu";
 import GitHubIcon from '@material-ui/icons/GitHub';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
 import logo from "./../logo.svg";
 import Block from "../lib/components/Block/Block";
 import List from "../lib/components/List/List";
@@ -48,7 +47,7 @@ export default function ExampleDocumentation() {
         >
             <DocsMenu dense>
                 <AutoDocsMenu/>
-                <DocsMenuItem page={"Kekk"} />
+                <DocsMenuItem page={"Kekk"}/>
             </DocsMenu>
             <DocsPages>
                 <PagesGroup name={"Getting started"} order={9}>
@@ -74,9 +73,12 @@ export default function ExampleDocumentation() {
                         {text}
                         <Button onClick={() => setText(prev => prev ? "" : "Hello darkness")}>Set value</Button>
                         <Markdown locale={"pages/DocsPageAPI/pageAbout"}>__This text must not be shown!__</Markdown>
-                        <Locale path={"pages/DocsPageAPI/pageSearchDescription"}>__This text must not be shown 2!__</Locale>
-                        <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I am &&age years old!</Markdown>
-                        <Markdown>```hello darkness``` my old __friend__. I`ve come ___to tall___ with you again.</Markdown>
+                        <Locale path={"pages/DocsPageAPI/pageSearchDescription"}>__This text must not be shown
+                            2!__</Locale>
+                        <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I
+                            am &&age years old!</Markdown>
+                        <Markdown>```hello darkness``` my old __friend__. I`ve come ___to tall___ with you
+                            again.</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"} order={11}>
                         asfasf2324
@@ -88,9 +90,17 @@ export default function ExampleDocumentation() {
                                     <ListItem>adsfsa</ListItem>
                                 </ListItemContained>
                             </ListItem>
-                            <Link page={["Components", "DocsPages"]}>Hello</Link>
-                            <Markdown>{`[{"text": "Hello darkness my old friend", "page": "components/docs-pages"}](https://google.com)`}</Markdown>
                         </List>
+                        <Link page={["Components", "DocsPages"]}>Hello</Link>
+                        <Markdown>{`[{"text": "Hello darkness my old friend", "page": "components/docs-pages"}](https://google.com)`}</Markdown>
+                        <Image
+                            src={"https://www.albertjuhe.com/images/11.jpg"}
+                            // placeholderSrc={"https://www.albertjuhe.com/images/11-64x48.jpg"}
+                            fullWidth
+                            frame
+                        >
+                            asdfsaf
+                        </Image>
                     </DocsPage>
                     <LocalLocaleTestPage/>
                 </PagesGroup>

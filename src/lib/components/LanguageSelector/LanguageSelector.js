@@ -23,7 +23,7 @@ import {withStyles} from "@material-ui/styles";
 import {getFieldFromLang} from "../../utils";
 
 
-export const displayName = "MatDocLanguageSelector";
+export const displayName = "MaterialDocs-LanguageSelector";
 
 const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) {
     const {
