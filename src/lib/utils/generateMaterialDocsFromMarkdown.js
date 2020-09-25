@@ -29,20 +29,6 @@ import Divider from "@material-ui/core/Divider";
 import marked from "marked";
 
 
-/**
- * fixShieldedText - fixes bug with shielded symbols in text after using lexer.
- * @function
- * @param {string} text
- * @return {string}
- */
-function fixShieldedText(text) {
-    if (typeof text !== "string") return "";
-    return text.replace(/&#39;+/g, "'")
-        .replace(/&quot;+/g, "\"")
-        .replace(/&lt;+/g, "<")
-        .replace(/&gt;/g, ">");
-}
-
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1, options) {
     if (!(typeof input === "string" || typeof input === "object"))
         throw new TypeError(`MaterialDocs: incorrect type of "input" param, expected "object | string", got "${typeof input}"`);
@@ -73,7 +59,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                     case "text":
                         return token.tokens ?
                             generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key) :
-                            <span key={`text-token-${tokenId}`}>{fixShieldedText(token.text)}</span>;
+                            <span key={`text-token-${tokenId}`} dangerouslySetInnerHTML={{__html: token.text}}/>;
                     case "paragraph":
                         return (
                             <Typography
@@ -178,7 +164,11 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                             </Code>
                         );
                     case "codespan":
-                        return <CodeSpan key={`codespan-token-${tokenId}`}>{token.text}</CodeSpan>
+                        return (
+                            <CodeSpan key={`codespan-token-${tokenId}`}>
+                                <span dangerouslySetInnerHTML={{__html: token.text}}/>
+                            </CodeSpan>
+                        )
                     case "link": {
                         const {href, text, tokens} = token;
                         let settings = {};

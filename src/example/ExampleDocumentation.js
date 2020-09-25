@@ -77,7 +77,7 @@ export default function ExampleDocumentation() {
                             2!__</Locale>
                         <Markdown data={{name: "Danil Andreev", age: "14, name: __&&name__."}}>My name is __&&name__, I
                             am &&age years old! </Markdown>
-                        <Markdown>{"Hello &{MaterialDocs/navigationList/content}&"}</Markdown>
+                        <Markdown>{"Hello &{MaterialDocs/navigationList/content}& ```<Div/>```"}</Markdown>
                     </DocsPage>
                     <DocsPage name={"TestPage3"} searchDescription={"sdfsfsd"} order={11}>
                         asfasf2324
