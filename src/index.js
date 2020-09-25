@@ -7,8 +7,8 @@ import EmptyDocumentation from "./example/EmptyDocumentation";
 
 ReactDOM.render(
     <React.StrictMode>
-        {/*<ExampleDocumentation/>*/}
-        <EmptyDocumentation/>
+        <ExampleDocumentation/>
+        {/*<EmptyDocumentation/>*/}
     </React.StrictMode>,
     document.getElementById('root')
 );

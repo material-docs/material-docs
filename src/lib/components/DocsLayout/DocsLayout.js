@@ -29,7 +29,7 @@ import Box from "@material-ui/core/Box";
 import ListItemText from "@material-ui/core/ListItemText";
 // Utils
 import clsx from 'clsx';
-import {createMuiTheme, ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
+import {ThemeProvider as MuiThemeProvider, useTheme} from '@material-ui/core/styles';
 import getChildrenFromContainer from "../../utils/getChildrenFromContainer";
 import getContainerByType from "../../utils/getContainerByType";
 import generateHeaderIcon from "./generateHeaderIcon";
@@ -151,8 +151,8 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         setOpen(false);
     };
 
-    function defaultHandleVersionClick() {
-        history.push("");
+    function defaultHandleNameClick() {
+        history.push("/" + history.location.search);
     }
 
     return (
@@ -245,26 +245,31 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                             <Avatar
                                                 src={logo}
                                                 variant={"rounded"}
-                                                onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleVersionClick}
+                                                onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleNameClick}
                                             />
                                         </ListItemAvatar>
                                         }
                                         <ListItemText
                                             primary={
-                                                <Link
-                                                    style={{color: "inherit"}}
-                                                    onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleVersionClick}
-                                                >
-                                                    {name}
-                                                </Link>
+                                                name ?
+                                                    <Link
+                                                        style={{color: "inherit"}}
+                                                        onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleNameClick}
+                                                    >
+                                                        {name}
+                                                    </Link> :
+                                                    undefined
                                             }
                                             secondary={
-                                                <Link
-                                                    style={{color: "inherit"}}
-                                                    onClick={typeof onVersionClick === "function" ? onVersionClick : undefined}
-                                                >
-                                                    {version}
-                                                </Link>
+                                                version ?
+                                                    <Link
+                                                        style={{color: "inherit"}}
+                                                        onClick={typeof onVersionClick === "function" ? onVersionClick : undefined}
+                                                    >
+                                                        {version}
+                                                    </Link> :
+                                                    undefined
+
                                             }
                                             primaryTypographyProps={{variant: "h6", noWrap: true}}
                                             secondaryTypographyProps={{noWrap: true}}
