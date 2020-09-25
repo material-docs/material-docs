@@ -3,7 +3,10 @@
  * Copyright (C) 2020.
  */
 
-export default interface Lang {
+import PartialLang from "./PartialLang";
+
+export default interface Lang
+    extends PartialLang {
     /**
      * name - language name.
      * @type string
@@ -13,12 +16,6 @@ export default interface Lang {
      * label - language label.
      */
     label: string;
-    /**
-     * locale - language data. Translation of different fields, etc.
-     * @type object
-     */
-    locale?: object;
-
     /**
      * loadLang - function for data load when locale is not defined.
      * @function

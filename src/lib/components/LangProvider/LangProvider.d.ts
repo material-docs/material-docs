@@ -4,15 +4,16 @@
  */
 
 import Containerable from "../../interfaces/Containerable";
+import PartialLang from "../../interfaces/PartialLang";
 
 export interface LangProviderProps
     extends Containerable{
     /**
      * lang - lang extension, will be merged with main lang.
      * To main lang will be added fields from provider lang if in main lang they are not defined.
-     * @type {locale: object}
+     * @type PartialLang
      */
-    lang?: {locale: object}
+    lang?: PartialLang;
 }
 
 /**

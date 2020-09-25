@@ -3,7 +3,7 @@
  * Copyright (C) 2020.
  */
 
-import {Lang} from "../interfaces";
+import PartialLang from "../interfaces/PartialLang";
 
 /**
  * getFieldFromLang - function designed to get data from Lang.locale;
@@ -24,4 +24,4 @@ import {Lang} from "../interfaces";
  *
  * const darkness = getFieldFromLang(lang, "hello/darkness");
  */
-export default function getFieldFromLang(lang: Lang, path: string): undefined | any;
+export default function getFieldFromLang(lang: PartialLang, path: string): undefined | any;
