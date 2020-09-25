@@ -9,7 +9,7 @@ import useLang, {LangContext} from "../../hooks/useLang";
 import mergeLangs from "../../utils/mergeLangs";
 import withStyles from "@material-ui/styles/withStyles";
 
-export const displayName = "MatDocLangProvider";
+export const displayName = "MaterialDocs-LangProvider";
 
 const LangProvider = React.forwardRef(function (props, ref) {
     const {

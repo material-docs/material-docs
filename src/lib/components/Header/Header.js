@@ -14,7 +14,7 @@ import H6 from "./../H6";
 // Utils
 import {withStyles} from "@material-ui/styles";
 
-export const displayName = "MatDocsHeader";
+export const displayName = "MaterialDocs-Header";
 
 const Header = React.forwardRef(function Header(props, ref) {
     const {children, heading = 1, ...other} = props;

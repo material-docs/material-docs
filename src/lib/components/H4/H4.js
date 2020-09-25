@@ -9,7 +9,7 @@ import Tagable from "../Tagable/Tagable";
 import {withStyles} from "@material-ui/styles";
 
 
-export const displayName = "MatDocsH4";
+export const displayName = "MaterialDocs-H4";
 
 const H4 = React.forwardRef(function H4(props, ref) {
     const {children, noDivider = true, noTag = true, ...other} = props;

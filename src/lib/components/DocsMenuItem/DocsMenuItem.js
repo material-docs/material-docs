@@ -25,7 +25,7 @@ import createRouteFromName from "../../utils/createRouteFromName";
 import {isWidthUp, useTheme} from "@material-ui/core";
 
 
-export const displayName = "MatDocDocsMenuItem";
+export const displayName = "MaterialDocs-DocsMenuItem";
 
 const DocsMenuItem = withWidth()(React.forwardRef(function DocsMenuItem(props, ref) {
     const {

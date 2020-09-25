@@ -65,7 +65,7 @@ import {useLang} from "../../hooks";
 import {getFieldFromLang} from "../../utils";
 
 
-export const displayName = "MatDocDocsLayout";
+export const displayName = "MaterialDocs-DocsLayout";
 
 const DocsLayoutF = React.forwardRef((props, ref) => {
     const {

@@ -7,7 +7,7 @@ import React from "react";
 // PropTypes validators
 import PropTypes from "prop-types";
 
-export const displayName = "MatDocLanding";
+export const displayName = "MaterialDocs-Landing";
 
 class Landing extends React.Component {
     render() {

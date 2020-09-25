@@ -17,7 +17,7 @@ import clsx from "clsx";
 import {withStyles} from "@material-ui/styles";
 
 
-export const displayName = "MatDocImage";
+export const displayName = "MaterialDocs-Image";
 
 const Image = React.forwardRef(function Image(props, ref) {
     const {

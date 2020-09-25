@@ -14,7 +14,7 @@ import withStyles from "@material-ui/styles/withStyles";
 import {useSwitchPage} from "../../hooks";
 
 
-export const displayName = "MatDocLink";
+export const displayName = "MaterialDocs-Link";
 
 const Link = React.forwardRef(function Link(props, ref) {
     const {

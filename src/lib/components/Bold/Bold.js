@@ -12,7 +12,7 @@ import clsx from "clsx";
 import {withStyles} from "@material-ui/core";
 
 
-export const displayName = "MatDocBold";
+export const displayName = "MaterialDocs-Bold";
 
 const Bold = React.forwardRef(function Bold(props, ref) {
     const {

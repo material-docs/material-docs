@@ -13,7 +13,7 @@ import {useCommonStyles} from "../../stylesheets/commonStyles";
 import {withStyles} from "@material-ui/styles";
 
 
-export const displayName = "MatDocList";
+export const displayName = "MaterialDocs-List";
 
 const List = React.forwardRef(function List(props, ref) {
     const {

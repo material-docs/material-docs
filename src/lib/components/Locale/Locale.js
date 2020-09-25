@@ -14,7 +14,7 @@ import {useLang} from "../../hooks";
 import {withStyles} from "@material-ui/styles";
 
 
-export const displayName = "MatDoc-Locale"
+export const displayName = "MaterialDocs-Locale"
 
 const Locale = React.forwardRef(function Locale(props, ref) {
     const {

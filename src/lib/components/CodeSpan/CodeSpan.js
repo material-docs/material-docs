@@ -12,7 +12,7 @@ import {withStyles} from "@material-ui/styles";
 import clsx from "clsx";
 
 
-export const displayName = "MatDocCodeSpan";
+export const displayName = "MaterialDocs-CodeSpan";
 
 const CodeSpan = React.forwardRef(function CodeSpan(props, ref) {
     const {

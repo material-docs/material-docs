@@ -22,7 +22,7 @@ import getElementOffsetSum from "../../utils/getElementOffsetSum";
 import createRouteFromName from "../../utils/createRouteFromName";
 
 
-export const displayName = "MatDocTagable";
+export const displayName = "MaterialDocs-Tagable";
 
 const Tagable = React.forwardRef(function Tagable(props, ref) {
     const {

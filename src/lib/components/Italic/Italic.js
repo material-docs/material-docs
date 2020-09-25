@@ -12,7 +12,7 @@ import {withStyles} from "@material-ui/styles";
 import clsx from "clsx";
 
 
-export const displayName = "MatDocItalic";
+export const displayName = "MaterialDocs-Italic";
 
 const Italic = React.forwardRef(function Italic(props, ref) {
     const {

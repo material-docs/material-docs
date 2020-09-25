@@ -31,7 +31,7 @@ import {useLang} from "../../hooks";
 import {getFieldFromLang} from "../../utils";
 
 
-export const displayName = "MatDocSearchField";
+export const displayName = "MaterialDocs-SearchField";
 
 const SearchField = React.forwardRef(function SearchField(props, ref) {
     const {

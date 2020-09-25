@@ -14,7 +14,7 @@ import {createRouteFromName} from "../../utils";
 import * as _ from "lodash";
 
 
-export const displayName = "MatDocAutoDocsMenu";
+export const displayName = "MaterialDocs-AutoDocsMenu";
 
 const AutoDocsMenu = React.forwardRef(function AutoDocsMenu(props, ref) {
     const {

@@ -40,7 +40,7 @@ import {getFieldFromLang} from "../../utils";
 import {useLang} from "../../hooks";
 
 
-export const displayName = "MatDocDemoWithCode";
+export const displayName = "MaterialDocs-DemoWithCode";
 
 const DemoWithCode = React.forwardRef(function DemoWithCode(props, ref) {
     const {

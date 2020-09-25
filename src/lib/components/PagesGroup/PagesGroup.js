@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import useGroups, {GroupsContext} from "../../hooks/useGroups";
 
 
-export const displayName = "MatDocPagesGroup";
+export const displayName = "MaterialDocs-PagesGroup";
 
 const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
     const {
