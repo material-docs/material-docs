@@ -90,17 +90,17 @@ export default function ExampleDocumentation() {
                                     <ListItem>adsfsa</ListItem>
                                 </ListItemContained>
                             </ListItem>
-                            <Link page={["Components", "DocsPages"]}>Hello</Link>
-                            <Markdown>{`[{"text": "Hello darkness my old friend", "page": "components/docs-pages"}](https://google.com)`}</Markdown>
-                            <Image
-                                src={"https://www.albertjuhe.com/images/11.jpg"}
-                                placeholderSrc={"https://www.albertjuhe.com/images/11-64x48.jpg"}
-                                fullWidth
-                                frame
-                            >
-                                asdfsaf
-                            </Image>
                         </List>
+                        <Link page={["Components", "DocsPages"]}>Hello</Link>
+                        <Markdown>{`[{"text": "Hello darkness my old friend", "page": "components/docs-pages"}](https://google.com)`}</Markdown>
+                        <Image
+                            src={"https://www.albertjuhe.com/images/11.jpg"}
+                            // placeholderSrc={"https://www.albertjuhe.com/images/11-64x48.jpg"}
+                            fullWidth
+                            frame
+                        >
+                            asdfsaf
+                        </Image>
                     </DocsPage>
                     <LocalLocaleTestPage/>
                 </PagesGroup>
