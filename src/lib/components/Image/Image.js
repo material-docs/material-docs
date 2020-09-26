@@ -16,6 +16,7 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import {withStyles} from "@material-ui/styles";
 import Box from "@material-ui/core/Box";
+import {useCommonStyles} from "../../stylesheets/commonStyles";
 
 
 export const displayName = "MaterialDocs-Image";
@@ -35,12 +36,14 @@ const Image = React.forwardRef(function Image(props, ref) {
         ...other
     } = props;
     const [loaded, setLoaded] = React.useState(false);
+    const commonClasses = useCommonStyles();
 
     return (
         <React.Fragment>
             <Box
                 style={{minHeight: loaded ? 0 : 200, ...style}}
                 className={clsx(
+                    commonClasses.pageBlock,
                     classes.root,
                     fullWidth && classes.fullWidth,
                     frame && classes.frame, className,
