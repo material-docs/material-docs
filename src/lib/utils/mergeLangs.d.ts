@@ -4,6 +4,7 @@
  */
 
 import Lang from "../interfaces/Lang";
+import PartialLang from "../interfaces/PartialLang";
 
 /**
  * mergeLangs - merges Langs. First param has higher priority than second. Used in Material Docs extensions.
@@ -48,4 +49,4 @@ import Lang from "../interfaces/Lang";
  * //     }
  * // }
  */
-export default function mergeLangs(general: Lang, additional: Lang): Lang;
+export default function mergeLangs(general: Lang, additional: PartialLang): Lang;

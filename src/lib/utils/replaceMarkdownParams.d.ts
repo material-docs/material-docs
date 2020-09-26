@@ -3,7 +3,7 @@
  * Copyright (C) 2020.
  */
 
-import {Lang} from "../interfaces";
+import PartialLang from "../interfaces/PartialLang";
 
 /**
  * replaceMarkdownParams - function, designed to replace variables with "&&varialbe" signature with values from storage.
@@ -11,7 +11,7 @@ import {Lang} from "../interfaces";
  * @function
  * @param {string} markdown Markdown based text to parse.
  * @param {object} storage Storage object to get variables values.
- * @param {Lang} Lang for locale replacer.
+ * @param {PartialLang} lang Lang for locale replacer.
  * @throws TypeError
  * @return {string}
  * @example
@@ -19,4 +19,4 @@ import {Lang} from "../interfaces";
  * const text = "My name is __&&name__, I am glad to see _you_";
  * const replaced = replaceMarkdownParams(text, storage);
  */
-export default function replaceMarkdownParams(markdown: string, storage: object, lang?: Lang): string;
+export default function replaceMarkdownParams(markdown: string, storage: object, lang?: PartialLang): string;

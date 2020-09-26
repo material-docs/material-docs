@@ -27,6 +27,7 @@ import Markdown from "../lib/components/Markdown/Markdown";
 import LocalLocaleTestPage from "./Pages/Test/LocalLocaleTestPage";
 import Button from "@material-ui/core/Button";
 import Locale from "../lib/components/Locale";
+import OneMoreDemo from "./Pages/Components/OneMoreDemo";
 
 
 const md = `
@@ -69,6 +70,9 @@ export default function ExampleDocumentation() {
                 <PagesGroup name={"APIs"} defaultExpanded>
                     <DocsPageAPI/>
                     <DemoWithCodeAPI/>
+                    <DocsPage name={"one more demo"} searchDescription={"sdafasf"}>
+                        <OneMoreDemo/>
+                    </DocsPage>
                     <DocsPage name={"TestPage1"} searchDescription={"sdfsfsd"}>
                         <H1>Hello Darkness my old friend</H1>
                         <H2>Darkness</H2>
