@@ -52,7 +52,7 @@ const Markdown = React.forwardRef(function Markdown(props, ref) {
                 console.error(error);
             }
         }
-    }, [children, locale]);
+    }, [children, locale, lang]);
 
     if (inline) {
         return (
