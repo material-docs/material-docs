@@ -116,8 +116,6 @@ d
 export default function DocsPageDemo() {
     return (
         <DocsPage name={"DocsPages"} searchDescription={"Docs pages sdfsfs"}>
-            <H1 noDivider>DocsPages</H1>
-            <H3>DocsPages description</H3>
             <Markdown data={{demo: <Demo/>}}>
                 {pageMarkdown2}
             </Markdown>

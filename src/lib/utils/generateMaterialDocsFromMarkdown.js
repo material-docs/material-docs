@@ -64,6 +64,16 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
         <React.Fragment key={`markdown-token-${key}`}>
             {tokens.map((token, tokenId) => {
                 switch (token.type) {
+                    case "html":
+                        return (
+                            <Typography
+                                key={`paragraph-token-${tokenId}`}
+                                variant={options.typographyInheritSize ? "inherit" : "body1"}
+                                variantMapping={{body1: "span", body2: "span"}}
+                            >
+                                {token.text}
+                            </Typography>
+                        );
                     case "heading":
                         return (
                             <Header heading={token.depth} key={`heading-token-${tokenId}`}>
@@ -73,7 +83,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                     case "text":
                         return token.tokens ?
                             generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key) :
-                            <span key={`text-token-${tokenId}`} dangerouslySetInnerHTML={{__html: token.text}}/>;
+                            <span key={`text-token-${tokenId}`}>{fixShieldedText(token.text)}</span>;
                     case "paragraph":
                         return (
                             <Typography
