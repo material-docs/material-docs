@@ -12,7 +12,7 @@ const text1 = `
 
 \`\`\`<Div/>\`\`\`
 ## Создание проекта
-Создадим новый проект с помощью утилиты __create-react-app__. Подробнее об этой утилите [здесь](https://reactjs.org/docs/create-a-new-react-app.html).  
+Создадим новый проект с помощью утилиты __"create-react-app"__. Подробнее об этой утилите [здесь](https://reactjs.org/docs/create-a-new-react-app.html).  
 Мы назвали проект _material-docs-example-project_ :).
 \`\`\`{"type": "code", "themeLight": "darcula", "language": "javascript"}
 $ npx create-react-app material-docs-example-project
