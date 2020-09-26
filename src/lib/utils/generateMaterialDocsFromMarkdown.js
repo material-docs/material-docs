@@ -26,7 +26,7 @@ import DemoWithCode from "../components/DemoWithCode/DemoWithCode";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 // Utils
-import marked from "marked";
+import marked, {Tokenizer, Lexer} from "marked";
 
 
 /**
@@ -35,12 +35,81 @@ import marked from "marked";
  * @param {string} text
  * @return {string}
  */
-function fixShieldedText(text) {
+function unescape(text) {
     if (typeof text !== "string") return "";
     return text.replace(/&#39;+/g, "'")
         .replace(/&quot;+/g, "\"")
         .replace(/&lt;+/g, "<")
         .replace(/&gt;/g, ">");
+}
+
+/**
+ * TokenizerWithNoScreening - marked tokenized with disabled escaping.
+ */
+class TokenizerWithNoScreening extends Tokenizer {
+    codespan(src) {
+        const cap = this.rules.inline.code.exec(src);
+        if (cap) {
+            let text = cap[2].replace(/\n/g, ' ');
+            const hasNonSpaceChars = /[^ ]/.test(text);
+            const hasSpaceCharsOnBothEnds = text.startsWith(' ') && text.endsWith(' ');
+            if (hasNonSpaceChars && hasSpaceCharsOnBothEnds) {
+                text = text.substring(1, text.length - 1);
+            }
+            return {
+                type: 'codespan',
+                raw: cap[0],
+                text
+            };
+        }
+    }
+    inlineText(src, inRawBlock, smartypants) {
+        const cap = this.rules.inline.text.exec(src);
+        if (cap) {
+            const text = cap[0];
+            return {
+                type: 'text',
+                raw: cap[0],
+                text
+            };
+        }
+    }
+    url(src, mangle) {
+        let cap;
+        if (cap = this.rules.inline.url.exec(src)) {
+            let text, href;
+            if (cap[2] === '@') {
+                text = this.options.mangle ? mangle(cap[0]) : cap[0];
+                href = 'mailto:' + text;
+            } else {
+                // do extended autolink path validation
+                let prevCapZero;
+                do {
+                    prevCapZero = cap[0];
+                    cap[0] = this.rules.inline._backpedal.exec(cap[0])[0];
+                } while (prevCapZero !== cap[0]);
+                text = cap[0];
+                if (cap[1] === 'www.') {
+                    href = 'http://' + text;
+                } else {
+                    href = text;
+                }
+            }
+            return {
+                type: 'link',
+                raw: cap[0],
+                text,
+                href,
+                tokens: [
+                    {
+                        type: 'text',
+                        raw: text,
+                        text
+                    }
+                ]
+            };
+        }
+    }
 }
 
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1, options) {
@@ -58,7 +127,9 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
 
     let tokens = input;
     if (typeof input === "string") {
-        tokens = marked.lexer(input);
+        const tokenizer = new TokenizerWithNoScreening();
+        const lexer = new Lexer({tokenizer});
+        tokens = lexer.lex(input);
     }
     return (
         <React.Fragment key={`markdown-token-${key}`}>
@@ -83,7 +154,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                     case "text":
                         return token.tokens ?
                             generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key) :
-                            <span key={`text-token-${tokenId}`}>{fixShieldedText(token.text)}</span>;
+                            <span key={`text-token-${tokenId}`}>{token.text}</span>;
                     case "paragraph":
                         return (
                             <Typography
@@ -194,14 +265,14 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                     case "codespan":
                         return (
                             <CodeSpan key={`codespan-token-${tokenId}`}>
-                                <span dangerouslySetInnerHTML={{__html: token.text}}/>
+                                {token.text}
                             </CodeSpan>
                         )
                     case "link": {
                         const {href, text, tokens} = token;
                         let settings = {};
                         try {
-                            settings = JSON.parse(fixShieldedText(text));
+                            settings = JSON.parse(unescape(text));
                             if (typeof settings.text === "string") settings.tokens = marked.lexer(settings.text);
                         } catch (e) {
                             settings = {tokens};
@@ -234,7 +305,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                         const {href, text} = token;
                         let settings = {src: href, alt: text};
                         try {
-                            settings = JSON.parse(fixShieldedText(text));
+                            settings = JSON.parse(unescape(text));
                         } catch (e) {}
                         return <Image {...settings} src={settings.src} alt={settings.alt} key={`image-token-${tokenId}`}/>
                     }
