@@ -61,6 +61,13 @@ const DefaultTheme = {
             dark: grey[700],
         }
     },
+    overrides: {
+        MuiTypography: {
+            root: {
+                wordBreak: "break-word",
+            }
+        }
+    },
     components: {
         [AutoDocsMenuDn]: {
             defaultProps: {}

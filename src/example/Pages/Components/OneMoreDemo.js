@@ -33,6 +33,7 @@ $ yarn add @material-docs/core
 \`\`\`{"type": "code", "themeLight": "darcula", "language": "javascript"}
 $ npm install @material-docs/core
 \`\`\`
+\`\`\`sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\`\`\`
 ### Настройка index.html
 Material Docs использует шрифт _Roboto_, давайте установим его.
 В директории __public__ добавьте в файл ___index.html___ следующее:
