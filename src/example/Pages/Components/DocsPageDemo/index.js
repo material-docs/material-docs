@@ -46,6 +46,8 @@ _italic_
 
 ---
 
+
+
 | Name          | Type     | Default | Description                             |
 |---------------|----------|---------|-----------------------------------------|
 | button        | boolean  |         | if __true__, row will be clickable.     |

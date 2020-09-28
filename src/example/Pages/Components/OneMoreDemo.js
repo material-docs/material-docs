@@ -9,6 +9,12 @@ import text from "./CreatingMaterialDocs.md";
 
 const text1 = `
 # Создание Material Docs
+| Name          | Type     | Default | Description                             |
+|---------------|----------|---------|-----------------------------------------|
+| button        | boolean  |         | if true, row will be clickable.         |
+| onClick       | function |         | callback, called on click event.        |
+| onDoubleClick | function |         | callback, called on double click event. |
+| children      | node     |         | The content of element                  |
 
 \`\`\`<Div/>\`\`\`
 ## Создание проекта

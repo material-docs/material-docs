@@ -166,6 +166,14 @@ ReactDOM.render(
 serviceWorker.unregister();
 ```
 ### Создание страничного компонента
+
+| Name          | Type     | Default | Description                             |
+|---------------|----------|---------|-----------------------------------------|
+| button        | boolean  |         | if true, row will be clickable.         |
+| onClick       | function |         | callback, called on click event.        |
+| onDoubleClick | function |         | callback, called on double click event. |
+| children      | node     |         | The content of element                  |
+
 Для того, чтоб было удобнее редактировать страницы мы рекомендуем создавать страничные компоненты и размещать их в 
 отдельных файлах. Например, обернем нашу страницу в компонент:
 ```{"type": "expansion-code", "themeLight": "darcula", "language": "javascript", "name": "FirstPage.js"}

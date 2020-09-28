@@ -128,7 +128,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
     let tokens = input;
     if (typeof input === "string") {
         const tokenizer = new TokenizerWithNoScreening();
-        const lexer = new Lexer({tokenizer});
+        const lexer = new Lexer({tokenizer, gfm: true});
         tokens = lexer.lex(input);
     }
     return (
