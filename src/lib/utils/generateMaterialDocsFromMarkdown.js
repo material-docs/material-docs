@@ -112,6 +112,23 @@ class TokenizerWithNoScreening extends Tokenizer {
     }
 }
 
+/**
+ * generateTextToken - fix for marked incorrect work. Replaces string which contains linebreaks with token.
+ * @param {string} text Text to process.
+ * @return {{type: string, text?: string}[]}
+ */
+function generateTextToken(text) {
+    const lines = text.split("\n");
+    const tokens = [];
+    for (const line of lines) {
+        tokens.push({type: "text", text: line});
+        tokens.push({type: "br"});
+    }
+    if (tokens.length)
+        delete tokens[tokens.length - 1];
+    return tokens;
+}
+
 export default function generateMaterialDocsFromMarkdown(input, storage = {}, key = 1, options) {
     if (!(typeof input === "string" || typeof input === "object"))
         throw new TypeError(`MaterialDocs: incorrect type of "input" param, expected "object | string", got "${typeof input}"`);
@@ -151,10 +168,17 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                                 {token.tokens && generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key)}
                             </Header>
                         );
-                    case "text":
-                        return token.tokens ?
-                            generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key) :
-                            <span key={`text-token-${tokenId}`}>{token.text}</span>;
+                    case "text": {
+                        if (token.tokens) {
+                            return generateMaterialDocsFromMarkdown(token.tokens, storage, tokenId + key);
+                        } else {
+                            if (token.text.includes("\n")) {
+                                return generateMaterialDocsFromMarkdown(generateTextToken(token.text), storage, tokenId + key)
+                            } else {
+                                return <span key={`text-token-${tokenId}`}>{token.text}</span>;
+                            }
+                        }
+                    }
                     case "paragraph":
                         return (
                             <Typography
