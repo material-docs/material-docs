@@ -9,7 +9,7 @@ export const useCommonStyles = makeStyles(
     theme => ({
         pageBlock: {
             marginBottom: theme.spacing(1),
-            paddingTop: theme.spacing(1),
+            marginTop: theme.spacing(1),
         }
     }),
     {
