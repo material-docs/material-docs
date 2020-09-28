@@ -6,6 +6,14 @@
 
 # Material Docs
 ### React framework for easy creating documentation site in material design style
+![GitHub package.json version](https://img.shields.io/github/package-json/v/material-docs/material-docs)
+![GitHub forks](https://img.shields.io/github/forks/material-docs/material-docs?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/material-docs/material-docs?style=social)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/material-docs/material-docs)
+![GitHub top language](https://img.shields.io/github/languages/top/material-docs/material-docs)
+![npm](https://img.shields.io/npm/dw/@material-docs/core)
+![GitHub](https://img.shields.io/github/license/material-docs/material-docs)
+![GitHub issues](https://img.shields.io/github/issues-raw/material-docs/material-docs)
 ## Installation.
 With __npm__:  
 ```
