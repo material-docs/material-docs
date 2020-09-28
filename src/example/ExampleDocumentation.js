@@ -54,6 +54,7 @@ export default function ExampleDocumentation() {
             ]}
             name={"Material Docs testing"}
             version={"1.12.2-alpha"}
+            onVersionClick={"Components/DocsPages"}
             logo={logo}
         >
             <DocsMenu dense>
