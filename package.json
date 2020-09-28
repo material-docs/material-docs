@@ -41,12 +41,13 @@
     "prop-types": "^15.7.2",
     "react-helmet-async": "^1.0.6",
     "react-lazy-load-image-component": "^1.5.0",
-    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-syntax-highlighter": "^13.0.0",
     "routing-manager": "^2.0.4"
   },
   "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-plugin-react": "^7.21.2",
     "@babel/cli": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -56,7 +57,8 @@
   },
   "peerDependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
