@@ -9,6 +9,12 @@ import text from "./CreatingMaterialDocs.md";
 
 const text1 = `
 # Создание Material Docs
+| Name          | Type     | Default | Description                             |
+|---------------|----------|---------|-----------------------------------------|
+| button        | boolean  |         | if true, row will be clickable.         |
+| onClick       | function |         | callback, called on click event.        |
+| onDoubleClick | function |         | callback, called on double click event. |
+| children      | node     |         | The content of element                  |
 
 \`\`\`<Div/>\`\`\`
 ## Создание проекта
@@ -27,6 +33,7 @@ $ yarn add @material-docs/core
 \`\`\`{"type": "code", "themeLight": "darcula", "language": "javascript"}
 $ npm install @material-docs/core
 \`\`\`
+\`\`\`sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\`\`\`
 ### Настройка index.html
 Material Docs использует шрифт _Roboto_, давайте установим его.
 В директории __public__ добавьте в файл ___index.html___ следующее:

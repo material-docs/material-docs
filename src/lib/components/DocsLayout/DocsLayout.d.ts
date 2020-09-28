@@ -114,18 +114,12 @@ export interface DocsLayoutProps
     logo?: string;
     /**
      * onNameClick - callback, designed to handle click on docs name in drawer badge.
-     * @function
-     * @param {Event} event
-     * @return void
      */
-    onNameClick?(event: any): void;
+    onNameClick?: ((event: any) => void) | string | string[];
     /**
      * onVersionClick - callback, designed to handle click on docs version in drawer badge.
-     * @function
-     * @param {Event} event
-     * @return void
      */
-    onVersionClick?(event: any): void;
+    onVersionClick?: ((event: any) => void) | string | string[];
 }
 
 /**

@@ -61,6 +61,7 @@ export const styles = theme => createStyles({
             duration: theme.transitions.duration.leavingScreen,
         }),
         marginLeft: -drawerWidth,
+        wordBreak: "break-word",
     },
     contentShift: {
         transition: theme.transitions.create('margin', {

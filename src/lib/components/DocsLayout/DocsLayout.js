@@ -151,6 +151,22 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         setOpen(false);
     };
 
+    function handleNameClick(event) {
+        if (onNameClick) {
+            if (typeof onNameClick === "string" || Array.isArray(onNameClick)) switchPage(onNameClick);
+            if (typeof onNameClick === "function") onNameClick(event);
+        } else {
+            defaultHandleNameClick(event);
+        }
+    }
+
+    function handleVersionClick(event) {
+        if (onVersionClick) {
+            if (typeof onVersionClick === "string" || Array.isArray(onVersionClick)) switchPage(onVersionClick);
+            if (typeof onVersionClick === "function") onVersionClick(event);
+        }
+    }
+
     function defaultHandleNameClick() {
         history.push("/" + history.location.search);
     }
@@ -245,7 +261,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                             <Avatar
                                                 src={logo}
                                                 variant={"rounded"}
-                                                onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleNameClick}
+                                                onClick={handleNameClick}
                                             />
                                         </ListItemAvatar>
                                         }
@@ -254,7 +270,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                                 name ?
                                                     <Link
                                                         style={{color: "inherit"}}
-                                                        onClick={typeof onNameClick === "function" ? onNameClick : defaultHandleNameClick}
+                                                        onClick={handleNameClick}
                                                     >
                                                         {name}
                                                     </Link> :
@@ -264,7 +280,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                                 version ?
                                                     <Link
                                                         style={{color: "inherit"}}
-                                                        onClick={typeof onVersionClick === "function" ? onVersionClick : undefined}
+                                                        onClick={handleVersionClick}
                                                     >
                                                         {version}
                                                     </Link> :
@@ -322,8 +338,8 @@ DocsLayoutF.propTypes = {
     name: PropTypes.string,
     version: PropTypes.string,
     logo: PropTypes.string,
-    onNameClick: PropTypes.func,
-    onVersionClick: PropTypes.func,
+    onNameClick: PropTypes.oneOfType([PropTypes.func, PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
+    onVersionClick: PropTypes.oneOfType([PropTypes.func, PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
 }
 
 const DocsLayout = withSearchSetup(
