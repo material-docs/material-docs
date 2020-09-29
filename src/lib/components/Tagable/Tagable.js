@@ -49,10 +49,15 @@ const Tagable = React.forwardRef(function Tagable(props, ref) {
     const id = React.useRef(other.id || createRouteFromName(getTextFromChildren(children, 6)));
     const prevId = React.useRef(id.current);
     const aref = React.useRef(null);
+    const textBlockRef = React.useRef(null);
+
+    console.log(textBlockRef);
 
     React.useEffect(() => {
         prevId.current = id.current;
-        id.current = other.id || createRouteFromName(getTextFromChildren(children, 6));
+        id.current = other.id || createRouteFromName(
+            (textBlockRef.current && textBlockRef.current.outerText) || getTextFromChildren(children, 6)
+        );
         if (!noTag && id.current) setTag(id.current, {label: children, ref: aref, topOffset});
         if (!noTag && !id.current) prevId.current && removeTag(prevId.current);
         return () => {
@@ -67,8 +72,6 @@ const Tagable = React.forwardRef(function Tagable(props, ref) {
         setTopOffset(top);
     }, [aref.current]);
 
-    if (!id.current) return null;
-
     return (
         <div
             className={clsx(commonClasses.pageBlock, classes.root, className)}
@@ -81,7 +84,7 @@ const Tagable = React.forwardRef(function Tagable(props, ref) {
             >
                 <div className={classes.container}>
                     <Typography variant={variant} classes={typographyClasses} className={classes.typography}>
-                        <div className={classes.textBlock}>
+                        <div className={classes.textBlock} ref={textBlockRef}>
                             {children}
                         </div>
                         {!noDivider && <Divider className={classes.divider}/>}
