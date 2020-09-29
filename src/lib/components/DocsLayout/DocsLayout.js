@@ -95,7 +95,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const [themeMode, setThemeMode] = React.useState(localStorage.MaterialDocsThemeMode || "light");
     const {page: routePage} = getRouteParams();
     const history = useHistory();
-    const {lang} = useLang();
+    const {lang, langs} = useLang();
 
     // Effect for changing theme type
     React.useEffect(() => {
@@ -225,6 +225,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         {!noLanguageSelector &&
                                         <LanguageSelector
                                             size={isWidthDown("xs", width) ? "small" : "large"}
+                                            disabled={!langs}
                                         />
                                         }
                                         {Array.isArray(actions) && actions.map((action, index) =>

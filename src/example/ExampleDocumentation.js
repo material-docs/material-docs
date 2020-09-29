@@ -46,7 +46,7 @@ export default function ExampleDocumentation() {
         <DocsLayout
             autoMenu
             defaultLang={EN}
-            langs={[EN, RU]}
+            // langs={[EN, RU]}
             basename={process.env.PUBLIC_URL}
             actions={[
                 {icon: <GitHubIcon/>, tooltip: "asdfasdfsf", onClick: () => alert("kuku")},

@@ -8,6 +8,8 @@ import DocsPage from "../../../lib/components/DocsPage/DocsPage";
 import {Markdown} from "../../../lib/components";
 import withLang from "../../../lib/HOCs/withLang";
 import withLocalLang from "../../../lib/HOCs/withLocalLang";
+import H1 from "../../../lib/components/H1";
+import Locale from "../../../lib/components/Locale";
 
 const localLang = {
     locale: {
@@ -25,6 +27,7 @@ function LocalLocaleTestPage(props) {
             <Markdown locale={"test/hello"} />
             <Markdown>{lang.locale.test.darkness}</Markdown>
             <Markdown locale={"test/my"} data={{lol: "try my &&kek", kek: "keks"}}/>
+            <H1><Locale path={"test/hello"}/></H1>
         </DocsPage>
     );
 }

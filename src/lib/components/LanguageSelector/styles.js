@@ -11,4 +11,9 @@ export const styles = theme => createStyles({
         marginLeft: theme.spacing(1),
 //        marginRight: theme.spacing(1),
     },
+    selectorDisabled: {
+        "& span": {
+            color: theme.palette.lightgrey,
+        }
+    }
 });

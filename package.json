@@ -1,6 +1,6 @@
 {
   "name": "@material-docs/core",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "private": false,
   "description": "material-docs - react framework for easy creating documentation site in material design style.",
   "homepage": "http://material-docs.com/",
@@ -52,7 +52,6 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "copyfiles": "^2.3.0",
-    "eslint": "^7.10.0",
     "eslint-plugin-react": "^7.21.2"
   },
   "peerDependencies": {
