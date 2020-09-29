@@ -30,6 +30,7 @@ const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) 
         className,
         style,
         size = "large",
+        disabled,
         classes,
         ...other
     } = props;
@@ -57,6 +58,10 @@ const LanguageSelector = React.forwardRef(function LanguageSelector(props, ref) 
                     }}
                     onClick={event => setOpened(true)}
                     style={style}
+                    disabled={disabled}
+                    classes={{
+                        disabled: classes.selectorDisabled,
+                    }}
                 >
                     <TranslateIcon/>
                     {size === "large" && lang.label}

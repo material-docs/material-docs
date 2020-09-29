@@ -16,6 +16,12 @@ export interface LanguageSelectorProps
      * @default "large"
      */
     size?: "small" | "large";
+    /**
+     * disabled - if true, search field will be disabled.
+     * @type boolean
+     * @default false
+     */
+    disabled?: boolean;
 }
 
 /**

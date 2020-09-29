@@ -51,8 +51,6 @@ const Tagable = React.forwardRef(function Tagable(props, ref) {
     const aref = React.useRef(null);
     const textBlockRef = React.useRef(null);
 
-    console.log(textBlockRef);
-
     React.useEffect(() => {
         prevId.current = id.current;
         id.current = other.id || createRouteFromName(
