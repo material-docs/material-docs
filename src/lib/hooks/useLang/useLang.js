@@ -12,6 +12,7 @@ export const LangContext = React.createContext({
     langs: [],
     onHelpToTranslate: (lang) => {
     },
+    defaultLang: null,
 });
 
 const useLang = () => React.useContext(LangContext);
