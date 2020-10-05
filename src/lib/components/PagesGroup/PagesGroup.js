@@ -4,6 +4,8 @@
  */
 
 import React from "react";
+// Components
+import {Switch} from "react-router-dom";
 // PropTypes validators
 import PropTypes from "prop-types";
 // Utils
@@ -42,7 +44,7 @@ const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
         };
         !getData && addGroup(group);
         getData && getData(group);
-//        return () => !getData && deleteGroup(group);
+        // return () =>{console.log(group); !getData && deleteGroup(group)};
     }, [name, pages, groups]);
 
     function _addPage(page) {
@@ -94,7 +96,7 @@ const PagesGroup = React.forwardRef(function PagesGroup(props, ref) {
             throw new TypeError(`MaterialDocs: incorrect group.name type, expected string, got ${typeof group.name}`);
         setGroups(prev => {
             const name = typeof group === "object" ? group.name : group;
-            return prev.map(item => item.name === name ? item : null).filter(item => item);
+            return prev.map(item => item.name === name ? item : null).filter(item => !!item);
         });
     }
 

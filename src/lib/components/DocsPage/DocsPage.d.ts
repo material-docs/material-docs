@@ -49,6 +49,12 @@ export interface DocsPageProps
      * @type number
      */
     order?: number;
+    /**
+     * disableRoute - if true, page will not be wrapped into route;
+     * @default false
+     * @type boolean
+     */
+    disableRoute?: boolean;
 }
 
 /**

@@ -11,77 +11,7 @@ import AppBarAction from "../../interfaces/AppBarAction";
 
 export const displayName: string;
 
-export interface DocsLayoutProps
-    extends Containerable {
-    /**
-     * searchData - array of SearchDataItem items to do search from.
-     * @type SearchDataItem[]
-     */
-    searchData?: SearchDataItem[];
-    /**
-     * noGenerateAutoSearch - if true, Material Docs will not generate search items from pages automatically.
-     * @type boolean
-     * @default false
-     */
-    noGenerateAutoSearch?: boolean;
-    /**
-     * defaultLang - default language settings.
-     * @type Lang
-     */
-    defaultLang?: Lang;
-    /**
-     * langs - list of all available langs.
-     * @type Lang[]
-     */
-    langs?: Lang[];
-
-    /**
-     * onHelpToTranslate - function, called on help to translate button click. If not defined - button will not be rendered.
-     * @function
-     * @param {Lang} lang
-     */
-    onHelpToTranslate?(lang: Lang): void;
-
-    /**
-     * router - react-router-dom Router type.
-     * @type string
-     * @default browser-router
-     * @see https://reactrouter.com/web/api/BrowserRouter
-     * @see https://reactrouter.com/web/api/HashRouter
-     */
-    router?: "hash-router" | "browser-router";
-    /**
-     * basename - basename param for react-router-dom Router.
-     * @type string
-     * @see https://reactrouter.com/web/api/BrowserRouter
-     * @see https://reactrouter.com/web/api/HashRouter
-     */
-    basename?: string;
-    /**
-     * mask - mask for routing-manager ChangeRouteProvider routeMask property.
-     * @type string
-     * @default "/*page"
-     * @see https://github.com/DanilAndreev/routing-manager/wiki/ChangeRouteProvider#routemask
-     */
-    mask?: string;
-    /**
-     * noSearchField - if true, search field will not be displayed.
-     * @default false
-     * @type boolean
-     */
-    noSearchField?: boolean;
-    /**
-     * noLanguageSelector - if true, language selector will not be displayed.
-     * @default false
-     * @type boolean
-     */
-    noLanguageSelector?: boolean;
-    /**
-     * actions - an array of actions. Will be displayed in material-ui IconButton components in Toolbar component inside AppBar.
-     * @default []
-     * @type AppBarAction[]
-     */
-    actions?: AppBarAction[];
+export interface DocsLayoutMetaProps {
     /**
      * author - author of the docs. Needs for metadata.
      * @type string
@@ -112,6 +42,86 @@ export interface DocsLayoutProps
      * @type string
      */
     logo?: string;
+}
+
+export interface DocsLayoutFlags {
+    /**
+     * noGenerateAutoSearch - if true, Material Docs will not generate search items from pages automatically.
+     * @type boolean
+     * @default false
+     */
+    noGenerateAutoSearch?: boolean;
+    /**
+     * noSearchField - if true, search field will not be displayed.
+     * @default false
+     * @type boolean
+     */
+    noSearchField?: boolean;
+    /**
+     * noLanguageSelector - if true, language selector will not be displayed.
+     * @default false
+     * @type boolean
+     */
+    noLanguageSelector?: boolean;
+}
+
+export interface DocsLayoutRouterSettings {
+    /**
+     * router - react-router-dom Router type.
+     * @type string
+     * @default browser-router
+     * @see https://reactrouter.com/web/api/BrowserRouter
+     * @see https://reactrouter.com/web/api/HashRouter
+     */
+    router?: "hash-router" | "browser-router";
+    /**
+     * basename - basename param for react-router-dom Router.
+     * @type string
+     * @see https://reactrouter.com/web/api/BrowserRouter
+     * @see https://reactrouter.com/web/api/HashRouter
+     */
+    basename?: string;
+    /**
+     * mask - mask for routing-manager ChangeRouteProvider routeMask property.
+     * @type string
+     * @default "/*page"
+     * @see https://github.com/DanilAndreev/routing-manager/wiki/ChangeRouteProvider#routemask
+     */
+    mask?: string;
+
+}
+
+export interface DocsLayoutProps
+    extends Containerable, DocsLayoutMetaProps, DocsLayoutFlags, DocsLayoutRouterSettings {
+    /**
+     * searchData - array of SearchDataItem items to do search from.
+     * @type SearchDataItem[]
+     */
+    searchData?: SearchDataItem[];
+    /**
+     * defaultLang - default language settings.
+     * @type Lang
+     */
+    defaultLang?: Lang;
+    /**
+     * langs - list of all available langs.
+     * @type Lang[]
+     */
+    langs?: Lang[];
+
+    /**
+     * onHelpToTranslate - function, called on help to translate button click. If not defined - button will not be rendered.
+     * @function
+     * @param {Lang} lang
+     */
+    onHelpToTranslate?(lang: Lang): void;
+
+    /**
+     * actions - an array of actions. Will be displayed in material-ui IconButton components in Toolbar component inside AppBar.
+     * @default []
+     * @type AppBarAction[]
+     */
+    actions?: AppBarAction[];
     /**
      * onNameClick - callback, designed to handle click on docs name in drawer badge.
      */

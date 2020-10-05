@@ -10,3 +10,4 @@ export {default as useSearch, SearchContext} from "./useSearch";
 export {default as useTags, TaggingContext} from "./useTags";
 export {default as useMenu, MenuContext} from "./useMenu";
 export {default as useSwitchPage, SwitchPageContext} from "./useSwitchPage";
+export {default as useMaterialDocsSystem, MaterialDocsSystemContext} from "./useMaterialDocsSystem";
