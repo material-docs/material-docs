@@ -14,7 +14,6 @@ export interface LangContext {
      * @async
      */
     switchLang(lang: Lang): Promise<void>;
-
     /**
      * lang - currently selected language.
      * @type Lang
@@ -24,14 +23,18 @@ export interface LangContext {
      * langs - array of all available langs.
      * @type Lang[]
      */
-    langs: Lang[];
-
+    langs?: Lang[];
     /**
      * onHelpToTranslate - function, called on help to translate button click. If not defined - button will not be rendered.
      * @function
      * @param {Lang} lang
      */
     onHelpToTranslate(lang: Lang): void;
+    /**
+     * defaultLang - default lang of the site.
+     * @type Lang | null
+     */
+    defaultLang: Lang | null;
 }
 
 /**

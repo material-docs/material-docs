@@ -96,7 +96,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const [themeMode, setThemeMode] = React.useState(localStorage.MaterialDocsThemeMode || "light");
     const {page: routePage} = getRouteParams();
     const history = useHistory();
-    const {lang, langs} = useLang();
+    const {lang, langs, defaultLang} = useLang();
 
     // Effect for changing theme type
     React.useEffect(() => {
@@ -195,7 +195,13 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                         {typeof author === "string" && <meta name="author" content={author}/>}
                         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                         <meta name="theme-color" content={theme.palette.primary}/>
+                        {typeof logo === "string" && <meta property="og:image" content={logo}/>}
+                        {typeof name === "string" && <meta property="og:title" content={name}/>}
+                        {typeof name === "string" && <meta property="og:description" content={description}/>}
                         {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
+                        {defaultLang && <meta property="og:locale" content={defaultLang.name}/>}
+                        {typeof name === "string" && <meta property="og:site_name" content={name}/>}
+                        {langs && langs.map(translation => <meta key={translation.name} property="og:locale:alternate" content={translation.name}/>)}
                     </Helmet>
                     <Switch>
                         {content.landing &&

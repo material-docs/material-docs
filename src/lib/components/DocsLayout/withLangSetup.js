@@ -94,7 +94,7 @@ export default function withLangSetup(Component) {
         );
 
         return (
-            <LangContext.Provider value={{lang, switchLang: switchLangRoute, langs, onHelpToTranslate}}>
+            <LangContext.Provider value={{lang, switchLang: switchLangRoute, langs, onHelpToTranslate, defaultLang}}>
                 <Component {...other} ref={ref} noLanguageSelector={defaultLang ? other.noLanguageSelector : true}/>
             </LangContext.Provider>
         );
