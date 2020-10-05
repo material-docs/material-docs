@@ -28,6 +28,7 @@ import LocalLocaleTestPage from "./Pages/Test/LocalLocaleTestPage";
 import Button from "@material-ui/core/Button";
 import Locale from "../lib/components/Locale";
 import OneMoreDemo from "./Pages/Components/OneMoreDemo";
+import DemoWithCode from "../lib/components/DemoWithCode";
 
 
 const md = `
@@ -140,6 +141,9 @@ export default function ExampleDocumentation() {
                         >
                             asdfsaf
                         </Image>
+                        <DemoWithCode actions={[{label: "safasf", link: "asfasfsa"}]}>
+                            asdfasf
+                        </DemoWithCode>
                     </DocsPage>
                     <LocalLocaleTestPage/>
                 </PagesGroup>

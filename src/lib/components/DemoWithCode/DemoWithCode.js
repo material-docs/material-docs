@@ -185,7 +185,7 @@ DemoWithCode.propTypes = {
     mane: PropTypes.string,
     noTag: PropTypes.bool,
     paperContainer: PropTypes.bool,
-    actions: DemoCodeActionValidator,
+    actions: PropTypes.arrayOf(DemoCodeActionValidator),
     children: PropTypes.node,
     // CodeProps
     theme: PropTypes.oneOf(["light", "dark", "darcula"]),

@@ -41,6 +41,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
         children,
         classes,
         order,
+        disableRoute = false,
         ...other
     } = props;
     const commonClasses = useCommonStyles();
@@ -133,8 +134,10 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
         return newTags;
     });
 
-    return (
-        <Route path={`/${pagePath}`}>
+    const withRouter = enable => content => enable ? <Route path={`/${pagePath}`}>{content}</Route> : content;
+
+    return withRouter(!disableRoute)(
+        <React.Fragment>
             <Helmet>
                 <title>{name}</title>
                 <meta name="description" content={searchDescription || ""}/>
@@ -159,7 +162,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
                     </Grid>
                 </Grid>
             </TaggingContext.Provider>
-        </Route>
+        </React.Fragment>
     );
 });
 

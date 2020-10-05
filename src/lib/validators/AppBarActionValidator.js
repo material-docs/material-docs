@@ -7,7 +7,7 @@ import React from "react";
 import createChainableTypeChecker from "../utils/createChainableTypeChecker";
 
 /**
- * demoCodeActionValidate - type validator for DemoCodeAction interface.
+ * appBarActionValidate - type validator for AppBarAction interface. Used in PagesDataValidator.
  * @function
  * @param {object} props
  * @param {string} propName
@@ -27,14 +27,14 @@ export function demoCodeActionValidate(prop, propName, componentName) {
         return Error(`Incorrect field 'tooltip' type on prop ${propName} in component ${componentName}, expected "string", got "${typeof prop.tooltip}"`);
 }
 
-function DemoCodeActionValidator(props, propName, componentName) {
+function AppBarActionValidator(props, propName, componentName) {
     const prop = props[propName];
     if (!prop) return null;
     return demoCodeActionValidate(prop, propName, componentName);
 }
 
 /**
- * DemoCodeActionValidator - PropTypes validator for DemoCodeAction interface.
+ * AppBarActionValidator - PropTypes validator for AppBarAction interface.
  */
-export default createChainableTypeChecker(DemoCodeActionValidator);
+export default createChainableTypeChecker(AppBarActionValidator);
 
