@@ -21,7 +21,7 @@ import CodeIcon from '@material-ui/icons/Code';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 // PropTypes validators
-import PropTypes from "prop-types";
+import PropTypes, {arrayOf} from "prop-types";
 import DemoCodeActionValidator from "../../validators/DemoCodeActionValidator";
 // Utils
 import {withStyles} from "@material-ui/styles";
@@ -132,7 +132,7 @@ ExpansionCode.propTypes = {
     name: PropTypes.string,
     noTag: PropTypes.bool,
     collapsedHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    actions: DemoCodeActionValidator,
+    actions: arrayOf(DemoCodeActionValidator),
     // CodeProps
     theme: PropTypes.oneOf(["light", "dark", "darcula"]),
     language: PropTypes.oneOf([
