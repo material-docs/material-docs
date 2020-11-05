@@ -89,12 +89,13 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
         ...other
     } = props;
     const theme = useTheme();
-    const {getRouteParams, changeRoute} = useChangeRoute();
+    const {getRouteParams, getQueryParams, changeRoute} = useChangeRoute();
     const [open, setOpen] = React.useState(isWidthUp("md", width));
     const [content, setContent] = React.useState({pages: [], menu: null, landing: []});
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const [themeMode, setThemeMode] = React.useState(localStorage.MaterialDocsThemeMode || "light");
     const {page: routePage} = getRouteParams();
+    const {noMenu, noHeader} = getQueryParams();
     const history = useHistory();
     const {lang, langs, defaultLang} = useLang();
 
@@ -201,7 +202,8 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                         {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
                         {defaultLang && <meta property="og:locale" content={defaultLang.name}/>}
                         {typeof name === "string" && <meta property="og:site_name" content={name}/>}
-                        {langs && langs.map(translation => <meta key={translation.name} property="og:locale:alternate" content={translation.name}/>)}
+                        {langs && langs.map(translation => <meta key={translation.name} property="og:locale:alternate"
+                                                                 content={translation.name}/>)}
                     </Helmet>
                     <Switch>
                         {content.landing &&
@@ -221,13 +223,18 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                             >
                                 <div className={classes.root} ref={ref}>
                                     <CssBaseline/>
+                                    {!noHeader &&
                                     <AppBar
                                         position="fixed"
-                                        className={clsx(classes.appBar, !isWidthDown("md", width) && {
-                                            [classes.appBarShift]: open,
-                                        })}
+                                        className={clsx(
+                                            classes.appBar,
+                                            !isWidthDown("md", width) && !noMenu && {
+                                                [classes.appBarShift]: open,
+                                            }
+                                        )}
                                     >
                                         <Toolbar className={classes.toolbar}>
+                                            {!noMenu &&
                                             <IconButton
                                                 color="inherit"
                                                 aria-label="open drawer"
@@ -237,6 +244,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                             >
                                                 <MenuIcon/>
                                             </IconButton>
+                                            }
                                             <Typography variant="h6" noWrap className={classes.headerText}>
                                                 {name || "Material Docs"}
                                             </Typography>
@@ -267,6 +275,8 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                             </Tooltip>
                                         </Toolbar>
                                     </AppBar>
+                                    }
+                                    {!noMenu &&
                                     <Drawer
                                         className={classes.drawer}
                                         variant={isWidthUp("md", width) ? "persistent" : "temporary"}
@@ -321,12 +331,13 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         <Divider/>
                                         {content.menu}
                                     </Drawer>
+                                    }
                                     <main
                                         className={clsx(classes.content, {
                                             [classes.contentShift]: isWidthUp("md", width) ? open : true,
                                         })}
                                     >
-                                        <div className={classes.drawerHeader}/>
+                                        {!noHeader && <div className={classes.drawerHeader}/>}
                                         <PagesGroup name={"root"} getData={(group) => {
                                             setAutoMenuData(group)
                                         }}>
