@@ -8,7 +8,7 @@ import {makeStyles} from "@material-ui/core/styles";
 export const useCommonStyles = makeStyles(
     theme => ({
         pageBlock: {
-            marginBottom: theme.spacing(1),
+            marginBottom: theme.spacing(3),
             marginTop: theme.spacing(1),
         }
     }),
