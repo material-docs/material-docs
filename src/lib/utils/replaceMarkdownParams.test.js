@@ -46,4 +46,9 @@ describe("Utils -> replaceMarkdownParams", () => {
         const expected = "Hello darkness &&text friend";
         expect(replaceMarkdownParams(source, {})).toEqual(expected);
     });
+    test("Test screened locale.", () => {
+        const source = "Hello darkness \&\{text\}\& friend";
+        const expected = "Hello darkness &{text}& friend";
+        expect(replaceMarkdownParams(source, {})).toEqual(expected);
+    });
 });
