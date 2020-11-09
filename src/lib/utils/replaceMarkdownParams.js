@@ -10,18 +10,20 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
     function replaceParams(ref) {
         let affected = false;
         for (const key in storage) {
-            if (ref.current.includes(`&&${key}`))
+            if (ref.current.includes(`&&${key}`) || ref.current.includes(`$$${key}`))
                 affected = true;
-            ref.current = ref.current.replace(`&&${key}`, String(storage[key]));
+            ref.current = ref.current
+                .replace(`&&${key}`, String(storage[key]))
+                .replace(`$$${key}`, String(storage[key]));
         }
         return affected;
     }
 
-    function replaceNextLocale(ref) {
+    function replaceNextLocale(ref, startDelimiter = "${", endDelimiter = "}$") {
         if (!lang) return false;
-        const start = ref.current.indexOf("&{");
+        const start = ref.current.indexOf(startDelimiter);
         if (start < 0) return false;
-        const end = ref.current.indexOf("}&", start);
+        const end = ref.current.indexOf(endDelimiter, start);
         if (end < 0) return false;
         const variable = ref.current.slice(start, end + 2);
         const path = variable.slice(2, variable.length - 2);
@@ -53,7 +55,7 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
     const ref = React.createRef();
     ref.current = markdown;
 
-    while (replaceParams(ref) || replaceNextLocale(ref)) {
+    while (replaceParams(ref) || replaceNextLocale(ref) || replaceNextLocale(ref, "&{", "}&")) {
     }
     unScreen(ref)
     return ref.current;
