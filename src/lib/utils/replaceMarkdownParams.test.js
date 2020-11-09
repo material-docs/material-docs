@@ -51,4 +51,9 @@ describe("Utils -> replaceMarkdownParams", () => {
         const expected = "Hello darkness &{text}& friend";
         expect(replaceMarkdownParams(source, {})).toEqual(expected);
     });
+    test("Test different notations", () => {
+        const source = "Hello darkness $$text &&text friend";
+        const expected = "Hello darkness my my friend";
+        expect(replaceMarkdownParams(source, {text: "my"})).toEqual(expected);
+    });
 });

@@ -150,7 +150,7 @@ export default function ExampleDocumentation() {
                         >
                             asdfsaf
                         </Image>
-                        <Markdown>{"$$PATH ${/sdf/sd}$"}</Markdown>
+                        <Markdown data={{PATH: "lol"}}>{"$$PATH "}</Markdown>
                         <DemoWithCode actions={[{label: "safasf", link: "asfasfsa"}]}>
                             asdfasf
                         </DemoWithCode>

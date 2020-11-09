@@ -12,9 +12,10 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
         for (const key in storage) {
             if (ref.current.includes(`&&${key}`) || ref.current.includes(`$$${key}`))
                 affected = true;
-            ref.current = ref.current
-                .replace(`&&${key}`, String(storage[key]))
-                .replace(`$$${key}`, String(storage[key]));
+            else
+                continue;
+            ref.current = ref.current.replace(new RegExp(`&&${key}`, "g"), String(storage[key]));
+            ref.current = ref.current.replace(new RegExp(`\$\$${key}`, "g"), String(storage[key]));
         }
         return affected;
     }
@@ -40,7 +41,8 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
         ref.current = ref.current
             .replace(/\\&/g, "&")
             .replace(/\\\{/g, "{")
-            .replace(/\\}/g, "}");
+            .replace(/\\}/g, "}")
+            .replace(/\\\$/g, "$");
     }
 
     if (lang && typeof lang !== "object")
@@ -55,6 +57,7 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
     const ref = React.createRef();
     ref.current = markdown;
 
+    debugger;
     while (replaceParams(ref) || replaceNextLocale(ref) || replaceNextLocale(ref, "&{", "}&")) {
     }
     unScreen(ref)
