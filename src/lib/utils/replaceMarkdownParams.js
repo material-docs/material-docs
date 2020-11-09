@@ -30,6 +30,16 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
         return true;
     }
 
+    function replaceParams(ref) {
+        let affected = false;
+        for (const key in storage) {
+            if (ref.current.includes(`&&${key}`))
+                affected = true;
+            ref.current = ref.current.replace(`&&${key}`, String(storage[key]));
+        }
+        return affected;
+    }
+
     function replaceNextLocale(ref) {
         if (!lang) return false;
         const start = ref.current.indexOf("&{");
@@ -59,6 +69,6 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
     const ref = React.createRef();
     ref.current = markdown;
 
-    while (replaceNextParam(ref) || replaceNextLocale(ref)) {}
+    while (replaceParams(ref) || replaceNextLocale(ref)) {}
     return ref.current;
 }
