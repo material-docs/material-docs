@@ -7,27 +7,14 @@ import React from "react";
 import {getFieldFromLang} from "./index";
 
 export default function replaceMarkdownParams(markdown, storage = {}, lang) {
-    /**
-     * replaceNextParam - replaces next found variable with value from storage.
-     * @function
-     * @param {{current: string}} ref Ref object with markdown based text inside.
-     * @return {boolean}
-     */
-    function replaceNextParam(ref) {
-        const start = ref.current.indexOf("&&");
-        if (start < 0) return false;
-        let end = start + 2;
-        while (end < ref.current.length && ref.current[end].match(/^[0-9a-zA-Z]+$/)) {
-            end++;
+    function replaceParams(ref) {
+        let affected = false;
+        for (const key in storage) {
+            if (ref.current.includes(`&&${key}`))
+                affected = true;
+            ref.current = ref.current.replace(`&&${key}`, String(storage[key]));
         }
-        const variable = ref.current.slice(start, end);
-        if (variable.length <= 2) {
-            ref.current = ref.current.replace("&&", "```incorrect variable```");
-            return false;
-        }
-        const replacer = storage[variable.slice(2)];
-        ref.current = ref.current.replace(variable, replacer ? String(replacer) : "");
-        return true;
+        return affected;
     }
 
     function replaceNextLocale(ref) {
@@ -47,6 +34,13 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
         return true;
     }
 
+    function unScreen(ref) {
+        ref.current = ref.current
+            .replace(/\\&/g, "&")
+            .replace(/\\\{/g, "{")
+            .replace(/\\}/g, "}");
+    }
+
     if (lang && typeof lang !== "object")
         throw new TypeError(`MaterialDocs: invalid param "lang", expected "Lang" got "${typeof lang}"`)
     if (lang && typeof lang.locale !== "object")
@@ -59,6 +53,8 @@ export default function replaceMarkdownParams(markdown, storage = {}, lang) {
     const ref = React.createRef();
     ref.current = markdown;
 
-    while (replaceNextParam(ref) || replaceNextLocale(ref)) {}
+    while (replaceParams(ref) || replaceNextLocale(ref)) {
+    }
+    unScreen(ref)
     return ref.current;
 }
