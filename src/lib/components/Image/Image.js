@@ -36,6 +36,7 @@ const Image = React.forwardRef(function Image(props, ref) {
         ...other
     } = props;
     const [loaded, setLoaded] = React.useState(false);
+    const [error, setError] = React.useState(false);
     const commonClasses = useCommonStyles();
 
     return (
@@ -60,14 +61,30 @@ const Image = React.forwardRef(function Image(props, ref) {
                     effect={"blur"}
                     wrapperClassName={clsx(fullWidth && classes.fullWidth)}
                     afterLoad={() => setLoaded(true)}
+                    onError={(error) => setError(true)}
                 />
-                {!loaded &&
-                    <Box className={clsx(classes.placeholder)} style={{opacity: placeholderSrc ? 0.4 : 1}}>
-                        <CircularProgress className={classes.progress} size={70}/>
+                {!loaded && !error &&
+                <Box className={clsx(classes.placeholder)} style={{opacity: placeholderSrc ? 0.4 : 1}}>
+                    <CircularProgress className={classes.progress} size={70}/>
+                </Box>
+                }
+                {error &&
+                <Box className={clsx(classes.placeholder)} style={{opacity: placeholderSrc ? 0.4 : 1}}>
+                    <Box className={classes.errorText}>
+                        {alt &&
+                        <Typography variant="h6" color="textSecondary" noWrap>
+                            {alt}
+                        </Typography>
+                        }
+                        <Typography variant="body1" color="textSecondary" noWrap>
+                            404 | Image not found
+                        </Typography>
                     </Box>
+                </Box>
                 }
             </Box>
-            {children && <Typography color={"textSecondary"} variant={"subtitle2"} paragraph={false}>{children}</Typography>}
+            {children &&
+            <Typography color={"textSecondary"} variant={"subtitle2"} paragraph={false}>{children}</Typography>}
         </React.Fragment>
     );
 });

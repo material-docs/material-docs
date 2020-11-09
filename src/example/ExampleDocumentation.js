@@ -141,6 +141,15 @@ export default function ExampleDocumentation() {
                         >
                             asdfsaf
                         </Image>
+                        <Image
+                            src={"https://www.albertjuhe.com/images/1123232.jpg"}
+                            // placeholderSrc={"https://www.albertjuhe.com/images/11-64x48.jpg"}
+                            fullWidth
+                            alt={"Hellosfasfasfasfasdfffffffffffffffffffffffffffffffffffffsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"}
+                            frame
+                        >
+                            asdfsaf
+                        </Image>
                         <Markdown>{"$$PATH ${/sdf/sd}$"}</Markdown>
                         <DemoWithCode actions={[{label: "safasf", link: "asfasfsa"}]}>
                             asdfasf

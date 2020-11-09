@@ -35,7 +35,14 @@ export const styles = theme => createStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        overflow: "hidden",
     },
     progress: {
     },
+    errorText: {
+        width: "100%",
+        display: "block",
+        textAlign: "center",
+        textOverflow: "ellipsis",
+    }
 });
