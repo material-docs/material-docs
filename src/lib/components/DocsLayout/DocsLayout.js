@@ -95,9 +95,12 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const [autoMenuData, setAutoMenuData] = React.useState(null);
     const [themeMode, setThemeMode] = React.useState(localStorage.MaterialDocsThemeMode || "light");
     const {page: routePage} = getRouteParams();
-    const {noMenu, noHeader} = getQueryParams();
+    const queryParams = getQueryParams();
     const history = useHistory();
     const {lang, langs, defaultLang} = useLang();
+
+    const noMenu = other.noMenu || queryParams.noMenu || false;
+    const noHeader = other.noHeader || queryParams.noHeader || false;
 
     // Effect for changing theme type
     React.useEffect(() => {

@@ -63,6 +63,18 @@ export interface DocsLayoutFlags {
      * @type boolean
      */
     noLanguageSelector?: boolean;
+    /**
+     * noHeader - if true, Material Docs layout header will not be displayed.
+     * @default false
+     * @type boolean
+     */
+    noHeader?: boolean;
+    /**
+     * noMenu - if true, Material Docs layout menu will not be displayed.
+     * @default false
+     * @type boolean
+     */
+    noMenu?: boolean;
 }
 
 export interface DocsLayoutRouterSettings {
@@ -88,7 +100,6 @@ export interface DocsLayoutRouterSettings {
      * @see https://github.com/DanilAndreev/routing-manager/wiki/ChangeRouteProvider#routemask
      */
     mask?: string;
-
 }
 
 export interface DocsLayoutProps
