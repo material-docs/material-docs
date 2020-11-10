@@ -304,7 +304,7 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                             settings.href = href;
                         }
                         return (
-                            <Link href={settings.href} page={settings.page} key={`link-token-${tokenId}`}>
+                            <Link href={href | settings.href} page={settings.page} key={`link-token-${tokenId}`}>
                                 {settings.tokens && generateMaterialDocsFromMarkdown(settings.tokens, storage, tokenId + key)}
                             </Link>
                         );
@@ -330,8 +330,10 @@ export default function generateMaterialDocsFromMarkdown(input, storage = {}, ke
                         let settings = {src: href, alt: text};
                         try {
                             settings = JSON.parse(unescape(text));
+                            if (!settings.children && settings.caption)
+                                settings.children = settings.caption;
                         } catch (e) {}
-                        return <Image {...settings} src={settings.src} alt={settings.alt} key={`image-token-${tokenId}`}/>
+                        return <Image {...settings} src={href || settings.src} alt={settings.alt} key={`image-token-${tokenId}`}/>
                     }
                     case "table":
                         const header = token.tokens.header;
