@@ -11,6 +11,8 @@ export const styles = theme => createStyles({
     root: {
         display: 'flex',
         letterSpacing: "0.01em",
+        position: "relative",
+        overflow: "hidden",
     },
     appBar: {
         backgroundColor: theme.palette.type === "light" ? theme.palette.primary : theme.palette.primary.dark,

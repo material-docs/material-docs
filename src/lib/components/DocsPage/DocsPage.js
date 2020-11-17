@@ -42,6 +42,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
         classes,
         order,
         disableRoute = false,
+        disableCopyright = false,
         ...other
     } = props;
     const commonClasses = useCommonStyles();
@@ -155,11 +156,13 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
                     <Grid item xs={12} md={2} style={{position: "relative"}}>
                         <NavigationList keys={makeKeysFromTags()}/>
                     </Grid>
+                    {!disableCopyright &&
                     <Grid item xs={12}>
                         <Box className={classes.copyright} p={1}>
                             <Typography><Locale path={"MaterialDocs/copyright/text"}/></Typography>
                         </Box>
                     </Grid>
+                    }
                 </Grid>
             </TaggingContext.Provider>
         </React.Fragment>

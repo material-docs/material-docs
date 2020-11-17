@@ -50,11 +50,17 @@ export interface DocsPageProps
      */
     order?: number;
     /**
-     * disableRoute - if true, page will not be wrapped into route;
+     * disableRoute - if true, page will not be wrapped into route.
      * @default false
      * @type boolean
      */
     disableRoute?: boolean;
+    /**
+     * disableCopyright - if true - disables bottom copyright.
+     * @default false
+     * @type boolean
+     */
+    disableCopyright?: boolean;
 }
 
 /**

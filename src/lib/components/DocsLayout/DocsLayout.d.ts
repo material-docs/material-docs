@@ -75,6 +75,12 @@ export interface DocsLayoutFlags {
      * @type boolean
      */
     noMenu?: boolean;
+    /**
+     * builtIn - if true, Material Docs layout will be built in your container.
+     * @default false
+     * @type boolean
+     */
+    builtIn?: boolean;
 }
 
 export interface DocsLayoutRouterSettings {
