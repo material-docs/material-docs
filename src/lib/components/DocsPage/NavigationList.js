@@ -84,7 +84,7 @@ const NavigationList = React.forwardRef(function NavigationList(props, ref) {
     if (!isWidthUp("md", width)) return null;
 
     return (
-        <List dense className={classes.navigationList} ref={ref} style={{position: builtIn && "relative"}}>
+        <List dense className={classes.navigationList} ref={ref} style={{position: builtIn && "relative", maxHeight: builtIn && "none"}}>
             <ListItem>
                 <Typography variant={"h6"}>
                     <Locale path={"MaterialDocs/navigationList/content"}/>

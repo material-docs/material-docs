@@ -9,9 +9,9 @@ import BuiltInDocumentation from "./example/BuiltInDocumentation";
 
 ReactDOM.render(
     <React.StrictMode>
-        <ExampleDocumentation/>
+        {/*<ExampleDocumentation/>*/}
         {/*<EmptyDocumentation/>*/}
-        {/*<BuiltInDocumentation/>*/}
+        <BuiltInDocumentation/>
     </React.StrictMode>,
     document.getElementById('root')
 );

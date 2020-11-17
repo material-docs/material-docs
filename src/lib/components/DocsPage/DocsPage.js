@@ -25,6 +25,7 @@ import {withStyles} from "@material-ui/styles";
 import {TaggingContext} from "../../hooks/useTags";
 import createRouteFromName from "../../utils/createRouteFromName";
 import * as _ from "lodash";
+import {useMaterialDocsSystem} from "../../hooks";
 
 
 export const displayName = "MaterialDocs-DocsPage";
@@ -53,6 +54,7 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
     const prevPage = React.useRef(null);
     const prevSearchItem = React.useRef(null);
     const pagePath = [...(parentPath || []), name].map(name => createRouteFromName(name)).join("/");
+    const {noMenu} = useMaterialDocsSystem();
 
     const metaKeywords = [...searchTags, name].filter(item => item).join(",");
 
@@ -146,8 +148,8 @@ const DocsPage = React.forwardRef(function DocsPage(props, ref) {
             </Helmet>
             <TaggingContext.Provider value={{setTag, removeTag, tags}}>
                 <Grid container ref={ref}>
-                    <Grid item xs={12} md={1}/>
-                    <Grid item xs={12} md={8}>
+                    {!noMenu && <Grid item xs={12} md={1}/>}
+                    <Grid item xs={12} md={noMenu ? 9 : 8}>
                         <Box p={isWidthUp("md", width) ? 1 : 3}>
                             {content}
                         </Box>
