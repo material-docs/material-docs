@@ -22,6 +22,7 @@ import withWidth from "@material-ui/core/withWidth";
 import {withStyles} from "@material-ui/styles";
 import {isWidthUp} from "@material-ui/core";
 import clsx from "clsx";
+import {useMaterialDocsSystem} from "../../hooks";
 
 
 export const displayName = "MatDocNavigationList";
@@ -34,6 +35,7 @@ const NavigationList = React.forwardRef(function NavigationList(props, ref) {
     } = props;
     const {scrollY} = usePageScroll();
     const [selected, setSelected] = React.useState({id: keys[0] && keys[0].id || null, clicked: false});
+    const {builtIn} = useMaterialDocsSystem();
 
     if (keys && !Array.isArray(keys)) throw new TypeError("MaterialDocs: keys must be array type!");
 
@@ -82,7 +84,7 @@ const NavigationList = React.forwardRef(function NavigationList(props, ref) {
     if (!isWidthUp("md", width)) return null;
 
     return (
-        <List dense className={classes.navigationList} ref={ref}>
+        <List dense className={classes.navigationList} ref={ref} style={{position: builtIn && "relative"}}>
             <ListItem>
                 <Typography variant={"h6"}>
                     <Locale path={"MaterialDocs/navigationList/content"}/>

@@ -16,6 +16,9 @@ export const MaterialDocsSystemContext = React.createContext({
     noSearchField: false,
     noLanguageSelector: false,
     noGenerateAutoSearch: undefined,
+    builtIn: false,
+    noHeader: false,
+    noMenu: false,
 });
 
 const useMaterialDocsSystem = () => React.useContext(MaterialDocsSystemContext);

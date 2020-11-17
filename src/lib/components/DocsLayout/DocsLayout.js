@@ -98,9 +98,11 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
     const queryParams = getQueryParams();
     const history = useHistory();
     const {lang, langs, defaultLang} = useLang();
+    const rootRef = React.useRef();
 
     const noMenu = other.noMenu || queryParams.noMenu || false;
     const noHeader = other.noHeader || queryParams.noHeader || false;
+    const builtIn = other.builtIn || queryParams.builtIn || false;
 
     // Effect for changing theme type
     React.useEffect(() => {
@@ -188,7 +190,10 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                 logo,
                 noSearchField,
                 noLanguageSelector,
-                noGenerateAutoSearch: undefined
+                noGenerateAutoSearch: undefined,
+                builtIn,
+                noHeader,
+                noMenu
             }}
         >
             <SwitchPageContext.Provider value={{switchPage, currentPage: null}}>
@@ -205,8 +210,7 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                         {Array.isArray(keywords) && <meta name="keywords" content={keywords.join(",")}/>}
                         {defaultLang && <meta property="og:locale" content={defaultLang.name}/>}
                         {typeof name === "string" && <meta property="og:site_name" content={name}/>}
-                        {langs && langs.map(translation => <meta key={translation.name} property="og:locale:alternate"
-                                                                 content={translation.name}/>)}
+                        {langs && langs.map(translation => <meta key={translation.name} property="og:locale:alternate" content={translation.name}/>)}
                     </Helmet>
                     <Switch>
                         {content.landing &&
@@ -224,11 +228,17 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                     menuOpened: open,
                                 }}
                             >
-                                <div className={classes.root} ref={ref}>
+                                <div
+                                    className={classes.root}
+                                    ref={(object) => {
+                                        if (ref) ref.current = object;
+                                        rootRef.current = object;
+                                    }}
+                                >
                                     <CssBaseline/>
                                     {!noHeader &&
                                     <AppBar
-                                        position="fixed"
+                                        position={builtIn ? "absolute" : "fixed"}
                                         className={clsx(
                                             classes.appBar,
                                             !isWidthDown("md", width) && !noMenu && {
@@ -285,6 +295,11 @@ const DocsLayoutF = React.forwardRef((props, ref) => {
                                         variant={isWidthUp("md", width) ? "persistent" : "temporary"}
                                         anchor="left"
                                         open={open}
+                                        BackdropProps={builtIn && { style: { position: "absolute" } }}
+                                        PaperProps={builtIn && { style: { position: "absolute"} }}
+                                        ModalProps={
+                                            {container: builtIn ? rootRef.current : document.body, style: {position: "absolute"}}
+                                        }
                                         classes={{
                                             paper: classes.drawerPaper,
                                         }}
